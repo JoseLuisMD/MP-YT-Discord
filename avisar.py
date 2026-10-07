@@ -1,10 +1,20 @@
 import feedparser, requests, json, os
 
 CANALES = {
-    "UCLD3BqL4n2GKmitkEQGCoAQ": "¡Nuevo vídeo en Mundos Pixelados!",
-    "UCb3jFYgTbBLjDDOlZiD-2kg": "¡Nuevo short en Mundos Pixelados Shorts!",
+    "UCLD3BqL4n2GKmitkEQGCoAQ": {
+        "mensaje": "¡Nuevo vídeo en Mundos Pixelados!",
+        "webhooks": ["DISCORD_WEBHOOK"],
+    },
+    "UCb3jFYgTbBLjDDOlZiD-2kg": {
+        "mensaje": "¡Nuevo short en Mundos Pixelados Shorts!",
+        "webhooks": ["DISCORD_WEBHOOK"],
+    },
+    # Ejemplo de un canal nuevo avisando a dos servidores:
+    # "UC_ID_DEL_NUEVO_CANAL": {
+    #     "mensaje": "¡Nuevo vídeo en NOMBRE!",
+    #     "webhooks": ["DISCORD_WEBHOOK", "DISCORD_WEBHOOK_SERVIDOR2"],
+    # },
 }
-WEBHOOK = os.environ["DISCORD_WEBHOOK"]
 ARCHIVO = "vistos.json"
 
 try:
@@ -13,7 +23,7 @@ try:
 except (FileNotFoundError, json.JSONDecodeError):
     estado = {}
 
-for canal, mensaje in CANALES.items():
+for canal, cfg in CANALES.items():
     feed = feedparser.parse(f"https://www.youtube.com/feeds/videos.xml?channel_id={canal}")
     if not feed.entries:
         continue  # fallo temporal del feed: no tocamos nada
@@ -25,12 +35,20 @@ for canal, mensaje in CANALES.items():
         vistos.add(v.yt_videoid)
         if primera_vez:
             continue
-        r = requests.post(
-            WEBHOOK,
-            json={"content": f"{mensaje}\n\n{v.link}"},
-            timeout=15,
-        )
-        r.raise_for_status()
+        for nombre in cfg["webhooks"]:
+            url = os.environ.get(nombre)
+            if not url:
+                print(f"Falta el secreto {nombre}")
+                continue
+            try:
+                r = requests.post(
+                    url,
+                    json={"content": f"{cfg['mensaje']}\n\n{v.link}"},
+                    timeout=15,
+                )
+                r.raise_for_status()
+            except requests.RequestException as e:
+                print(f"Error enviando a {nombre}: {e}")
     estado[canal] = sorted(vistos)
 
 with open(ARCHIVO, "w") as f:
