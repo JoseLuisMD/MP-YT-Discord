@@ -45,7 +45,7 @@ def extraer_hashtags(descripcion):
     return lista
 
 
-def publicar_bluesky(mensaje, v):
+def publicar_bluesky(v):
     global _bsky
     try:
         if _bsky is None:
@@ -68,7 +68,7 @@ def publicar_bluesky(mensaje, v):
                     texto.text(" ")
                 texto.tag(h, h[1:])
 
-        # Tarjeta con miniatura que enlaza al vídeo
+        # Miniatura que enlaza al vídeo (tarjeta sin título ni descripción)
         thumb = None
         try:
             url_img = v.get("media_thumbnail", [{}])[0].get("url")
@@ -81,8 +81,8 @@ def publicar_bluesky(mensaje, v):
         embed = models.AppBskyEmbedExternal.Main(
             external=models.AppBskyEmbedExternal.External(
                 uri=v.link,
-                title=v.title,
-                description=mensaje,
+                title="",
+                description="",
                 thumb=thumb,
             )
         )
@@ -124,7 +124,7 @@ for canal, cfg in CANALES.items():
         for nombre in cfg["webhooks"]:
             publicar_discord(nombre, cfg["mensaje"], v.link)
         if cfg["bluesky"]:
-            publicar_bluesky(cfg["mensaje"], v)
+            publicar_bluesky(v)
     estado[canal] = sorted(vistos)
 
 with open(ARCHIVO, "w") as f:
