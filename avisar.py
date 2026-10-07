@@ -1,5 +1,5 @@
-import feedparser, requests, json, os
-from atproto import Client, client_utils
+import feedparser, requests, json, os, re
+from atproto import Client, client_utils, models
 
 CANALES = {
     # --- Canales que avisan en Discord y en Bluesky ---
@@ -35,14 +35,58 @@ ARCHIVO = "vistos.json"
 _bsky = None  # se inicia solo cuando hace falta
 
 
-def publicar_bluesky(mensaje, link):
+def extraer_hashtags(descripcion):
+    vistos, lista = set(), []
+    for h in re.findall(r"#\w+", descripcion or ""):
+        if h[1:].isdigit() or h.lower() in vistos:
+            continue
+        vistos.add(h.lower())
+        lista.append(h)
+    return lista
+
+
+def publicar_bluesky(mensaje, v):
     global _bsky
     try:
         if _bsky is None:
             _bsky = Client()
             _bsky.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
-        texto = client_utils.TextBuilder().text(f"{mensaje}\n\n").link(link, link)
-        _bsky.send_post(texto)
+
+        # Texto: título + hashtags (Bluesky admite hasta 300 caracteres)
+        elegidos, largo = [], len(v.title) + 2
+        for h in extraer_hashtags(v.get("summary", "")):
+            if largo + len(h) + 1 > 295:
+                break
+            elegidos.append(h)
+            largo += len(h) + 1
+
+        texto = client_utils.TextBuilder().text(v.title)
+        if elegidos:
+            texto.text("\n\n")
+            for i, h in enumerate(elegidos):
+                if i:
+                    texto.text(" ")
+                texto.tag(h, h[1:])
+
+        # Tarjeta con miniatura que enlaza al vídeo
+        thumb = None
+        try:
+            url_img = v.get("media_thumbnail", [{}])[0].get("url")
+            img = requests.get(url_img, timeout=15)
+            img.raise_for_status()
+            thumb = _bsky.upload_blob(img.content).blob
+        except Exception as e:
+            print(f"No se pudo subir la miniatura: {e}")
+
+        embed = models.AppBskyEmbedExternal.Main(
+            external=models.AppBskyEmbedExternal.External(
+                uri=v.link,
+                title=v.title,
+                description=mensaje,
+                thumb=thumb,
+            )
+        )
+        _bsky.send_post(texto, embed=embed)
     except Exception as e:
         print(f"Error publicando en Bluesky: {e}")
 
@@ -80,7 +124,7 @@ for canal, cfg in CANALES.items():
         for nombre in cfg["webhooks"]:
             publicar_discord(nombre, cfg["mensaje"], v.link)
         if cfg["bluesky"]:
-            publicar_bluesky(cfg["mensaje"], v.link)
+            publicar_bluesky(cfg["mensaje"], v)
     estado[canal] = sorted(vistos)
 
 with open(ARCHIVO, "w") as f:
