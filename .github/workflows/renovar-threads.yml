@@ -1,0 +1,25 @@
+name: Renovar token de Threads
+on:
+  workflow_dispatch:
+
+jobs:
+  renovar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Renovar y guardar el token
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT_SECRETS }}
+          TOKEN_ACTUAL: ${{ secrets.THREADS_ACCESS_TOKEN }}
+        run: |
+          RESPUESTA=$(curl -s -G https://graph.threads.net/refresh_access_token \
+            -d grant_type=th_refresh_token \
+            --data-urlencode access_token="$TOKEN_ACTUAL")
+          NUEVO=$(echo "$RESPUESTA" | jq -r '.access_token // empty')
+          if [ -z "$NUEVO" ]; then
+            echo "No se pudo renovar el token:"
+            echo "$RESPUESTA" | jq -r '.error.message // "respuesta inesperada"'
+            exit 1
+          fi
+          echo "::add-mask::$NUEVO"
+          gh secret set THREADS_ACCESS_TOKEN --body "$NUEVO" --repo "${{ github.repository }}"
+          echo "Token renovado correctamente"
