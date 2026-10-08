@@ -1,33 +1,38 @@
-import feedparser, requests, json, os, re
+import feedparser, requests, json, os, re, time
 from atproto import Client, client_utils, models
 
 CANALES = {
-    # --- Canales que avisan en Discord y en Bluesky ---
+    # --- Canales que avisan en Discord, Bluesky y Threads ---
     "UCLD3BqL4n2GKmitkEQGCoAQ": {
         "mensaje": "¡Nuevo vídeo en Mundos Pixelados!",
         "webhooks": ["DISCORD_WEBHOOK"],
         "bluesky": True,
+        "threads": True,
     },
     "UCb3jFYgTbBLjDDOlZiD-2kg": {
         "mensaje": "¡Nuevo short en Mundos Pixelados Shorts!",
         "webhooks": ["DISCORD_WEBHOOK"],
         "bluesky": True,
+        "threads": True,
     },
     # --- Canales solo para Discord ---
     "UCYk9AH19xF7dtzM9OY7obmA": {
         "mensaje": "¡Nuevo vídeo en el canal!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
         "bluesky": False,
+        "threads": False,
     },
     "UCngXjqgH_-42BgtegyzI_-A": {
         "mensaje": "¡Nuevo vídeo en el canal secundario!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
         "bluesky": False,
+        "threads": False,
     },
     "UC4MGzV7ahAN1khnzdjp3rkw": {
         "mensaje": "¡Nuevo vídeo en el canal de WarCraft 3!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
         "bluesky": False,
+        "threads": False,
     },
 }
 ARCHIVO = "vistos.json"
@@ -91,6 +96,38 @@ def publicar_bluesky(v):
         print(f"Error publicando en Bluesky: {e}")
 
 
+def publicar_threads(v):
+    base = "https://graph.threads.net/v1.0"
+    try:
+        user_id = os.environ["THREADS_USER_ID"]
+        token = os.environ["THREADS_ACCESS_TOKEN"]
+
+        datos = {
+            "media_type": "TEXT",
+            "text": v.title,
+            "link_attachment": v.link,
+            "topic_tag": "videojuegos",
+            "access_token": token,
+        }
+
+        r = requests.post(f"{base}/{user_id}/threads", data=datos, timeout=20)
+        r.raise_for_status()
+        contenedor = r.json()["id"]
+
+        time.sleep(5)  # margen entre crear y publicar
+
+        r = requests.post(
+            f"{base}/{user_id}/threads_publish",
+            data={"creation_id": contenedor, "access_token": token},
+            timeout=20,
+        )
+        r.raise_for_status()
+    except requests.HTTPError as e:
+        print(f"Error publicando en Threads: {e} | {e.response.text}")
+    except Exception as e:
+        print(f"Error publicando en Threads: {e}")
+
+
 def publicar_discord(nombre_secreto, mensaje, link):
     url = os.environ.get(nombre_secreto)
     if not url:
@@ -125,6 +162,8 @@ for canal, cfg in CANALES.items():
             publicar_discord(nombre, cfg["mensaje"], v.link)
         if cfg["bluesky"]:
             publicar_bluesky(v)
+        if cfg.get("threads"):
+            publicar_threads(v)
     estado[canal] = sorted(vistos)
 
 with open(ARCHIVO, "w") as f:
