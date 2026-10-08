@@ -1,8 +1,6 @@
 name: Avisar videos nuevos a Discord
 on:
-#  schedule:
-#    - cron: "15,45 * * * *"   # cada 30 minutos (:15 y :45)
-  workflow_dispatch:          # permite lanzarlo a mano
+  workflow_dispatch:          # lo lanza cron-job.org o tú a mano
 
 permissions:
   contents: write
@@ -25,6 +23,8 @@ jobs:
           DISCORD_WEBHOOK_VRTX: ${{ secrets.DISCORD_WEBHOOK_VRTX }}
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       - name: Guardar videos vistos
         run: |
           git config user.name "github-actions"
