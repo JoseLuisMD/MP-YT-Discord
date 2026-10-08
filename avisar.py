@@ -137,7 +137,8 @@ def publicar_discord(nombre_secreto, mensaje, link):
         r = requests.post(url, json={"content": f"{mensaje}\n\n{link}"}, timeout=15)
         r.raise_for_status()
     except requests.RequestException as e:
-        print(f"Error enviando a {nombre_secreto}: {e}")
+        codigo = e.response.status_code if e.response is not None else "sin respuesta"
+        print(f"Error enviando a {nombre_secreto} (código: {codigo})")
 
 
 try:
