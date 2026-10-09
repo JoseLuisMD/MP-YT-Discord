@@ -20,6 +20,7 @@ CANALES = {
     # --- Canales solo para Discord ---
     "UCYk9AH19xF7dtzM9OY7obmA": {
         "mensaje": "¡Nuevo vídeo en el canal!",
+        "mensajeMiembros": "¡Nuevo vídeo para miembros en el canal!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
         "incluirShorts": False,
         "bluesky": False,
@@ -42,7 +43,7 @@ CANALES = {
 }
 ARCHIVO = "vistos.json"
 
-_bsky = None  # se inicia solo cuando hace falta
+_bsky = None
 
 
 def extraer_hashtags(descripcion):
@@ -63,7 +64,8 @@ def publicar_bluesky(v):
             _bsky.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
 
         # Texto: título + hashtags (Bluesky admite hasta 300 caracteres)
-        elegidos, largo = [], len(v.title) + 2
+        elegidos = []
+        largo = len(v.title) + 2
         for h in extraer_hashtags(v.get("summary", "")):
             if largo + len(h) + 1 > 295:
                 break
@@ -82,9 +84,10 @@ def publicar_bluesky(v):
         thumb = None
         try:
             url_img = v.get("media_thumbnail", [{}])[0].get("url")
-            img = requests.get(url_img, timeout=15)
-            img.raise_for_status()
-            thumb = _bsky.upload_blob(img.content).blob
+            if url_img:
+                img = requests.get(url_img, timeout=15)
+                img.raise_for_status()
+                thumb = _bsky.upload_blob(img.content).blob
         except Exception as e:
             print(f"No se pudo subir la miniatura: {e}")
 
@@ -119,7 +122,7 @@ def publicar_threads(v):
         r.raise_for_status()
         contenedor = r.json()["id"]
 
-        time.sleep(5)  # margen entre crear y publicar
+        time.sleep(5) # margen entre crear y publicar
 
         r = requests.post(
             f"{base}/{user_id}/threads_publish",
@@ -128,15 +131,14 @@ def publicar_threads(v):
         )
         r.raise_for_status()
     except requests.HTTPError as e:
-        print(f"Error publicando en Threads: {e} | {e.response.text}")
+        print(f"Error publicando en Threads: {e} | {e.response.text if e.response is not None else ''}")
     except Exception as e:
         print(f"Error publicando en Threads: {e}")
 
 
 def publicar_discord(nombre_secreto, mensaje, link, incluirShorts):
     if not incluirShorts and "shorts" in link.lower():
-        return  # este canal no quiere shorts en Discord
-
+        return # este canal no quiere shorts en Discord
     url = os.environ.get(nombre_secreto)
     if not url:
         print(f"Falta el secreto {nombre_secreto}")
@@ -149,31 +151,107 @@ def publicar_discord(nombre_secreto, mensaje, link, incluirShorts):
         print(f"Error enviando a {nombre_secreto} (código: {codigo})")
 
 
-try:
-    with open(ARCHIVO) as f:
-        estado = json.load(f)
-except (FileNotFoundError, json.JSONDecodeError):
+def cargar_estado():
+    try:
+        with open(ARCHIVO, encoding="utf-8") as f:
+            datos = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        datos = {}
     estado = {}
+    for canal, contenido in datos.items():
+        # Compatibilidad con el formato antiguo: "CANAL": ["video1", "video2"]
+        if isinstance(contenido, list):
+            estado[canal] = {
+                "normal": set(contenido),
+                "miembros": set(),
+                "normal_inicializado": True,
+                "miembros_inicializado": False,
+            }
+        # Formato nuevo: "CANAL": {"normal": [...], "miembros": [...]}
+        elif isinstance(contenido, dict):
+            estado[canal] = {
+                "normal": set(contenido.get("normal", [])),
+                "miembros": set(contenido.get("miembros", [])),
+                "normal_inicializado": "normal" in contenido,
+                "miembros_inicializado": "miembros" in contenido,
+            }
+    return estado
+
+
+def procesar_feed(canal, cfg, estado, miembros=False):
+    if miembros:
+        # Solo se llama si existe mensajeMiembros.
+        playlist_id = "UUMF" + canal[2:]
+        url_feed = f"https://www.youtube.com/feeds/videos.xml?playlist_id={playlist_id}"
+        clave = "miembros"
+        mensaje = cfg["mensajeMiembros"]
+    else:
+        url_feed = f"https://www.youtube.com/feeds/videos.xml?channel_id={canal}"
+        clave = "normal"
+        mensaje = cfg["mensaje"]
+
+    print(f"Consultando feed {'de miembros' if miembros else 'normal'}: {canal}")
+    feed = feedparser.parse(url_feed)
+
+    # No modificar el estado si el feed no devuelve entradas.
+    if not feed.entries:
+        print(f"Feed vacío o sin entradas: {url_feed}")
+        return
+
+    vistos = estado[canal][clave]
+    # Cada feed tiene su propia primera ejecución.
+    inicializado = estado[canal][f"{clave}_inicializado"]
+
+    for v in reversed(feed.entries):
+        video_id = v.get("yt_videoid")
+        if not video_id:
+            continue
+        if video_id in vistos:
+            continue
+        # Registrar el vídeo incluso en la primera ejecución.
+        vistos.add(video_id)
+        if not inicializado:
+            continue
+        if miembros:
+            # Los vídeos exclusivos se notifican únicamente por Discord.
+            for webhook in cfg["webhooks"]:
+                publicar_discord(webhook, mensaje, v.link, cfg["incluirShorts"])
+        else:
+            # Comportamiento habitual para vídeos públicos.
+            for webhook in cfg["webhooks"]:
+                publicar_discord(webhook, mensaje, v.link, cfg["incluirShorts"])
+            if cfg["bluesky"]:
+                publicar_bluesky(v)
+            if cfg.get("threads"):
+                publicar_threads(v)
+
+    estado[canal][f"{clave}_inicializado"] = True
+
+
+estado = cargar_estado()
 
 for canal, cfg in CANALES.items():
-    feed = feedparser.parse(f"https://www.youtube.com/feeds/videos.xml?channel_id={canal}")
-    if not feed.entries:
-        continue  # fallo temporal del feed: no tocamos nada
-    primera_vez = canal not in estado
-    vistos = set(estado.get(canal, []))
-    for v in reversed(feed.entries):  # del más antiguo al más nuevo
-        if v.yt_videoid in vistos:
-            continue
-        vistos.add(v.yt_videoid)
-        if primera_vez:
-            continue
-        for nombre in cfg["webhooks"]:
-            publicar_discord(nombre, cfg["mensaje"], v.link, cfg["incluirShorts"])
-        if cfg["bluesky"]:
-            publicar_bluesky(v)
-        if cfg.get("threads"):
-            publicar_threads(v)
-    estado[canal] = sorted(vistos)
+    if canal not in estado:
+        estado[canal] = {
+            "normal": set(),
+            "miembros": set(),
+            "normal_inicializado": False,
+            "miembros_inicializado": False,
+        }
+    # Procesar siempre el feed público.
+    procesar_feed(canal, cfg, estado, miembros=False)
+    # Consultar el feed de miembros solo si hay mensaje configurado.
+    if cfg.get("mensajeMiembros"):
+        procesar_feed(canal, cfg, estado, miembros=True)
 
-with open(ARCHIVO, "w") as f:
-    json.dump(estado, f, indent=2)
+# Guardar ambos historiales en el mismo archivo.
+estado_guardar = {}
+for canal, datos in estado.items():
+    cfg = CANALES.get(canal, {})
+    contenido = {"normal": sorted(datos["normal"])}
+    if cfg.get("mensajeMiembros"):
+        contenido["miembros"] = sorted(datos["miembros"])
+    estado_guardar[canal] = contenido
+
+with open(ARCHIVO, "w", encoding="utf-8") as f:
+    json.dump(estado_guardar, f, indent=2, ensure_ascii=False)
