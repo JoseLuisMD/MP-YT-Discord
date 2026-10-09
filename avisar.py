@@ -6,12 +6,14 @@ CANALES = {
     "UCLD3BqL4n2GKmitkEQGCoAQ": {
         "mensaje": "¡Nuevo vídeo en Mundos Pixelados!",
         "webhooks": ["DISCORD_WEBHOOK"],
+        "incluirShorts": True,
         "bluesky": True,
         "threads": True,
     },
     "UCb3jFYgTbBLjDDOlZiD-2kg": {
         "mensaje": "¡Nuevo short en Mundos Pixelados Shorts!",
         "webhooks": ["DISCORD_WEBHOOK"],
+        "incluirShorts": True,
         "bluesky": True,
         "threads": True,
     },
@@ -19,18 +21,21 @@ CANALES = {
     "UCYk9AH19xF7dtzM9OY7obmA": {
         "mensaje": "¡Nuevo vídeo en el canal!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
+        "incluirShorts": False,
         "bluesky": False,
         "threads": False,
     },
     "UCngXjqgH_-42BgtegyzI_-A": {
         "mensaje": "¡Nuevo vídeo en el canal secundario!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
+        "incluirShorts": False,
         "bluesky": False,
         "threads": False,
     },
     "UC4MGzV7ahAN1khnzdjp3rkw": {
         "mensaje": "¡Nuevo vídeo en el canal de WarCraft 3!",
         "webhooks": ["DISCORD_WEBHOOK_VRTX"],
+        "incluirShorts": False,
         "bluesky": False,
         "threads": False,
     },
@@ -128,7 +133,10 @@ def publicar_threads(v):
         print(f"Error publicando en Threads: {e}")
 
 
-def publicar_discord(nombre_secreto, mensaje, link):
+def publicar_discord(nombre_secreto, mensaje, link, incluirShorts):
+    if not incluirShorts and "shorts" in link.lower():
+        return  # este canal no quiere shorts en Discord
+
     url = os.environ.get(nombre_secreto)
     if not url:
         print(f"Falta el secreto {nombre_secreto}")
@@ -160,7 +168,7 @@ for canal, cfg in CANALES.items():
         if primera_vez:
             continue
         for nombre in cfg["webhooks"]:
-            publicar_discord(nombre, cfg["mensaje"], v.link)
+            publicar_discord(nombre, cfg["mensaje"], v.link, cfg["incluirShorts"])
         if cfg["bluesky"]:
             publicar_bluesky(v)
         if cfg.get("threads"):
