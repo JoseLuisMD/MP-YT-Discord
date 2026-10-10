@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: avisar
+  group: estado-repo
 
 jobs:
   avisar:
@@ -30,4 +30,4 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add vistos.json
-          git diff --staged --quiet || (git commit -m "Actualizar vistos" && git push)
+          git diff --staged --quiet || (git commit -m "Actualizar vistos" && git pull --rebase && git push)
