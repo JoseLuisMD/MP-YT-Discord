@@ -208,7 +208,7 @@ def publicar_discord(texto, link):
         return False
 
 
-def publicar_bluesky(texto, titulo, link, url_imagen=None):
+def publicar_bluesky(texto, titulo, link, url_imagen=None, hashtags=None):
     try:
         cliente = Client()
         cliente.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
@@ -236,7 +236,10 @@ def publicar_bluesky(texto, titulo, link, url_imagen=None):
             external_builder.thumb = blob
             
         embed = models.AppBskyEmbedExternal.Main(external=external_builder)
-        cliente.send_post(texto, embed=embed)
+        tags = " ".join(hashtags or [])
+        texto_bsky = f"{texto}\n\n{tags}" if tags else texto
+        texto_bsky = recortar(texto_bsky, 300)
+        cliente.send_post(texto_bsky, embed=embed)
         return True
     except Exception as e:
         print(f"Error publicando en Bluesky: {e}")
