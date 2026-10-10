@@ -12,6 +12,7 @@ FEEDS = {
     "GenerationAmiga": "https://www.generationamiga.com/{aaaa}/{mm}/feed/",
 }
 FUENTES_EN_INGLES = {"GenerationAmiga"}  # el mismo nombre que uses en FEEDS
+RUTAS_EXCLUIDAS = ("/tv-series/", "/manga-anime/", "/3djuegos-trivia/", "/streamers/") # no son de videojuegos
 PALABRAS_CLAVE = [
     "zelda",
     "sonic",
@@ -91,6 +92,50 @@ def urls_del_feed(url):
     return [url.format(aaaa=a, mm=f"{m:02d}") for a, m in meses]
 
 
+def imagen_del_feed(e):
+    """Busca la imagen de una entrada en los sitios habituales de un feed."""
+    # 1. Campos estándar: media:thumbnail, media:content y enclosures de tipo imagen
+    for campo in ("media_thumbnail", "media_content"):
+        for m in e.get(campo) or []:
+            if m.get("url"):
+                return m["url"]
+    for enc in e.get("enclosures") or []:
+        if "image" in (enc.get("type") or "") and enc.get("href"):
+            return enc["href"]
+    # 2. Imágenes dentro del HTML (algunas webs, como Vandal, solo las ponen ahí)
+    texto = e.get("summary", "")
+    if e.get("content"):
+        texto += " " + e["content"][0].get("value", "")
+    # 2a. Vandal marca su imagen principal con el enlace "#imagen1"
+    m = re.search(r'#imagen1["\'][^>]*>\s*<img[^>]+src=["\']([^"\']+)', texto)
+    if m:
+        return html.unescape(m.group(1))
+    # 2b. En el resto, la primera imagen que no sea un icono o un píxel
+    for src in re.findall(r'<img[^>]+src=["\']([^"\']+)', texto):
+        if src.startswith("http") and not re.search(r"pixel|1x1|spacer|\.gif", src, re.I):
+            return html.unescape(src)
+    return None
+
+
+def imagen_og(link):
+    """Último recurso: la imagen que la propia web declara para compartir (og:image)."""
+    try:
+        r = requests.get(link, headers={"User-Agent": "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"}, timeout=15)
+        r.raise_for_status()
+        cabecera = r.text[:200_000]
+        for patron in (
+            r'<meta[^>]+property=["\']og:image["\'][^>]*content=["\']([^"\']+)',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*property=["\']og:image["\']',
+            r'<meta[^>]+name=["\']twitter:image["\'][^>]*content=["\']([^"\']+)',
+        ):
+            m = re.search(patron, cabecera, re.I)
+            if m:
+                return urljoin(link, html.unescape(m.group(1)))
+    except Exception as ex:
+        print(f"No se pudo leer la imagen de la página ({link}): {ex}")
+    return None
+
+
 def contenido(e):
     if e.get("content"):
         return e["content"][0].get("value", "")
@@ -101,7 +146,7 @@ def resumir(titulo, texto, ingles=False):
     clave = os.environ.get("GEMINI_API_KEY")
     if not clave:
         print("Falta la variable GEMINI_API_KEY")
-        return None if ingles else recortar(titulo, 270)
+        return None if ingles else (recortar(titulo, 270), [])
 
     errores_transitorios = {429, 500, 502, 503, 504}
     prompt = PROMPT.format(titulo=titulo, texto=(texto or "")[:1500])
@@ -116,7 +161,7 @@ def resumir(titulo, texto, ingles=False):
                     headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
                     json={
                         "contents": [{"parts": [{"text": prompt}]}],
-                        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 120},
+                        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 300},
                     },
                     timeout=45,
                 )
@@ -191,7 +236,7 @@ def resumir(titulo, texto, ingles=False):
         return None
 
     print("Gemini no disponible. Se utiliza el título original.")
-    return recortar(titulo, 270)
+    return recortar(titulo, 270), []
 
 
 def publicar_discord(texto, link):
@@ -263,9 +308,11 @@ def publicar_bluesky(texto, titulo, link, url_imagen=None, hashtags=None):
         # Publicar en Bluesky.
         cliente_bsky.send_post(text=builder, embed=embed)
         print(f"Publicado en Bluesky: {titulo}")
+        return True
         
     except Exception as e:
         print(f"Error publicando en Bluesky: {e}")
+        return False
 
 
 def publicar_threads(texto, link):
@@ -318,20 +365,10 @@ for fuente, url in FEEDS.items():
     for e in entradas:
         link = (e.get("link") or "").split("#")[0]
         titulo = limpiar_html(e.get("title", ""))
-        if not link or not titulo or link in ya_publicadas or link in enlaces_vistos or not es_reciente(e):
+        if not link or not titulo or link in ya_publicadas or link in enlaces_vistos or not es_reciente(e) or any(r in link for r in RUTAS_EXCLUIDAS):
             continue
         enlaces_vistos.add(link)
-        url_imagen = None
-        if e.get("enclosure"):
-            url_imagen = e["enclosure"].get("url")
-        elif e.get("media_content"):
-            url_imagen = e["media_content"][0].get("url")
-        elif e.get("links"):
-            # Buscar en los enlaces adjuntos si hay alguna imagen
-            for l in e["links"]:
-                if "image" in l.get("type", ""):
-                    url_imagen = l.get("href")
-                    break
+        url_imagen = imagen_del_feed(e)
         candidatas.append({
             "fuente": fuente,
             "titulo": titulo,
@@ -366,9 +403,10 @@ if candidatas:
             continue
         resumen, hashtags = resultado
         texto = f"{resumen}\n\n📰 {c['fuente']}"
+        url_imagen = c.get("url_imagen") or imagen_og(c["link"])
         resultados = [
             publicar_discord(texto, c["link"]),
-            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen"), hashtags),
+            publicar_bluesky(texto, c["titulo"], c["link"], url_imagen, hashtags),
             publicar_threads(texto, c["link"]),
         ]
         if any(resultados):
