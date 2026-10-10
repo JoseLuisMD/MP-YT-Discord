@@ -27,7 +27,7 @@ ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
-MODELOS_LLM = ["gemini-1.5-flash", "gemini-1.5-pro"]
+MODELOS_LLM = ["gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 PROMPT = (
     "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
     "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
@@ -91,49 +91,72 @@ def contenido(e):
 
 def resumir(titulo, texto, ingles=False):
     clave = os.environ.get("GEMINI_API_KEY")
-    if clave:
-        for modelo in MODELOS_LLM:
-            # Intentar hasta 2 veces por modelo si el servidor da un error 503
-            for intento in range(2):
-                try:
-                    r = requests.post(
-                        f"https://generativelanguage.googleapis.com/v1/models/{modelo}:generateContent",
-                        headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
-                        json={
-                            "contents": [{"parts": [{"text": PROMPT.format(titulo=titulo, texto=texto[:1500])}]}],
-                            "generationConfig": {
-                                "temperature": 0.3,
-                                "maxOutputTokens": 200,
-                            },
-                        },
-                        timeout=30,
-                    )
-                    
-                    # Si da error 503 (servidor saturado), esperamos 5 segundos y reintentamos
-                    if r.status_code == 503:
-                        print(f"Servidor saturado (503) para {modelo}. Reintentando en 5 segundos... (Intento {intento + 1}/2)")
-                        time.sleep(5)
+    if not clave:
+        print("Falta la variable GEMINI_API_KEY")
+        return None if ingles else recortar(titulo, 270)
+
+    errores_transitorios = {429, 500, 502, 503, 504}
+    prompt = PROMPT.format(titulo=titulo, texto=(texto or "")[:1500])
+
+    for modelo in MODELOS_LLM:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+
+        for intento in range(3):
+            try:
+                respuesta = requests.post(
+                    url,
+                    headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
+                    json={
+                        "contents": [{"parts": [{"text": prompt}]}],
+                        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 120},
+                    },
+                    timeout=45,
+                )
+
+                if respuesta.status_code == 404:
+                    print(f"Modelo {modelo} no disponible (404). Probando el siguiente.")
+                    break
+
+                if respuesta.status_code in errores_transitorios:
+                    if intento < 2:
+                        espera = min(2 ** (intento + 1), 16)
+                        print(f"Gemini HTTP {respuesta.status_code} ({modelo}). Reintento en {espera}s.")
+                        time.sleep(espera)
                         continue
-                        
-                    if r.status_code != 200:
-                        print(f"Error de la API de Gemini (Código {r.status_code}) para {modelo}: {r.text}")
-                    
-                    r.raise_for_status()
-                    
-                    # Acceso correcto al JSON de la API de Google con índices de lista
-                    resumen = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
-                    if resumen:
-                        return recortar(resumen, 270)
-                    break # Si todo fue bien, salimos del bucle de reintentos
-                except Exception as e:
-                    print(f"El modelo {modelo} ha fallado en el intento {intento + 1}: {e}")
-                    if intento == 1: # Si ya falló el segundo intento, saltamos al siguiente modelo
-                        break
-                        
+                    print(f"Gemini sigue fallando con HTTP {respuesta.status_code} ({modelo}).")
+                    break
+
+                if respuesta.status_code != 200:
+                    print(f"Error Gemini HTTP {respuesta.status_code} ({modelo}): {respuesta.text[:500]}")
+                    break
+
+                candidatos = respuesta.json().get("candidates") or []
+                if not candidatos:
+                    print(f"Gemini no devolvió candidatos ({modelo}).")
+                    break
+
+                partes = candidatos[0].get("content", {}).get("parts", [])
+                resumen = " ".join(p.get("text", "").strip() for p in partes if p.get("text")).strip()
+                if resumen:
+                    return recortar(resumen, 270)
+
+                print(f"Gemini devolvió una respuesta sin texto ({modelo}).")
+                break
+
+            except requests.RequestException as e:
+                print(f"Error de conexión con Gemini ({modelo}, intento {intento + 1}): {e}")
+                if intento < 2:
+                    time.sleep(min(2 ** (intento + 1), 16))
+
+            except (ValueError, KeyError, TypeError) as e:
+                print(f"Respuesta inesperada de Gemini ({modelo}): {e}")
+                break
+
     if ingles:
-        print("Sin resumen del LLM y la fuente está en inglés: no se publica")
+        print("No se pudo resumir la noticia en inglés; se omite.")
         return None
-    print("Sin resumen del LLM: se usa el título")
+
+    print("Gemini no disponible. Se utiliza el título original.")
     return recortar(titulo, 270)
 
 
