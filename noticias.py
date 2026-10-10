@@ -138,13 +138,34 @@ def publicar_discord(texto, link):
         return False
 
 
-def publicar_bluesky(texto, titulo, link):
+def publicar_bluesky(texto, titulo, link, url_imagen=None):
     try:
         cliente = Client()
         cliente.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
-        embed = models.AppBskyEmbedExternal.Main(
-            external=models.AppBskyEmbedExternal.External(uri=link, title=titulo, description="")
+        
+        blob = None
+        # Si el feed nos dio una imagen de portada, la descargamos y subimos a Bluesky
+        if url_imagen:
+            try:
+                resp_img = requests.get(url_imagen, timeout=10)
+                if resp_img.status_code == 200:
+                    # Subimos el archivo binario de la imagen a los servidores de Bluesky
+                    blob = cliente.upload_blob(resp_img.content).blob
+            except Exception as img_err:
+                print(f"No se pudo procesar la imagen para Bluesky: {img_err}")
+
+        # Configuramos la tarjeta externa
+        external_builder = models.AppBskyEmbedExternal.External(
+            uri=link,
+            title=titulo,
+            description="Haz clic para leer la noticia completa."
         )
+        
+        # SI logramos subir el blob de la imagen, se lo asignamos a la tarjeta
+        if blob:
+            external_builder.thumb = blob
+            
+        embed = models.AppBskyEmbedExternal.Main(external=external_builder)
         cliente.send_post(texto, embed=embed)
         return True
     except Exception as e:
@@ -205,12 +226,24 @@ for fuente, url in FEEDS.items():
         if not link or not titulo or link in ya_publicadas or link in enlaces_vistos or not es_reciente(e):
             continue
         enlaces_vistos.add(link)
+        url_imagen = None
+        if e.get("enclosure"):
+            url_imagen = e["enclosure"].get("url")
+        elif e.get("media_content"):
+            url_imagen = e["media_content"][0].get("url")
+        elif e.get("links"):
+            # Buscar en los enlaces adjuntos si hay alguna imagen
+            for l in e["links"]:
+                if "image" in l.get("type", ""):
+                    url_imagen = l.get("href")
+                    break
         candidatas.append({
             "fuente": fuente,
             "titulo": titulo,
             "link": link,
             "texto": limpiar_html(contenido(e)),
             "fecha": fecha_entrada(e) or 0,
+            "url_imagen": url_imagen,
         })
 
 print(f"Noticias candidatas: {len(candidatas)}")
@@ -239,7 +272,7 @@ if candidatas:
         texto = f"{resumen}\n\n📰 {c['fuente']}"
         resultados = [
             publicar_discord(texto, c["link"]),
-            publicar_bluesky(texto, c["fuente"] if ingles else c["titulo"], c["link"]),
+            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen"))
             publicar_threads(texto, c["link"]),
         ]
         if any(resultados):
