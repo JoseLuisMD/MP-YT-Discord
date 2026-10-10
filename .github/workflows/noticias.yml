@@ -1,0 +1,33 @@
+name: Publicar noticias de videojuegos
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: estado-repo
+
+jobs:
+  noticias:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install feedparser requests atproto
+      - run: python noticias.py
+        env:
+          DISCORD_WEBHOOK_NOTICIAS: ${{ secrets.DISCORD_WEBHOOK_NOTICIAS }}
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Guardar noticias publicadas
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add noticias_publicadas.json
+          git diff --staged --quiet || (git commit -m "Actualizar noticias publicadas" && git pull --rebase && git push)
