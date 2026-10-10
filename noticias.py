@@ -272,7 +272,7 @@ if candidatas:
         texto = f"{resumen}\n\n📰 {c['fuente']}"
         resultados = [
             publicar_discord(texto, c["link"]),
-            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen"))
+            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen")),
             publicar_threads(texto, c["link"]),
         ]
         if any(resultados):
