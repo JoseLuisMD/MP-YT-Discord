@@ -31,7 +31,7 @@ ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
-MODELOS_LLM = ["gemini-2.5-flash-lite", "gemini-2.5-flash"]  # se prueban en orden
+MODELOS_LLM = ["gemini-flash-latest", "gemini-1.5-flash"]
 PROMPT = (
     "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
     "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
@@ -110,6 +110,11 @@ def resumir(titulo, texto, ingles=False):
                     },
                     timeout=30,
                 )
+                # Si da un error 404, r.raise_for_status() lanzará la excepción, 
+                # pero antes imprimiremos la respuesta exacta de Google
+                if r.status_code != 200:
+                    print(f"Error de la API de Gemini (Código {r.status_code}) para {modelo}: {r.text}")
+                
                 r.raise_for_status()
                 resumen = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
                 if resumen:
