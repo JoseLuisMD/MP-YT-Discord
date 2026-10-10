@@ -1,5 +1,6 @@
 import feedparser, requests, json, os, re, time, calendar, random, html, unicodedata
 from atproto import Client, models
+from datetime import datetime, timedelta, timezone
 
 FEEDS = {
     "Vandal": "https://vandal.elespanol.com/xml.cgi",
@@ -7,11 +8,14 @@ FEEDS = {
     "Hobby Consolas": "https://www.hobbyconsolas.com/rss",
     "VidaExtra": "https://www.vidaextra.com/feedburner.xml",
     "Eurogamer.es": "https://www.eurogamer.es/feed",
+    "GenerationAmiga": "https://www.generationamiga.com/{aaaa}/{mm}/feed/",
 }
+FUENTES_EN_INGLES = {"GenerationAmiga"}  # el mismo nombre que uses en FEEDS
 PALABRAS_CLAVE = [
     "zelda",
     "sonic",
     "mario",
+    "metroid",
     "resident evil",
     "castlevania",
     "final fantasy",
@@ -20,6 +24,7 @@ PALABRAS_CLAVE = [
     "nintendo",
     "xbox",
     "playstation",
+    "steam",
     "kojima"
 ]
 ARCHIVO = "noticias_publicadas.json"
@@ -28,7 +33,9 @@ MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
 MODELOS_LLM = ["gemini-2.5-flash-lite", "gemini-2.5-flash"]  # se prueban en orden
 PROMPT = (
-    "Resume esta noticia de videojuegos en español en 1 o 2 frases (máximo 250 caracteres). "
+    "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
+    "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
+    "Deja en su idioma original los nombres de juegos, sagas, consolas y empresas. "
     "Usa solo la información del texto, sin inventar datos, sin emojis ni hashtags y con tono neutro. "
     "Responde solo con el resumen.\n\nTítulo: {titulo}\n\nTexto: {texto}"
 )
@@ -70,13 +77,23 @@ def coincidencias(texto):
     return [k for k, patron in PATRONES if patron.search(t)]
 
 
+def urls_del_feed(url):
+    """Si la URL lleva {aaaa} y {mm}, se sustituyen por el año y el mes (y el mes anterior a primeros de mes)."""
+    if "{aaaa}" not in url:
+        return [url]
+    ahora = datetime.now(timezone.utc)
+    antes = ahora - timedelta(hours=MAX_EDAD_HORAS)
+    meses = sorted({(ahora.year, ahora.month), (antes.year, antes.month)})
+    return [url.format(aaaa=a, mm=f"{m:02d}") for a, m in meses]
+
+
 def contenido(e):
     if e.get("content"):
         return e["content"][0].get("value", "")
     return e.get("summary", "")
 
 
-def resumir(titulo, texto):
+def resumir(titulo, texto, ingles=False):
     clave = os.environ.get("GEMINI_API_KEY")
     if clave:
         for modelo in MODELOS_LLM:
@@ -100,6 +117,9 @@ def resumir(titulo, texto):
                     return recortar(resumen, 270)
             except Exception as e:
                 print(f"El modelo {modelo} ha fallado: {e}")
+    if ingles:
+        print("Sin resumen del LLM y la fuente está en inglés: no se publica")
+        return None
     print("Sin resumen del LLM: se usa el título")
     return recortar(titulo, 270)
 
@@ -174,11 +194,13 @@ ya_publicadas = set(publicadas)
 # 1. Recoger las noticias recientes y no publicadas de todos los feeds
 candidatas, enlaces_vistos = [], set()
 for fuente, url in FEEDS.items():
-    feed = feedparser.parse(url)
-    if not feed.entries:
+    entradas = []
+    for u in urls_del_feed(url):
+        entradas += feedparser.parse(u).entries
+    if not entradas:
         print(f"Sin entradas en {fuente}")
         continue
-    for e in feed.entries:
+    for e in entradas:
         link = (e.get("link") or "").split("#")[0]
         titulo = limpiar_html(e.get("title", ""))
         if not link or not titulo or link in ya_publicadas or link in enlaces_vistos or not es_reciente(e):
@@ -211,11 +233,14 @@ if candidatas:
     for c in elegidas:
         motivo = f"coincide con {c['coincide']}" if c["coincide"] else "aleatoria (sin coincidencias)"
         print(f"Elegida [{c['fuente']}] {c['titulo']} -> {motivo}")
-        resumen = resumir(c["titulo"], c["texto"])
+        ingles = c["fuente"] in FUENTES_EN_INGLES
+        resumen = resumir(c["titulo"], c["texto"], ingles)
+        if resumen is None:
+            continue
         texto = f"{resumen}\n\n📰 {c['fuente']}"
         resultados = [
             publicar_discord(texto, c["link"]),
-            publicar_bluesky(texto, c["titulo"], c["link"]),
+            publicar_bluesky(texto, c["fuente"] if ingles else c["titulo"], c["link"]),
             publicar_threads(texto, c["link"]),
         ]
         if any(resultados):
