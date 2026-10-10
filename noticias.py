@@ -21,17 +21,13 @@ PALABRAS_CLAVE = [
     "final fantasy",
     "dragon quest",
     "silent hill",
-    "nintendo",
-    "xbox",
-    "playstation",
-    "steam",
     "kojima"
 ]
 ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
-MODELOS_LLM = ["gemini-flash-latest", "gemini-1.5-flash"]
+MODELOS_LLM = ["gemini-1.5-flash-002", "gemini-1.5-pro-002"]
 PROMPT = (
     "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
     "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
@@ -97,30 +93,42 @@ def resumir(titulo, texto, ingles=False):
     clave = os.environ.get("GEMINI_API_KEY")
     if clave:
         for modelo in MODELOS_LLM:
-            try:
-                r = requests.post(
-                    f"https://generativelanguage.googleapis.com/v1/models/{modelo}:generateContent",
-                    headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
-                    json={
-                        "contents": [{"parts": [{"text": PROMPT.format(titulo=titulo, texto=texto[:1500])}]}],
-                        "generationConfig": {
-                            "temperature": 0.3,
-                            "maxOutputTokens": 200,
+            # Intentar hasta 2 veces por modelo si el servidor da un error 503
+            for intento in range(2):
+                try:
+                    r = requests.post(
+                        f"https://generativelanguage.googleapis.com/v1/models/{modelo}:generateContent",
+                        headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
+                        json={
+                            "contents": [{"parts": [{"text": PROMPT.format(titulo=titulo, texto=texto[:1500])}]}],
+                            "generationConfig": {
+                                "temperature": 0.3,
+                                "maxOutputTokens": 200,
+                            },
                         },
-                    },
-                    timeout=30,
-                )
-                # Si da un error 404, r.raise_for_status() lanzará la excepción, 
-                # pero antes imprimiremos la respuesta exacta de Google
-                if r.status_code != 200:
-                    print(f"Error de la API de Gemini (Código {r.status_code}) para {modelo}: {r.text}")
-                
-                r.raise_for_status()
-                resumen = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
-                if resumen:
-                    return recortar(resumen, 270)
-            except Exception as e:
-                print(f"El modelo {modelo} ha fallado: {e}")
+                        timeout=30,
+                    )
+                    
+                    # Si da error 503 (servidor saturado), esperamos 5 segundos y reintentamos
+                    if r.status_code == 503:
+                        print(f"Servidor saturado (503) para {modelo}. Reintentando en 5 segundos... (Intento {intento + 1}/2)")
+                        time.sleep(5)
+                        continue
+                        
+                    if r.status_code != 200:
+                        print(f"Error de la API de Gemini (Código {r.status_code}) para {modelo}: {r.text}")
+                    
+                    r.raise_for_status()
+                    
+                    resumen = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+                    if resumen:
+                        return recortar(resumen, 270)
+                    break # Si todo fue bien, salimos del bucle de reintentos
+                except Exception as e:
+                    print(f"El modelo {modelo} ha fallado en el intento {intento + 1}: {e}")
+                    if intento == 1: # Si ya falló el segundo intento, saltamos al siguiente modelo
+                        break
+                        
     if ingles:
         print("Sin resumen del LLM y la fuente está en inglés: no se publica")
         return None
