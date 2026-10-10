@@ -27,7 +27,7 @@ ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
-MODELOS_LLM = ["gemini-1.5-flash-002", "gemini-1.5-pro-002"]
+MODELOS_LLM = ["gemini-1.5-flash", "gemini-1.5-pro"]
 PROMPT = (
     "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
     "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
@@ -120,6 +120,7 @@ def resumir(titulo, texto, ingles=False):
                     
                     r.raise_for_status()
                     
+                    # Acceso correcto al JSON de la API de Google con índices de lista
                     resumen = r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
                     if resumen:
                         return recortar(resumen, 270)
