@@ -46,13 +46,14 @@ PROMPT = (
 feedparser.USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
 
 
+cliente_bsky = None
+
+
 def normalizar(texto):
     texto = unicodedata.normalize("NFKD", texto.lower())
     return "".join(c for c in texto if not unicodedata.combining(c))
 
-
 PATRONES = [(k, re.compile(rf"(?<!\w){re.escape(normalizar(k))}(?!\w)")) for k in PALABRAS_CLAVE]
-
 
 def limpiar_html(texto):
     texto = re.sub(r"<[^>]+>", " ", texto or "")
