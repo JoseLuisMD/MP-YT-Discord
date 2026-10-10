@@ -1,6 +1,7 @@
 import feedparser, requests, json, os, re, time, calendar, random, html, unicodedata
 from atproto import Client, models
 from datetime import datetime, timedelta, timezone
+from urllib.parse import urljoin
 
 FEEDS = {
     "Vandal": "https://vandal.elespanol.com/xml.cgi",
@@ -29,11 +30,17 @@ MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
 MODELOS_LLM = ["gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 PROMPT = (
-    "Resume esta noticia de videojuegos en 1 o 2 frases (máximo 250 caracteres). "
-    "Escribe SIEMPRE en español de España (castellano), aunque el texto original esté en inglés u otro idioma. "
-    "Deja en su idioma original los nombres de juegos, sagas, consolas y empresas. "
-    "Usa solo la información del texto, sin inventar datos, sin emojis ni hashtags y con tono neutro. "
-    "Responde solo con el resumen.\n\nTítulo: {titulo}\n\nTexto: {texto}"
+    "Analiza esta noticia de videojuegos y responde exclusivamente con un JSON válido "
+    "con dos campos: resumen y hashtags. "
+    "El resumen debe estar escrito en español de España (castellano) y tener un máximo de 200 caracteres. "
+    "Usa 1 o 2 frases, tono neutro y solo información del texto, sin inventar datos ni emojis. "
+    "Conserva los nombres originales de juegos, sagas, consolas y empresas. "
+    "Genera exactamente 5 hashtags relevantes, específicos y sin duplicados, "
+    "con el prefijo # y sin espacios ni tildes. "
+    "Los hashtags deben ser breves y adecuados para Twitter o Bluesky. "
+    "No incluyas hashtags dentro del resumen. "
+    'Formato: {{"resumen":"...","hashtags":["#...","#...","#...","#...","#..."]}}'
+    "\n\nTítulo: {titulo}\n\nTexto: {texto}"
 )
 
 feedparser.USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
@@ -130,15 +137,41 @@ def resumir(titulo, texto, ingles=False):
                     print(f"Error Gemini HTTP {respuesta.status_code} ({modelo}): {respuesta.text[:500]}")
                     break
 
-                candidatos = respuesta.json().get("candidates") or []
+                datos = respuesta.json()
+                candidatos = datos.get("candidates") or []
                 if not candidatos:
                     print(f"Gemini no devolvió candidatos ({modelo}).")
                     break
-
+                
                 partes = candidatos[0].get("content", {}).get("parts", [])
-                resumen = " ".join(p.get("text", "").strip() for p in partes if p.get("text")).strip()
-                if resumen:
-                    return recortar(resumen, 270)
+                contenido = "".join(p.get("text", "") for p in partes).strip()
+                
+                try:
+                    contenido = re.sub(r"^```(?:json)?\s*|\s*```$", "", contenido, flags=re.I)
+                    resultado = json.loads(contenido)
+                    resumen = limpiar_html(resultado.get("resumen", ""))
+                    hashtags = resultado.get("hashtags", [])
+                
+                    if not isinstance(hashtags, list):
+                        hashtags = []
+                
+                    hashtags = list(dict.fromkeys(
+                        h for h in (
+                            re.sub(r"[^#\w]", "", str(x).replace(" ", ""))
+                            for x in hashtags
+                        )
+                        if re.fullmatch(r"#[A-Za-z0-9_]+", h)
+                    ))[:5]
+                
+                    if resumen:
+                        return recortar(resumen, 200), hashtags
+                
+                    print(f"Gemini devolvió un resumen vacío ({modelo}).")
+                    break
+                
+                except (ValueError, TypeError, AttributeError) as e:
+                    print(f"Respuesta JSON inválida de Gemini ({modelo}): {e}")
+                    break
 
                 print(f"Gemini devolvió una respuesta sin texto ({modelo}).")
                 break
@@ -303,13 +336,14 @@ if candidatas:
         motivo = f"coincide con {c['coincide']}" if c["coincide"] else "aleatoria (sin coincidencias)"
         print(f"Elegida [{c['fuente']}] {c['titulo']} -> {motivo}")
         ingles = c["fuente"] in FUENTES_EN_INGLES
-        resumen = resumir(c["titulo"], c["texto"], ingles)
-        if resumen is None:
+        resultado = resumir(c["titulo"], c["texto"], ingles)
+        if resultado is None:
             continue
+        resumen, hashtags = resultado
         texto = f"{resumen}\n\n📰 {c['fuente']}"
         resultados = [
             publicar_discord(texto, c["link"]),
-            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen")),
+            publicar_bluesky(texto, c["titulo"], c["link"], c.get("url_imagen"), hashtags),
             publicar_threads(texto, c["link"]),
         ]
         if any(resultados):
