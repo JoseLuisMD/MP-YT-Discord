@@ -1,5 +1,5 @@
 import feedparser, requests, json, os, re, time, calendar, random, html, unicodedata
-from atproto import Client, models
+from atproto import Client, client_utils, models
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urljoin
 
@@ -208,42 +208,63 @@ def publicar_discord(texto, link):
         return False
 
 
+
 def publicar_bluesky(texto, titulo, link, url_imagen=None, hashtags=None):
+    global cliente_bsky
+    
     try:
-        cliente = Client()
-        cliente.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
+        if cliente_bsky is None:
+            cliente_bsky = Client()
+            cliente_bsky.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
+        # Construir el texto y añadir hashtags como etiquetas clicables.
+        builder = client_utils.TextBuilder().text(texto)
+        elegidos = []
+        largo = len(texto)
+
+        for h in hashtags or []:
+            h = str(h).strip()
+            if not re.fullmatch(r"#[A-Za-z0-9_]+", h):
+                continue
+            if largo + len(h) + 1 > 295:
+                break
+            elegidos.append(h)
+            largo += len(h) + 1
+
+        if elegidos:
+            builder.text("\n\n")
+            for i, h in enumerate(elegidos):
+                if i:
+                    builder.text(" ")
+                builder.tag(h, h[1:])
+        # Descargar y subir la imagen para la tarjeta del enlace.
+        thumb = None
         
-        blob = None
-        # Si el feed nos dio una imagen de portada, la descargamos y subimos a Bluesky
         if url_imagen:
             try:
-                resp_img = requests.get(url_imagen, timeout=10)
-                if resp_img.status_code == 200:
-                    # Subimos el archivo binario de la imagen a los servidores de Bluesky
-                    blob = cliente.upload_blob(resp_img.content).blob
-            except Exception as img_err:
-                print(f"No se pudo procesar la imagen para Bluesky: {img_err}")
+                img = requests.get(url_imagen, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+                img.raise_for_status()
+                tipo = img.headers.get("Content-Type", "").split(";")[0].lower()
+    
+                if not tipo.startswith("image/"):
+                    raise ValueError(f"La URL no devuelve una imagen: {tipo or 'tipo desconocido'}")
 
-        # Configuramos la tarjeta externa
-        external_builder = models.AppBskyEmbedExternal.External(
-            uri=link,
-            title=titulo,
-            description="Haz clic para leer la noticia completa."
+                if len(img.content) > 1_000_000:
+                    raise ValueError("La imagen supera el límite de 1 MB")
+                    
+                thumb = cliente_bsky.upload_blob(img.content).blob
+                
+            except Exception as e:
+                print(f"No se pudo subir la miniatura ({url_imagen}): {e}")
+        # Crear la tarjeta del enlace, con miniatura si se ha podido subir.
+        embed = models.AppBskyEmbedExternal.Main(
+            external=models.AppBskyEmbedExternal.External(uri=link, title=titulo, description="", thumb=thumb)
         )
+        # Publicar en Bluesky.
+        cliente_bsky.send_post(text=builder, embed=embed)
+        print(f"Publicado en Bluesky: {titulo}")
         
-        # SI logramos subir el blob de la imagen, se lo asignamos a la tarjeta
-        if blob:
-            external_builder.thumb = blob
-            
-        embed = models.AppBskyEmbedExternal.Main(external=external_builder)
-        tags = " ".join(hashtags or [])
-        texto_bsky = f"{texto}\n\n{tags}" if tags else texto
-        texto_bsky = recortar(texto_bsky, 300)
-        cliente.send_post(texto_bsky, embed=embed)
-        return True
     except Exception as e:
         print(f"Error publicando en Bluesky: {e}")
-        return False
 
 
 def publicar_threads(texto, link):
