@@ -106,7 +106,6 @@ def resumir(titulo, texto, ingles=False):
                         "generationConfig": {
                             "temperature": 0.3,
                             "maxOutputTokens": 200,
-                            "thinkingConfig": {"thinkingBudget": 0},
                         },
                     },
                     timeout=30,
