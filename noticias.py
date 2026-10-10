@@ -99,7 +99,7 @@ def resumir(titulo, texto, ingles=False):
         for modelo in MODELOS_LLM:
             try:
                 r = requests.post(
-                    f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent",
+                    f"https://generativelanguage.googleapis.com/v1/models/{modelo}:generateContent",
                     headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
                     json={
                         "contents": [{"parts": [{"text": PROMPT.format(titulo=titulo, texto=texto[:1500])}]}],
