@@ -23,7 +23,17 @@ PALABRAS_CLAVE = [
     "final fantasy",
     "dragon quest",
     "silent hill",
-    "kojima"
+    "kojima",
+    "konami",
+    "capcom",
+    "xenoblade",
+    "monolith",
+    "fire emblem",
+    "trails",
+    "metroidvania,
+    "starcraft",
+    "warcraft",
+    "diablo"
 ]
 ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
