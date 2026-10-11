@@ -11,4 +11,5 @@ class Noticia:
     fecha: Optional[float] = None       # marca de tiempo UTC; None si el feed no la trae
     url_imagen: Optional[str] = None
     idioma: str = "es"
+    imagen_en_threads: bool = False     # ver Fuente.imagen_en_threads
     coincide: list = field(default_factory=list)  # palabras clave que coinciden

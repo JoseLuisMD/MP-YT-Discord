@@ -21,6 +21,7 @@ class Publicacion:
     titulo_tarjeta: str = ""                # título de la tarjeta de enlace (Bluesky)
     url_imagen: Optional[str] = None        # miniatura de la tarjeta (Bluesky)
     hashtags: list = field(default_factory=list)  # etiquetas clicables (Bluesky)
+    imagen_en_threads: bool = False         # Threads: adjuntar url_imagen en vez de usar la tarjeta del enlace
 
 
 class Publicador(Protocol):
@@ -125,35 +126,54 @@ class Threads:
     nombre = "Threads"
     BASE = "https://graph.threads.net/v1.0"
 
-    def __init__(self, tema="videojuegos", espera=5):
+    def __init__(self, tema="videojuegos", espera=5, intentos_imagen=6):
         self.tema = tema
         self.espera = espera  # segundos entre crear el contenedor y publicarlo
+        self.intentos_imagen = intentos_imagen  # comprobaciones del estado de un contenedor con imagen
+
+    def _esperar_imagen(self, contenedor, token):
+        """Threads procesa la imagen antes de poder publicarla: espera a que el contenedor esté FINISHED."""
+        for _ in range(self.intentos_imagen):
+            time.sleep(self.espera)
+            r = requests.get(f"{self.BASE}/{contenedor}", params={"fields": "status,error_message", "access_token": token}, timeout=20)
+            r.raise_for_status()
+            estado = r.json().get("status")
+            if estado == "FINISHED":
+                return
+            if estado in ("ERROR", "EXPIRED"):
+                raise RuntimeError(f"Threads no pudo procesar la imagen: {r.json().get('error_message', estado)}")
+        raise RuntimeError("Threads no terminó de procesar la imagen a tiempo")
+
+    def _publicar(self, user_id, token, datos):
+        r = requests.post(f"{self.BASE}/{user_id}/threads", data={**datos, "topic_tag": self.tema, "access_token": token}, timeout=20)
+        r.raise_for_status()
+        contenedor = r.json()["id"]
+        if datos["media_type"] == "IMAGE":
+            self._esperar_imagen(contenedor, token)
+        else:
+            time.sleep(self.espera)
+        r = requests.post(f"{self.BASE}/{user_id}/threads_publish", data={"creation_id": contenedor, "access_token": token}, timeout=20)
+        r.raise_for_status()
 
     def publicar(self, p):
         try:
             user_id = os.environ["THREADS_USER_ID"]
             token = os.environ["THREADS_ACCESS_TOKEN"]
-            datos = {
-                "media_type": "TEXT",
-                "text": p.texto,
-                "link_attachment": p.enlace,
-                "topic_tag": self.tema,
-                "access_token": token,
-            }
-            r = requests.post(f"{self.BASE}/{user_id}/threads", data=datos, timeout=20)
-            r.raise_for_status()
-            contenedor = r.json()["id"]
-            time.sleep(self.espera)
-            r = requests.post(
-                f"{self.BASE}/{user_id}/threads_publish",
-                data={"creation_id": contenedor, "access_token": token},
-                timeout=20,
-            )
-            r.raise_for_status()
+            if p.imagen_en_threads and p.url_imagen:
+                # Imagen adjuntada por nosotros y enlace simple en el texto (sin tarjeta)
+                try:
+                    self._publicar(user_id, token, {"media_type": "IMAGE", "image_url": p.url_imagen, "text": f"{p.texto}\n\n{p.enlace}"})
+                    return True
+                except Exception as e:
+                    print(f"Threads con imagen falló ({_detalle(e)}); se publica con la tarjeta del enlace")
+            self._publicar(user_id, token, {"media_type": "TEXT", "text": p.texto, "link_attachment": p.enlace})
             return True
-        except requests.HTTPError as e:
-            print(f"Error publicando en Threads: {e} | {e.response.text if e.response is not None else ''}")
-            return False
         except Exception as e:
-            print(f"Error publicando en Threads: {e}")
+            print(f"Error publicando en Threads: {_detalle(e)}")
             return False
+
+
+def _detalle(e):
+    if isinstance(e, requests.HTTPError) and e.response is not None:
+        return f"{e} | {e.response.text}"
+    return str(e)

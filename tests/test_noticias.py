@@ -110,6 +110,14 @@ def test_usa_la_imagen_del_feed_y_si_no_hay_la_de_la_pagina(entorno):
     assert mk.publicaciones[0].url_imagen == "https://i.blogs.es/aa11bb/mario/1024_2000.jpeg"
 
 
+def test_solo_las_fuentes_marcadas_adjuntan_la_imagen_en_threads(entorno):
+    correr, _ = entorno
+    ga, _ = correr()                                    # GenerationAmiga: Threads ya muestra su tarjeta
+    assert ga.publicaciones[0].imagen_en_threads is False
+    mk, _ = correr()                                    # 3DJuegos: adjuntamos la imagen nosotros
+    assert mk.publicaciones[0].imagen_en_threads is True
+
+
 def test_si_ninguna_red_publica_la_noticia_no_se_guarda(entorno):
     correr, _ = entorno
     red, historial = correr(Red(resultado=False))

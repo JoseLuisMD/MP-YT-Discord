@@ -48,6 +48,8 @@ python -m pytest
 - **Un canal de YouTube**: una entrada en `videos/canales.py`.
 - **Una web de noticias**: una `Fuente` en `noticias/fuentes.py`. Si su feed pone la imagen en un sitio raro,
   se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.
+  Si Threads muestra su tarjeta sin imagen, pon `imagen_en_threads=True`: se publica con la imagen adjunta
+  y el enlace en el texto (si la imagen falla, se vuelve a la tarjeta normal).
   Después, guarda una copia de su feed en `tests/fixtures/` y añade una prueba.
 - **Una red social nueva**: una clase con un método `publicar(self, p: Publicacion) -> bool` en
   `common/publicadores.py` y añadirla a la lista de publicadores en `noticias/proceso.py` o `videos/avisador.py`.

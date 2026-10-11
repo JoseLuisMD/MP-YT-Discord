@@ -153,3 +153,60 @@ def test_threads_con_error_devuelve_false(monkeypatch):
 def test_threads_sin_credenciales_devuelve_false(monkeypatch):
     monkeypatch.delenv("THREADS_ACCESS_TOKEN")
     assert Threads().publicar(Publicacion("a", "b")) is False
+
+
+def _threads_falso(monkeypatch, estados=("FINISHED",), falla_imagen=False):
+    llamadas = {"post": [], "get": []}
+    estados = list(estados)
+
+    def post(url, **kw):
+        llamadas["post"].append((url, kw["data"]))
+        if falla_imagen and kw["data"].get("media_type") == "IMAGE":
+            return Respuesta(400, texto="formato de imagen no admitido")
+        return Respuesta(200, {"id": "contenedor-1"})
+
+    def get(url, **kw):
+        llamadas["get"].append(url)
+        return Respuesta(200, {"status": estados.pop(0) if len(estados) > 1 else estados[0]})
+    monkeypatch.setattr(requests, "post", post)
+    monkeypatch.setattr(requests, "get", get)
+    return llamadas
+
+
+def test_threads_con_imagen_adjunta_la_imagen_y_pone_el_enlace_en_el_texto(monkeypatch):
+    llamadas = _threads_falso(monkeypatch, estados=("IN_PROGRESS", "FINISHED"))
+    p = Publicacion("Resumen\n\n📰 Vandal", "https://n/1", url_imagen="https://i/x.jpg", imagen_en_threads=True)
+    assert Threads().publicar(p) is True
+    (_, datos1), (url2, _) = llamadas["post"]
+    assert datos1 == {"media_type": "IMAGE", "image_url": "https://i/x.jpg", "text": "Resumen\n\n📰 Vandal\n\nhttps://n/1",
+                      "topic_tag": "videojuegos", "access_token": "token"}
+    assert url2.endswith("/threads_publish")
+    assert llamadas["get"] == ["https://graph.threads.net/v1.0/contenedor-1"] * 2
+
+
+def test_threads_si_falla_la_imagen_publica_con_la_tarjeta_del_enlace(monkeypatch):
+    llamadas = _threads_falso(monkeypatch, falla_imagen=True)
+    p = Publicacion("Resumen", "https://n/1", url_imagen="https://i/x.webp", imagen_en_threads=True)
+    assert Threads().publicar(p) is True
+    tipos = [d.get("media_type") for _, d in llamadas["post"]]
+    assert tipos == ["IMAGE", "TEXT", None]
+    assert llamadas["post"][1][1]["link_attachment"] == "https://n/1"
+
+
+def test_threads_si_la_imagen_da_error_al_procesarse_publica_con_la_tarjeta(monkeypatch):
+    llamadas = _threads_falso(monkeypatch, estados=("ERROR",))
+    p = Publicacion("Resumen", "https://n/1", url_imagen="https://i/x.jpg", imagen_en_threads=True)
+    assert Threads().publicar(p) is True
+    assert [d.get("media_type") for _, d in llamadas["post"]] == ["IMAGE", "TEXT", None]
+
+
+def test_threads_sin_url_de_imagen_usa_la_tarjeta_aunque_la_fuente_lo_pida(monkeypatch):
+    llamadas = _threads_falso(monkeypatch)
+    assert Threads().publicar(Publicacion("Resumen", "https://n/1", imagen_en_threads=True)) is True
+    assert llamadas["post"][0][1]["media_type"] == "TEXT" and llamadas["get"] == []
+
+
+def test_threads_sin_la_opcion_no_adjunta_imagen(monkeypatch):
+    llamadas = _threads_falso(monkeypatch)
+    assert Threads().publicar(Publicacion("Resumen", "https://n/1", url_imagen="https://i/x.jpg")) is True
+    assert llamadas["post"][0][1]["media_type"] == "TEXT"

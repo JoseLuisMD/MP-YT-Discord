@@ -36,6 +36,7 @@ def publicar_noticia(n, resumen, hashtags, publicadores):
         titulo_tarjeta=n.titulo,
         url_imagen=n.url_imagen or imagen_og(n.enlace),
         hashtags=hashtags,
+        imagen_en_threads=n.imagen_en_threads,
     )
     resultados = [p.publicar(publicacion) for p in publicadores]
     return any(resultados)
