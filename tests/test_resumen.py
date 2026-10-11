@@ -29,7 +29,15 @@ def llamadas(monkeypatch):
         return registro["respuesta"](modelo)
 
     monkeypatch.setattr(requests, "post", falso)
+    # Por defecto la lista de modelos falla y se usa la de respaldo (MODELOS_LLM)
+    registro["lista"] = lambda: Respuesta(500)
+    monkeypatch.setattr(requests, "get", lambda url, **kw: registro["lista"]())
     return registro
+
+
+def lista_modelos(*nombres, metodos=("generateContent",)):
+    return Respuesta(200, {"models": [{"name": f"models/{n}", "supportedGenerationMethods": list(metodos)}
+                                      for n in nombres]})
 
 
 def test_resumen_y_hashtags(llamadas):
@@ -101,3 +109,48 @@ def test_el_prompt_pide_castellano(llamadas, monkeypatch):
     monkeypatch.setattr(requests, "post", falso)
     resumen.resumir("Título", "Texto")
     assert "español de España" in enviados[0] and "Título: Título" in enviados[0]
+
+
+def test_se_usan_los_flash_lite_estables_descubiertos_del_mas_nuevo_al_mas_antiguo(llamadas):
+    llamadas["lista"] = lambda: lista_modelos(
+        "gemini-3.1-flash-lite", "gemini-10.0-flash-lite", "gemini-4.0-flash-lite-preview-01-2027",
+        "gemini-3.8-flash", "gemini-3.5-pro", "gemini-2.0-flash-lite-001", "gemini-9.2-flash-lite")
+    assert resumen.modelos_a_probar("clave")[:3] == ["gemini-10.0-flash-lite", "gemini-9.2-flash-lite",
+                                                     "gemini-3.1-flash-lite"]
+
+
+def test_la_lista_de_respaldo_va_detras_sin_repetir(llamadas):
+    llamadas["lista"] = lambda: lista_modelos("gemini-9.0-flash-lite", MODELOS_LLM[0])
+    assert resumen.modelos_a_probar("clave") == list(dict.fromkeys(["gemini-9.0-flash-lite"] + MODELOS_LLM))
+
+
+def test_se_ignoran_los_modelos_que_no_generan_texto(llamadas):
+    llamadas["lista"] = lambda: lista_modelos("gemini-9.0-flash-lite", metodos=("embedContent",))
+    assert resumen.modelos_a_probar("clave") == MODELOS_LLM
+
+
+def test_se_recorren_todas_las_paginas_de_la_lista(llamadas):
+    paginas = [Respuesta(200, {"models": [{"name": "models/gemini-8.0-flash-lite",
+                                           "supportedGenerationMethods": ["generateContent"]}], "nextPageToken": "p2"}),
+               lista_modelos("gemini-9.0-flash-lite")]
+    llamadas["lista"] = lambda: paginas.pop(0)
+    assert resumen.modelos_a_probar("clave")[:2] == ["gemini-9.0-flash-lite", "gemini-8.0-flash-lite"]
+
+
+def test_resumir_empieza_por_el_modelo_descubierto_mas_nuevo(llamadas):
+    llamadas["lista"] = lambda: lista_modelos("gemini-9.0-flash-lite")
+    resumen.resumir("T", "x")
+    assert llamadas["modelos"] == ["gemini-9.0-flash-lite"]
+
+
+def test_un_modelo_sin_cuota_gratuita_se_salta_sin_reintentar(llamadas):
+    sin_cuota = Respuesta(429, texto="Quota exceeded for metric: generate_content_free_tier_requests, limit: 0")
+    llamadas["respuesta"] = lambda m: sin_cuota if m == MODELOS_LLM[0] else gemini_json("Del segundo.")
+    assert resumen.resumir("T", "x")[0] == "Del segundo."
+    assert llamadas["modelos"] == [MODELOS_LLM[0], MODELOS_LLM[1]]
+
+
+def test_se_muestra_el_modelo_que_ha_generado_el_resumen(llamadas, capsys):
+    llamadas["respuesta"] = lambda m: Respuesta(404) if m == MODELOS_LLM[0] else gemini_json()
+    resumen.resumir("T", "x")
+    assert f"Resumen generado con {MODELOS_LLM[1]}" in capsys.readouterr().out

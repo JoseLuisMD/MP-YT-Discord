@@ -10,8 +10,45 @@ from common.texto import limpiar_html, recortar
 
 from .config import MODELOS_LLM, PROMPT
 
-URL_GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+URL_MODELOS = "https://generativelanguage.googleapis.com/v1beta/models"
+URL_GEMINI = URL_MODELOS + "/{modelo}:generateContent"
 ERRORES_TRANSITORIOS = {429, 500, 502, 503, 504}
+PATRON_MODELO = re.compile(r"gemini-(\d+(?:\.\d+)*)-flash-lite")   # solo estables: sin -preview, -exp, -001...
+
+
+def descubrir_modelos(clave):
+    """Flash-Lite estables que ofrece la API para esta clave, del más nuevo al más antiguo. [] si falla."""
+    encontrados, pagina = [], None
+    try:
+        for _ in range(5):
+            params = {"pageSize": 1000, **({"pageToken": pagina} if pagina else {})}
+            r = requests.get(URL_MODELOS, headers={"x-goog-api-key": clave}, params=params, timeout=15)
+            r.raise_for_status()
+            datos = r.json()
+            for m in datos.get("models", []):
+                nombre = m.get("name", "").removeprefix("models/")
+                version = PATRON_MODELO.fullmatch(nombre)
+                if version and "generateContent" in m.get("supportedGenerationMethods", []):
+                    encontrados.append((tuple(int(x) for x in version.group(1).split(".")), nombre))
+            pagina = datos.get("nextPageToken")
+            if not pagina:
+                break
+    except (requests.RequestException, ValueError, AttributeError) as e:
+        print(f"No se pudo consultar la lista de modelos de Gemini: {e}")
+        return []
+    return [nombre for _, nombre in sorted(set(encontrados), reverse=True)]
+
+
+def modelos_a_probar(clave):
+    """Los descubiertos y, detrás, los de la lista de respaldo que no estén ya."""
+    descubiertos = descubrir_modelos(clave)
+    print(f"Modelos de Gemini descubiertos: {descubiertos or 'ninguno (se usa la lista de respaldo)'}")
+    return list(dict.fromkeys(descubiertos + MODELOS_LLM))
+
+
+def _sin_cuota_gratuita(respuesta):
+    """429 con «limit: 0»: el modelo no tiene cuota en el plan gratuito, no sirve de nada reintentar."""
+    return respuesta.status_code == 429 and "limit: 0" in (respuesta.text or "")
 
 
 def _limpiar_hashtags(crudos):
@@ -56,6 +93,10 @@ def _probar_modelo(modelo, clave, prompt):
                 print(f"Modelo {modelo} no disponible (404). Probando el siguiente.")
                 return None
 
+            if _sin_cuota_gratuita(respuesta):
+                print(f"Modelo {modelo} sin cuota en el plan gratuito. Probando el siguiente.")
+                return None
+
             if respuesta.status_code in ERRORES_TRANSITORIOS:
                 if intento < 2:
                     espera = min(2 ** (intento + 1), 16)
@@ -98,9 +139,10 @@ def resumir(titulo, texto, otro_idioma=False):
         return None if otro_idioma else (recortar(titulo, 270), [])
 
     prompt = PROMPT.format(titulo=titulo, texto=(texto or "")[:1500])
-    for modelo in MODELOS_LLM:
+    for modelo in modelos_a_probar(clave):
         resultado = _probar_modelo(modelo, clave, prompt)
         if resultado is not None:
+            print(f"Resumen generado con {modelo}")
             return resultado
 
     if otro_idioma:

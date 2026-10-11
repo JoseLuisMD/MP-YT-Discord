@@ -16,7 +16,9 @@ EMOJIS_FUENTE = ["📰", "🗞️", "📝", "✍️", "✏️", "🖊️", "🖋
 # Se editan en palabras_clave.json (ver noticias/palabras.py); el bot las ordena y actualiza los contadores.
 ARCHIVO_PALABRAS = "palabras_clave.json"
 
-MODELOS_LLM = ["gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]  # se prueban en orden
+# Modelos de Gemini: al empezar se piden a la API los Flash-Lite estables (sin preview ni exp) y se prueban
+# del más nuevo al más antiguo. Esta lista es el respaldo: se prueba después, o sola si la consulta falla.
+MODELOS_LLM = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 PROMPT = (
     "Analiza esta noticia de videojuegos y responde exclusivamente con un JSON válido "
     "con dos campos: resumen y hashtags. "
