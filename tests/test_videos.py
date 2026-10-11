@@ -186,3 +186,18 @@ def test_discord_no_lleva_emoji_ni_titulo(entorno):
     registro, correr, _ = entorno
     correr(config(bluesky=True, threads=True), {CANAL: {"normal": TODOS[1:]}})
     assert registro.discord == [f"¡Nuevo vídeo!\n\nhttps://www.youtube.com/watch?v={VIDEO_NUEVO}"]
+
+
+def test_los_shorts_en_threads_adjuntan_la_portada_vertical(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True, threads=True), {CANAL: {"normal": [VIDEO_NUEVO, VIDEO_2, SHORT_2]}})
+    t = registro.threads[0]
+    assert t.imagen_en_threads is True and t.enlace == f"https://www.youtube.com/shorts/{SHORT_1}"
+    assert t.url_imagen == f"https://i.ytimg.com/vi/{SHORT_1}/oardefault.jpg"
+    assert registro.bluesky[0].imagen_en_threads is False   # Bluesky sigue igual
+
+
+def test_los_videos_normales_en_threads_siguen_con_la_tarjeta(entorno):
+    registro, correr, _ = entorno
+    correr(config(threads=True), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.threads[0].imagen_en_threads is False and registro.threads[0].url_imagen is None

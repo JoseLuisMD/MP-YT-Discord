@@ -11,6 +11,8 @@ from .estado import cargar_estado, estado_vacio, guardar_estado, marcar_visto
 
 FEED_CANAL = "https://www.youtube.com/feeds/videos.xml?channel_id={canal}"
 FEED_MIEMBROS = "https://www.youtube.com/feeds/videos.xml?playlist_id=UUMF{sufijo}"
+# Portada vertical de un Short (la miniatura del feed, hqdefault, es horizontal 4:3 con bandas)
+PORTADA_SHORT = "https://i.ytimg.com/vi/{video_id}/oardefault.jpg"
 
 
 def _miniatura(v):
@@ -36,7 +38,13 @@ def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random):
             hashtags=extraer_hashtags(v.get("summary", "")),
         ))
     if cfg.get("threads"):
-        threads.publicar(Publicacion(texto=texto, enlace=v.link))
+        if es_short:
+            # La tarjeta de YouTube recorta la portada en horizontal: se adjunta la portada vertical
+            # con el enlace en el texto (si Threads no la acepta, se publica con la tarjeta)
+            portada = PORTADA_SHORT.format(video_id=v.get("yt_videoid"))
+            threads.publicar(Publicacion(texto=texto, enlace=v.link, url_imagen=portada, imagen_en_threads=True))
+        else:
+            threads.publicar(Publicacion(texto=texto, enlace=v.link))
 
 
 def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=None, rng=random):
