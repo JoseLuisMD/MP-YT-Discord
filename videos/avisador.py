@@ -4,8 +4,8 @@ import feedparser
 from common.publicadores import Bluesky, Discord, Publicacion, Threads
 from common.texto import extraer_hashtags
 
-from .canales import ARCHIVO, CANALES
-from .estado import cargar_estado, estado_vacio, guardar_estado
+from .canales import ARCHIVO, CANALES, MAX_VISTOS
+from .estado import cargar_estado, estado_vacio, guardar_estado, marcar_visto
 
 FEED_CANAL = "https://www.youtube.com/feeds/videos.xml?channel_id={canal}"
 FEED_MIEMBROS = "https://www.youtube.com/feeds/videos.xml?playlist_id=UUMF{sufijo}"
@@ -60,9 +60,8 @@ def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=No
 
     for v in reversed(feed.entries):
         video_id = v.get("yt_videoid")
-        if not video_id or video_id in vistos:
+        if not video_id or not marcar_visto(vistos, video_id):
             continue
-        vistos.add(video_id)
         if not inicializado:
             continue
         _avisar(v, mensaje, cfg, miembros, bluesky, threads)
@@ -70,7 +69,7 @@ def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=No
     estado[canal][f"{clave}_inicializado"] = True
 
 
-def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, threads=None):
+def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, threads=None, max_vistos=MAX_VISTOS):
     canales = CANALES if canales is None else canales
     bluesky = bluesky or Bluesky()
     threads = threads or Threads()
@@ -82,4 +81,4 @@ def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, thread
         procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=parse)
         if cfg.get("mensajeMiembros"):
             procesar_feed(canal, cfg, estado, bluesky, threads, miembros=True, parse=parse)
-    guardar_estado(ruta_estado, estado, canales)
+    guardar_estado(ruta_estado, estado, canales, max_vistos)

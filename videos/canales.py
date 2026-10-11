@@ -10,6 +10,7 @@ Claves de cada canal:
 """
 
 ARCHIVO = "vistos.json"
+MAX_VISTOS = 100  # IDs recordados por feed (el feed de YouTube solo trae los 15 últimos)
 
 CANALES = {
     # --- Canales que avisan en Discord, Bluesky y Threads ---

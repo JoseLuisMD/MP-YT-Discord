@@ -46,11 +46,11 @@ def entorno(monkeypatch, cargar, tmp_path):
     feeds = {FEED_CANAL: cargar("youtube_canal.xml"), FEED_MIEMBROS: cargar("youtube_miembros.xml")}
     ruta = tmp_path / "vistos.json"
 
-    def correr(cfg, estado=None):
+    def correr(cfg, estado=None, max_vistos=100):
         if estado is not None:
             ruta.write_text(json.dumps(estado), encoding="utf-8")
         ejecutar(canales=cfg, ruta_estado=str(ruta), parse=lambda url: feeds[url],
-                 bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads))
+                 bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads), max_vistos=max_vistos)
         return json.loads(ruta.read_text(encoding="utf-8"))
 
     return registro, correr, feeds
@@ -146,3 +146,26 @@ def test_si_falta_el_secreto_del_webhook_no_se_rompe(entorno, monkeypatch):
     monkeypatch.delenv("DISCORD_TEST")
     estado = correr(config(), {CANAL: {"normal": TODOS[1:]}})
     assert registro.discord == [] and VIDEO_NUEVO in estado[CANAL]["normal"]
+
+
+def test_se_guardan_en_orden_de_llegada_con_el_mas_nuevo_al_final(entorno):
+    _, correr, _ = entorno
+    estado = correr(config(), {CANAL: {"normal": []}})
+    assert estado[CANAL]["normal"] == list(reversed(TODOS))
+
+
+def test_solo_se_recuerdan_los_ultimos_y_nunca_los_que_siguen_en_el_feed(entorno):
+    registro, correr, _ = entorno
+    antiguos = [f"viejo{i}" for i in range(10)]
+    # Estado heredado en orden alfabético: los del feed están mezclados con los antiguos
+    estado = correr(config(), {CANAL: {"normal": sorted(antiguos + TODOS)}}, max_vistos=6)
+    assert registro.discord == []
+    assert len(estado[CANAL]["normal"]) == 6
+    assert estado[CANAL]["normal"][-4:] == list(reversed(TODOS))   # los del feed se conservan
+
+
+def test_tras_recortar_no_se_repite_ningun_aviso(entorno):
+    registro, correr, _ = entorno
+    correr(config(), {CANAL: {"normal": [f"viejo{i}" for i in range(50)] + TODOS}}, max_vistos=5)
+    correr(config(), max_vistos=5)
+    assert registro.discord == []
