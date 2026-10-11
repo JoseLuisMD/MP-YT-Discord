@@ -160,9 +160,10 @@ class Threads:
             user_id = os.environ["THREADS_USER_ID"]
             token = os.environ["THREADS_ACCESS_TOKEN"]
             if p.imagen_en_threads and p.url_imagen:
-                # Imagen adjuntada por nosotros y enlace simple en el texto (sin tarjeta)
+                # Imagen adjuntada por nosotros y enlace simple en el texto (sin tarjeta); la imagen no es
+                # clicable, así que una mano señala el enlace
                 try:
-                    self._publicar(user_id, token, {"media_type": "IMAGE", "image_url": p.url_imagen, "text": f"{p.texto}\n\n{p.enlace}"})
+                    self._publicar(user_id, token, {"media_type": "IMAGE", "image_url": p.url_imagen, "text": f"{p.texto}\n\n👉 {p.enlace}"})
                     return True
                 except Exception as e:
                     print(f"Threads con imagen falló ({_detalle(e)}); se publica con la tarjeta del enlace")

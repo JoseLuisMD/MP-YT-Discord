@@ -178,7 +178,7 @@ def test_threads_con_imagen_adjunta_la_imagen_y_pone_el_enlace_en_el_texto(monke
     p = Publicacion("Resumen\n\n📰 Vandal", "https://n/1", url_imagen="https://i/x.jpg", imagen_en_threads=True)
     assert Threads().publicar(p) is True
     (_, datos1), (url2, _) = llamadas["post"]
-    assert datos1 == {"media_type": "IMAGE", "image_url": "https://i/x.jpg", "text": "Resumen\n\n📰 Vandal\n\nhttps://n/1",
+    assert datos1 == {"media_type": "IMAGE", "image_url": "https://i/x.jpg", "text": "Resumen\n\n📰 Vandal\n\n👉 https://n/1",
                       "topic_tag": "videojuegos", "access_token": "token"}
     assert url2.endswith("/threads_publish")
     assert llamadas["get"] == ["https://graph.threads.net/v1.0/contenedor-1"] * 2

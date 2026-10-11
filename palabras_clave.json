@@ -1,5 +1,6 @@
 {
   "nivel_1": {
+    "bayonetta": 0,
     "castlevania": 0,
     "diablo": 1,
     "dragon quest": 0,
@@ -11,6 +12,7 @@
     "metroid": 0,
     "monster hunter": 0,
     "pikmin": 0,
+    "pokemon": 0,
     "resident evil": 0,
     "silent hill": 0,
     "sonic": 0,
@@ -23,6 +25,7 @@
     "zelda": 0
   },
   "nivel_2": {
+    "bandai namco": 0,
     "blizzard": 0,
     "capcom": 0,
     "cd projekt": 0,
@@ -34,6 +37,7 @@
     "metroidvania": 0,
     "monolith": 0,
     "nis america": 0,
+    "platinum games": 0,
     "sega": 0,
     "spike chunsoft": 0,
     "square enix": 0,
