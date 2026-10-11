@@ -6,6 +6,7 @@ import requests
 from common.publicadores import Publicacion
 from tests.conftest import Respuesta
 from videos.avisador import ejecutar
+from videos.canales import EMOJIS_AVISO
 
 CANAL = "UCYk9AH19xF7dtzM9OY7obmA"
 FEED_CANAL = f"https://www.youtube.com/feeds/videos.xml?channel_id={CANAL}"
@@ -95,7 +96,9 @@ def test_video_nuevo_tambien_va_a_bluesky_y_threads_si_el_canal_los_tiene(entorn
     correr(config(bluesky=True, threads=True), {CANAL: {"normal": TODOS[1:]}})
     assert len(registro.bluesky) == 1 and len(registro.threads) == 1
     b = registro.bluesky[0]
-    assert b.texto == "REVELAN TODO sobre VIKINGOS en Age of Empires 4"
+    emoji, resto = b.texto.split(" ", 1)
+    assert emoji in EMOJIS_AVISO
+    assert resto == "¡Nuevo vídeo!\n\nREVELAN TODO sobre VIKINGOS en Age of Empires 4"
     assert b.hashtags == ["#ageofempires", "#aoe4", "#vortix"]
     assert b.url_imagen == "https://i1.ytimg.com/vi/XX6h-So_bSA/hqdefault.jpg"
     assert b.titulo_tarjeta == ""
@@ -169,3 +172,17 @@ def test_tras_recortar_no_se_repite_ningun_aviso(entorno):
     correr(config(), {CANAL: {"normal": [f"viejo{i}" for i in range(50)] + TODOS}}, max_vistos=5)
     correr(config(), max_vistos=5)
     assert registro.discord == []
+
+
+def test_el_emoji_de_aviso_cambia_entre_videos(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True), {CANAL: {"normal": []}})   # 4 vídeos nuevos de golpe
+    correr(config(bluesky=True), {CANAL: {"normal": []}})
+    emojis = {p.texto.split(" ", 1)[0] for p in registro.bluesky}
+    assert len(registro.bluesky) == 8 and len(emojis) > 1 and emojis <= set(EMOJIS_AVISO)
+
+
+def test_discord_no_lleva_emoji_ni_titulo(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True, threads=True), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.discord == [f"¡Nuevo vídeo!\n\nhttps://www.youtube.com/watch?v={VIDEO_NUEVO}"]

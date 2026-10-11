@@ -10,6 +10,9 @@ Claves de cada canal:
 """
 
 ARCHIVO = "vistos.json"
+
+# Bluesky y Threads: el aviso empieza con uno de estos emojis (al azar) y el mensaje del canal
+EMOJIS_AVISO = ["🚨", "🔔", "📢", "📣", "❗", "‼️", "🔴", "⏰", "🆕", "⚡"]
 MAX_VISTOS = 100  # IDs recordados por feed (el feed de YouTube solo trae los 15 últimos)
 
 CANALES = {
