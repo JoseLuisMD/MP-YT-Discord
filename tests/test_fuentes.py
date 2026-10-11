@@ -35,33 +35,38 @@ def test_cambio_de_anio():
 
 def test_3djuegos_descarta_las_secciones_que_no_son_de_videojuegos(cargar):
     noticias = fuente("3DJuegos").noticias(parse=lambda url: cargar("3djuegos.xml"))
-    assert [n.titulo for n in noticias] == [
-        "Discord ahora tiene 28 millones de problemas",
-        "Mario Kart World recibe un parche",
-    ]
-    n = noticias[1]
-    assert n.fuente == "3DJuegos"
-    assert n.enlace == "https://www.3djuegos.com/juegos/noticias/mario-kart-parche"
-    assert n.texto == "Mario Kart World mejora."          # sin HTML
-    assert n.url_imagen == "https://i.blogs.es/aa11bb/mario/1024_2000.jpeg"
-    assert n.idioma == "es"
-    assert n.fecha == utc(2026, 10, 10, 9, 50).timestamp()  # 11:50 en horario de España
+    assert len(noticias) == 14   # de 27: fuera series, anime y trivia
+    assert not any(r in n.enlace for n in noticias for r in ("/tv-series/", "/manga-anime/", "/3djuegos-trivia/"))
+    n = noticias[0]
+    assert n.fuente == "3DJuegos" and n.idioma == "es"
+    assert n.enlace.startswith("https://www.3djuegos.com/juegos/the-legend-of-zelda-ocarina-of-time/noticias/")
+    assert n.url_imagen == "https://i.blogs.es/a2a426/qwrtr/1024_2000.jpeg"
+    assert n.fecha == utc(2026, 10, 11, 19, 15, 24).timestamp()   # 21:15:24 en horario de España
+    assert "<" not in n.texto and n.texto                           # sin HTML
+
+
+def test_3djuegos_sin_recuadros_ni_lineas_en_3djuegos(cargar):
+    # Misma plantilla que VidaExtra (Webedia): recuadros «desvío» y líneas «En 3DJuegos | ...»
+    for n in fuente("3DJuegos").noticias(parse=lambda url: cargar("3djuegos.xml")):
+        assert "En 3DJuegos |" not in n.texto
 
 
 def test_vandal_extrae_la_imagen_principal(cargar):
     f = fuente("Vandal")
     assert f.extraer_imagen is imagen_vandal
     noticias = f.noticias(parse=lambda url: cargar("vandal.xml"))
-    assert len(noticias) == 3
-    assert noticias[1].url_imagen == "https://media.vandal.net/m/18/180853/crimson-desert-202412168462772_1.jpg"
+    assert len(noticias) == 30
+    assert noticias[1].url_imagen == "https://media.vandal.net/m/10-2026/11/2026101118273559_1.jpg"
+    assert all(n.url_imagen.startswith("https://media.vandal.net/") for n in noticias)
 
 
 def test_generationamiga_esta_en_ingles_y_su_texto_queda_limpio(cargar):
     f = fuente("GenerationAmiga")
     assert f.idioma == "en"
-    noticias = f.noticias(parse=lambda url: cargar("generationamiga.xml"), ahora=utc(2026, 10, 10, 15, 0))
-    assert noticias[0].titulo == "Command & Conquer Atari ST gets faster, more stable and more compatible"
-    assert "Command & Conquer" in noticias[0].texto
+    noticias = f.noticias(parse=lambda url: cargar("generationamiga.xml"), ahora=utc(2026, 10, 11, 20, 0))
+    assert len(noticias) == 10
+    assert noticias[0].titulo == "After more than a decade, Forza Horizon 2 is no longer stuck on Xbox"
+    assert "Forza Horizon 2" in noticias[0].texto and "&#8230;" not in noticias[0].texto
     assert noticias[0].url_imagen is None
 
 
@@ -125,3 +130,11 @@ def test_eurogamer_descarta_la_categoria_tecnologia(cargar):
     noticias = fuente("Eurogamer.es").noticias(parse=lambda url: cargar("eurogamer.xml"))
     assert len(noticias) == 86
     assert not any("auriculares" in n.titulo or "WiFi" in n.titulo for n in noticias)
+
+
+def test_vidaextra_las_lineas_en_vidaextra_del_final_no_cuentan(cargar):
+    sin_filtro = Fuente("VidaExtra", "https://www.vidaextra.com/feedburner.xml")
+    noticias = sin_filtro.noticias(parse=lambda url: cargar("vidaextra.xml"))
+    assert not any("En VidaExtra |" in n.texto for n in noticias)
+    wanda = next(n for n in noticias if "WandaVision" in n.titulo)
+    assert "Doctor Doom" not in wanda.texto     # estaba solo en un «En VidaExtra | ...» del final

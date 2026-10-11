@@ -10,7 +10,7 @@ from typing import Callable
 
 import feedparser
 
-from common.texto import limpiar_html, quitar_bloques
+from common.texto import limpiar_html, quitar_bloques, quitar_lineas_de_enlaces
 
 from .config import MAX_EDAD_HORAS
 from .imagenes import imagen_eurogamer, imagen_generica, imagen_vandal
@@ -24,6 +24,7 @@ def fecha_entrada(e):
 
 # Bloques del contenido que no son la noticia: «desvio-container» son los recuadros que enlazan a otro
 # artículo (VidaExtra, 3DJuegos y el resto de webs de Webedia). No cuentan para las palabras clave ni el resumen.
+# Tampoco cuentan las líneas «En VidaExtra | <enlace>» del final (ver common/texto.py).
 BLOQUES_EXCLUIDOS = ("desvio-container",)
 
 
@@ -68,7 +69,7 @@ class Fuente:
                 fuente=self.nombre,
                 titulo=titulo,
                 enlace=enlace,
-                texto=limpiar_html(quitar_bloques(_contenido(e), self.bloques_excluidos)),
+                texto=limpiar_html(quitar_lineas_de_enlaces(quitar_bloques(_contenido(e), self.bloques_excluidos))),
                 fecha=fecha_entrada(e),
                 url_imagen=self.extraer_imagen(e),
                 idioma=self.idioma,

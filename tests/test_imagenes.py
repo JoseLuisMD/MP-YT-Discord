@@ -7,27 +7,28 @@ from tests.conftest import Respuesta
 
 def test_vandal_usa_la_imagen_marcada_como_imagen1(entradas):
     e = entradas("vandal.xml")
-    assert imagen_vandal(e[0]) == "https://media.vandal.net/m/10-2026/6/20261061351987_1.jpg"
-    # En esta noticia la primera <img> es la miniatura de un vídeo; la principal está al final
-    assert imagen_vandal(e[1]) == "https://media.vandal.net/m/18/180853/crimson-desert-202412168462772_1.jpg"
+    assert imagen_vandal(e[0]) == "https://media.vandal.net/m/10-2026/11/2026101119161637_1.jpg"
+    # En esta noticia la primera <img> es la miniatura de un vídeo; la principal va marcada con #imagen1
+    assert imagen_vandal(e[1]) == "https://media.vandal.net/m/10-2026/11/2026101118273559_1.jpg"
     # Aquí la primera <img> es una imagen del cuerpo del texto
-    assert imagen_vandal(e[2]) == "https://media.vandal.net/m/10-2026/8/20261089415622_1.jpg"
+    assert imagen_vandal(e[4]) == "https://media.vandal.net/m/10-2026/5/20261051684117_1.jpg"
 
 
 def test_el_extractor_generico_no_basta_para_vandal(entradas):
     """Documenta por qué Vandal tiene su propio extractor."""
     e = entradas("vandal.xml")
-    assert imagen_generica(e[1]) == "https://videos.vandalimg.com/t320x180/1009876.jpg"
+    assert imagen_generica(e[1]) == "https://videos.vandalimg.com/t320x180/1010754.jpg"
+    assert imagen_generica(e[4]) == "https://media.vandal.net/m/9-2026/9/20269911474483_1.jpg"
 
 
 def test_3djuegos_la_imagen_es_la_primera_img(entradas):
     e = entradas("3djuegos.xml")
-    assert imagen_generica(e[1]) == "https://i.blogs.es/d2d792/discord/1024_2000.jpeg"
+    assert imagen_generica(e[0]) == "https://i.blogs.es/a2a426/qwrtr/1024_2000.jpeg"
     assert all(imagen_generica(x).startswith("https://i.blogs.es/") for x in e)
 
 
 def test_generationamiga_no_trae_imagen_en_el_feed(entradas):
-    assert [imagen_generica(e) for e in entradas("generationamiga.xml")] == [None, None, None]
+    assert [imagen_generica(e) for e in entradas("generationamiga.xml")] == [None] * 10
 
 
 def test_media_thumbnail_de_youtube(entradas):

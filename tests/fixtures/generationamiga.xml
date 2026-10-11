@@ -1,5 +1,172 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>GenerationAmiga.com</title>
-<item><title>Command &amp; Conquer Atari ST gets faster, more stable and more compatible</title><link>https://www.generationamiga.com/2026/10/10/command-conquer-atari-st/</link><pubDate>Sat, 10 Oct 2026 13:38:27 +0000</pubDate><category><![CDATA[Atari news]]></category><description><![CDATA[The Atari ST conversion of Command &#38; Conquer has taken a substantial leap forward&#8230; ]]></description></item>
-<item><title>Sonic Mania comes to Sega Saturn through an ambitious fan port</title><link>https://www.generationamiga.com/2026/10/10/sonic-mania-saturn/</link><pubDate>Sat, 10 Oct 2026 13:09:00 +0000</pubDate><category><![CDATA[Sega news]]></category><description><![CDATA[Someone is actually getting Sonic Mania running on a Sega Saturn&#8230; ]]></description></item>
-<item><title>Rockman 4 Eternal brings new levels, bosses and music to Mega Man 4</title><link>https://www.generationamiga.com/2026/10/10/rockman-4-eternal/</link><pubDate>Sat, 10 Oct 2026 12:48:25 +0000</pubDate><category><![CDATA[Nintendo news]]></category><description><![CDATA[Rockman 4 Eternal takes Mega Man 4 and changes far more than a few sprites&#8230; ]]></description></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>October 2026 &#8211; GenerationAmiga.com</title>
+	<atom:link href="https://www.generationamiga.com/2026/10/feed/" rel="self" type="application/rss+xml" />
+	<link>https://www.generationamiga.com</link>
+	<description>Your portal to retro gaming and Amiga news</description>
+	<lastBuildDate>Sun, 11 Oct 2026 15:31:49 +0000</lastBuildDate>
+	<language>en-GB</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+
+<image>
+	<url>https://www.generationamiga.com/wp-content/uploads/2017/07/cropped-logoGAkleinezrGA-32x32.png</url>
+	<title>October 2026 &#8211; GenerationAmiga.com</title>
+	<link>https://www.generationamiga.com</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>After more than a decade, Forza Horizon 2 is no longer stuck on Xbox</title>
+		<link>https://www.generationamiga.com/2026/10/11/after-more-than-a-decade-forza-horizon-2-is-no-longer-stuck-on-xbox/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 15:31:49 +0000</pubDate>
+				<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34891</guid>
+
+					<description><![CDATA[Forza Horizon 2 never received a PC release. Twelve years after its arrival on Xbox One, an independent project is offering a way to run the racing game on Windows.&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>PS5SX2 2.02 is out with faster loading, CRT filters and major PS5 fixes</title>
+		<link>https://www.generationamiga.com/2026/10/11/ps5sx2-2-02-is-out-with-faster-loading-crt-filters-and-major-ps5-fixes/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 14:51:05 +0000</pubDate>
+				<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34885</guid>
+
+					<description><![CDATA[PS5SX2 2.02 is out for jailbroken PlayStation 5 consoles, and it&#8217;s focused on the everyday problems of PS2 emulation. Games should start sooner, large libraries should run more smoothly, and&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Super Mario Odyssey PC port could arrive in November 2026</title>
+		<link>https://www.generationamiga.com/2026/10/11/super-mario-odyssey-pc-port-could-arrive-in-november-2026/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 14:28:18 +0000</pubDate>
+				<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34882</guid>
+
+					<description><![CDATA[Super Mario Odyssey has made an unexpected appearance on PC. Not through a standard Switch emulator, either. Developer Belmante has shown Nintendo&#8217;s 2017 platformer running as a native Windows application,&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Hyper Runner races onto Amiga AGA and CD32 with digital and CD editions</title>
+		<link>https://www.generationamiga.com/2026/10/11/hyper-runner-races-onto-amiga-aga-and-cd32-with-digital-and-cd-editions/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 14:12:11 +0000</pubDate>
+				<category><![CDATA[Amiga news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34879</guid>
+
+					<description><![CDATA[There&#8217;s a new racing game for the Amiga AGA and Commodore CD32. Hyper Runner, developed by Raster Wizards, reached digital storefronts on 6 October 2026, a month after its physical&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>A jailbroken PlayStation 5 can now run Microsoft&#8217;s Windows 95</title>
+		<link>https://www.generationamiga.com/2026/10/11/a-jailbroken-playstation-5-can-now-run-microsofts-windows-95/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 13:54:13 +0000</pubDate>
+				<category><![CDATA[Playstation news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34876</guid>
+
+					<description><![CDATA[A PlayStation 5 isn&#8217;t supposed to greet you with the Windows 95 desktop. Yet Microsoft&#8217;s ageing operating system has now been shown running on Sony&#8217;s console, courtesy of a jailbreak&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>New BioShock Together mod turns BioShock Remastered into a co-op game</title>
+		<link>https://www.generationamiga.com/2026/10/11/new-bioshock-together-mod-turns-bioshock-remastered-into-a-co-op-game/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 13:38:30 +0000</pubDate>
+				<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34873</guid>
+
+					<description><![CDATA[BioShock&#8217;s trip beneath the Atlantic has been a solo affair. BioShock Together changes the setup, bringing two-player co-op to BioShock Remastered on PC. You can explore Rapture with a partner,&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Digimon World 2 comes to PC with native Windows and Linux support</title>
+		<link>https://www.generationamiga.com/2026/10/11/digimon-world-2-comes-to-pc-with-native-windows-and-linux-support/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 13:11:51 +0000</pubDate>
+				<category><![CDATA[Linux news]]></category>
+		<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34870</guid>
+
+					<description><![CDATA[Digimon World 2 has a new home on PC. A native port called DW2-PC now runs on Windows and Linux, bringing the PlayStation dungeon crawler to modern machines without a&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Mega Commando for Sega Mega Drive gets its first gameplay reveal</title>
+		<link>https://www.generationamiga.com/2026/10/11/mega-commando-for-sega-mega-drive-gets-its-first-gameplay-reveal/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 12:44:10 +0000</pubDate>
+				<category><![CDATA[Sega news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34866</guid>
+
+					<description><![CDATA[Mega Commando has its first gameplay video, giving Sega Mega Drive and Genesis owners a proper glimpse of a new take on Capcom&#8217;s 1985 arcade shooter. It&#8217;s still in development,&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Time Crisis II gets an unofficial PC port with mouse and light gun support</title>
+		<link>https://www.generationamiga.com/2026/10/11/time-crisis-ii-gets-an-unofficial-pc-port-with-mouse-and-light-gun-support/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 12:14:27 +0000</pubDate>
+				<category><![CDATA[Windows news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34863</guid>
+
+					<description><![CDATA[Time Crisis II is on PC, and you don&#8217;t need a light gun to play it. An unofficial port of Namco&#8217;s 1997 arcade shooter is available for Windows, with mouse&#8230; ]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Quake VR: Unleashed takes the legendary shooter to a new level of VR</title>
+		<link>https://www.generationamiga.com/2026/10/11/quake-vr-unleashed-takes-the-legendary-shooter-to-a-new-level-of-vr/</link>
+		
+		<dc:creator><![CDATA[Generationamiga]]></dc:creator>
+		<pubDate>Sun, 11 Oct 2026 11:52:05 +0000</pubDate>
+				<category><![CDATA[Virtual Reality news]]></category>
+		<guid isPermaLink="false">https://www.generationamiga.com/?p=34860</guid>
+
+					<description><![CDATA[Quake’s rocket launcher is still a central part of the action, but firing it is no longer simply a mouse click. In Quake VR: Unleashed, players raise weapons with their&#8230; ]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>

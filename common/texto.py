@@ -68,6 +68,18 @@ def quitar_bloques(texto, clases=()):
     return "".join(parser.salida)
 
 
+# Párrafo que solo es «Etiqueta | enlace(s)»: «En VidaExtra | <a>otra noticia</a>», «Imagen | <a>fuente</a>»...
+_LINEA_DE_ENLACES = re.compile(
+    r"<p[^>]*>(?:\s|&nbsp;)*[^<>|]{1,40}\|(?:\s|&nbsp;|&#160;)*(?:<a\b[^>]*>.*?</a>(?:[\s,]|&nbsp;)*)+</p>",
+    re.S | re.I,
+)
+
+
+def quitar_lineas_de_enlaces(texto):
+    """Quita los párrafos que solo enlazan a otros artículos o créditos (no son parte de la noticia)."""
+    return _LINEA_DE_ENLACES.sub(" ", texto or "")
+
+
 def recortar(texto, maximo):
     """Recorta en una palabra completa y añade «…» si el texto no cabe."""
     if len(texto) <= maximo:

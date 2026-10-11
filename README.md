@@ -23,7 +23,7 @@ noticias/
   seleccion.py          coincidencias por niveles, elección y recencia
   resumen.py            resumen y hashtags con Gemini
   proceso.py            orquestación
-tests/                  pruebas y copias de feeds reales (tests/fixtures)
+tests/                  pruebas; en tests/fixtures, los feeds de noticias guardados tal cual de cada web
 ```
 
 ## Ejecutar
@@ -55,6 +55,6 @@ python -m pytest
   se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.
   Si Threads muestra su tarjeta sin imagen, pon `imagen_en_threads=True`: se publica con la imagen adjunta
   y el enlace en el texto (si la imagen falla, se vuelve a la tarjeta normal).
-  Después, guarda una copia de su feed en `tests/fixtures/` y añade una prueba.
+  Después, guarda su feed completo desde el navegador (Ctrl+S) en `tests/fixtures/` y añade una prueba.
 - **Una red social nueva**: una clase con un método `publicar(self, p: Publicacion) -> bool` en
   `common/publicadores.py` y añadirla a la lista de publicadores en `noticias/proceso.py` o `videos/avisador.py`.
