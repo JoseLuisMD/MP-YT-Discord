@@ -11,8 +11,13 @@ from .estado import cargar_estado, estado_vacio, guardar_estado, marcar_visto
 
 FEED_CANAL = "https://www.youtube.com/feeds/videos.xml?channel_id={canal}"
 FEED_MIEMBROS = "https://www.youtube.com/feeds/videos.xml?playlist_id=UUMF{sufijo}"
-# Portada vertical de un Short (la miniatura del feed, hqdefault, es horizontal 4:3 con bandas)
-PORTADA_SHORT = "https://i.ytimg.com/vi/{video_id}/oardefault.jpg"
+# Portada vertical de un Short. YouTube solo sirve la portada personalizada en horizontal
+# (maxresdefault: la portada 9:16 centrada con un fondo difuminado a los lados; oardefault es un
+# fotograma automático), así que se recorta el centro 9:16 con el proxy de imágenes weserv.
+PORTADA_SHORT = (
+    "https://images.weserv.nl/?url=i.ytimg.com/vi/{video_id}/maxresdefault.jpg"
+    "&w=405&h=720&fit=cover&a=center&output=jpg"
+)
 
 
 def _miniatura(v):

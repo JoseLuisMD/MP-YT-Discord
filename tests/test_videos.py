@@ -193,7 +193,8 @@ def test_los_shorts_en_threads_adjuntan_la_portada_vertical(entorno):
     correr(config(bluesky=True, threads=True), {CANAL: {"normal": [VIDEO_NUEVO, VIDEO_2, SHORT_2]}})
     t = registro.threads[0]
     assert t.imagen_en_threads is True and t.enlace == f"https://www.youtube.com/shorts/{SHORT_1}"
-    assert t.url_imagen == f"https://i.ytimg.com/vi/{SHORT_1}/oardefault.jpg"
+    assert t.url_imagen == (f"https://images.weserv.nl/?url=i.ytimg.com/vi/{SHORT_1}/maxresdefault.jpg"
+                            "&w=405&h=720&fit=cover&a=center&output=jpg")
     assert registro.bluesky[0].imagen_en_threads is False   # Bluesky sigue igual
 
 
