@@ -5,7 +5,7 @@ Para una web con un formato especial, se escribe su extractor aquí y se asigna 
 """
 import html
 import re
-from urllib.parse import urljoin
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 import requests
 
@@ -40,6 +40,17 @@ def imagen_vandal(e):
     if m:
         return html.unescape(m.group(1))
     return imagen_generica(e)
+
+
+def imagen_eurogamer(e):
+    """Eurogamer pide la imagen con «auto=webp» (WebP si el navegador lo admite). Threads no acepta WebP:
+    se quita ese parámetro para recibir siempre el JPEG que indica «format=jpg»."""
+    url = imagen_generica(e)
+    if not url:
+        return None
+    partes = urlsplit(url)
+    consulta = [(k, v) for k, v in parse_qsl(partes.query) if not (k == "auto" and v == "webp")]
+    return urlunsplit(partes._replace(query=urlencode(consulta)))
 
 
 def imagen_og(enlace):

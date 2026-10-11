@@ -1,4 +1,4 @@
-from common.texto import extraer_hashtags, limpiar_html, normalizar, recortar
+from common.texto import extraer_hashtags, limpiar_html, normalizar, quitar_bloques, recortar
 
 
 def test_normalizar_quita_tildes_y_mayusculas():
@@ -19,3 +19,19 @@ def test_extraer_hashtags_sin_repetidos_ni_numeros():
     texto = "Mira #AgeOfEmpires y #aoe4. También #ageofempires y el #1 del ranking #psx"
     assert extraer_hashtags(texto) == ["#AgeOfEmpires", "#aoe4", "#psx"]
     assert extraer_hashtags(None) == []
+
+
+def test_quitar_bloques_elimina_el_bloque_entero_con_lo_que_lleva_dentro():
+    html = ('<p>Antes <a href="x">enlace normal</a></p>'
+            '<div class="asset"><div class="desvio-container"><div><img src="i.jpg"><a>Otra de Warcraft</a></div></div></div>'
+            '<p>Después &amp; fin</p>')
+    assert limpiar_html(quitar_bloques(html, ("desvio-container",))) == "Antes enlace normal Después & fin"
+
+
+def test_quitar_bloques_quita_scripts_y_estilos():
+    html = '<p>Hola</p><script type="application/json">{"title": "Zelda"}</script><style>.a{}</style><p>adiós</p>'
+    assert limpiar_html(quitar_bloques(html)) == "Hola adiós"
+
+
+def test_quitar_bloques_tolera_html_mal_cerrado():
+    assert limpiar_html(quitar_bloques('<div class="quitar"><p>fuera</div><p>queda</p>', ("quitar",))) == "queda"

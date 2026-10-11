@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 from noticias.fuentes import FUENTES, Fuente
+from common.texto import normalizar
 from noticias.imagenes import imagen_vandal
 
 
@@ -85,3 +86,42 @@ def test_la_lista_de_fuentes_es_coherente():
     nombres = [f.nombre for f in FUENTES]
     assert len(nombres) == len(set(nombres))
     assert all(f.url.startswith("https://") for f in FUENTES)
+
+
+def test_vidaextra_los_recuadros_que_enlazan_a_otra_noticia_no_cuentan(cargar):
+    # Caso real: la noticia de WandaVision enlaza a un artículo de World of Warcraft en un recuadro «desvío»
+    sin_filtro = Fuente("VidaExtra", "https://www.vidaextra.com/feedburner.xml")   # WandaVision es de /series/
+    noticias = sin_filtro.noticias(parse=lambda url: cargar("vidaextra.xml"))
+    wanda = next(n for n in noticias if "WandaVision" in n.titulo)
+    assert "warcraft" not in normalizar(wanda.texto)
+    assert "canal oficial de Marvel en YouTube" in wanda.texto        # los enlaces del propio texto se mantienen
+    wow = next(n for n in noticias if "World of Warcraft" in n.titulo)
+    assert "warcraft" in normalizar(wow.texto)
+
+
+def test_vidaextra_descarta_cine_y_series(cargar):
+    noticias = fuente("VidaExtra").noticias(parse=lambda url: cargar("vidaextra.xml"))
+    assert len(noticias) == 14
+    assert not any("/cine/" in n.enlace or "/series/" in n.enlace for n in noticias)
+
+
+def test_hobbyconsolas_usa_la_imagen_del_feed(cargar):
+    noticias = fuente("Hobby Consolas").noticias(parse=lambda url: cargar("hobbyconsolas.xml"))
+    assert noticias and all(n.url_imagen.startswith("https://imagenes.hobbyconsolas.com/") for n in noticias)
+
+
+def test_eurogamer_pide_la_imagen_en_jpg_y_no_en_webp(cargar):
+    noticias = fuente("Eurogamer.es").noticias(parse=lambda url: cargar("eurogamer.xml"))
+    assert noticias[0].url_imagen == "https://assetsio.gnwcdn.com/20261010_193637.jpg?width=690&quality=85&format=jpg"
+    assert all(n.url_imagen and "auto=webp" not in n.url_imagen and "format=jpg" in n.url_imagen for n in noticias)
+
+
+def test_hobbyconsolas_descarta_hobbycine(cargar):
+    noticias = fuente("Hobby Consolas").noticias(parse=lambda url: cargar("hobbyconsolas.xml"))
+    assert len(noticias) == 37 and not any("/hobbycine/" in n.enlace for n in noticias)
+
+
+def test_eurogamer_descarta_la_categoria_tecnologia(cargar):
+    noticias = fuente("Eurogamer.es").noticias(parse=lambda url: cargar("eurogamer.xml"))
+    assert len(noticias) == 86
+    assert not any("auriculares" in n.titulo or "WiFi" in n.titulo for n in noticias)
