@@ -1,0 +1,155 @@
+import pytest
+import requests
+from atproto_client.models.blob_ref import BlobRef, IpldLink
+from atproto_core.cid import CID
+
+from common import publicadores
+from common.publicadores import Bluesky, Discord, Publicacion, Threads
+from tests.conftest import Respuesta
+
+
+@pytest.fixture(autouse=True)
+def entorno(monkeypatch):
+    monkeypatch.setenv("DISCORD_WEBHOOK", "https://discord.test/hook")
+    monkeypatch.setenv("BSKY_HANDLE", "yo.bsky.social")
+    monkeypatch.setenv("BSKY_APP_PASSWORD", "clave")
+    monkeypatch.setenv("THREADS_USER_ID", "42")
+    monkeypatch.setenv("THREADS_ACCESS_TOKEN", "token")
+    monkeypatch.setattr(publicadores.time, "sleep", lambda s: None)
+
+
+# ---------------- Discord ----------------
+def test_discord_envia_texto_y_enlace(monkeypatch):
+    enviados = []
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (enviados.append((url, kw["json"])), Respuesta(204))[1])
+    assert Discord("DISCORD_WEBHOOK").publicar(Publicacion("¡Nuevo vídeo!", "https://y/1")) is True
+    assert enviados == [("https://discord.test/hook", {"content": "¡Nuevo vídeo!\n\nhttps://y/1"})]
+
+
+def test_discord_sin_secreto_devuelve_false(monkeypatch):
+    monkeypatch.delenv("DISCORD_WEBHOOK")
+    assert Discord("DISCORD_WEBHOOK").publicar(Publicacion("a", "b")) is False
+
+
+def test_discord_con_error_http_devuelve_false_sin_mostrar_la_url(monkeypatch, capsys):
+    monkeypatch.setattr(requests, "post", lambda url, **kw: Respuesta(500))
+    assert Discord("DISCORD_WEBHOOK").publicar(Publicacion("a", "b")) is False
+    salida = capsys.readouterr().out
+    assert "500" in salida and "discord.test" not in salida
+
+
+# ---------------- Bluesky ----------------
+BLOB = BlobRef(mime_type="image/jpeg", size=10,
+               ref=IpldLink(link=str(CID.decode("bafkreibme22gw2h7y2h7tg2fhqotaqjucnbc24deqo72b6mkl2egezxhvy"))))
+
+
+class ClienteFalso:
+    publicaciones = []
+    subidas = []
+    login_falla = False
+
+    def login(self, handle, clave):
+        if ClienteFalso.login_falla:
+            raise RuntimeError("login rechazado")
+
+    def upload_blob(self, datos):
+        ClienteFalso.subidas.append(datos)
+        return type("Subida", (), {"blob": BLOB})()
+
+    def send_post(self, text, embed):
+        ClienteFalso.publicaciones.append((text, embed))
+
+
+@pytest.fixture
+def bsky(monkeypatch):
+    ClienteFalso.publicaciones, ClienteFalso.subidas, ClienteFalso.login_falla = [], [], False
+    monkeypatch.setattr(publicadores, "Client", ClienteFalso)
+    monkeypatch.setattr(requests, "get", lambda url, **kw: Respuesta(
+        200, cabeceras={"Content-Type": "image/jpeg; charset=binary"}, contenido=b"imagen"))
+    return ClienteFalso
+
+
+def etiquetas(builder):
+    return [f.features[0].tag for f in builder.build_facets()]
+
+
+def test_bluesky_publica_texto_hashtags_clicables_y_tarjeta_con_miniatura(bsky):
+    p = Publicacion("Título del vídeo", "https://y/1", titulo_tarjeta="", url_imagen="https://i/x.jpg",
+                    hashtags=["#aoe4", "#vortix"])
+    assert Bluesky().publicar(p) is True
+    texto, embed = bsky.publicaciones[0]
+    assert texto.build_text() == "Título del vídeo\n\n#aoe4 #vortix"
+    assert etiquetas(texto) == ["aoe4", "vortix"]
+    assert embed.external.uri == "https://y/1" and embed.external.thumb == BLOB
+    assert bsky.subidas == [b"imagen"]
+
+
+def test_bluesky_la_tarjeta_lleva_el_titulo_que_se_le_pasa(bsky):
+    Bluesky().publicar(Publicacion("Resumen", "https://n/1", titulo_tarjeta="Título de la noticia"))
+    assert bsky.publicaciones[0][1].external.title == "Título de la noticia"
+
+
+def test_bluesky_respeta_el_limite_de_caracteres(bsky):
+    p = Publicacion("x" * 250, "https://n/1", hashtags=["#" + "a" * 20] * 5)
+    Bluesky().publicar(p)
+    assert len(bsky.publicaciones[0][0].build_text()) <= 300
+
+
+def test_bluesky_ignora_hashtags_invalidos(bsky):
+    Bluesky().publicar(Publicacion("Texto", "https://n/1", hashtags=["sin-almohadilla", "#con espacio", "#ok"]))
+    assert etiquetas(bsky.publicaciones[0][0]) == ["ok"]
+
+
+def test_bluesky_si_la_imagen_pesa_mas_de_1mb_publica_sin_miniatura(bsky, monkeypatch):
+    monkeypatch.setattr(requests, "get", lambda url, **kw: Respuesta(
+        200, cabeceras={"Content-Type": "image/jpeg"}, contenido=b"x" * 1_100_000))
+    assert Bluesky().publicar(Publicacion("T", "https://n/1", url_imagen="https://i/grande.jpg")) is True
+    assert bsky.publicaciones[0][1].external.thumb is None and bsky.subidas == []
+
+
+def test_bluesky_si_la_url_no_es_una_imagen_publica_sin_miniatura(bsky, monkeypatch):
+    monkeypatch.setattr(requests, "get", lambda url, **kw: Respuesta(200, cabeceras={"Content-Type": "text/html"}))
+    Bluesky().publicar(Publicacion("T", "https://n/1", url_imagen="https://i/pagina"))
+    assert bsky.publicaciones[0][1].external.thumb is None
+
+
+def test_bluesky_sin_imagen_no_descarga_nada(bsky, monkeypatch):
+    monkeypatch.setattr(requests, "get", lambda *a, **k: pytest.fail("no debería descargar"))
+    assert Bluesky().publicar(Publicacion("T", "https://n/1")) is True
+
+
+def test_bluesky_si_falla_el_login_devuelve_false(bsky):
+    bsky.login_falla = True
+    assert Bluesky().publicar(Publicacion("T", "https://n/1")) is False
+
+
+def test_bluesky_sin_credenciales_devuelve_false(bsky, monkeypatch):
+    monkeypatch.delenv("BSKY_HANDLE")
+    assert Bluesky().publicar(Publicacion("T", "https://n/1")) is False
+
+
+# ---------------- Threads ----------------
+def test_threads_crea_el_contenedor_y_lo_publica(monkeypatch):
+    llamadas = []
+
+    def falso(url, **kw):
+        llamadas.append((url, kw["data"]))
+        return Respuesta(200, {"id": "contenedor-1"})
+    monkeypatch.setattr(requests, "post", falso)
+    assert Threads(tema="videojuegos").publicar(Publicacion("Resumen", "https://n/1")) is True
+    (url1, datos1), (url2, datos2) = llamadas
+    assert url1 == "https://graph.threads.net/v1.0/42/threads"
+    assert datos1 == {"media_type": "TEXT", "text": "Resumen", "link_attachment": "https://n/1",
+                      "topic_tag": "videojuegos", "access_token": "token"}
+    assert url2 == "https://graph.threads.net/v1.0/42/threads_publish"
+    assert datos2 == {"creation_id": "contenedor-1", "access_token": "token"}
+
+
+def test_threads_con_error_devuelve_false(monkeypatch):
+    monkeypatch.setattr(requests, "post", lambda url, **kw: Respuesta(400))
+    assert Threads().publicar(Publicacion("a", "b")) is False
+
+
+def test_threads_sin_credenciales_devuelve_false(monkeypatch):
+    monkeypatch.delenv("THREADS_ACCESS_TOKEN")
+    assert Threads().publicar(Publicacion("a", "b")) is False

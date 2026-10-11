@@ -1,6 +1,6 @@
 name: Publicar noticias de videojuegos
 on:
-  workflow_dispatch:
+  workflow_dispatch:          # lo lanza cron-job.org o tú a mano
 
 permissions:
   contents: write
@@ -16,8 +16,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install feedparser requests atproto
-      - run: python noticias.py
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m noticias
         env:
           DISCORD_WEBHOOK_NOTICIAS: ${{ secrets.DISCORD_WEBHOOK_NOTICIAS }}
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}

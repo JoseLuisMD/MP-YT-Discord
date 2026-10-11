@@ -1,0 +1,148 @@
+import json
+
+import pytest
+import requests
+
+from common.publicadores import Publicacion
+from tests.conftest import Respuesta
+from videos.avisador import ejecutar
+
+CANAL = "UCYk9AH19xF7dtzM9OY7obmA"
+FEED_CANAL = f"https://www.youtube.com/feeds/videos.xml?channel_id={CANAL}"
+FEED_MIEMBROS = f"https://www.youtube.com/feeds/videos.xml?playlist_id=UUMF{CANAL[2:]}"
+
+# Vídeos del fixture youtube_canal.xml, de más nuevo a más antiguo
+VIDEO_NUEVO, SHORT_1, VIDEO_2, SHORT_2 = "XX6h-So_bSA", "lgBi27X5LiY", "07SY2-66Vzk", "Zy_4SytrVlA"
+TODOS = [VIDEO_NUEVO, SHORT_1, VIDEO_2, SHORT_2]
+
+
+def config(**cambios):
+    cfg = {"mensaje": "¡Nuevo vídeo!", "webhooks": ["DISCORD_TEST"], "incluirShorts": True,
+           "bluesky": False, "threads": False}
+    cfg.update(cambios)
+    return {CANAL: cfg}
+
+
+class Registro:
+    """Anota lo que se publica en cada red."""
+
+    def __init__(self):
+        self.discord, self.bluesky, self.threads = [], [], []
+
+    class _Red:
+        def __init__(self, lista):
+            self.lista = lista
+
+        def publicar(self, p):
+            self.lista.append(p)
+            return True
+
+
+@pytest.fixture
+def entorno(monkeypatch, cargar, tmp_path):
+    monkeypatch.setenv("DISCORD_TEST", "https://discord.test/h")
+    registro = Registro()
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (registro.discord.append(kw["json"]["content"]), Respuesta(204))[1])
+    feeds = {FEED_CANAL: cargar("youtube_canal.xml"), FEED_MIEMBROS: cargar("youtube_miembros.xml")}
+    ruta = tmp_path / "vistos.json"
+
+    def correr(cfg, estado=None):
+        if estado is not None:
+            ruta.write_text(json.dumps(estado), encoding="utf-8")
+        ejecutar(canales=cfg, ruta_estado=str(ruta), parse=lambda url: feeds[url],
+                 bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads))
+        return json.loads(ruta.read_text(encoding="utf-8"))
+
+    return registro, correr, feeds
+
+
+def test_la_primera_ejecucion_solo_registra_sin_avisar(entorno):
+    registro, correr, _ = entorno
+    estado = correr(config(mensajeMiembros="Miembros"))
+    assert registro.discord == []
+    assert sorted(estado[CANAL]["normal"]) == sorted(TODOS)
+    assert sorted(estado[CANAL]["miembros"]) == ["Cbm0tNFJdho", "IeKToohx5kc"]
+
+
+def test_un_video_nuevo_se_avisa_por_discord(entorno):
+    registro, correr, _ = entorno
+    correr(config(), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.discord == [f"¡Nuevo vídeo!\n\nhttps://www.youtube.com/watch?v={VIDEO_NUEVO}"]
+    assert registro.bluesky == [] and registro.threads == []
+
+
+def test_no_se_vuelve_a_avisar_de_lo_ya_visto(entorno):
+    registro, correr, _ = entorno
+    correr(config(), {CANAL: {"normal": TODOS}})
+    assert registro.discord == []
+
+
+def test_shorts_desactivados_no_se_avisan_pero_se_registran(entorno):
+    registro, correr, _ = entorno
+    estado = correr(config(incluirShorts=False), {CANAL: {"normal": [VIDEO_NUEVO, VIDEO_2, SHORT_2]}})
+    assert registro.discord == []
+    assert SHORT_1 in estado[CANAL]["normal"]
+
+
+def test_shorts_activados_si_se_avisan(entorno):
+    registro, correr, _ = entorno
+    correr(config(incluirShorts=True), {CANAL: {"normal": [VIDEO_NUEVO, VIDEO_2, SHORT_2]}})
+    assert registro.discord == [f"¡Nuevo vídeo!\n\nhttps://www.youtube.com/shorts/{SHORT_1}"]
+
+
+def test_video_nuevo_tambien_va_a_bluesky_y_threads_si_el_canal_los_tiene(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True, threads=True), {CANAL: {"normal": TODOS[1:]}})
+    assert len(registro.bluesky) == 1 and len(registro.threads) == 1
+    b = registro.bluesky[0]
+    assert b.texto == "REVELAN TODO sobre VIKINGOS en Age of Empires 4"
+    assert b.hashtags == ["#ageofempires", "#aoe4", "#vortix"]
+    assert b.url_imagen == "https://i1.ytimg.com/vi/XX6h-So_bSA/hqdefault.jpg"
+    assert b.titulo_tarjeta == ""
+    assert registro.threads[0].texto == b.texto
+
+
+def test_video_de_miembros_solo_se_avisa_por_discord_con_su_mensaje(entorno):
+    registro, correr, _ = entorno
+    cfg = config(mensajeMiembros="¡Vídeo para miembros!", bluesky=True, threads=True)
+    correr(cfg, {CANAL: {"normal": TODOS, "miembros": ["Cbm0tNFJdho"]}})
+    assert registro.discord == ["¡Vídeo para miembros!\n\nhttps://www.youtube.com/watch?v=IeKToohx5kc"]
+    assert registro.bluesky == [] and registro.threads == []
+
+
+def test_el_feed_de_miembros_tiene_su_propia_primera_ejecucion(entorno):
+    registro, correr, _ = entorno
+    estado = correr(config(mensajeMiembros="Miembros"), {CANAL: {"normal": TODOS}})
+    assert registro.discord == []  # solo se registran los de miembros
+    assert sorted(estado[CANAL]["miembros"]) == ["Cbm0tNFJdho", "IeKToohx5kc"]
+
+
+def test_sin_mensaje_de_miembros_no_se_consulta_ese_feed(entorno):
+    _, correr, feeds = entorno
+    del feeds[FEED_MIEMBROS]  # si se consultara, la prueba fallaría con KeyError
+    estado = correr(config(), {CANAL: {"normal": TODOS}})
+    assert "miembros" not in estado[CANAL]
+
+
+def test_el_formato_antiguo_del_estado_se_entiende(entorno):
+    registro, correr, _ = entorno
+    estado = correr(config(), {CANAL: TODOS[1:]})   # antes: una lista de IDs
+    assert registro.discord == [f"¡Nuevo vídeo!\n\nhttps://www.youtube.com/watch?v={VIDEO_NUEVO}"]
+    assert sorted(estado[CANAL]["normal"]) == sorted(TODOS)
+
+
+def test_un_feed_vacio_no_cambia_el_estado(entorno):
+    registro, correr, feeds = entorno
+
+    class Vacio:
+        entries = []
+    feeds[FEED_CANAL] = Vacio()
+    estado = correr(config(), {CANAL: {"normal": ["a"]}})
+    assert estado[CANAL]["normal"] == ["a"] and registro.discord == []
+
+
+def test_si_falta_el_secreto_del_webhook_no_se_rompe(entorno, monkeypatch):
+    registro, correr, _ = entorno
+    monkeypatch.delenv("DISCORD_TEST")
+    estado = correr(config(), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.discord == [] and VIDEO_NUEVO in estado[CANAL]["normal"]
