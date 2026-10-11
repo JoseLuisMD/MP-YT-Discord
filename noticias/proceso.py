@@ -6,7 +6,7 @@ import feedparser
 from common.estado import cargar_json, guardar_json
 from common.publicadores import Bluesky, Discord, Publicacion, Threads
 
-from .config import (ARCHIVO, ARCHIVO_PALABRAS, MAX_HISTORIAL, MAX_POR_EJECUCION,
+from .config import (ARCHIVO, ARCHIVO_PALABRAS, EMOJIS_FUENTE, MAX_HISTORIAL, MAX_POR_EJECUCION,
                      TEMA_THREADS, USER_AGENT, WEBHOOK_NOTICIAS)
 from .fuentes import FUENTES
 from .imagenes import imagen_og
@@ -28,9 +28,9 @@ def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
     return candidatas
 
 
-def publicar_noticia(n, resumen, hashtags, publicadores):
+def publicar_noticia(n, resumen, hashtags, publicadores, rng=random):
     """Publica en todos los destinos. True si al menos uno ha funcionado."""
-    texto = f"{resumen}\n\n📰 {n.fuente}"
+    texto = f"{resumen}\n\n{rng.choice(EMOJIS_FUENTE)} {n.fuente}"
     publicacion = Publicacion(
         texto=texto,
         enlace=n.enlace,
@@ -65,7 +65,7 @@ def ejecutar(fuentes=None, ruta=ARCHIVO, ruta_palabras=ARCHIVO_PALABRAS, parse=N
             if resultado is None:
                 continue
             resumen, hashtags = resultado
-            if publicar_noticia(c, resumen, hashtags, publicadores):
+            if publicar_noticia(c, resumen, hashtags, publicadores, rng):
                 publicadas.append(c.enlace)
                 if c.nivel:
                     contar(palabras, c.nivel, c.coincide)

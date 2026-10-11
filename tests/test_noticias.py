@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import pytest
 
 from noticias import proceso
+from noticias.config import EMOJIS_FUENTE
 from noticias.fuentes import FUENTES
 
 AHORA = datetime(2026, 10, 10, 14, 0, tzinfo=timezone.utc)   # los fixtures son de la mañana de ese día
@@ -61,7 +62,9 @@ def test_publica_la_noticia_que_coincide_con_una_palabra_clave(entorno):
     p = red.publicaciones[0]
     # Coinciden «Sonic Mania» (GenerationAmiga) y «Mario Kart» (3DJuegos); gana la más reciente
     assert p.enlace == "https://www.generationamiga.com/2026/10/10/sonic-mania-saturn/"
-    assert p.texto.endswith("\n\n📰 GenerationAmiga")
+    resumen, firma = p.texto.split("\n\n")
+    emoji, fuente = firma.split(" ")
+    assert emoji in EMOJIS_FUENTE and fuente == "GenerationAmiga"
     assert p.hashtags == ["#uno", "#dos"]
     assert historial == [p.enlace]
 
@@ -101,6 +104,15 @@ def test_una_noticia_aleatoria_no_suma_a_ninguna_palabra(entorno):
     escribir_palabras(estado["palabras"], [["xyzzy"], ["plugh"], ["qwerty"]])
     correr()
     assert leer_palabras(estado["palabras"]) == {"nivel_1": {"xyzzy": 0}, "nivel_2": {"plugh": 0}, "nivel_3": {"qwerty": 0}}
+
+
+def test_el_emoji_de_la_web_cambia_entre_publicaciones(entorno):
+    correr, _ = entorno
+    emojis = set()
+    for semilla in range(20):
+        red, _ = correr(rng=random.Random(semilla), historial=[])
+        emojis.add(red.publicaciones[0].texto.split("\n\n")[1].split(" ")[0])
+    assert len(emojis) > 1 and emojis <= set(EMOJIS_FUENTE)
 
 
 def test_la_segunda_ejecucion_publica_la_siguiente_y_no_repite(entorno):
