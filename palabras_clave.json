@@ -5,7 +5,7 @@
     "dragon quest": 0,
     "final fantasy": 0,
     "fire emblem": 0,
-    "like a dragon": 0,
+    "like a dragon": 1,
     "mario": 0,
     "metal gear": 0,
     "metroid": 0,
@@ -18,7 +18,7 @@
     "trails": 0,
     "warcraft": 1,
     "xenoblade": 0,
-    "yakuza": 0,
+    "yakuza": 1,
     "ys": 0,
     "zelda": 0
   },
@@ -36,8 +36,8 @@
     "nis america": 0,
     "sega": 0,
     "spike chunsoft": 0,
-    "survival horror": 0,
     "square enix": 0,
+    "survival horror": 0,
     "xseed": 0
   },
   "nivel_3": {
