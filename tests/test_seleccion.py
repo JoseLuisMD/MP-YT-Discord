@@ -1,13 +1,17 @@
 import random
 
 from noticias.modelos import Noticia
-from noticias.seleccion import coincidencias, compilar_patrones, elegir, es_reciente
+from noticias.seleccion import clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_reciente
 
 PATRONES = compilar_patrones(["sonic", "resident evil", "final fantasy"])
 
 
-def noticia(titulo, fecha=0, coincide=()):
-    return Noticia(fuente="F", titulo=titulo, enlace=f"https://x/{titulo}", texto="", fecha=fecha, coincide=list(coincide))
+NIVELES = compilar_niveles([["sonic", "final fantasy"], ["capcom"], ["indie"]])
+
+
+def noticia(titulo, fecha=0, coincide=(), nivel=None):
+    nivel = nivel or (1 if coincide else None)
+    return Noticia(fuente="F", titulo=titulo, enlace=f"https://x/{titulo}", texto="", fecha=fecha, coincide=list(coincide), nivel=nivel)
 
 
 def test_coincidencias_sin_distinguir_mayusculas_ni_tildes():
@@ -18,6 +22,30 @@ def test_coincidencias_sin_distinguir_mayusculas_ni_tildes():
 def test_la_palabra_clave_debe_ir_entera():
     assert coincidencias("Un avión supersonic", PATRONES) == []
     assert coincidencias("Sonic's new game", PATRONES) == ["sonic"]
+
+
+def test_clasificar_devuelve_el_primer_nivel_con_coincidencias():
+    assert clasificar("Capcom anuncia un nuevo Sonic", NIVELES) == (1, ["sonic"])
+    assert clasificar("Capcom prepara un indie", NIVELES) == (2, ["capcom"])
+    assert clasificar("Un indie precioso", NIVELES) == (3, ["indie"])
+    assert clasificar("Nada que ver", NIVELES) == (None, [])
+
+
+def test_un_nivel_vacio_no_rompe_nada():
+    assert clasificar("Un indie", compilar_niveles([["sonic"], [], ["indie"]])) == (3, ["indie"])
+
+
+def test_el_nivel_1_gana_aunque_otras_acierten_mas_palabras_o_sean_mas_recientes():
+    n1 = noticia("n1", fecha=10, coincide=["sonic"], nivel=1)
+    n2 = noticia("n2", fecha=99, coincide=["capcom", "konami"], nivel=2)
+    assert elegir([n2, n1, noticia("x")], 1) == [n1]
+
+
+def test_sin_nivel_1_gana_el_2_y_sin_2_el_3():
+    n2 = noticia("n2", coincide=["capcom"], nivel=2)
+    n3 = noticia("n3", fecha=99, coincide=["indie"], nivel=3)
+    assert elegir([n3, n2, noticia("x")], 1) == [n2]
+    assert elegir([n3, noticia("x")], 1) == [n3]
 
 
 def test_gana_la_que_mas_palabras_clave_acierta():

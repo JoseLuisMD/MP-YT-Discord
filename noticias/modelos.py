@@ -12,4 +12,5 @@ class Noticia:
     url_imagen: Optional[str] = None
     idioma: str = "es"
     imagen_en_threads: bool = False     # ver Fuente.imagen_en_threads
-    coincide: list = field(default_factory=list)  # palabras clave que coinciden
+    coincide: list = field(default_factory=list)  # palabras clave que coinciden (del nivel `nivel`)
+    nivel: Optional[int] = None         # primer nivel de palabras clave con coincidencias (1, 2, 3...); None si ninguno

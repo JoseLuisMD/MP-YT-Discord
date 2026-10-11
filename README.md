@@ -16,10 +16,11 @@ videos/
   canales.py            SOLO DATOS: canales, mensajes, webhooks y opciones
   avisador.py           lógica de los avisos      estado.py  formato de vistos.json
 noticias/
-  config.py             palabras clave, límites, modelos y prompt de Gemini
+  config.py             límites, modelos y prompt de Gemini
+  palabras.py           palabras clave por niveles y sus contadores (palabras_clave.json)
   fuentes.py            lista de webs (clase Fuente): nombre, URL, idioma, secciones excluidas
   imagenes.py           cómo se encuentra la imagen de cada web (+ og:image como último recurso)
-  seleccion.py          coincidencias con palabras clave, elección y recencia
+  seleccion.py          coincidencias por niveles, elección y recencia
   resumen.py            resumen y hashtags con Gemini
   proceso.py            orquestación
 tests/                  pruebas y copias de feeds reales (tests/fixtures)
@@ -35,6 +36,8 @@ python -m noticias    # noticias
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
 Los estados siguen en la raíz: `vistos.json` y `noticias_publicadas.json`.
+Las palabras clave están en `palabras_clave.json`: 3 niveles `{"palabra": veces}`, donde `veces` es cuántas
+noticias publicadas ha ayudado a elegir. El bot ordena las palabras y actualiza los contadores en cada publicación.
 
 ## Pruebas
 
@@ -45,6 +48,8 @@ python -m pytest
 
 ## Cómo se añade…
 
+- **Una palabra clave**: una entrada `"palabra": 0` en su nivel de `palabras_clave.json` (haz `git pull` antes,
+  porque el bot actualiza los contadores cada hora).
 - **Un canal de YouTube**: una entrada en `videos/canales.py`.
 - **Una web de noticias**: una `Fuente` en `noticias/fuentes.py`. Si su feed pone la imagen en un sitio raro,
   se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.

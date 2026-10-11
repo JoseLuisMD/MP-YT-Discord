@@ -6,12 +6,13 @@ import feedparser
 from common.estado import cargar_json, guardar_json
 from common.publicadores import Bluesky, Discord, Publicacion, Threads
 
-from .config import (ARCHIVO, MAX_HISTORIAL, MAX_POR_EJECUCION, PALABRAS_CLAVE,
+from .config import (ARCHIVO, ARCHIVO_PALABRAS, MAX_HISTORIAL, MAX_POR_EJECUCION,
                      TEMA_THREADS, USER_AGENT, WEBHOOK_NOTICIAS)
 from .fuentes import FUENTES
 from .imagenes import imagen_og
+from .palabras import cargar_palabras, contar, guardar_palabras
 from .resumen import resumir
-from .seleccion import coincidencias, compilar_patrones, elegir, es_reciente
+from .seleccion import clasificar, compilar_niveles, elegir, es_reciente
 
 
 def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
@@ -42,12 +43,13 @@ def publicar_noticia(n, resumen, hashtags, publicadores):
     return any(resultados)
 
 
-def ejecutar(fuentes=None, ruta=ARCHIVO, parse=None, publicadores=None, ahora=None, rng=random):
+def ejecutar(fuentes=None, ruta=ARCHIVO, ruta_palabras=ARCHIVO_PALABRAS, parse=None, publicadores=None, ahora=None, rng=random):
     feedparser.USER_AGENT = USER_AGENT
     fuentes = FUENTES if fuentes is None else fuentes
     if publicadores is None:
         publicadores = [Discord(WEBHOOK_NOTICIAS), Bluesky(), Threads(tema=TEMA_THREADS)]
-    patrones = compilar_patrones(PALABRAS_CLAVE)
+    palabras = cargar_palabras(ruta_palabras)
+    niveles = compilar_niveles(palabras)
 
     publicadas = cargar_json(ruta, [])
     candidatas = recoger_candidatas(fuentes, set(publicadas), parse=parse, ahora=ahora)
@@ -55,9 +57,9 @@ def ejecutar(fuentes=None, ruta=ARCHIVO, parse=None, publicadores=None, ahora=No
 
     if candidatas:
         for c in candidatas:
-            c.coincide = coincidencias(c.titulo + " " + c.texto, patrones)
+            c.nivel, c.coincide = clasificar(c.titulo + " " + c.texto, niveles)
         for c in elegir(candidatas, MAX_POR_EJECUCION, rng):
-            motivo = f"coincide con {c.coincide}" if c.coincide else "aleatoria (sin coincidencias)"
+            motivo = f"nivel {c.nivel}, coincide con {c.coincide}" if c.nivel else "aleatoria (sin coincidencias)"
             print(f"Elegida [{c.fuente}] {c.titulo} -> {motivo}")
             resultado = resumir(c.titulo, c.texto, otro_idioma=c.idioma != "es")
             if resultado is None:
@@ -65,5 +67,8 @@ def ejecutar(fuentes=None, ruta=ARCHIVO, parse=None, publicadores=None, ahora=No
             resumen, hashtags = resultado
             if publicar_noticia(c, resumen, hashtags, publicadores):
                 publicadas.append(c.enlace)
+                if c.nivel:
+                    contar(palabras, c.nivel, c.coincide)
 
     guardar_json(ruta, publicadas[-MAX_HISTORIAL:])
+    guardar_palabras(ruta_palabras, palabras)

@@ -4,6 +4,7 @@ on:
     paths-ignore:
       - "vistos.json"
       - "noticias_publicadas.json"
+      - "palabras_clave.json"
   pull_request:
   workflow_dispatch:
 

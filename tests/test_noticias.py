@@ -19,6 +19,15 @@ class Red:
         return self.resultado
 
 
+def escribir_palabras(ruta, niveles):
+    datos = {f"nivel_{i}": {p: 0 for p in n} for i, n in enumerate(niveles, start=1)}
+    ruta.write_text(json.dumps(datos), encoding="utf-8")
+
+
+def leer_palabras(ruta):
+    return json.loads(ruta.read_text(encoding="utf-8"))
+
+
 @pytest.fixture
 def entorno(monkeypatch, cargar, tmp_path):
     fixtures = {"vandal": "vandal.xml", "3djuegos": "3djuegos.xml", "generationamiga": "generationamiga.xml"}
@@ -31,13 +40,15 @@ def entorno(monkeypatch, cargar, tmp_path):
     monkeypatch.setattr(proceso, "resumir", lambda *a, **k: estado["resumir"](*a, **k))
     monkeypatch.setattr(proceso, "imagen_og", lambda enlace: "https://og/imagen.jpg")
     ruta = tmp_path / "noticias_publicadas.json"
+    estado["palabras"] = tmp_path / "palabras_clave.json"
+    escribir_palabras(estado["palabras"], [["mario", "sonic", "zelda"], ["capcom"], ["indie"]])
 
     def correr(red=None, rng=None, historial=None, ahora=AHORA):
         if historial is not None:
             ruta.write_text(json.dumps(historial), encoding="utf-8")
         red = red or Red()
-        proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), parse=parse, publicadores=[red], ahora=ahora,
-                         rng=rng or random.Random(1))
+        proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), ruta_palabras=str(estado["palabras"]), parse=parse,
+                         publicadores=[red], ahora=ahora, rng=rng or random.Random(1))
         return red, json.loads(ruta.read_text(encoding="utf-8"))
 
     return correr, estado
@@ -53,6 +64,43 @@ def test_publica_la_noticia_que_coincide_con_una_palabra_clave(entorno):
     assert p.texto.endswith("\n\n📰 GenerationAmiga")
     assert p.hashtags == ["#uno", "#dos"]
     assert historial == [p.enlace]
+
+
+def test_las_palabras_del_nivel_1_mandan_sobre_las_del_2(entorno):
+    correr, estado = entorno
+    # «sonic» (GenerationAmiga, más reciente) baja al nivel 2: gana «mario» (3DJuegos), del nivel 1
+    escribir_palabras(estado["palabras"], [["mario"], ["sonic"], []])
+    red, _ = correr()
+    assert "3djuegos" in red.publicaciones[0].enlace
+
+
+def test_si_no_hay_coincidencias_en_1_ni_2_se_usa_el_3(entorno):
+    correr, estado = entorno
+    escribir_palabras(estado["palabras"], [["palabra que no sale"], [], ["sonic"]])
+    red, _ = correr()
+    assert red.publicaciones[0].enlace == "https://www.generationamiga.com/2026/10/10/sonic-mania-saturn/"
+
+
+def test_se_cuentan_las_palabras_que_hacen_publicar_una_noticia(entorno):
+    correr, estado = entorno
+    correr()   # GenerationAmiga, por «sonic»
+    correr()   # 3DJuegos, por «mario»
+    palabras = leer_palabras(estado["palabras"])
+    assert palabras["nivel_1"] == {"mario": 1, "sonic": 1, "zelda": 0}
+    assert palabras["nivel_2"] == {"capcom": 0} and palabras["nivel_3"] == {"indie": 0}
+
+
+def test_si_no_se_publica_no_se_cuenta(entorno):
+    correr, estado = entorno
+    correr(Red(resultado=False))
+    assert leer_palabras(estado["palabras"])["nivel_1"]["sonic"] == 0
+
+
+def test_una_noticia_aleatoria_no_suma_a_ninguna_palabra(entorno):
+    correr, estado = entorno
+    escribir_palabras(estado["palabras"], [["xyzzy"], ["plugh"], ["qwerty"]])
+    correr()
+    assert leer_palabras(estado["palabras"]) == {"nivel_1": {"xyzzy": 0}, "nivel_2": {"plugh": 0}, "nivel_3": {"qwerty": 0}}
 
 
 def test_la_segunda_ejecucion_publica_la_siguiente_y_no_repite(entorno):

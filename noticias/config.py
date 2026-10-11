@@ -9,28 +9,9 @@ USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
 WEBHOOK_NOTICIAS = "DISCORD_WEBHOOK_NOTICIAS"  # secreto con el webhook de Discord
 TEMA_THREADS = "videojuegos"
 
-PALABRAS_CLAVE = [
-    "zelda",
-    "sonic",
-    "mario",
-    "metroid",
-    "resident evil",
-    "castlevania",
-    "final fantasy",
-    "dragon quest",
-    "silent hill",
-    "kojima",
-    "konami",
-    "capcom",
-    "xenoblade",
-    "monolith",
-    "fire emblem",
-    "trails",
-    "metroidvania",
-    "starcraft",
-    "warcraft",
-    "diablo"
-]
+# Palabras clave por niveles de prioridad, con cuántas veces ha contribuido cada una a publicar una noticia.
+# Se editan en palabras_clave.json (ver noticias/palabras.py); el bot las ordena y actualiza los contadores.
+ARCHIVO_PALABRAS = "palabras_clave.json"
 
 MODELOS_LLM = ["gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]  # se prueban en orden
 PROMPT = (
