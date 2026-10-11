@@ -30,7 +30,7 @@ PALABRAS_CLAVE = [
     "monolith",
     "fire emblem",
     "trails",
-    "metroidvania"'
+    "metroidvania",
     "starcraft",
     "warcraft",
     "diablo"
