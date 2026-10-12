@@ -24,6 +24,8 @@ Claves de `noticias`:
   historial archivo con los enlaces ya publicados
   palabras  archivo con las palabras clave (ver noticias/palabras.py)
   web       (opcional) archivo con las últimas noticias para la web
+  recientes (opcional) archivo con los títulos publicados hace poco, para no publicar la misma noticia desde
+            otra web (ver HORAS_RECIENTES en noticias/config.py); sin esta clave no se comprueba
 """
 
 PROYECTOS = {
@@ -43,6 +45,7 @@ PROYECTOS = {
             "historial": "noticias_publicadas.json",
             "palabras": "palabras_clave.json",
             "web": "noticias_web.json",
+            "recientes": "noticias_recientes.json",
         },
     },
     "vortix": {

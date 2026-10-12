@@ -1,6 +1,6 @@
 """Publica cada hora una noticia de videojuegos por cada proyecto que tiene noticias (ver proyectos.py)."""
 import random
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import feedparser
 
@@ -8,12 +8,12 @@ from common.estado import cargar_json, guardar_json
 from common.publicadores import Bluesky, ColaX, Discord, Publicacion, Threads
 from proyectos import PROYECTOS
 
-from .config import EMOJIS_FUENTE, MAX_HISTORIAL, MAX_POR_EJECUCION, MAX_WEB, TEMA_THREADS, USER_AGENT
+from .config import EMOJIS_FUENTE, HORAS_RECIENTES, MAX_HISTORIAL, MAX_POR_EJECUCION, MAX_WEB, TEMA_THREADS, USER_AGENT
 from .fuentes import FUENTES
 from .imagenes import imagen_og
 from .palabras import cargar_palabras, contar, guardar_palabras
 from .resumen import resumir
-from .seleccion import clasificar, compilar_niveles, elegir, es_reciente
+from .seleccion import clasificar, compilar_niveles, elegir, es_reciente, es_repetida
 
 
 def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
@@ -27,6 +27,26 @@ def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
             enlaces_vistos.add(n.enlace)
             candidatas.append(n)
     return candidatas
+
+
+def cargar_recientes(ruta, ahora=None):
+    """Noticias publicadas en las últimas HORAS_RECIENTES: [{"titulo", "fecha"}], para no repetirlas desde otra web."""
+    if not ruta:
+        return []
+    limite = (ahora or datetime.now(timezone.utc)) - timedelta(hours=HORAS_RECIENTES)
+    return [r for r in cargar_json(ruta, []) if datetime.fromisoformat(r["fecha"]) >= limite]
+
+
+def descartar_repetidas(candidatas, recientes):
+    """Quita las candidatas que parecen la misma noticia que una publicada hace poco (de esta web o de otra)."""
+    titulos = [r["titulo"] for r in recientes]
+    nuevas = []
+    for c in candidatas:
+        if es_repetida(c.titulo, titulos):
+            print(f"Descartada por repetida [{c.fuente}] {c.titulo}")
+        else:
+            nuevas.append(c)
+    return nuevas
 
 
 def publicar_noticia(n, resumen, hashtags, publicadores, rng=random, cola_x=None):
@@ -63,7 +83,8 @@ def entrada_web(n, resumen, ahora=None):
     }
 
 
-def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=None, ahora=None, rng=random, cola_x=None):
+def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, ruta_recientes=None, parse=None, ahora=None,
+             rng=random, cola_x=None):
     """Publica una noticia de `fuentes` en los `publicadores` (y la apunta en `cola_x`, si la hay).
     Devuelve True si ha publicado alguna."""
     feedparser.USER_AGENT = USER_AGENT
@@ -72,8 +93,10 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=No
 
     publicadas = cargar_json(ruta, [])
     web = cargar_json(ruta_web, []) if ruta_web else []   # la más nueva primero
+    recientes = cargar_recientes(ruta_recientes, ahora)
     publicada = False
     candidatas = recoger_candidatas(fuentes, set(publicadas), parse=parse, ahora=ahora)
+    candidatas = descartar_repetidas(candidatas, recientes)
     print(f"Noticias candidatas: {len(candidatas)}")
 
     if candidatas:
@@ -89,13 +112,17 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=No
             if publicar_noticia(c, resumen, hashtags, publicadores, rng, cola_x):
                 publicada = True
                 publicadas.append(c.enlace)
-                web.insert(0, entrada_web(c, resumen, ahora))
+                entrada = entrada_web(c, resumen, ahora)
+                web.insert(0, entrada)
+                recientes.append({"titulo": c.titulo, "fecha": entrada["fecha"]})
                 if c.nivel:
                     contar(palabras, c.nivel, c.coincide)
 
     guardar_json(ruta, publicadas[-MAX_HISTORIAL:])
     if ruta_web:
         guardar_json(ruta_web, web[:MAX_WEB])
+    if ruta_recientes:
+        guardar_json(ruta_recientes, recientes)
     guardar_palabras(ruta_palabras, palabras)
     return publicada
 
@@ -132,6 +159,7 @@ def ejecutar_proyectos(proyectos=None, **opciones):
             ruta=noticias["historial"],
             ruta_palabras=noticias["palabras"],
             ruta_web=noticias.get("web"),
+            ruta_recientes=noticias.get("recientes"),
             publicadores=publicadores_de(proyecto, noticias),
             cola_x=ColaX("noticia", nombre) if proyecto.get("x") else None,
             **opciones,

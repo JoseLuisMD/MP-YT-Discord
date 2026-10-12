@@ -1,7 +1,8 @@
 import random
 
 from noticias.modelos import Noticia
-from noticias.seleccion import clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_reciente
+from noticias.seleccion import (clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_reciente,
+                                es_repetida, palabras_significativas)
 
 PATRONES = compilar_patrones(["sonic", "resident evil", "final fantasy"])
 
@@ -76,3 +77,30 @@ def test_es_reciente():
     assert es_reciente(ahora - 3600, ahora)
     assert not es_reciente(ahora - 25 * 3600, ahora)
     assert es_reciente(None, ahora)   # sin fecha, se acepta
+
+
+# ---------------- Noticias repetidas ----------------
+def test_palabras_significativas_sin_vacias_ni_tildes():
+    assert palabras_significativas("Anunciado el nuevo Pokémon para Switch 2") == {"pokemon", "switch", "2"}
+
+
+def test_la_misma_noticia_de_otra_web_es_repetida():
+    # Títulos reales de Vandal y Eurogamer del 11 de octubre de 2026
+    vandal = "Bad Bunny, Lana del Rey y otros famosos cantantes presentarán las emisoras de GTA 6: 'Es increíblemente especial'"
+    eurogamer = "Bad Bunny, Lana del Rey y Robyn presentarán radios en Grand Theft Auto 6"
+    assert es_repetida(vandal, [eurogamer]) and es_repetida(eurogamer, [vandal])
+
+
+def test_noticias_distintas_del_mismo_juego_no_son_repetidas():
+    publicadas = [
+        "Final Fantasy VII Revelation tendrá una versión espectacular en Nintendo Switch 2, superior incluso al port de Rebirth",
+        "Rockstar tranquiliza: GTA 6 no te obligará a usar sus mecánicas de rol de pareja entre Jason y Lucía",
+        "Precio oficial del remake de Zelda Ocarina of Time en físico y digital en Nintendo Store",
+    ]
+    assert not es_repetida("Tropico 7 también tendrá una versión para Nintendo Switch 2", publicadas)
+    assert not es_repetida("Habrá redes sociales en GTA 6, pero ni Jason ni Lucía publicarán en ellas por una lógica razón", publicadas)
+    assert not es_repetida("Las reservas de Zelda Ocarina of Time Remake en GAME suben de nivel con un póster a doble cara", publicadas)
+
+
+def test_sin_publicadas_no_hay_repetidas():
+    assert not es_repetida("Cualquier cosa", [])

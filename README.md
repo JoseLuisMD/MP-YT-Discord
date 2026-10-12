@@ -23,7 +23,7 @@ noticias/
   palabras.py           palabras clave por niveles y sus contadores
   fuentes.py            lista de webs (clase Fuente): nombre, URL, idioma, secciones excluidas
   imagenes.py           cómo se encuentra la imagen de cada web (+ og:image como último recurso)
-  seleccion.py          coincidencias por niveles, elección y recencia
+  seleccion.py          coincidencias por niveles, elección, recencia y noticias repetidas
   resumen.py            resumen y hashtags con Gemini
   proceso.py            orquestación (una ejecución por proyecto con noticias)
 tests/                  pruebas; en tests/fixtures, los feeds de noticias guardados tal cual de cada web
@@ -41,8 +41,9 @@ Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HAN
 Los estados viven en la rama **`estado`** (no en `main`), para que los commits automáticos del bot no se mezclen con
 el código: `vistos.json` (vídeos de todos los canales), `cola_x.json` (lo pendiente de publicar a mano en X desde el
 panel de MP-Backend) y, por cada proyecto con noticias, los archivos que indica `proyectos.py` (Mundos Pixelados:
-`noticias_publicadas.json`, `palabras_clave.json` y `noticias_web.json`, las últimas noticias con título, resumen e
-imagen para su web). Los workflows traen esa rama a la carpeta `estado/`, ejecutan el bot dentro y suben los cambios
+`noticias_publicadas.json`, `palabras_clave.json`, `noticias_web.json`, las últimas noticias con título, resumen e
+imagen para su web, y `noticias_recientes.json`, los títulos de las últimas 48 h para no publicar la misma noticia
+desde otra web). Los workflows traen esa rama a la carpeta `estado/`, ejecutan el bot dentro y suben los cambios
 (`.github/estado.sh`). Para ejecutarlo a mano con el estado real, haz lo mismo: `bash .github/estado.sh traer` y
 `cd estado && PYTHONPATH=.. python -m videos`.
 Con un vídeo o una noticia nuevos se reconstruye la web del proyecto (clave `web`): se lanza su workflow `web.yml`

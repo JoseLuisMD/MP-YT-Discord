@@ -54,6 +54,7 @@ def entorno(monkeypatch, cargar, tmp_path):
     ruta = tmp_path / "noticias_publicadas.json"
     estado["palabras"] = tmp_path / "palabras_clave.json"
     estado["web"] = tmp_path / "noticias_web.json"
+    estado["recientes"] = tmp_path / "noticias_recientes.json"
     escribir_palabras(estado["palabras"], [["mario", "sonic", "zelda"], ["capcom"], ["indie"]])
 
     def correr(red=None, rng=None, historial=None, ahora=AHORA, cola_x=None):
@@ -61,7 +62,7 @@ def entorno(monkeypatch, cargar, tmp_path):
             ruta.write_text(json.dumps(historial), encoding="utf-8")
         red = red or Red()
         proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), ruta_palabras=str(estado["palabras"]),
-                         ruta_web=str(estado["web"]), parse=parse,
+                         ruta_web=str(estado["web"]), ruta_recientes=str(estado["recientes"]), parse=parse,
                          publicadores=[red], ahora=ahora, rng=rng or random.Random(1), cola_x=cola_x)
         return red, json.loads(ruta.read_text(encoding="utf-8"))
 
@@ -263,3 +264,42 @@ def test_la_cola_de_x_no_cuenta_como_publicacion(entorno):
     correr, _ = entorno
     _, historial = correr(Red(resultado=False), cola_x=Red(resultado=True))
     assert historial == []
+
+
+# ---------------- Noticias repetidas ----------------
+def escribir_recientes(ruta, recientes):
+    ruta.write_text(json.dumps(recientes), encoding="utf-8")
+
+
+def test_no_se_publica_la_misma_noticia_desde_otra_web(entorno):
+    correr, estado = entorno
+    # Ya se publicó desde otra web la de Nintendo que elegiría (la de 3DJuegos)
+    correr()
+    titulo = json.loads(estado["web"].read_text(encoding="utf-8"))[0]["titulo"]
+    escribir_recientes(estado["recientes"], [{"titulo": titulo, "fecha": "2026-10-11T19:00:00+00:00"}])
+    red, _ = correr(historial=[])   # sin el enlace en el historial: solo la frena el título
+    assert not red.publicaciones[0].enlace.startswith(NINTENDO_3DJ)
+
+
+def test_las_publicadas_se_apuntan_en_recientes(entorno):
+    correr, estado = entorno
+    red, _ = correr()
+    recientes = json.loads(estado["recientes"].read_text(encoding="utf-8"))
+    assert recientes == [{"titulo": red.publicaciones[0].titulo_tarjeta, "fecha": "2026-10-11T20:00:00+00:00"}]
+
+
+def test_las_recientes_antiguas_se_olvidan(entorno):
+    correr, estado = entorno
+    escribir_recientes(estado["recientes"], [
+        {"titulo": "Vieja", "fecha": "2026-10-09T19:00:00+00:00"},    # hace más de 48 h
+        {"titulo": "Reciente", "fecha": "2026-10-10T21:00:00+00:00"},
+    ])
+    correr()
+    titulos = [r["titulo"] for r in json.loads(estado["recientes"].read_text(encoding="utf-8"))]
+    assert titulos[0] == "Reciente" and "Vieja" not in titulos and len(titulos) == 2
+
+
+def test_si_ninguna_red_publica_no_se_apunta_en_recientes(entorno):
+    correr, estado = entorno
+    correr(Red(resultado=False))
+    assert json.loads(estado["recientes"].read_text(encoding="utf-8")) == []
