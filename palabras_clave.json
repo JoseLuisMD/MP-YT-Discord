@@ -25,7 +25,7 @@
     "zelda": 2
   },
   "nivel_2": {
-    "bandai namco": 0,
+    "bandai namco": 1,
     "blizzard": 0,
     "capcom": 1,
     "cd projekt": 1,
@@ -39,7 +39,7 @@
     "nis america": 0,
     "platinum games": 0,
     "sega": 1,
-    "spike chunsoft": 0,
+    "spike chunsoft": 1,
     "square enix": 0,
     "survival horror": 0,
     "xseed": 0
