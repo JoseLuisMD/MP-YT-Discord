@@ -27,8 +27,21 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       - name: Guardar videos vistos
+        id: guardar
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add vistos.json
-          git diff --staged --quiet || (git commit -m "Actualizar vistos" && git pull --rebase && git push)
+          if git diff --staged --quiet; then
+            echo "cambios=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Actualizar vistos" && git pull --rebase && git push
+            echo "cambios=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Actualizar la web
+        if: steps.guardar.outputs.cambios == 'true'
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "Falta el secreto WEB_TOKEN: la web no se actualiza"; exit 0; fi
+          gh workflow run web.yml --repo JoseLuisMD/MP-Website --ref main
+        env:
+          GH_TOKEN: ${{ secrets.WEB_TOKEN }}   # token con permiso Actions (lectura y escritura) en MP-Website
