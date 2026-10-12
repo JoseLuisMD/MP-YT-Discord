@@ -4,6 +4,8 @@ ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
+ARCHIVO_WEB = "noticias_web.json"  # últimas noticias publicadas, con sus datos, para la web (MP-Website)
+MAX_WEB = 30             # noticias que se guardan para la web
 USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
 
 WEBHOOK_NOTICIAS = "DISCORD_WEBHOOK_NOTICIAS"  # secreto con el webhook de Discord

@@ -53,13 +53,15 @@ def entorno(monkeypatch, cargar, tmp_path):
     monkeypatch.setattr(proceso, "imagen_og", lambda enlace: "https://og/imagen.jpg")
     ruta = tmp_path / "noticias_publicadas.json"
     estado["palabras"] = tmp_path / "palabras_clave.json"
+    estado["web"] = tmp_path / "noticias_web.json"
     escribir_palabras(estado["palabras"], [["mario", "sonic", "zelda"], ["capcom"], ["indie"]])
 
     def correr(red=None, rng=None, historial=None, ahora=AHORA):
         if historial is not None:
             ruta.write_text(json.dumps(historial), encoding="utf-8")
         red = red or Red()
-        proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), ruta_palabras=str(estado["palabras"]), parse=parse,
+        proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), ruta_palabras=str(estado["palabras"]),
+                         ruta_web=str(estado["web"]), parse=parse,
                          publicadores=[red], ahora=ahora, rng=rng or random.Random(1))
         return red, json.loads(ruta.read_text(encoding="utf-8"))
 
@@ -210,3 +212,33 @@ def test_noticias_de_hace_mas_de_24_horas_no_son_candidatas(entorno):
     correr, _ = entorno
     red, historial = correr(ahora=datetime(2026, 10, 13, 20, 0, tzinfo=timezone.utc))
     assert red.publicaciones == [] and historial == []
+
+
+def test_la_noticia_publicada_se_guarda_para_la_web(entorno):
+    correr, estado = entorno
+    correr()
+    web = json.loads(estado["web"].read_text(encoding="utf-8"))
+    assert web == [{
+        "titulo": web[0]["titulo"],
+        "resumen": f"Resumen de {web[0]['titulo'][:20]}",
+        "enlace": web[0]["enlace"],
+        "imagen": "https://i.blogs.es/a2a426/qwrtr/1024_2000.jpeg",
+        "fuente": "3DJuegos",
+        "fecha": "2026-10-11T20:00:00+00:00",
+    }]
+
+
+def test_en_la_web_la_mas_nueva_va_primero_y_se_recorta(entorno, monkeypatch):
+    correr, estado = entorno
+    monkeypatch.setattr(proceso, "MAX_WEB", 2)
+    for _ in range(3):
+        correr()
+    _, historial = correr()
+    web = json.loads(estado["web"].read_text(encoding="utf-8"))
+    assert [n["enlace"] for n in web] == historial[-1:-3:-1]
+
+
+def test_si_ninguna_red_publica_no_se_guarda_para_la_web(entorno):
+    correr, estado = entorno
+    correr(Red(resultado=False))
+    assert json.loads(estado["web"].read_text(encoding="utf-8")) == []

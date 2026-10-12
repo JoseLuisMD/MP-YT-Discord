@@ -36,6 +36,7 @@ python -m noticias    # noticias
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
 Los estados siguen en la raíz: `vistos.json` y `noticias_publicadas.json`.
+`noticias_web.json` guarda las últimas noticias publicadas (título, resumen, imagen...) para la web (MP-Website).
 Las palabras clave están en `palabras_clave.json`: 3 niveles `{"palabra": veces}`, donde `veces` es cuántas
 noticias publicadas ha ayudado a elegir. El bot ordena las palabras y actualiza los contadores en cada publicación.
 
