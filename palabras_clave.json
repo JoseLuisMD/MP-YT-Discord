@@ -27,7 +27,7 @@
   "nivel_2": {
     "bandai namco": 0,
     "blizzard": 0,
-    "capcom": 0,
+    "capcom": 1,
     "cd projekt": 0,
     "jrpg": 0,
     "kojima": 0,
@@ -38,7 +38,7 @@
     "monolith": 0,
     "nis america": 0,
     "platinum games": 0,
-    "sega": 0,
+    "sega": 1,
     "spike chunsoft": 0,
     "square enix": 0,
     "survival horror": 0,
