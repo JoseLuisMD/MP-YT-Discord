@@ -2,9 +2,9 @@ name: Pruebas
 on:
   push:
     paths-ignore:
-      - "vistos.json"
-      - "noticias_publicadas.json"
-      - "palabras_clave.json"
+      - "vistos.json"           # estado que guarda el bot
+      - "noticias_*.json"
+      - "palabras_*.json"
   pull_request:
   workflow_dispatch:
 

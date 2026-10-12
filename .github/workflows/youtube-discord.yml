@@ -43,5 +43,5 @@ jobs:
             gh workflow run web.yml --repo "$repo" --ref main
           done
         env:
-          WEBS: ${{ steps.avisar.outputs.webs }}   # repos de las webs con vídeos nuevos (clave "web" de videos/canales.py)
+          WEBS: ${{ steps.avisar.outputs.webs }}   # repos de las webs con vídeos nuevos (clave "web" de proyectos.py)
           GH_TOKEN: ${{ secrets.WEB_TOKEN }}       # token con permiso Actions (lectura y escritura) en esos repos

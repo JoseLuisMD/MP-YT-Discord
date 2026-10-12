@@ -1,4 +1,4 @@
-"""Publica cada hora una noticia de videojuegos en Discord, Bluesky y Threads."""
+"""Publica cada hora una noticia de videojuegos por cada proyecto que tiene noticias (ver proyectos.py)."""
 import random
 from datetime import datetime, timezone
 
@@ -6,9 +6,9 @@ import feedparser
 
 from common.estado import cargar_json, guardar_json
 from common.publicadores import Bluesky, Discord, Publicacion, Threads
+from proyectos import PROYECTOS
 
-from .config import (ARCHIVO, ARCHIVO_PALABRAS, ARCHIVO_WEB, EMOJIS_FUENTE, MAX_HISTORIAL, MAX_POR_EJECUCION,
-                     MAX_WEB, TEMA_THREADS, USER_AGENT, WEBHOOK_NOTICIAS)
+from .config import EMOJIS_FUENTE, MAX_HISTORIAL, MAX_POR_EJECUCION, MAX_WEB, TEMA_THREADS, USER_AGENT
 from .fuentes import FUENTES
 from .imagenes import imagen_og
 from .palabras import cargar_palabras, contar, guardar_palabras
@@ -58,17 +58,15 @@ def entrada_web(n, resumen, ahora=None):
     }
 
 
-def ejecutar(fuentes=None, ruta=ARCHIVO, ruta_palabras=ARCHIVO_PALABRAS, ruta_web=ARCHIVO_WEB, parse=None,
-             publicadores=None, ahora=None, rng=random):
+def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=None, ahora=None, rng=random):
+    """Publica una noticia de `fuentes` en los `publicadores`. Devuelve True si ha publicado alguna."""
     feedparser.USER_AGENT = USER_AGENT
-    fuentes = FUENTES if fuentes is None else fuentes
-    if publicadores is None:
-        publicadores = [Discord(WEBHOOK_NOTICIAS), Bluesky(), Threads(tema=TEMA_THREADS)]
     palabras = cargar_palabras(ruta_palabras)
     niveles = compilar_niveles(palabras)
 
     publicadas = cargar_json(ruta, [])
-    web = cargar_json(ruta_web, [])   # la más nueva primero
+    web = cargar_json(ruta_web, []) if ruta_web else []   # la más nueva primero
+    publicada = False
     candidatas = recoger_candidatas(fuentes, set(publicadas), parse=parse, ahora=ahora)
     print(f"Noticias candidatas: {len(candidatas)}")
 
@@ -83,11 +81,54 @@ def ejecutar(fuentes=None, ruta=ARCHIVO, ruta_palabras=ARCHIVO_PALABRAS, ruta_we
                 continue
             resumen, hashtags = resultado
             if publicar_noticia(c, resumen, hashtags, publicadores, rng):
+                publicada = True
                 publicadas.append(c.enlace)
                 web.insert(0, entrada_web(c, resumen, ahora))
                 if c.nivel:
                     contar(palabras, c.nivel, c.coincide)
 
     guardar_json(ruta, publicadas[-MAX_HISTORIAL:])
-    guardar_json(ruta_web, web[:MAX_WEB])
+    if ruta_web:
+        guardar_json(ruta_web, web[:MAX_WEB])
     guardar_palabras(ruta_palabras, palabras)
+    return publicada
+
+
+def fuentes_de(nombres, fuentes=FUENTES):
+    """Las `Fuente` con esos nombres (error si alguno no existe, para que no pase desapercibida una errata)."""
+    por_nombre = {f.nombre: f for f in fuentes}
+    desconocidas = [n for n in nombres if n not in por_nombre]
+    if desconocidas:
+        raise ValueError(f"Webs de noticias que no están en noticias/fuentes.py: {desconocidas}")
+    return [por_nombre[n] for n in nombres]
+
+
+def publicadores_de(proyecto, noticias):
+    publicadores = [Discord(noticias["discord"])] if noticias.get("discord") else []
+    if proyecto.get("bluesky"):
+        publicadores.append(Bluesky())
+    if proyecto.get("threads"):
+        publicadores.append(Threads(tema=TEMA_THREADS))
+    return publicadores
+
+
+def ejecutar_proyectos(proyectos=None, **opciones):
+    """Publica las noticias de cada proyecto que las tiene. Devuelve los repos de las webs que hay que reconstruir."""
+    proyectos = PROYECTOS if proyectos is None else proyectos
+    webs = []
+    for nombre, proyecto in proyectos.items():
+        noticias = proyecto.get("noticias")
+        if not noticias:
+            continue
+        print(f"--- Noticias de {nombre}")
+        publicada = ejecutar(
+            fuentes=fuentes_de(noticias["fuentes"]),
+            ruta=noticias["historial"],
+            ruta_palabras=noticias["palabras"],
+            ruta_web=noticias.get("web"),
+            publicadores=publicadores_de(proyecto, noticias),
+            **opciones,
+        )
+        if publicada and noticias.get("web") and proyecto.get("web"):
+            webs.append(proyecto["web"])
+    return webs

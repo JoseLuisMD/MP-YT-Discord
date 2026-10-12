@@ -1,28 +1,31 @@
 # MP-YT-Discord
 
-Automatizaciones de Mundos Pixelados que se ejecutan en GitHub Actions (disparadas desde cron-job.org):
+Automatizaciones de Mundos Pixelados y VortiX que se ejecutan en GitHub Actions (disparadas desde cron-job.org).
+Cada **proyecto** (`proyectos.py`) tiene sus canales de YouTube, sus redes, su web y, si quiere, sus noticias:
 
 - **`videos`**: avisa en Discord, Bluesky y Threads de los vídeos nuevos de los canales de YouTube.
-- **`noticias`**: cada hora publica una noticia de videojuegos (resumida con Gemini) en Discord, Bluesky y Threads.
+- **`noticias`**: cada hora publica una noticia de videojuegos (resumida con Gemini) por cada proyecto con noticias.
 
 ## Estructura
 
 ```
+proyectos.py            SOLO DATOS: proyectos, sus canales, redes, web y noticias
 common/                 código compartido
   publicadores.py       Discord, Bluesky y Threads (misma interfaz: publicar(Publicacion) -> bool)
   texto.py              normalizar, limpiar_html, recortar, extraer_hashtags
   estado.py             leer y guardar los JSON de «ya publicado»
+  webs.py               pasa al workflow las webs que hay que reconstruir
 videos/
-  canales.py            SOLO DATOS: canales, mensajes, webhooks y opciones
+  canales.py            despliega los canales de proyectos.py (cada canal hereda lo de su proyecto)
   avisador.py           lógica de los avisos      estado.py  formato de vistos.json
 noticias/
   config.py             límites, modelos y prompt de Gemini
-  palabras.py           palabras clave por niveles y sus contadores (palabras_clave.json)
+  palabras.py           palabras clave por niveles y sus contadores
   fuentes.py            lista de webs (clase Fuente): nombre, URL, idioma, secciones excluidas
   imagenes.py           cómo se encuentra la imagen de cada web (+ og:image como último recurso)
   seleccion.py          coincidencias por niveles, elección y recencia
   resumen.py            resumen y hashtags con Gemini
-  proceso.py            orquestación
+  proceso.py            orquestación (una ejecución por proyecto con noticias)
 tests/                  pruebas; en tests/fixtures, los feeds de noticias guardados tal cual de cada web
 ```
 
@@ -35,12 +38,13 @@ python -m noticias    # noticias
 ```
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
-Los estados siguen en la raíz: `vistos.json` y `noticias_publicadas.json`.
-`noticias_web.json` guarda las últimas noticias publicadas (título, resumen, imagen...) para la web (MP-Website).
-Con una noticia nueva se reconstruye MP-Website; con un vídeo nuevo, la web de su canal (clave `web` en
-`videos/canales.py`). Se lanza el workflow `web.yml` de esa web con el secreto `WEB_TOKEN`.
-Las palabras clave están en `palabras_clave.json`: 3 niveles `{"palabra": veces}`, donde `veces` es cuántas
-noticias publicadas ha ayudado a elegir. El bot ordena las palabras y actualiza los contadores en cada publicación.
+Los estados están en la raíz: `vistos.json` (vídeos de todos los canales) y, por cada proyecto con noticias, los
+archivos que indica `proyectos.py` (Mundos Pixelados: `noticias_publicadas.json`, `palabras_clave.json` y
+`noticias_web.json`, las últimas noticias con título, resumen e imagen para su web).
+Con un vídeo o una noticia nuevos se reconstruye la web del proyecto (clave `web`): se lanza su workflow `web.yml`
+con el secreto `WEB_TOKEN`.
+Las palabras clave tienen 3 niveles `{"palabra": veces}`, donde `veces` es cuántas noticias publicadas ha ayudado
+a elegir. El bot ordena las palabras y actualiza los contadores en cada publicación.
 
 ## Pruebas
 
@@ -51,11 +55,13 @@ python -m pytest
 
 ## Cómo se añade…
 
-- **Una palabra clave**: una entrada `"palabra": 0` en su nivel de `palabras_clave.json` (haz `git pull` antes,
-  porque el bot actualiza los contadores cada hora).
-- **Un canal de YouTube**: una entrada en `videos/canales.py`.
-- **Una web de noticias**: una `Fuente` en `noticias/fuentes.py`. Si su feed pone la imagen en un sitio raro,
-  se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.
+- **Una palabra clave**: una entrada `"palabra": 0` en su nivel del archivo de palabras del proyecto
+  (haz `git pull` antes, porque el bot actualiza los contadores cada hora).
+- **Un canal de YouTube**: una entrada en los `canales` de su proyecto en `proyectos.py`.
+- **Un proyecto**: un bloque en `proyectos.py`. Si usa secretos nuevos (otro webhook de Discord), añádelos al `env:`
+  del workflow que los use. Para que se reconstruya su web, añade su repo al token guardado en `WEB_TOKEN`.
+- **Una web de noticias**: una `Fuente` en `noticias/fuentes.py` y su nombre en las `fuentes` del proyecto.
+  Si su feed pone la imagen en un sitio raro, se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.
   Si Threads muestra su tarjeta sin imagen, pon `imagen_en_threads=True`: se publica con la imagen adjunta
   y el enlace en el texto (si la imagen falla, se vuelve a la tarjeta normal).
   Después, guarda su feed completo desde el navegador (Ctrl+S) en `tests/fixtures/` y añade una prueba.

@@ -1,22 +1,16 @@
-"""Ajustes del bot de noticias. Aquí se cambia lo que se publica y cómo se resume."""
+"""Ajustes del bot de noticias. Aquí se cambia lo que se publica y cómo se resume.
+Qué proyectos publican noticias, con qué webs y dónde se define en proyectos.py."""
 
-ARCHIVO = "noticias_publicadas.json"
 MAX_EDAD_HORAS = 24      # solo noticias publicadas en las últimas horas
 MAX_POR_EJECUCION = 1    # cuántas noticias se publican en cada ejecución
 MAX_HISTORIAL = 500      # enlaces recordados para no repetir
-ARCHIVO_WEB = "noticias_web.json"  # últimas noticias publicadas, con sus datos, para la web (MP-Website)
-MAX_WEB = 30             # noticias que se guardan para la web
+MAX_WEB = 30             # noticias que se guardan para la web (archivo `web` de las noticias del proyecto)
 USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
 
-WEBHOOK_NOTICIAS = "DISCORD_WEBHOOK_NOTICIAS"  # secreto con el webhook de Discord
 TEMA_THREADS = "videojuegos"
 
 # Emojis que acompañan al nombre de la web; en cada publicación se elige uno al azar
 EMOJIS_FUENTE = ["📰", "🗞️", "📝", "✍️", "✏️", "🖊️", "🖋️", "✒️", "📖", "📓", "📔", "📒", "📑", "📄", "📃", "🗒️"]
-
-# Palabras clave por niveles de prioridad, con cuántas veces ha contribuido cada una a publicar una noticia.
-# Se editan en palabras_clave.json (ver noticias/palabras.py); el bot las ordena y actualiza los contadores.
-ARCHIVO_PALABRAS = "palabras_clave.json"
 
 # Modelos de Gemini: al empezar se piden a la API los Flash-Lite estables (sin preview ni exp) y se prueban
 # del más nuevo al más antiguo. Esta lista es el respaldo: se prueba después, o sola si la consulta falla.
