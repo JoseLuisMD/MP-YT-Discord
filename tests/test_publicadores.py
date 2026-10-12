@@ -1,10 +1,12 @@
+import json
+
 import pytest
 import requests
 from atproto_client.models.blob_ref import BlobRef, IpldLink
 from atproto_core.cid import CID
 
 from common import publicadores
-from common.publicadores import Bluesky, Discord, Publicacion, Threads
+from common.publicadores import Bluesky, ColaX, Discord, Publicacion, Threads
 from tests.conftest import Respuesta
 
 
@@ -210,3 +212,58 @@ def test_threads_sin_la_opcion_no_adjunta_imagen(monkeypatch):
     llamadas = _threads_falso(monkeypatch)
     assert Threads().publicar(Publicacion("Resumen", "https://n/1", url_imagen="https://i/x.jpg")) is True
     assert llamadas["post"][0][1]["media_type"] == "TEXT"
+
+
+# ---------------- Cola de X ----------------
+@pytest.fixture
+def cola(tmp_path):
+    ruta = tmp_path / "cola_x.json"
+    return ruta, lambda: json.loads(ruta.read_text(encoding="utf-8"))
+
+
+def test_cola_x_apunta_el_texto_de_bluesky_con_el_enlace_al_final(cola):
+    ruta, leer = cola
+    p = Publicacion("Resumen\n\n📰 Vandal", "https://n/1", titulo_tarjeta="Título", url_imagen="https://i/x.jpg",
+                    hashtags=["#uno", "no-vale", "#dos"])
+    assert ColaX("noticia", "mundospixelados", str(ruta)).publicar(p) is True
+    [e] = leer()
+    assert e["texto"] == "Resumen\n\n📰 Vandal\n\n#uno #dos\n\nhttps://n/1"
+    assert {k: e[k] for k in ("tipo", "proyecto", "titulo", "enlace", "imagen")} == {
+        "tipo": "noticia", "proyecto": "mundospixelados", "titulo": "Título", "enlace": "https://n/1",
+        "imagen": "https://i/x.jpg"}
+    assert len(e["id"]) == 12 and e["fecha"].endswith("+00:00")
+
+
+def test_cola_x_sin_hashtags_no_deja_lineas_en_blanco_de_mas(cola):
+    ruta, leer = cola
+    ColaX("video", "p", str(ruta)).publicar(Publicacion("Texto", "https://y/1"))
+    assert leer()[0]["texto"] == "Texto\n\nhttps://y/1"
+
+
+def test_cola_x_usa_los_mismos_hashtags_que_caben_en_bluesky(cola, bsky):
+    ruta, leer = cola
+    p = Publicacion("x" * 250, "https://n/1", hashtags=["#" + "a" * 20] * 5)
+    ColaX("noticia", "p", str(ruta)).publicar(p)
+    Bluesky().publicar(p)
+    assert leer()[0]["texto"] == bsky.publicaciones[0][0].build_text() + "\n\nhttps://n/1"
+
+
+def test_cola_x_no_repite_un_enlace_ya_apuntado(cola):
+    ruta, leer = cola
+    c = ColaX("video", "p", str(ruta))
+    assert c.publicar(Publicacion("A", "https://y/1")) is True
+    assert c.publicar(Publicacion("B", "https://y/1")) is True
+    assert [e["texto"] for e in leer()] == ["A\n\nhttps://y/1"]
+
+
+def test_cola_x_la_mas_nueva_primero_y_recorta_cada_tipo_por_separado(cola):
+    ruta, leer = cola
+    videos, noticias = ColaX("video", "p", str(ruta), maximo=2), ColaX("noticia", "p", str(ruta), maximo=2)
+    videos.publicar(Publicacion("v", "https://y/v0"))
+    for i in range(4):
+        noticias.publicar(Publicacion("n", f"https://n/{i}"))
+    assert [e["enlace"] for e in leer()] == ["https://n/3", "https://n/2", "https://y/v0"]
+
+
+def test_cola_x_si_no_puede_escribir_devuelve_false(tmp_path):
+    assert ColaX("video", "p", str(tmp_path / "no-existe" / "cola_x.json")).publicar(Publicacion("a", "b")) is False

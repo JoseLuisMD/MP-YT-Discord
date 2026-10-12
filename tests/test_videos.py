@@ -47,13 +47,15 @@ def entorno(monkeypatch, cargar, tmp_path):
     monkeypatch.setattr(requests, "post", lambda url, **kw: (registro.discord.append(kw["json"]["content"]), Respuesta(204))[1])
     feeds = {FEED_CANAL: cargar("youtube_canal.xml"), FEED_MIEMBROS: cargar("youtube_miembros.xml")}
     ruta = tmp_path / "vistos.json"
+    cola = tmp_path / "cola_x.json"
+    registro.cola_x = lambda: json.loads(cola.read_text(encoding="utf-8")) if cola.exists() else []
 
     def correr(cfg, estado=None, max_vistos=100):
         if estado is not None:
             ruta.write_text(json.dumps(estado), encoding="utf-8")
         registro.webs = ejecutar(canales=cfg, ruta_estado=str(ruta), parse=lambda url: feeds[url],
                                  bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads),
-                                 max_vistos=max_vistos)
+                                 max_vistos=max_vistos, ruta_cola_x=str(cola))
         return json.loads(ruta.read_text(encoding="utf-8"))
 
     return registro, correr, feeds
@@ -237,3 +239,39 @@ def test_un_video_de_miembros_no_reconstruye_la_web(entorno):
     registro, correr, _ = entorno
     correr(config(web=WEB, mensajeMiembros="Miembros"), {CANAL: {"normal": TODOS, "miembros": ["Cbm0tNFJdho"]}})
     assert len(registro.discord) == 1 and registro.webs == []
+
+
+# ---------------- Cola de X ----------------
+def test_sin_x_no_se_apunta_nada_para_x(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.cola_x() == []
+
+
+def test_con_x_el_video_se_apunta_con_el_texto_de_bluesky_y_el_enlace(entorno):
+    registro, correr, _ = entorno
+    correr(config(bluesky=True, x=True, proyecto="mundospixelados"), {CANAL: {"normal": TODOS[1:]}})
+    [e] = registro.cola_x()
+    enlace = f"https://www.youtube.com/watch?v={VIDEO_NUEVO}"
+    assert e["texto"] == f"{registro.bluesky[0].texto}\n\n#ageofempires #aoe4 #vortix\n\n{enlace}"
+    assert (e["tipo"], e["proyecto"], e["enlace"]) == ("video", "mundospixelados", enlace)
+    assert e["titulo"] == "REVELAN TODO sobre VIKINGOS en Age of Empires 4"
+    assert e["imagen"] == "https://i1.ytimg.com/vi/XX6h-So_bSA/hqdefault.jpg"
+
+
+def test_x_no_depende_de_que_el_canal_tenga_bluesky(entorno):
+    registro, correr, _ = entorno
+    correr(config(x=True), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.bluesky == [] and len(registro.cola_x()) == 1
+
+
+def test_los_videos_para_miembros_no_se_apuntan_para_x(entorno):
+    registro, correr, _ = entorno
+    correr(config(mensajeMiembros="¡Vídeo para miembros!", x=True), {CANAL: {"normal": TODOS, "miembros": ["Cbm0tNFJdho"]}})
+    assert len(registro.discord) == 1 and registro.cola_x() == []
+
+
+def test_varios_videos_nuevos_se_apuntan_con_el_mas_nuevo_primero(entorno):
+    registro, correr, _ = entorno
+    correr(config(x=True), {CANAL: {"normal": [VIDEO_2, SHORT_2]}})
+    assert [e["enlace"].rsplit("/", 1)[1] for e in registro.cola_x()] == [f"watch?v={VIDEO_NUEVO}", SHORT_1]

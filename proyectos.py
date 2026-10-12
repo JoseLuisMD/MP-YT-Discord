@@ -6,6 +6,8 @@ Claves de cada proyecto (los canales las heredan):
   incluirShorts  False = no avisar de Shorts en Discord (por defecto True)
   bluesky        True = avisar también en Bluesky (vídeos y noticias)
   threads        True = avisar también en Threads (vídeos y noticias)
+  x              True = apuntar los vídeos y noticias en cola_x.json para publicarlos a mano en X
+                 desde el panel (repo MP-Backend); los vídeos para miembros no se apuntan
   web            (opcional) repo de GitHub de la web del proyecto: se reconstruye (workflow web.yml)
                  cuando hay un vídeo o una noticia nuevos
   canales        {id del canal: claves del canal}
@@ -29,6 +31,7 @@ PROYECTOS = {
         "webhooks": ["DISCORD_WEBHOOK"],
         "bluesky": True,
         "threads": True,
+        "x": True,
         "web": "JoseLuisMD/MP-Website",
         "canales": {
             "UCLD3BqL4n2GKmitkEQGCoAQ": {"mensaje": "¡Nuevo vídeo en Mundos Pixelados!"},
@@ -47,6 +50,7 @@ PROYECTOS = {
         "incluirShorts": False,
         "bluesky": False,
         "threads": False,
+        "x": False,
         "canales": {
             "UCYk9AH19xF7dtzM9OY7obmA": {
                 "mensaje": "¡Nuevo vídeo en el canal!",

@@ -12,17 +12,17 @@ def test_cada_canal_queda_con_la_misma_configuracion_que_antes_de_los_proyectos(
     # La lista de canales tal como estaba en videos/canales.py antes de agruparlos por proyecto
     antes = {
         "UCLD3BqL4n2GKmitkEQGCoAQ": {"mensaje": "¡Nuevo vídeo en Mundos Pixelados!", "webhooks": ["DISCORD_WEBHOOK"],
-                                     "incluirShorts": True, "bluesky": True, "threads": True, "web": MP},
+                                     "incluirShorts": True, "bluesky": True, "threads": True, "x": True, "web": MP},
         "UCb3jFYgTbBLjDDOlZiD-2kg": {"mensaje": "¡Nuevo short en Mundos Pixelados Shorts!", "webhooks": ["DISCORD_WEBHOOK"],
-                                     "incluirShorts": True, "bluesky": True, "threads": True, "web": MP},
+                                     "incluirShorts": True, "bluesky": True, "threads": True, "x": True, "web": MP},
         "UCYk9AH19xF7dtzM9OY7obmA": {"mensaje": "¡Nuevo vídeo en el canal!",
                                      "mensajeMiembros": "¡Nuevo vídeo para miembros en el canal!",
                                      "webhooks": ["DISCORD_WEBHOOK_VRTX"], "incluirShorts": False,
-                                     "bluesky": False, "threads": False, "web": VORTIX},
+                                     "bluesky": False, "threads": False, "x": False, "web": VORTIX},
         "UCngXjqgH_-42BgtegyzI_-A": {"mensaje": "¡Nuevo vídeo en el canal secundario!", "webhooks": ["DISCORD_WEBHOOK_VRTX"],
-                                     "incluirShorts": False, "bluesky": False, "threads": False, "web": VORTIX},
+                                     "incluirShorts": False, "bluesky": False, "threads": False, "x": False, "web": VORTIX},
         "UC4MGzV7ahAN1khnzdjp3rkw": {"mensaje": "¡Nuevo vídeo en el canal de WarCraft 3!", "webhooks": ["DISCORD_WEBHOOK_VRTX"],
-                                     "incluirShorts": False, "bluesky": False, "threads": False, "web": VORTIX},
+                                     "incluirShorts": False, "bluesky": False, "threads": False, "x": False, "web": VORTIX},
     }
     assert {canal: {k: v for k, v in cfg.items() if k != "proyecto"} for canal, cfg in CANALES.items()} == antes
 
@@ -96,3 +96,15 @@ def test_mundos_pixelados_usa_los_archivos_de_noticias_de_siempre_y_vortix_no_ti
     assert n["discord"] == "DISCORD_WEBHOOK_NOTICIAS"
     assert proceso.fuentes_de(n["fuentes"]) == FUENTES   # las mismas webs que antes, en el mismo orden
     assert "noticias" not in PROYECTOS["vortix"]
+
+
+def test_solo_los_proyectos_con_x_apuntan_sus_noticias_para_x(llamadas):
+    proceso.ejecutar_proyectos({"con_x": {"x": True, "noticias": noticias()}, "sin_x": {"noticias": noticias()}})
+    con_x, sin_x = (ll["cola_x"] for ll in llamadas["llamadas"])
+    assert (con_x.tipo, con_x.proyecto, con_x.ruta) == ("noticia", "con_x", "cola_x.json")
+    assert sin_x is None
+    assert [p.nombre for p in llamadas["llamadas"][0]["publicadores"]] == ["Discord"]   # la cola no es una red
+
+
+def test_solo_mundos_pixelados_tiene_x():
+    assert PROYECTOS["mundospixelados"]["x"] is True and PROYECTOS["vortix"]["x"] is False

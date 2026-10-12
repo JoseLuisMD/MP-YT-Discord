@@ -5,6 +5,7 @@ on:
       - "vistos.json"           # estado que guarda el bot
       - "noticias_*.json"
       - "palabras_*.json"
+      - "cola_x.json"           # publicaciones pendientes para X (panel de MP-Backend)
   pull_request:
   workflow_dispatch:
 

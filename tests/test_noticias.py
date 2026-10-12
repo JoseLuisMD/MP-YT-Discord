@@ -56,13 +56,13 @@ def entorno(monkeypatch, cargar, tmp_path):
     estado["web"] = tmp_path / "noticias_web.json"
     escribir_palabras(estado["palabras"], [["mario", "sonic", "zelda"], ["capcom"], ["indie"]])
 
-    def correr(red=None, rng=None, historial=None, ahora=AHORA):
+    def correr(red=None, rng=None, historial=None, ahora=AHORA, cola_x=None):
         if historial is not None:
             ruta.write_text(json.dumps(historial), encoding="utf-8")
         red = red or Red()
         proceso.ejecutar(fuentes=fuentes, ruta=str(ruta), ruta_palabras=str(estado["palabras"]),
                          ruta_web=str(estado["web"]), parse=parse,
-                         publicadores=[red], ahora=ahora, rng=rng or random.Random(1))
+                         publicadores=[red], ahora=ahora, rng=rng or random.Random(1), cola_x=cola_x)
         return red, json.loads(ruta.read_text(encoding="utf-8"))
 
     return correr, estado
@@ -242,3 +242,24 @@ def test_si_ninguna_red_publica_no_se_guarda_para_la_web(entorno):
     correr, estado = entorno
     correr(Red(resultado=False))
     assert json.loads(estado["web"].read_text(encoding="utf-8")) == []
+
+
+# ---------------- Cola de X ----------------
+def test_la_noticia_publicada_se_apunta_en_la_cola_de_x(entorno):
+    correr, _ = entorno
+    cola = Red()
+    red, _ = correr(cola_x=cola)
+    assert cola.publicaciones == red.publicaciones
+
+
+def test_si_ninguna_red_publica_no_se_apunta_para_x_aunque_la_cola_funcione(entorno):
+    correr, estado = entorno
+    cola = Red()
+    _, historial = correr(Red(resultado=False), cola_x=cola)
+    assert cola.publicaciones == [] and historial == []
+
+
+def test_la_cola_de_x_no_cuenta_como_publicacion(entorno):
+    correr, _ = entorno
+    _, historial = correr(Red(resultado=False), cola_x=Red(resultado=True))
+    assert historial == []

@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 import feedparser
 
 from common.estado import cargar_json, guardar_json
-from common.publicadores import Bluesky, Discord, Publicacion, Threads
+from common.publicadores import Bluesky, ColaX, Discord, Publicacion, Threads
 from proyectos import PROYECTOS
 
 from .config import EMOJIS_FUENTE, MAX_HISTORIAL, MAX_POR_EJECUCION, MAX_WEB, TEMA_THREADS, USER_AGENT
@@ -29,8 +29,11 @@ def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
     return candidatas
 
 
-def publicar_noticia(n, resumen, hashtags, publicadores, rng=random):
-    """Publica en todos los destinos. True si al menos uno ha funcionado."""
+def publicar_noticia(n, resumen, hashtags, publicadores, rng=random, cola_x=None):
+    """Publica en todos los destinos. True si al menos uno ha funcionado.
+
+    Si se ha publicado, la apunta también en `cola_x` (para publicarla a mano en X). La cola no cuenta
+    como publicación: si todas las redes fallan, la noticia no se apunta y se reintentará más adelante."""
     texto = f"{resumen}\n\n{rng.choice(EMOJIS_FUENTE)} {n.fuente}"
     n.url_imagen = n.url_imagen or imagen_og(n.enlace)   # se guarda en la noticia para la web
     publicacion = Publicacion(
@@ -42,6 +45,8 @@ def publicar_noticia(n, resumen, hashtags, publicadores, rng=random):
         imagen_en_threads=n.imagen_en_threads,
     )
     resultados = [p.publicar(publicacion) for p in publicadores]
+    if any(resultados) and cola_x:
+        cola_x.publicar(publicacion)
     return any(resultados)
 
 
@@ -58,8 +63,9 @@ def entrada_web(n, resumen, ahora=None):
     }
 
 
-def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=None, ahora=None, rng=random):
-    """Publica una noticia de `fuentes` en los `publicadores`. Devuelve True si ha publicado alguna."""
+def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=None, ahora=None, rng=random, cola_x=None):
+    """Publica una noticia de `fuentes` en los `publicadores` (y la apunta en `cola_x`, si la hay).
+    Devuelve True si ha publicado alguna."""
     feedparser.USER_AGENT = USER_AGENT
     palabras = cargar_palabras(ruta_palabras)
     niveles = compilar_niveles(palabras)
@@ -80,7 +86,7 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, parse=No
             if resultado is None:
                 continue
             resumen, hashtags = resultado
-            if publicar_noticia(c, resumen, hashtags, publicadores, rng):
+            if publicar_noticia(c, resumen, hashtags, publicadores, rng, cola_x):
                 publicada = True
                 publicadas.append(c.enlace)
                 web.insert(0, entrada_web(c, resumen, ahora))
@@ -127,6 +133,7 @@ def ejecutar_proyectos(proyectos=None, **opciones):
             ruta_palabras=noticias["palabras"],
             ruta_web=noticias.get("web"),
             publicadores=publicadores_de(proyecto, noticias),
+            cola_x=ColaX("noticia", nombre) if proyecto.get("x") else None,
             **opciones,
         )
         if publicada and noticias.get("web") and proyecto.get("web"):

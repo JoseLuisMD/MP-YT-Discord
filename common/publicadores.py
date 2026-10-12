@@ -4,14 +4,22 @@ Cada publicador implementa la misma interfaz: recibe una `Publicacion` y devuelv
 True si ha publicado y False si ha fallado (nunca lanza excepciones). Para añadir
 una red nueva basta con crear otra clase con un método `publicar`.
 """
+import hashlib
 import os
 import re
 import time
+from collections import Counter
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Optional, Protocol
 
 import requests
 from atproto import Client, client_utils, models
+
+from common.estado import cargar_json, guardar_json
+
+COLA_X = "cola_x.json"   # publicaciones pendientes de publicar a mano en X (ver ColaX)
+MAX_COLA_X = 50          # entradas que se guardan de cada tipo (vídeos y noticias)
 
 
 @dataclass
@@ -69,16 +77,7 @@ class Bluesky:
     def _texto(self, p):
         """Texto del post con los hashtags añadidos como etiquetas clicables."""
         builder = client_utils.TextBuilder().text(p.texto)
-        elegidos = []
-        largo = len(p.texto) + 2
-        for h in p.hashtags or []:
-            h = str(h).strip()
-            if not re.fullmatch(r"#\w+", h):
-                continue
-            if largo + len(h) + 1 > self.LIMITE_TEXTO:
-                break
-            elegidos.append(h)
-            largo += len(h) + 1
+        elegidos = hashtags_de(p, self.LIMITE_TEXTO)
         if elegidos:
             builder.text("\n\n")
             for i, h in enumerate(elegidos):
@@ -172,6 +171,72 @@ class Threads:
         except Exception as e:
             print(f"Error publicando en Threads: {_detalle(e)}")
             return False
+
+
+class ColaX:
+    """No publica: apunta la publicación en cola_x.json para publicarla a mano en X desde el panel
+    (repo MP-Backend), porque la API de X es de pago. No cuenta como publicación real."""
+    nombre = "Cola de X"
+
+    def __init__(self, tipo, proyecto, ruta=COLA_X, maximo=MAX_COLA_X):
+        self.tipo = tipo          # "video" o "noticia"
+        self.proyecto = proyecto
+        self.ruta = ruta
+        self.maximo = maximo      # entradas que se guardan de cada tipo
+
+    @staticmethod
+    def texto(p):
+        """El texto de Bluesky (texto y hashtags) con el enlace al final. No se recorta: si no cabe en X,
+        se recorta a mano antes de publicar."""
+        partes = [p.texto]
+        hashtags = hashtags_de(p, Bluesky.LIMITE_TEXTO)
+        if hashtags:
+            partes.append(" ".join(hashtags))
+        partes.append(p.enlace)
+        return "\n\n".join(partes)
+
+    def publicar(self, p):
+        try:
+            cola = cargar_json(self.ruta, [])   # la más nueva primero
+            id_ = hashlib.sha1(p.enlace.encode("utf-8")).hexdigest()[:12]
+            if any(e.get("id") == id_ for e in cola):
+                return True   # ya estaba apuntada
+            cola.insert(0, {
+                "id": id_,
+                "tipo": self.tipo,
+                "proyecto": self.proyecto,
+                "titulo": p.titulo_tarjeta,
+                "enlace": p.enlace,
+                "imagen": p.url_imagen,
+                "fecha": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "texto": self.texto(p),
+            })
+            vistas, recortada = Counter(), []
+            for e in cola:
+                vistas[e.get("tipo")] += 1
+                if vistas[e.get("tipo")] <= self.maximo:
+                    recortada.append(e)
+            guardar_json(self.ruta, recortada)
+            print(f"Apuntado para X: {p.titulo_tarjeta or p.texto[:60]}")
+            return True
+        except Exception as e:
+            print(f"Error apuntando en la cola de X: {e}")
+            return False
+
+
+def hashtags_de(p, limite):
+    """Hashtags válidos de la publicación que caben tras el texto (y una línea en blanco) sin pasar de `limite`."""
+    elegidos = []
+    largo = len(p.texto) + 2
+    for h in p.hashtags or []:
+        h = str(h).strip()
+        if not re.fullmatch(r"#\w+", h):
+            continue
+        if largo + len(h) + 1 > limite:
+            break
+        elegidos.append(h)
+        largo += len(h) + 1
+    return elegidos
 
 
 def _detalle(e):

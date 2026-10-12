@@ -1,9 +1,9 @@
-"""Avisa de los vídeos nuevos de los canales de YouTube en Discord, Bluesky y Threads."""
+"""Avisa de los vídeos nuevos de los canales de YouTube en Discord, Bluesky y Threads (y los apunta para X)."""
 import random
 
 import feedparser
 
-from common.publicadores import Bluesky, Discord, Publicacion, Threads
+from common.publicadores import COLA_X, Bluesky, ColaX, Discord, Publicacion, Threads
 from common.texto import extraer_hashtags
 
 from .canales import ARCHIVO, CANALES, EMOJIS_AVISO, MAX_VISTOS
@@ -24,7 +24,7 @@ def _miniatura(v):
     return v.get("media_thumbnail", [{}])[0].get("url")
 
 
-def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random):
+def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random, ruta_cola_x=COLA_X):
     # Discord (los canales con incluirShorts=False no avisan de Shorts)
     es_short = "shorts" in v.link.lower()
     if cfg["incluirShorts"] or not es_short:
@@ -33,15 +33,15 @@ def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random):
     # Los vídeos exclusivos para miembros se avisan únicamente por Discord
     if miembros:
         return
-    # Bluesky y Threads: emoji de aviso + mensaje del canal, y debajo el título
+    # Bluesky, Threads y X: emoji de aviso + mensaje del canal, y debajo el título
     texto = f"{rng.choice(EMOJIS_AVISO)} {mensaje}\n\n{v.title}"
+    hashtags = extraer_hashtags(v.get("summary", ""))
     if cfg["bluesky"]:
-        bluesky.publicar(Publicacion(
-            texto=texto,
-            enlace=v.link,
-            url_imagen=_miniatura(v),
-            hashtags=extraer_hashtags(v.get("summary", "")),
-        ))
+        bluesky.publicar(Publicacion(texto=texto, enlace=v.link, url_imagen=_miniatura(v), hashtags=hashtags))
+    if cfg.get("x"):
+        # El mismo texto que en Bluesky, apuntado para publicarlo a mano en X desde el panel
+        ColaX("video", cfg.get("proyecto"), ruta_cola_x).publicar(Publicacion(
+            texto=texto, enlace=v.link, titulo_tarjeta=v.title, url_imagen=_miniatura(v), hashtags=hashtags))
     if cfg.get("threads"):
         if es_short:
             # La tarjeta de YouTube recorta la portada en horizontal: se adjunta la portada vertical
@@ -52,7 +52,7 @@ def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random):
             threads.publicar(Publicacion(texto=texto, enlace=v.link))
 
 
-def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=None, rng=random):
+def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=None, rng=random, ruta_cola_x=COLA_X):
     """Avisa de los vídeos nuevos del feed. Devuelve True si ha avisado de alguno."""
     parse = parse or feedparser.parse
     if miembros:
@@ -83,14 +83,15 @@ def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=No
             continue
         if not inicializado:
             continue
-        _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng)
+        _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng, ruta_cola_x)
         avisados += 1
 
     estado[canal][f"{clave}_inicializado"] = True
     return avisados > 0
 
 
-def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, threads=None, max_vistos=MAX_VISTOS, rng=random):
+def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, threads=None, max_vistos=MAX_VISTOS, rng=random,
+             ruta_cola_x=COLA_X):
     canales = CANALES if canales is None else canales
     bluesky = bluesky or Bluesky()
     threads = threads or Threads()
@@ -100,7 +101,8 @@ def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, thread
     for canal, cfg in canales.items():
         if canal not in estado:
             estado[canal] = estado_vacio()
-        if procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=parse, rng=rng) and cfg.get("web"):
+        if procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=parse, rng=rng,
+                         ruta_cola_x=ruta_cola_x) and cfg.get("web"):
             webs.add(cfg["web"])   # los vídeos de miembros no salen en la web: no cuentan
         if cfg.get("mensajeMiembros"):
             procesar_feed(canal, cfg, estado, bluesky, threads, miembros=True, parse=parse, rng=rng)
