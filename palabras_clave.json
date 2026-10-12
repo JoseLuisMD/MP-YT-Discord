@@ -1,10 +1,10 @@
 {
   "nivel_1": {
-    "bayonetta": 0,
+    "bayonetta": 1,
     "castlevania": 0,
     "diablo": 2,
     "dragon quest": 0,
-    "final fantasy": 2,
+    "final fantasy": 3,
     "fire emblem": 0,
     "like a dragon": 1,
     "mario": 2,
@@ -15,7 +15,7 @@
     "pokemon": 2,
     "resident evil": 0,
     "silent hill": 0,
-    "sonic": 0,
+    "sonic": 1,
     "starcraft": 0,
     "trails": 0,
     "warcraft": 2,
