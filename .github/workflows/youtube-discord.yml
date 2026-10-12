@@ -18,7 +18,9 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python -m videos
+      - name: Avisar de los vídeos nuevos
+        id: avisar
+        run: python -m videos
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_WEBHOOK_VRTX: ${{ secrets.DISCORD_WEBHOOK_VRTX }}
@@ -27,21 +29,19 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       - name: Guardar videos vistos
-        id: guardar
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add vistos.json
-          if git diff --staged --quiet; then
-            echo "cambios=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "Actualizar vistos" && git pull --rebase && git push
-            echo "cambios=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Actualizar la web
-        if: steps.guardar.outputs.cambios == 'true'
+          git diff --staged --quiet || (git commit -m "Actualizar vistos" && git pull --rebase && git push)
+      - name: Actualizar las webs
+        if: steps.avisar.outputs.webs != ''
         run: |
-          if [ -z "$GH_TOKEN" ]; then echo "Falta el secreto WEB_TOKEN: la web no se actualiza"; exit 0; fi
-          gh workflow run web.yml --repo JoseLuisMD/MP-Website --ref main
+          if [ -z "$GH_TOKEN" ]; then echo "Falta el secreto WEB_TOKEN: las webs no se actualizan"; exit 0; fi
+          for repo in $WEBS; do
+            echo "Reconstruyendo $repo"
+            gh workflow run web.yml --repo "$repo" --ref main
+          done
         env:
-          GH_TOKEN: ${{ secrets.WEB_TOKEN }}   # token con permiso Actions (lectura y escritura) en MP-Website
+          WEBS: ${{ steps.avisar.outputs.webs }}   # repos de las webs con vídeos nuevos (clave "web" de videos/canales.py)
+          GH_TOKEN: ${{ secrets.WEB_TOKEN }}       # token con permiso Actions (lectura y escritura) en esos repos

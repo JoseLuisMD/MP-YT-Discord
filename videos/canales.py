@@ -7,6 +7,8 @@ Claves de cada canal:
   incluirShorts    False = no avisar de Shorts en Discord
   bluesky          True = avisar también en Bluesky
   threads          True = avisar también en Threads
+  web              (opcional) repo de GitHub de la web que muestra los vídeos del canal; con un vídeo nuevo
+                   se lanza su workflow web.yml para reconstruirla (ej. "JoseLuisMD/MP-Website")
 """
 
 ARCHIVO = "vistos.json"
@@ -23,6 +25,7 @@ CANALES = {
         "incluirShorts": True,
         "bluesky": True,
         "threads": True,
+        "web": "JoseLuisMD/MP-Website",
     },
     "UCb3jFYgTbBLjDDOlZiD-2kg": {
         "mensaje": "¡Nuevo short en Mundos Pixelados Shorts!",
@@ -30,6 +33,7 @@ CANALES = {
         "incluirShorts": True,
         "bluesky": True,
         "threads": True,
+        "web": "JoseLuisMD/MP-Website",
     },
     # --- Canales solo para Discord ---
     "UCYk9AH19xF7dtzM9OY7obmA": {

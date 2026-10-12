@@ -37,7 +37,8 @@ python -m noticias    # noticias
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
 Los estados siguen en la raíz: `vistos.json` y `noticias_publicadas.json`.
 `noticias_web.json` guarda las últimas noticias publicadas (título, resumen, imagen...) para la web (MP-Website).
-Cuando un workflow guarda un vídeo o una noticia nuevos, lanza el workflow que reconstruye la web (secreto `WEB_TOKEN`).
+Con una noticia nueva se reconstruye MP-Website; con un vídeo nuevo, la web de su canal (clave `web` en
+`videos/canales.py`). Se lanza el workflow `web.yml` de esa web con el secreto `WEB_TOKEN`.
 Las palabras clave están en `palabras_clave.json`: 3 niveles `{"palabra": veces}`, donde `veces` es cuántas
 noticias publicadas ha ayudado a elegir. El bot ordena las palabras y actualiza los contadores en cada publicación.
 

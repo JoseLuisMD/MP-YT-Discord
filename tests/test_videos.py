@@ -29,6 +29,7 @@ class Registro:
 
     def __init__(self):
         self.discord, self.bluesky, self.threads = [], [], []
+        self.webs = None   # lo que devuelve ejecutar: webs que hay que reconstruir
 
     class _Red:
         def __init__(self, lista):
@@ -50,8 +51,9 @@ def entorno(monkeypatch, cargar, tmp_path):
     def correr(cfg, estado=None, max_vistos=100):
         if estado is not None:
             ruta.write_text(json.dumps(estado), encoding="utf-8")
-        ejecutar(canales=cfg, ruta_estado=str(ruta), parse=lambda url: feeds[url],
-                 bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads), max_vistos=max_vistos)
+        registro.webs = ejecutar(canales=cfg, ruta_estado=str(ruta), parse=lambda url: feeds[url],
+                                 bluesky=Registro._Red(registro.bluesky), threads=Registro._Red(registro.threads),
+                                 max_vistos=max_vistos)
         return json.loads(ruta.read_text(encoding="utf-8"))
 
     return registro, correr, feeds
@@ -202,3 +204,36 @@ def test_los_videos_normales_en_threads_siguen_con_la_tarjeta(entorno):
     registro, correr, _ = entorno
     correr(config(threads=True), {CANAL: {"normal": TODOS[1:]}})
     assert registro.threads[0].imagen_en_threads is False and registro.threads[0].url_imagen is None
+
+
+WEB = "JoseLuisMD/MP-Website"
+
+
+def test_un_video_nuevo_pide_reconstruir_la_web_del_canal(entorno):
+    registro, correr, _ = entorno
+    correr(config(web=WEB), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.webs == [WEB]
+
+
+def test_un_canal_sin_web_no_pide_reconstruir_ninguna(entorno):
+    registro, correr, _ = entorno
+    correr(config(), {CANAL: {"normal": TODOS[1:]}})
+    assert registro.webs == []
+
+
+def test_sin_videos_nuevos_no_se_reconstruye_la_web(entorno):
+    registro, correr, _ = entorno
+    correr(config(web=WEB), {CANAL: {"normal": TODOS}})
+    assert registro.webs == []
+
+
+def test_la_primera_ejecucion_no_reconstruye_la_web(entorno):
+    registro, correr, _ = entorno
+    correr(config(web=WEB))
+    assert registro.webs == []
+
+
+def test_un_video_de_miembros_no_reconstruye_la_web(entorno):
+    registro, correr, _ = entorno
+    correr(config(web=WEB, mensajeMiembros="Miembros"), {CANAL: {"normal": TODOS, "miembros": ["Cbm0tNFJdho"]}})
+    assert len(registro.discord) == 1 and registro.webs == []

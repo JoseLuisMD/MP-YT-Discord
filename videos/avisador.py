@@ -53,6 +53,7 @@ def _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng=random):
 
 
 def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=None, rng=random):
+    """Avisa de los vídeos nuevos del feed. Devuelve True si ha avisado de alguno."""
     parse = parse or feedparser.parse
     if miembros:
         url_feed = FEED_MIEMBROS.format(sufijo=canal[2:])
@@ -69,11 +70,12 @@ def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=No
     # No modificar el estado si el feed no devuelve entradas.
     if not feed.entries:
         print(f"Feed vacío o sin entradas: {url_feed}")
-        return
+        return False
 
     vistos = estado[canal][clave]
     # Cada feed tiene su propia primera ejecución: la primera vez solo se registra, sin avisar.
     inicializado = estado[canal][f"{clave}_inicializado"]
+    avisados = 0
 
     for v in reversed(feed.entries):
         video_id = v.get("yt_videoid")
@@ -82,8 +84,10 @@ def procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=No
         if not inicializado:
             continue
         _avisar(v, mensaje, cfg, miembros, bluesky, threads, rng)
+        avisados += 1
 
     estado[canal][f"{clave}_inicializado"] = True
+    return avisados > 0
 
 
 def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, threads=None, max_vistos=MAX_VISTOS, rng=random):
@@ -92,10 +96,13 @@ def ejecutar(canales=None, ruta_estado=ARCHIVO, parse=None, bluesky=None, thread
     threads = threads or Threads()
 
     estado = cargar_estado(ruta_estado)
+    webs = set()   # webs con vídeos nuevos que hay que reconstruir
     for canal, cfg in canales.items():
         if canal not in estado:
             estado[canal] = estado_vacio()
-        procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=parse, rng=rng)
+        if procesar_feed(canal, cfg, estado, bluesky, threads, miembros=False, parse=parse, rng=rng) and cfg.get("web"):
+            webs.add(cfg["web"])   # los vídeos de miembros no salen en la web: no cuentan
         if cfg.get("mensajeMiembros"):
             procesar_feed(canal, cfg, estado, bluesky, threads, miembros=True, parse=parse, rng=rng)
     guardar_estado(ruta_estado, estado, canales, max_vistos)
+    return sorted(webs)
