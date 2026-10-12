@@ -1,3 +1,5 @@
 __pycache__/
 .pytest_cache/
 .venv/
+# rama estado traída por .github/estado.sh
+estado/

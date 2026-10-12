@@ -1,11 +1,7 @@
 name: Pruebas
 on:
   push:
-    paths-ignore:
-      - "vistos.json"           # estado que guarda el bot
-      - "noticias_*.json"
-      - "palabras_*.json"
-      - "cola_x.json"           # publicaciones pendientes para X (panel de MP-Backend)
+    branches: [main]            # la rama estado solo tiene los JSON del bot
   pull_request:
   workflow_dispatch:
 

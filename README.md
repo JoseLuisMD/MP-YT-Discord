@@ -38,9 +38,13 @@ python -m noticias    # noticias
 ```
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
-Los estados están en la raíz: `vistos.json` (vídeos de todos los canales) y, por cada proyecto con noticias, los
-archivos que indica `proyectos.py` (Mundos Pixelados: `noticias_publicadas.json`, `palabras_clave.json` y
-`noticias_web.json`, las últimas noticias con título, resumen e imagen para su web).
+Los estados viven en la rama **`estado`** (no en `main`), para que los commits automáticos del bot no se mezclen con
+el código: `vistos.json` (vídeos de todos los canales), `cola_x.json` (lo pendiente de publicar a mano en X desde el
+panel de MP-Backend) y, por cada proyecto con noticias, los archivos que indica `proyectos.py` (Mundos Pixelados:
+`noticias_publicadas.json`, `palabras_clave.json` y `noticias_web.json`, las últimas noticias con título, resumen e
+imagen para su web). Los workflows traen esa rama a la carpeta `estado/`, ejecutan el bot dentro y suben los cambios
+(`.github/estado.sh`). Para ejecutarlo a mano con el estado real, haz lo mismo: `bash .github/estado.sh traer` y
+`cd estado && PYTHONPATH=.. python -m videos`.
 Con un vídeo o una noticia nuevos se reconstruye la web del proyecto (clave `web`): se lanza su workflow `web.yml`
 con el secreto `WEB_TOKEN`.
 Las palabras clave tienen 3 niveles `{"palabra": veces}`, donde `veces` es cuántas noticias publicadas ha ayudado
@@ -55,8 +59,9 @@ python -m pytest
 
 ## Cómo se añade…
 
-- **Una palabra clave**: una entrada `"palabra": 0` en su nivel del archivo de palabras del proyecto
-  (haz `git pull` antes, porque el bot actualiza los contadores cada hora).
+- **Una palabra clave**: una entrada `"palabra": 0` en su nivel del archivo de palabras del proyecto, en la rama
+  `estado` (en GitHub: cambia a la rama `estado` y edita el archivo ahí). Mejor justo después de que publique una
+  noticia, porque el bot actualiza los contadores cada hora.
 - **Un canal de YouTube**: una entrada en los `canales` de su proyecto en `proyectos.py`.
 - **Un proyecto**: un bloque en `proyectos.py`. Si usa secretos nuevos (otro webhook de Discord), añádelos al `env:`
   del workflow que los use. Para que se reconstruya su web, añade su repo al token guardado en `WEB_TOKEN`.

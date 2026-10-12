@@ -18,10 +18,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Traer el estado (rama estado)
+        run: bash .github/estado.sh traer
       - name: Publicar noticias
+        working-directory: estado   # el bot lee y escribe sus JSON en la carpeta del estado
         id: publicar
         run: python -m noticias
         env:
+          PYTHONPATH: ${{ github.workspace }}
           DISCORD_WEBHOOK_NOTICIAS: ${{ secrets.DISCORD_WEBHOOK_NOTICIAS }}
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
@@ -29,11 +33,7 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - name: Guardar noticias publicadas
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add noticias_*.json palabras_*.json cola_x.json   # archivos de noticias de todos los proyectos (proyectos.py) y la cola de X
-          git diff --staged --quiet || (git commit -m "Actualizar noticias publicadas" && git pull --rebase && git push)
+        run: bash .github/estado.sh guardar "Actualizar noticias publicadas"
       - name: Actualizar las webs
         if: steps.publicar.outputs.webs != ''
         run: |
