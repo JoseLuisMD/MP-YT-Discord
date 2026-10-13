@@ -14,7 +14,7 @@ from .fuentes import FUENTES
 from .imagenes import imagen_og
 from .palabras import cargar_palabras, contar, guardar_palabras
 from .resumen import resumir
-from .seleccion import clasificar, compilar_niveles, elegir, es_analisis, es_reciente, es_repetida
+from .seleccion import clasificar, compilar_niveles, elegir, es_analisis, es_reciente, es_repetida, puntos
 
 
 def recoger_candidatas(fuentes, ya_publicadas, parse=None, ahora=None):
@@ -125,7 +125,7 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, ruta_rec
         for intento, c in enumerate(elegir(candidatas, max(MAX_INTENTOS, MAX_POR_EJECUCION), rng), start=1):
             if publicadas_ahora >= MAX_POR_EJECUCION or intento > MAX_INTENTOS:
                 break
-            motivo = f"nivel {c.nivel}, coincide con {c.coincide}" if c.nivel else "aleatoria (sin coincidencias)"
+            motivo = f"nivel {c.nivel}, coincide con {c.coincide} ({puntos(c)} puntos)" if c.nivel else "aleatoria (sin coincidencias)"
             print(f"Elegida [{c.fuente}] {c.titulo} -> {motivo}")
             resultado = resumir(c.titulo, c.texto, otro_idioma=c.idioma != "es")
             if resultado is None:

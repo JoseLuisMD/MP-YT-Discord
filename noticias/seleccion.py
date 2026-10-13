@@ -39,12 +39,18 @@ def es_reciente(fecha, ahora=None, max_edad_horas=MAX_EDAD_HORAS):
     return fecha is None or ahora - fecha <= max_edad_horas * 3600
 
 
+def puntos(n):
+    """Cada palabra clave que coincide vale 1 punto, y 2 si está en el título: una noticia que trata de un juego
+    gana a otra que solo lo menciona de pasada en el texto."""
+    return len(n.coincide) + len(coincidencias(n.titulo, compilar_patrones(n.coincide)))
+
+
 def elegir(candidatas, max_por_ejecucion, rng=random):
-    """Las del nivel de palabras clave más prioritario; dentro del nivel, las que más palabras aciertan
-    (y las más recientes). Si ninguna coincide en ningún nivel, al azar."""
+    """Las del nivel de palabras clave más prioritario; dentro del nivel, las de más puntos (ver `puntos`)
+    y, a igualdad, las más recientes. Si ninguna coincide en ningún nivel, al azar."""
     con_match = sorted(
         (c for c in candidatas if c.nivel is not None),
-        key=lambda c: (c.nivel, -len(c.coincide), -(c.fecha or 0)),
+        key=lambda c: (c.nivel, -puntos(c), -(c.fecha or 0)),
     )
     if con_match:
         return con_match[:max_por_ejecucion]

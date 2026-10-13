@@ -1,7 +1,7 @@
 import random
 
 from noticias.modelos import Noticia
-from noticias.seleccion import (clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_analisis,
+from noticias.seleccion import (clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_analisis, puntos,
                                 es_reciente, es_repetida, palabras_significativas)
 
 PATRONES = compilar_patrones(["sonic", "resident evil", "final fantasy"])
@@ -53,6 +53,17 @@ def test_gana_la_que_mas_palabras_clave_acierta():
     a = noticia("a", fecha=100, coincide=["sonic"])
     b = noticia("b", fecha=50, coincide=["sonic", "resident evil"])
     assert elegir([a, b, noticia("c")], 1) == [b]
+
+
+def test_las_palabras_del_titulo_valen_el_doble():
+    # Caso real: una noticia de GTA 5 que nombra Pokémon y Final Fantasy de pasada en el texto
+    de_pasada = noticia("Modding GTA 5", fecha=100, coincide=["gta", "pokemon", "final fantasy"])   # 2+1+1 = 4
+    en_titulo = noticia("Pokémon y Final Fantasy, juntos", fecha=50, coincide=["pokemon", "final fantasy"])  # 2+2 = 4
+    titulo_y_texto = noticia("Nuevo Sonic", fecha=10, coincide=["sonic", "resident evil", "capcom"])  # 2+1+1 = 4
+    assert [puntos(n) for n in (de_pasada, en_titulo, titulo_y_texto)] == [4, 4, 4]
+    solo_texto = noticia("Un análisis", fecha=200, coincide=["sonic", "resident evil", "capcom"])   # 1+1+1 = 3
+    assert puntos(solo_texto) == 3
+    assert elegir([solo_texto, en_titulo], 1) == [en_titulo]   # menos palabras, pero en el título
 
 
 def test_con_las_mismas_palabras_gana_la_mas_reciente():
