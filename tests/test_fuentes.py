@@ -153,6 +153,16 @@ def test_gameinformer_esta_en_ingles_y_pide_la_imagen_original(cargar):
     assert "Jane Foster as Thor, Venom, and Jubilee" in noticias[0].texto
 
 
+def test_gameinformer_quita_el_parrafo_final_que_recomienda_otros_articulos(cargar):
+    noticias = fuente("Game Informer").noticias(parse=lambda url: cargar("gameinformer.xml"))
+    mafia = next(n for n in noticias if n.titulo.startswith("Mafia III Gets Surprise"))
+    assert "Steam version of the game is getting a massive patch" in mafia.texto
+    assert "For more, read" not in mafia.texto and "Mafia III review" not in mafia.texto
+    ps5 = next(n for n in noticias if n.titulo.startswith("One Of The PS5 Pro's Exclusive Features"))
+    assert "Ghost of Yōtei" in ps5.texto                # el juego sale en la noticia...
+    assert "Echoes of Sekihara" not in ps5.texto        # ...pero su expansión solo en «In the meantime, read...»
+
+
 def test_pcgamer_descarta_hardware_y_usa_el_articulo_y_no_la_ficha_del_autor(cargar):
     f = fuente("PC Gamer")
     assert f.idioma == "en"

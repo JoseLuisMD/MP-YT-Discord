@@ -4,6 +4,7 @@ Lo que cambia de una web a otra son datos (nombre, URL, idioma, secciones que no
 y, en casos especiales, cómo se extrae la imagen: eso se define en `imagenes.py`.
 """
 import calendar
+import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Callable
@@ -39,6 +40,20 @@ def texto_pcgamer(e):
     Se usa el subtítulo (summary) más el artículo; algunas noticias no traen artículo y se quedan con el subtítulo."""
     articulo = next((c.get("value", "") for c in e.get("content") or [] if "<article" in c.get("value", "")), "")
     return f"<p>{e.get('summary', '')}</p> {articulo}"
+
+
+# Párrafo final de Game Informer que recomienda otros artículos: «For more, read our Mafia III review...»,
+# «In the meantime, read Game Informer's reviews of...». Nombra otros juegos y no es parte de la noticia.
+_CIERRE_GAMEINFORMER = re.compile(
+    r"<p[^>]*>(?:\s|&nbsp;)*(?:For more|In the meantime|Read the full review|Read or watch our full review|"
+    r"Check out (?:his|her|their|our) full review)\b(?:(?!</p>).)*</p>",
+    re.S | re.I,
+)
+
+
+def texto_gameinformer(e):
+    """Contenido sin los párrafos finales que enlazan a otros artículos (los que no llevan enlace se quedan)."""
+    return _CIERRE_GAMEINFORMER.sub(lambda m: " " if "<a " in m.group(0) else m.group(0), texto_generico(e))
 
 
 @dataclass(frozen=True)
@@ -116,6 +131,7 @@ FUENTES = [
         idioma="en",
         rutas_excluidas=("/digital-issue/",),   # anuncios de la revista
         extraer_imagen=imagen_gameinformer,
+        extraer_texto=texto_gameinformer,
     ),
     Fuente(
         "PC Gamer",
