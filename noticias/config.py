@@ -28,7 +28,10 @@ EMOJIS_FUENTE = ["📰", "🗞️", "📝", "✍️", "✏️", "🖊️", "🖋
 
 # Modelos de Gemini: al empezar se piden a la API los Flash-Lite estables (sin preview ni exp) y se prueban
 # del más nuevo al más antiguo. Esta lista es el respaldo: se prueba después, o sola si la consulta falla.
-MODELOS_LLM = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODELOS_LLM = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]
+# Modelos que la API lista pero no deja usar con esta clave (404): no se prueban aunque se descubran.
+# gemini-2.5-flash-lite: Google solo lo mantiene para quien ya lo usaba antes.
+MODELOS_EXCLUIDOS = ["gemini-2.5-flash-lite"]
 PROMPT = (
     "Analiza esta noticia de videojuegos y responde exclusivamente con un JSON válido "
     "con tres campos: titulo, resumen y hashtags. "

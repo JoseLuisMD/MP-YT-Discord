@@ -111,8 +111,10 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, ruta_rec
     web = cargar_json(ruta_web, []) if ruta_web else []   # la más nueva primero
     recientes = cargar_recientes(ruta_recientes, ahora)
     publicada = False
-    candidatas = recoger_candidatas(fuentes, set(publicadas), parse=parse, ahora=ahora)
-    candidatas = descartar_repetidas(candidatas, recientes)
+    todas = recoger_candidatas(fuentes, set(publicadas), parse=parse, ahora=ahora)
+    candidatas = descartar_repetidas(todas, recientes)
+    nuevas = {c.enlace for c in candidatas}
+    publicadas += [c.enlace for c in todas if c.enlace not in nuevas]   # vistas: no se vuelven a comparar
     print(f"Noticias candidatas: {len(candidatas)}")
 
     if candidatas:

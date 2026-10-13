@@ -119,6 +119,11 @@ def test_se_usan_los_flash_lite_estables_descubiertos_del_mas_nuevo_al_mas_antig
                                                      "gemini-3.1-flash-lite"]
 
 
+def test_se_ignoran_los_modelos_excluidos_aunque_la_api_los_liste(llamadas):
+    llamadas["lista"] = lambda: lista_modelos("gemini-9.0-flash-lite", "gemini-2.5-flash-lite")
+    assert "gemini-2.5-flash-lite" not in resumen.modelos_a_probar("clave")
+
+
 def test_la_lista_de_respaldo_va_detras_sin_repetir(llamadas):
     llamadas["lista"] = lambda: lista_modelos("gemini-9.0-flash-lite", MODELOS_LLM[0])
     assert resumen.modelos_a_probar("clave") == list(dict.fromkeys(["gemini-9.0-flash-lite"] + MODELOS_LLM))

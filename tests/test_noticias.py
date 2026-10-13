@@ -280,8 +280,21 @@ def test_no_se_publica_la_misma_noticia_desde_otra_web(entorno):
     correr()
     titulo = json.loads(estado["web"].read_text(encoding="utf-8"))[0]["titulo"]
     escribir_recientes(estado["recientes"], [{"titulo": titulo, "fecha": "2026-10-11T19:00:00+00:00"}])
-    red, _ = correr(historial=[])   # sin el enlace en el historial: solo la frena el título
+    red, historial = correr(historial=[])   # sin el enlace en el historial: solo la frena el título
     assert not red.publicaciones[0].enlace.startswith(NINTENDO_3DJ)
+    # La descartada queda como vista: en las próximas ejecuciones ni se compara ni se anota en el registro
+    assert any(e.startswith(NINTENDO_3DJ) for e in historial)
+
+
+def test_la_descartada_por_titulo_no_se_vuelve_a_anotar(entorno, capsys):
+    correr, estado = entorno
+    correr()
+    titulo = json.loads(estado["web"].read_text(encoding="utf-8"))[0]["titulo"]
+    escribir_recientes(estado["recientes"], [{"titulo": titulo, "fecha": "2026-10-11T19:00:00+00:00"}])
+    correr(historial=[])
+    assert "Descartada por repetida (título)" in capsys.readouterr().out
+    correr()   # mismo historial que dejó la ejecución anterior
+    assert "Descartada por repetida (título)" not in capsys.readouterr().out
 
 
 def test_las_publicadas_se_apuntan_en_recientes(entorno):

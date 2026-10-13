@@ -9,7 +9,7 @@ import requests
 
 from common.texto import limpiar_html, recortar
 
-from .config import MODELOS_LLM, PROMPT
+from .config import MODELOS_EXCLUIDOS, MODELOS_LLM, PROMPT
 
 URL_MODELOS = "https://generativelanguage.googleapis.com/v1beta/models"
 URL_GEMINI = URL_MODELOS + "/{modelo}:generateContent"
@@ -35,7 +35,8 @@ def descubrir_modelos(clave):
             for m in datos.get("models", []):
                 nombre = m.get("name", "").removeprefix("models/")
                 version = PATRON_MODELO.fullmatch(nombre)
-                if version and "generateContent" in m.get("supportedGenerationMethods", []):
+                if (version and nombre not in MODELOS_EXCLUIDOS
+                        and "generateContent" in m.get("supportedGenerationMethods", [])):
                     encontrados.append((tuple(int(x) for x in version.group(1).split(".")), nombre))
             pagina = datos.get("nextPageToken")
             if not pagina:
