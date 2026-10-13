@@ -77,3 +77,9 @@ def es_repetida(titulo, titulos_publicados, min_comunes=MIN_PALABRAS_COMUNES, mi
         if comunes >= min_comunes and comunes >= min_proporcion * min(len(palabras), len(otras)):
             return True
     return False
+
+
+def es_analisis(titulo, enlace=""):
+    """True si es un análisis (review) de un juego: las webs lo ponen en el título o en el enlace
+    («Análisis de...», «.../analisis/...», «...-analisis-...»)."""
+    return re.search(r"(?<![a-z])(analisis|reviews?)(?![a-z])", normalizar(f"{titulo} {enlace}")) is not None

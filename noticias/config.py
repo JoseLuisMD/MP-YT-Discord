@@ -12,6 +12,13 @@ MAX_WEB = 30             # noticias que se guardan para la web (archivo `web` de
 HORAS_RECIENTES = 48
 MIN_PALABRAS_COMUNES = 5
 MIN_PROPORCION_COMUN = 0.5
+# Segunda comprobación, con el resumen de Gemini (mismo estilo y longitud en todas, y nombra juegos, empresas y
+# plataformas, así que la misma noticia de dos webs se parece mucho más que por el título). Tras resumir la elegida se
+# compara con los resúmenes de las últimas HORAS_RECIENTES: si es la misma, se descarta y se prueba con la siguiente,
+# hasta MAX_INTENTOS resúmenes (llamadas a Gemini) por ejecución. Dos análisis del mismo juego nunca son repetidos.
+MIN_PALABRAS_COMUNES_RESUMEN = 5
+MIN_PROPORCION_COMUN_RESUMEN = 0.4
+MAX_INTENTOS = 3
 USER_AGENT = "Mozilla/5.0 (compatible; MundosPixeladosBot/1.0)"
 
 TEMA_THREADS = "videojuegos"

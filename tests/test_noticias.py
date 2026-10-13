@@ -7,6 +7,7 @@ import pytest
 from noticias import proceso
 from noticias.config import EMOJIS_FUENTE
 from noticias.fuentes import FUENTES
+from noticias.modelos import Noticia
 
 AHORA = datetime(2026, 10, 11, 20, 0, tzinfo=timezone.utc)   # los feeds reales se guardaron la tarde de ese día
 
@@ -285,7 +286,9 @@ def test_las_publicadas_se_apuntan_en_recientes(entorno):
     correr, estado = entorno
     red, _ = correr()
     recientes = json.loads(estado["recientes"].read_text(encoding="utf-8"))
-    assert recientes == [{"titulo": red.publicaciones[0].titulo_tarjeta, "fecha": "2026-10-11T20:00:00+00:00"}]
+    p = red.publicaciones[0]
+    assert recientes == [{"titulo": p.titulo_tarjeta, "resumen": p.texto.split("\n\n")[0], "enlace": p.enlace,
+                          "fecha": "2026-10-11T20:00:00+00:00"}]
 
 
 def test_las_recientes_antiguas_se_olvidan(entorno):
@@ -303,3 +306,108 @@ def test_si_ninguna_red_publica_no_se_apunta_en_recientes(entorno):
     correr, estado = entorno
     correr(Red(resultado=False))
     assert json.loads(estado["recientes"].read_text(encoding="utf-8")) == []
+
+
+# ---------------- Noticias repetidas por el resumen de Gemini ----------------
+# Noticias reales de octubre de 2026 (título, resumen de Gemini y enlace)
+GAME_VANDAL = Noticia(
+    "Vandal", "Los más vendidos en GAME España: se confirma que EA Sports FC 27 fue el título más vendido en septiembre",
+    "https://vandal.elespanol.com/noticia/2026286013/los-mas-vendidos-en-espana-game-confirma-que-ea-sports-fc-27-fue-el-titulo-mas-vendido-en-septiembre/", "")
+GAME_VANDAL_RESUMEN = ("GAME España ha anunciado que EA SPORTS FC 27 fue el juego más vendido en septiembre. "
+                       "Marvel: Lobezno y Silent Hill: Townfall completan el podio.")
+GAME_HOBBY = {
+    "titulo": "GAME publica los juegos más vendidos en sus tiendas durante septiembre de 2026: fútbol, Lobezno y Konami dominan la lista",
+    "resumen": "GAME publica los juegos más vendidos en septiembre de 2026. EA Sports FC 27, Marvel: Lobezno y Silent Hill "
+               "Townfall lideran el top de ventas.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/game-publica-los-juegos-mas-vendidos-sus-tiendas-durante-septiembre-2026-futbol-lobezno-konami-dominan-lista_7048007_0.html",
+    "fecha": "2026-10-11T19:00:00+00:00",
+}
+HORII_3DJ = Noticia(
+    "3DJuegos", "El creador de Dragon Quest ha hecho un juego en lo que tardas en ver un capítulo de Los Simpson, y ya sabes qué significa",
+    "https://www.3djuegos.com/juegos/dragon-quest-xii/noticias/creador-dragon-quest-ha-hecho-juego-que-tardas-ver-capitulo-simpson-sabes-que-significa", "")
+HORII_3DJ_RESUMEN = ("Yuji Horii, creador de Dragon Quest, ha desarrollado en solo treinta minutos el juego Interrogation Room Komiya "
+                     "utilizando inteligencia artificial.")
+HORII_HOBBY = {
+    "titulo": "Yuji Horii, el creador de Dragon Quest, lanza un juego gratis hecho con IA centrado en un interrogatorio, y la lluvia de críticas no se ha hecho esperar",
+    "resumen": "Yuji Horii, creador de Dragon Quest, ha lanzado gratis en navegador un juego de interrogatorios creado con "
+               "inteligencia artificial que ha recibido duras críticas.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/yuji-horii-creador-dragon-quest-lanza-un-juego-gratis-hecho-con-ia-centrado-un-interrogatorio-lluvia-criticas-no-se-ha-hecho-esperar_7047756_0.html",
+    "fecha": "2026-10-11T19:00:00+00:00",
+}
+CASTLEVANIA_3DJ = Noticia(
+    "3DJuegos", "Me esperaba un buen juego, pero no uno de los mejores de su género. Análisis de Castlevania: Belmont's Curse",
+    "https://www.3djuegos.com/juegos/castlevania-belmonts-curse/analisis/me-esperaba-buen-juego-no-uno-mejores-su-genero-analisis-castlevania-belmont-s-curse", "")
+CASTLEVANIA_3DJ_RESUMEN = ("El análisis de Castlevania: Belmont's Curse destaca el excelente trabajo de Evil Empire, calificándolo "
+                           "como uno de los mejores y más logrados juegos de la saga y del género.")
+CASTLEVANIA_HOBBY = {
+    "titulo": "Análisis de Castlevania: Belmont's Curse, un regreso al castillo de Dracula por la puerta grande que unifica la saga en todas sus vertientes y formatos",
+    "resumen": "Castlevania: Belmont's Curse marca el triunfal regreso de la saga de Konami, desarrollado por Evil Empire para "
+               "unificar la franquicia y competir en la era moderna de los metroidvania.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-castlevania-belmont-s-curse-un-regreso-castillo-dracula-por-puerta-grande-que-unifica-saga-todas-sus-vertientes-formatos_7045323_0.html",
+    "fecha": "2026-10-11T19:00:00+00:00",
+}
+NARUTO_RASENGAN = {
+    "titulo": "Naruto prepara grandes novedades hasta 2029 y deja pistas de un nuevo videojuego con Project Rasengan",
+    "resumen": "Bandai Namco presenta Project Rasengan, una iniciativa que ampliará el universo de Naruto y Boruto hasta 2029 "
+               "con nuevos contenidos y pistas sobre posibles videojuegos.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026285005/naruto-prepara-grandes-novedades-hasta-2029-y-deja-pistas-de-un-nuevo-videojuego-con-project-rasengan/",
+    "fecha": "2026-10-11T19:00:00+00:00",
+}
+
+
+def test_la_misma_noticia_de_otra_web_es_repetida_por_el_resumen_aunque_no_por_el_titulo():
+    assert proceso.descartar_repetidas([GAME_VANDAL], [GAME_HOBBY]) == [GAME_VANDAL]   # el título no basta
+    assert proceso.repetida_por_resumen(GAME_VANDAL, GAME_VANDAL_RESUMEN, [GAME_HOBBY])
+    assert proceso.repetida_por_resumen(HORII_3DJ, HORII_3DJ_RESUMEN, [HORII_HOBBY])
+
+
+def test_dos_analisis_del_mismo_juego_no_son_repetidos():
+    assert not proceso.repetida_por_resumen(CASTLEVANIA_3DJ, CASTLEVANIA_3DJ_RESUMEN, [CASTLEVANIA_HOBBY])
+
+
+def test_noticias_distintas_de_la_misma_saga_no_son_repetidas_por_el_resumen():
+    naruto_mobile = Noticia("Vandal", "Naruto Mobile confirma su lanzamiento mundial diez años después de debutar en China",
+                            "https://vandal.elespanol.com/noticia/2026285020/naruto-mobile/", "")
+    resumen = "Bandai Namco ha anunciado el lanzamiento mundial para iOS y Android de Naruto Mobile, un juego de lucha que debutó en China en 2016."
+    assert not proceso.repetida_por_resumen(naruto_mobile, resumen, [NARUTO_RASENGAN])
+
+
+def test_las_recientes_sin_resumen_no_rompen_la_comparacion():
+    antigua = {"titulo": "Una noticia apuntada antes de guardar resúmenes", "fecha": "2026-10-11T19:00:00+00:00"}
+    assert not proceso.repetida_por_resumen(GAME_VANDAL, GAME_VANDAL_RESUMEN, [antigua])
+
+
+REPETIDO = GAME_HOBBY["resumen"]
+
+
+def test_si_el_resumen_sale_repetido_se_prueba_con_la_siguiente(entorno):
+    correr, estado = entorno
+    escribir_recientes(estado["recientes"], [GAME_HOBBY])
+    resumidas = []
+
+    def resumir(titulo, texto, otro_idioma=False):   # la primera elegida resulta ser la misma noticia que GAME_HOBBY
+        resumidas.append(titulo)
+        return (REPETIDO if len(resumidas) == 1 else f"Resumen de {titulo[:20]}", [])
+
+    estado["resumir"] = resumir
+    red, historial = correr()
+    assert len(resumidas) == 2 and len(red.publicaciones) == 1
+    assert red.publicaciones[0].titulo_tarjeta == resumidas[1]
+    assert len(historial) == 2   # la repetida queda como vista, para no volver a resumirla
+
+
+def test_como_mucho_se_resumen_3_noticias_por_ejecucion(entorno):
+    correr, estado = entorno
+    escribir_recientes(estado["recientes"], [GAME_HOBBY])
+    resumidas = []
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: (resumidas.append(titulo), (REPETIDO, []))[1]
+    red, historial = correr()
+    assert len(resumidas) == 3 and red.publicaciones == [] and len(historial) == 3
+
+
+def test_si_gemini_no_resume_no_se_prueba_con_otra(entorno):
+    correr, estado = entorno
+    llamadas = []
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: llamadas.append(titulo)
+    red, historial = correr()
+    assert len(llamadas) == 1 and red.publicaciones == [] and historial == []

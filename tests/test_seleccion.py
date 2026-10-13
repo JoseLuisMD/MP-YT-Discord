@@ -1,8 +1,8 @@
 import random
 
 from noticias.modelos import Noticia
-from noticias.seleccion import (clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_reciente,
-                                es_repetida, palabras_significativas)
+from noticias.seleccion import (clasificar, coincidencias, compilar_niveles, compilar_patrones, elegir, es_analisis,
+                                es_reciente, es_repetida, palabras_significativas)
 
 PATRONES = compilar_patrones(["sonic", "resident evil", "final fantasy"])
 
@@ -104,3 +104,15 @@ def test_noticias_distintas_del_mismo_juego_no_son_repetidas():
 
 def test_sin_publicadas_no_hay_repetidas():
     assert not es_repetida("Cualquier cosa", [])
+
+
+def test_los_analisis_se_reconocen_por_el_titulo_o_el_enlace():
+    # Enlaces reales de 3DJuegos y Hobby Consolas
+    assert es_analisis("Me esperaba un buen juego, pero no uno de los mejores de su género",
+                       "https://www.3djuegos.com/juegos/castlevania-belmonts-curse/analisis/me-esperaba-buen-juego")
+    assert es_analisis("Análisis de Valor Mortis, un napoleónico soulslike en primera persona")
+    assert es_analisis("Un título cualquiera", "https://www.hobbyconsolas.com/videojuegos/analisis-valor-mortis-un-napoleonico_7045474_0.html")
+    assert es_analisis("Pragmata review: Capcom's best new IP in years")
+    assert not es_analisis("GAME publica los juegos más vendidos en septiembre",
+                           "https://www.hobbyconsolas.com/videojuegos/game-publica-los-juegos-mas-vendidos_7048007_0.html")
+    assert not es_analisis("Los análisisx no existen")  # la palabra tiene que ir sola
