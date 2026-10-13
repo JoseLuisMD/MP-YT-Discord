@@ -43,14 +43,23 @@ def imagen_vandal(e):
 
 
 def imagen_eurogamer(e):
-    """Eurogamer pide la imagen con «auto=webp» (WebP si el navegador lo admite). Threads no acepta WebP:
-    se quita ese parámetro para recibir siempre el JPEG que indica «format=jpg»."""
+    """Eurogamer (y Rock Paper Shotgun, de la misma empresa) pide la imagen con «auto=webp» (WebP si el navegador
+    lo admite). Threads no acepta WebP: se quita ese parámetro para recibir siempre el JPEG que indica «format=jpg»."""
     url = imagen_generica(e)
     if not url:
         return None
     partes = urlsplit(url)
     consulta = [(k, v) for k, v in parse_qsl(partes.query) if not (k == "auto" and v == "webp")]
     return urlunsplit(partes._replace(query=urlencode(consulta)))
+
+
+def imagen_gameinformer(e):
+    """Game Informer da la imagen redimensionada y en WebP («/styles/body_default/public/...jpg.webp»), que Threads
+    no acepta. Quitando el estilo y el «.webp» se obtiene la original (JPEG o PNG)."""
+    url = imagen_generica(e)
+    if not url:
+        return None
+    return re.sub(r"(\.(?:jpe?g|png))\.webp$", r"\1", re.sub(r"/files/styles/[^/]+/public/", "/files/", url))
 
 
 def imagen_og(enlace):

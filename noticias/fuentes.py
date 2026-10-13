@@ -13,7 +13,7 @@ import feedparser
 from common.texto import limpiar_html, quitar_bloques, quitar_lineas_de_enlaces
 
 from .config import MAX_EDAD_HORAS
-from .imagenes import imagen_eurogamer, imagen_generica, imagen_vandal
+from .imagenes import imagen_eurogamer, imagen_gameinformer, imagen_generica, imagen_vandal
 from .modelos import Noticia
 
 
@@ -28,6 +28,19 @@ def fecha_entrada(e):
 BLOQUES_EXCLUIDOS = ("desvio-container",)
 
 
+def texto_generico(e):
+    if e.get("content"):
+        return e["content"][0].get("value", "")
+    return e.get("summary", "")
+
+
+def texto_pcgamer(e):
+    """PC Gamer trae dos bloques de contenido: la ficha del autor y el artículo (dentro de <article>).
+    Se usa el subtítulo (summary) más el artículo; algunas noticias no traen artículo y se quedan con el subtítulo."""
+    articulo = next((c.get("value", "") for c in e.get("content") or [] if "<article" in c.get("value", "")), "")
+    return f"<p>{e.get('summary', '')}</p> {articulo}"
+
+
 @dataclass(frozen=True)
 class Fuente:
     nombre: str
@@ -36,6 +49,7 @@ class Fuente:
     rutas_excluidas: tuple = ()   # secciones de la web que no son de videojuegos
     categorias_excluidas: tuple = ()  # categorías del feed (<category>) que no son de videojuegos
     extraer_imagen: Callable = imagen_generica
+    extraer_texto: Callable = texto_generico  # HTML con el cuerpo de la noticia
     bloques_excluidos: tuple = BLOQUES_EXCLUIDOS  # clases HTML de los bloques que se quitan del contenido
     imagen_en_threads: bool = False  # True si Threads no muestra la imagen de su tarjeta: la adjuntamos nosotros
 
@@ -69,19 +83,13 @@ class Fuente:
                 fuente=self.nombre,
                 titulo=titulo,
                 enlace=enlace,
-                texto=limpiar_html(quitar_lineas_de_enlaces(quitar_bloques(_contenido(e), self.bloques_excluidos))),
+                texto=limpiar_html(quitar_lineas_de_enlaces(quitar_bloques(self.extraer_texto(e), self.bloques_excluidos))),
                 fecha=fecha_entrada(e),
                 url_imagen=self.extraer_imagen(e),
                 idioma=self.idioma,
                 imagen_en_threads=self.imagen_en_threads,
             ))
         return resultado
-
-
-def _contenido(e):
-    if e.get("content"):
-        return e["content"][0].get("value", "")
-    return e.get("summary", "")
 
 
 FUENTES = [
@@ -102,4 +110,21 @@ FUENTES = [
         imagen_en_threads=True,
     ),
     Fuente("GenerationAmiga", "https://www.generationamiga.com/{aaaa}/{mm}/feed/", idioma="en"),
+    Fuente(
+        "Game Informer",
+        "https://gameinformer.com/news.xml",   # solo noticias; rss.xml mezcla análisis, podcasts y patrocinados
+        idioma="en",
+        rutas_excluidas=("/digital-issue/",),   # anuncios de la revista
+        extraer_imagen=imagen_gameinformer,
+    ),
+    Fuente(
+        "PC Gamer",
+        "https://www.pcgamer.com/rss/",
+        idioma="en",
+        rutas_excluidas=("/hardware/", "/software/"),
+        extraer_texto=texto_pcgamer,
+        # «product»: recuadros de ofertas y listas de «lo mejor»; «card»: enlaces a otros artículos; «credit»: créditos de las imágenes
+        bloques_excluidos=BLOQUES_EXCLUIDOS + ("product", "card", "credit"),
+    ),
+    Fuente("Rock Paper Shotgun", "https://www.rockpapershotgun.com/feed", idioma="en", extraer_imagen=imagen_eurogamer),
 ]

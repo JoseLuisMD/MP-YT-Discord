@@ -89,6 +89,8 @@ Después, pasar las pruebas y subir los `.txt`.
   del workflow que los use. Para que se reconstruya su web, añade su repo al token guardado en `WEB_TOKEN`.
 - **Una web de noticias**: una `Fuente` en `noticias/fuentes.py` y su nombre en las `fuentes` del proyecto.
   Si su feed pone la imagen en un sitio raro, se escribe un extractor en `noticias/imagenes.py` y se pasa como `extraer_imagen=`.
+  Igual con el texto: si la noticia no está en el primer bloque de contenido, se pasa una función como `extraer_texto=`
+  (p. ej. `texto_pcgamer` en `noticias/fuentes.py`).
   Si Threads muestra su tarjeta sin imagen, pon `imagen_en_threads=True`: se publica con la imagen adjunta
   y el enlace en el texto (si la imagen falla, se vuelve a la tarjeta normal).
   Después, guarda su feed completo desde el navegador (Ctrl+S) en `tests/fixtures/` y añade una prueba.

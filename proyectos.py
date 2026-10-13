@@ -40,7 +40,8 @@ PROYECTOS = {
             "UCb3jFYgTbBLjDDOlZiD-2kg": {"mensaje": "¡Nuevo short en Mundos Pixelados Shorts!"},
         },
         "noticias": {
-            "fuentes": ["Vandal", "3DJuegos", "Hobby Consolas", "VidaExtra", "Eurogamer.es", "GenerationAmiga"],
+            "fuentes": ["Vandal", "3DJuegos", "Hobby Consolas", "VidaExtra", "Eurogamer.es", "GenerationAmiga",
+                        "Game Informer", "PC Gamer", "Rock Paper Shotgun"],
             "discord": "DISCORD_WEBHOOK_NOTICIAS",
             "historial": "noticias_publicadas.json",
             "palabras": "palabras_clave.json",

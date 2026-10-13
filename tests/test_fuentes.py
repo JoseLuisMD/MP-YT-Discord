@@ -138,3 +138,42 @@ def test_vidaextra_las_lineas_en_vidaextra_del_final_no_cuentan(cargar):
     assert not any("En VidaExtra |" in n.texto for n in noticias)
     wanda = next(n for n in noticias if "WandaVision" in n.titulo)
     assert "Doctor Doom" not in wanda.texto     # estaba solo en un «En VidaExtra | ...» del final
+
+
+def test_gameinformer_esta_en_ingles_y_pide_la_imagen_original(cargar):
+    f = fuente("Game Informer")
+    assert f.idioma == "en"
+    noticias = f.noticias(parse=lambda url: cargar("gameinformer.xml"))
+    assert len(noticias) == 49   # de 50: fuera el anuncio de la revista digital
+    assert not any("/digital-issue/" in n.enlace for n in noticias)
+    assert noticias[0].url_imagen == (
+        "https://gameinformer.com/sites/default/files/2026/10/12/08455105/"
+        "marvel_tokon_fighting_souls_year_1_dlc_character_-_thor_jane_foster_0-18_screenshot.jpg")
+    assert all("/styles/" not in n.url_imagen and not n.url_imagen.endswith(".webp") for n in noticias)
+    assert "Jane Foster as Thor, Venom, and Jubilee" in noticias[0].texto
+
+
+def test_pcgamer_descarta_hardware_y_usa_el_articulo_y_no_la_ficha_del_autor(cargar):
+    f = fuente("PC Gamer")
+    assert f.idioma == "en"
+    noticias = f.noticias(parse=lambda url: cargar("pcgamer.xml"))
+    assert len(noticias) == 39   # de 50: fuera hardware y software
+    assert not any("/hardware/" in n.enlace or "/software/" in n.enlace for n in noticias)
+    zoo = next(n for n in noticias if n.titulo.startswith("Planet Zoo 2 review"))
+    assert zoo.texto.startswith("The animals are as beautiful as ever")   # subtítulo y después el artículo
+    assert "Zoo-based management sim" in zoo.texto
+    assert not any("has been fascinated by PC gaming" in n.texto for n in noticias)   # ficha del autor
+    # Sin artículo (solo un recuadro de «lo mejor»): se queda el subtítulo
+    assert noticias[0].texto == "Which is quite the feat."
+    assert all(n.texto and "<" not in n.texto and "Best PC games :" not in n.texto for n in noticias)
+    assert noticias[0].url_imagen == "https://cdn.mos.cms.futurecdn.net/869mjkNH6axrLNPgTSgZLj-1920-80.jpg"
+
+
+def test_rockpapershotgun_pide_la_imagen_en_jpg_y_no_en_webp(cargar):
+    f = fuente("Rock Paper Shotgun")
+    assert f.idioma == "en"
+    noticias = f.noticias(parse=lambda url: cargar("rockpapershotgun.xml"))
+    assert len(noticias) == 100
+    assert noticias[0].url_imagen == "https://assetsio.gnwcdn.com/Tarn-Adams.png?width=690&quality=85&format=jpg"
+    assert all(n.url_imagen.startswith("https://assetsio.gnwcdn.com/") and "auto=webp" not in n.url_imagen
+               for n in noticias)
