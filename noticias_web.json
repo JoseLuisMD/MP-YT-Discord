@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Ratocalypse es un RPG táctico y auto battler de estrategia inspirado en Fire Emblem",
+    "resumen": "Ratocalypse es un juego de estrategia y rol táctico de tipo auto battler inspirado en Fire Emblem que protagonizan ratas medievales humanoides afectadas por una plaga zombi.",
+    "enlace": "https://www.rockpapershotgun.com/ratocalypse-might-sound-like-a-low-budget-horror-flick-but-its-actually-a-neat-looking-fire-emblem-adjacent-strategy-auto-battler",
+    "imagen": "https://assetsio.gnwcdn.com/Ratocalypse.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-10-13T19:31:14+00:00"
+  },
+  {
     "titulo": "Si te gusta Zelda, Castlevania y la estética Game Boy, no pierdas de vista a The Legend of Chalkvania, un RPG de acción que parece hecho con tiza",
     "resumen": "The Legend of Chalkvania es un RPG de acción y metroidvania para PC inspirado en Zelda y Castlevania con una estética de tiza y un mundo abierto lleno de retos.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/si-te-gusta-zelda-castlevania-estetica-game-boy-no-pierdas-vista-the-legend-of-chalkvania-un-rpg-accion-que-parece-hecho-con-tiza_7048285_0.html",
@@ -234,13 +243,5 @@
     "imagen": "https://media.vandal.net/m/10-2026/11/202610111847547_1.jpg",
     "fuente": "Vandal",
     "fecha": "2026-10-12T12:01:32+00:00"
-  },
-  {
-    "titulo": "Yuji Horii, el creador de Dragon Quest, lanza un juego gratis hecho con IA centrado en un interrogatorio, y la lluvia de críticas no se ha hecho esperar",
-    "resumen": "Yuji Horii, creador de Dragon Quest, ha lanzado gratis en navegador un juego de interrogatorios creado con inteligencia artificial que ha recibido duras críticas.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/yuji-horii-creador-dragon-quest-lanza-un-juego-gratis-hecho-con-ia-centrado-un-interrogatorio-lluvia-criticas-no-se-ha-hecho-esperar_7047756_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/12/6accad60b514a3-45582076.jpeg",
-    "fuente": "Hobby Consolas",
-    "fecha": "2026-10-12T11:03:08+00:00"
   }
 ]
