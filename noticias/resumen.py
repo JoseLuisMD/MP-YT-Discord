@@ -1,8 +1,9 @@
-"""Resumen y hashtags de una noticia con Gemini (plan gratuito)."""
+"""Resumen, hashtags y título en español de una noticia con Gemini (plan gratuito)."""
 import json
 import os
 import re
 import time
+from typing import NamedTuple
 
 import requests
 
@@ -14,6 +15,12 @@ URL_MODELOS = "https://generativelanguage.googleapis.com/v1beta/models"
 URL_GEMINI = URL_MODELOS + "/{modelo}:generateContent"
 ERRORES_TRANSITORIOS = {429, 500, 502, 503, 504}
 PATRON_MODELO = re.compile(r"gemini-(\d+(?:\.\d+)*)-flash-lite")   # solo estables: sin -preview, -exp, -001...
+
+
+class Resumen(NamedTuple):
+    texto: str              # resumen en español (máximo 200 caracteres)
+    hashtags: list
+    titulo: str = ""        # título en español; se usa en las noticias de webs en otro idioma ("" si no lo hay)
 
 
 def descubrir_modelos(clave):
@@ -59,19 +66,20 @@ def _limpiar_hashtags(crudos):
 
 
 def _interpretar(contenido, modelo):
-    """Convierte el texto de Gemini en (resumen, hashtags), o None si no sirve."""
+    """Convierte el texto de Gemini en un `Resumen`, o None si no sirve."""
     try:
         contenido = re.sub(r"^```(?:json)?\s*|\s*```$", "", contenido, flags=re.I)
         resultado = json.loads(contenido)
         resumen = limpiar_html(resultado.get("resumen", ""))
         hashtags = _limpiar_hashtags(resultado.get("hashtags", []))
+        titulo = limpiar_html(str(resultado.get("titulo") or ""))
     except (ValueError, TypeError, AttributeError) as e:
         print(f"Respuesta JSON inválida de Gemini ({modelo}): {e}")
         return None
     if not resumen:
         print(f"Gemini devolvió un resumen vacío ({modelo}).")
         return None
-    return recortar(resumen, 200), hashtags
+    return Resumen(recortar(resumen, 200), hashtags, recortar(titulo, 150))
 
 
 def _probar_modelo(modelo, clave, prompt):
@@ -84,7 +92,7 @@ def _probar_modelo(modelo, clave, prompt):
                 headers={"x-goog-api-key": clave, "Content-Type": "application/json"},
                 json={
                     "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {"temperature": 0.2, "maxOutputTokens": 300},
+                    "generationConfig": {"temperature": 0.2, "maxOutputTokens": 400},
                 },
                 timeout=45,
             )
@@ -131,12 +139,12 @@ def _probar_modelo(modelo, clave, prompt):
 
 
 def resumir(titulo, texto, otro_idioma=False):
-    """Devuelve (resumen, hashtags). Si Gemini falla, el título y sin hashtags;
-    y si la noticia no está en español, None (no se publica en otro idioma)."""
+    """Devuelve un `Resumen` (resumen, hashtags y título en español). Si Gemini falla, el título como resumen y sin
+    hashtags; y si la noticia no está en español, None (no se publica en otro idioma)."""
     clave = os.environ.get("GEMINI_API_KEY")
     if not clave:
         print("Falta la variable GEMINI_API_KEY")
-        return None if otro_idioma else (recortar(titulo, 270), [])
+        return None if otro_idioma else Resumen(recortar(titulo, 270), [])
 
     prompt = PROMPT.format(titulo=titulo, texto=(texto or "")[:1500])
     for modelo in modelos_a_probar(clave):
@@ -149,4 +157,4 @@ def resumir(titulo, texto, otro_idioma=False):
         print("No se pudo resumir la noticia en otro idioma; se omite.")
         return None
     print("Gemini no disponible. Se utiliza el título original.")
-    return recortar(titulo, 270), []
+    return Resumen(recortar(titulo, 270), [])

@@ -41,13 +41,13 @@ def lista_modelos(*nombres, metodos=("generateContent",)):
 
 
 def test_resumen_y_hashtags(llamadas):
-    assert resumen.resumir("Título", "Texto") == ("Resumen.", ["#uno", "#dos", "#tres", "#cuatro", "#cinco"])
+    assert resumen.resumir("Título", "Texto") == resumen.Resumen("Resumen.", ["#uno", "#dos", "#tres", "#cuatro", "#cinco"])
     assert llamadas["modelos"] == [MODELOS_LLM[0]]
 
 
 def test_acepta_json_con_vallas_de_codigo(llamadas):
     llamadas["respuesta"] = lambda m: gemini('```json\n{"resumen":"Con vallas.","hashtags":["#a"]}\n```')
-    assert resumen.resumir("T", "x") == ("Con vallas.", ["#a"])
+    assert resumen.resumir("T", "x") == resumen.Resumen("Con vallas.", ["#a"])
 
 
 def test_limpia_los_hashtags(llamadas):
@@ -75,7 +75,7 @@ def test_errores_transitorios_se_reintentan_y_luego_se_pasa_al_siguiente(llamada
 
 def test_si_gemini_falla_en_una_fuente_en_espanol_se_usa_el_titulo(llamadas):
     llamadas["respuesta"] = lambda m: Respuesta(500)
-    assert resumen.resumir("Un título", "x") == ("Un título", [])
+    assert resumen.resumir("Un título", "x") == resumen.Resumen("Un título", [])
 
 
 def test_si_gemini_falla_en_otro_idioma_no_se_publica(llamadas):
@@ -85,18 +85,18 @@ def test_si_gemini_falla_en_otro_idioma_no_se_publica(llamadas):
 
 def test_respuesta_que_no_es_json(llamadas):
     llamadas["respuesta"] = lambda m: gemini("esto no es json")
-    assert resumen.resumir("Título", "x") == ("Título", [])
+    assert resumen.resumir("Título", "x") == resumen.Resumen("Título", [])
     assert llamadas["modelos"] == list(MODELOS_LLM)
 
 
 def test_resumen_vacio_se_descarta(llamadas):
     llamadas["respuesta"] = lambda m: gemini_json("")
-    assert resumen.resumir("Título", "x") == ("Título", [])
+    assert resumen.resumir("Título", "x") == resumen.Resumen("Título", [])
 
 
 def test_sin_clave_no_se_llama_a_gemini(monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
-    assert resumen.resumir("Título", "x") == ("Título", [])
+    assert resumen.resumir("Título", "x") == resumen.Resumen("Título", [])
     assert resumen.resumir("Title", "x", otro_idioma=True) is None
 
 
@@ -154,3 +154,22 @@ def test_se_muestra_el_modelo_que_ha_generado_el_resumen(llamadas, capsys):
     llamadas["respuesta"] = lambda m: Respuesta(404) if m == MODELOS_LLM[0] else gemini_json()
     resumen.resumir("T", "x")
     assert f"Resumen generado con {MODELOS_LLM[1]}" in capsys.readouterr().out
+
+
+def test_devuelve_el_titulo_en_espanol_si_gemini_lo_da(llamadas):
+    llamadas["respuesta"] = lambda m: gemini(json.dumps(
+        {"titulo": "El remake de Monkey Island ya tiene fecha", "resumen": "Resumen.", "hashtags": ["#a"]}))
+    assert resumen.resumir("Monkey Island remake gets a release date", "x", otro_idioma=True) == resumen.Resumen(
+        "Resumen.", ["#a"], "El remake de Monkey Island ya tiene fecha")
+
+
+def test_sin_titulo_en_la_respuesta_el_titulo_queda_vacio(llamadas):
+    assert resumen.resumir("T", "x").titulo == ""
+
+
+def test_el_prompt_pide_el_titulo_en_espanol(llamadas, monkeypatch):
+    enviados = []
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (enviados.append(kw["json"]["contents"][0]["parts"][0]["text"]),
+                                                            gemini_json())[1])
+    resumen.resumir("A title", "Text", otro_idioma=True)
+    assert '"titulo"' in enviados[0] and "tradúcelo" in enviados[0]

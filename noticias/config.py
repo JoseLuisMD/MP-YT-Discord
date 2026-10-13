@@ -31,7 +31,9 @@ EMOJIS_FUENTE = ["📰", "🗞️", "📝", "✍️", "✏️", "🖊️", "🖋
 MODELOS_LLM = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 PROMPT = (
     "Analiza esta noticia de videojuegos y responde exclusivamente con un JSON válido "
-    "con dos campos: resumen y hashtags. "
+    "con tres campos: titulo, resumen y hashtags. "
+    "El titulo es el título de la noticia en español de España (castellano): si ya está en español, cópialo tal cual; "
+    "si no, tradúcelo con naturalidad, con un máximo de 120 caracteres y sin emojis. "
     "El resumen debe estar escrito en español de España (castellano) y tener un máximo de 200 caracteres. "
     "Usa 1 o 2 frases, tono neutro y solo información del texto, sin inventar datos ni emojis. "
     "Conserva los nombres originales de juegos, sagas, consolas y empresas. "
@@ -39,6 +41,6 @@ PROMPT = (
     "con el prefijo # y sin espacios ni tildes. "
     "Los hashtags deben ser breves y adecuados para Twitter o Bluesky. "
     "No incluyas hashtags dentro del resumen. "
-    'Formato: {{"resumen":"...","hashtags":["#...","#...","#...","#...","#..."]}}'
+    'Formato: {{"titulo":"...","resumen":"...","hashtags":["#...","#...","#...","#...","#..."]}}'
     "\n\nTítulo: {titulo}\n\nTexto: {texto}"
 )

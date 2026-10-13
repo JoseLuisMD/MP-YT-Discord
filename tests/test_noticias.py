@@ -8,6 +8,7 @@ from noticias import proceso
 from noticias.config import EMOJIS_FUENTE
 from noticias.fuentes import FUENTES
 from noticias.modelos import Noticia
+from noticias.resumen import Resumen
 
 AHORA = datetime(2026, 10, 11, 20, 0, tzinfo=timezone.utc)   # los feeds reales se guardaron la tarde de ese día
 
@@ -49,7 +50,7 @@ def entorno(monkeypatch, cargar, tmp_path):
             cache[nombre] = cargar(nombre)
         return cache[nombre]
 
-    estado = {"resumir": lambda titulo, texto, otro_idioma=False: (f"Resumen de {titulo[:20]}", ["#uno", "#dos"])}
+    estado = {"resumir": lambda titulo, texto, otro_idioma=False: Resumen(f"Resumen de {titulo[:20]}", ["#uno", "#dos"])}
     monkeypatch.setattr(proceso, "resumir", lambda *a, **k: estado["resumir"](*a, **k))
     monkeypatch.setattr(proceso, "imagen_og", lambda enlace: "https://og/imagen.jpg")
     ruta = tmp_path / "noticias_publicadas.json"
@@ -163,7 +164,7 @@ def test_las_secciones_excluidas_de_3djuegos_nunca_se_publican(entorno):
 def test_noticia_en_otro_idioma_sin_resumen_no_se_publica_ni_se_guarda(entorno):
     correr, estado = entorno
     escribir_palabras(estado["palabras"], [["amiga"], [], []])   # elige una de GenerationAmiga (inglés)
-    estado["resumir"] = lambda titulo, texto, otro_idioma=False: None if otro_idioma else ("Resumen", [])
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: None if otro_idioma else Resumen("Resumen", [])
     red, historial = correr()
     assert red.publicaciones == [] and historial == []
 
@@ -175,7 +176,7 @@ def test_se_pasa_a_resumir_si_la_fuente_esta_en_otro_idioma(entorno):
 
     def resumir(titulo, texto, otro_idioma=False):
         recibido["otro_idioma"] = otro_idioma
-        return "Resumen", []
+        return Resumen("Resumen", [])
     estado["resumir"] = resumir
     correr()
     assert recibido["otro_idioma"] is True
@@ -226,6 +227,7 @@ def test_la_noticia_publicada_se_guarda_para_la_web(entorno):
         "enlace": web[0]["enlace"],
         "imagen": "https://i.blogs.es/a2a426/qwrtr/1024_2000.jpeg",
         "fuente": "3DJuegos",
+        "idioma": "es",
         "fecha": "2026-10-11T20:00:00+00:00",
     }]
 
@@ -387,7 +389,7 @@ def test_si_el_resumen_sale_repetido_se_prueba_con_la_siguiente(entorno):
 
     def resumir(titulo, texto, otro_idioma=False):   # la primera elegida resulta ser la misma noticia que GAME_HOBBY
         resumidas.append(titulo)
-        return (REPETIDO if len(resumidas) == 1 else f"Resumen de {titulo[:20]}", [])
+        return Resumen(REPETIDO if len(resumidas) == 1 else f"Resumen de {titulo[:20]}", [])
 
     estado["resumir"] = resumir
     red, historial = correr()
@@ -400,7 +402,7 @@ def test_como_mucho_se_resumen_3_noticias_por_ejecucion(entorno):
     correr, estado = entorno
     escribir_recientes(estado["recientes"], [GAME_HOBBY])
     resumidas = []
-    estado["resumir"] = lambda titulo, texto, otro_idioma=False: (resumidas.append(titulo), (REPETIDO, []))[1]
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: (resumidas.append(titulo), Resumen(REPETIDO, []))[1]
     red, historial = correr()
     assert len(resumidas) == 3 and red.publicaciones == [] and len(historial) == 3
 
@@ -411,3 +413,31 @@ def test_si_gemini_no_resume_no_se_prueba_con_otra(entorno):
     estado["resumir"] = lambda titulo, texto, otro_idioma=False: llamadas.append(titulo)
     red, historial = correr()
     assert len(llamadas) == 1 and red.publicaciones == [] and historial == []
+
+
+# ---------------- Noticias de webs en otro idioma ----------------
+def test_en_otro_idioma_se_usa_el_titulo_traducido(entorno):
+    correr, estado = entorno
+    escribir_palabras(estado["palabras"], [["amiga"], [], []])   # elige una de GenerationAmiga (inglés)
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: Resumen("Resumen.", [], "Título en español")
+    red, _ = correr()
+    assert red.publicaciones[0].titulo_tarjeta == "Título en español"
+    entrada = json.loads(estado["web"].read_text(encoding="utf-8"))[0]
+    assert entrada["titulo"] == "Título en español" and entrada["idioma"] == "en"
+    assert json.loads(estado["recientes"].read_text(encoding="utf-8"))[0]["titulo"] == "Título en español"
+
+
+def test_en_otro_idioma_sin_titulo_traducido_se_queda_el_original(entorno):
+    correr, estado = entorno
+    escribir_palabras(estado["palabras"], [["amiga"], [], []])
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: Resumen("Resumen.", [])
+    red, _ = correr()
+    assert "generationamiga.com" in red.publicaciones[0].enlace
+    assert red.publicaciones[0].titulo_tarjeta and red.publicaciones[0].titulo_tarjeta != "Resumen."
+
+
+def test_en_espanol_se_mantiene_el_titulo_original_aunque_gemini_lo_cambie(entorno):
+    correr, estado = entorno
+    estado["resumir"] = lambda titulo, texto, otro_idioma=False: Resumen("Resumen.", [], "Otro título")
+    red, _ = correr()
+    assert red.publicaciones[0].titulo_tarjeta != "Otro título"

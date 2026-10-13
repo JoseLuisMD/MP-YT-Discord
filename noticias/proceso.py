@@ -94,6 +94,7 @@ def entrada_web(n, resumen, ahora=None):
         "enlace": n.enlace,
         "imagen": n.url_imagen,
         "fuente": n.fuente,
+        "idioma": n.idioma,   # idioma de la noticia original: la web marca con «EN» las que no son en español
         "fecha": ahora.astimezone(timezone.utc).isoformat(timespec="seconds"),
     }
 
@@ -127,7 +128,10 @@ def ejecutar(fuentes, ruta, ruta_palabras, publicadores, ruta_web=None, ruta_rec
             resultado = resumir(c.titulo, c.texto, otro_idioma=c.idioma != "es")
             if resultado is None:
                 break   # Gemini no ha dado resumen: no se gastan más llamadas en esta ejecución
-            resumen, hashtags = resultado
+            resumen, hashtags, titulo_es = resultado
+            if c.idioma != "es" and titulo_es:
+                print(f"Título traducido: {titulo_es}")
+                c.titulo = titulo_es   # en español en la web, la tarjeta de Bluesky y la cola de X
             if repetida_por_resumen(c, resumen, recientes):
                 print(f"Descartada por repetida (resumen) [{c.fuente}] {c.titulo}")
                 publicadas.append(c.enlace)   # vista: no se vuelve a resumir en las próximas ejecuciones
