@@ -45,16 +45,16 @@
     "xseed": 0
   },
   "nivel_3": {
-    "games": 1,
+    "games": 2,
     "gaming": 0,
     "indie": 0,
-    "juegos": 1,
-    "nintendo": 1,
+    "juegos": 2,
+    "nintendo": 2,
     "playstation": 0,
     "retro": 1,
     "steam": 0,
     "videogames": 0,
-    "videojuegos": 1,
-    "xbox": 1
+    "videojuegos": 2,
+    "xbox": 2
   }
 }
