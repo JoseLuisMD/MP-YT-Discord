@@ -58,6 +58,27 @@ pip install -r requirements-dev.txt
 python -m pytest
 ```
 
+Con [uv](https://docs.astral.sh/uv/) (descarga Python 3.12 si no lo tienes):
+
+```bash
+uv venv --python 3.12
+uv pip install -r requirements-dev.txt
+.venv\Scripts\python -m pytest      # en Linux/macOS: .venv/bin/python -m pytest
+```
+
+## Dependencias
+
+Las que usa el bot se escriben en `requirements.in` (y las de las pruebas en `requirements-dev.in`).
+`requirements.txt` y `requirements-dev.txt` las fijan todas, también las indirectas, a una versión exacta:
+no se editan a mano, se generan con uv. Para actualizarlas (o tras añadir una en un `.in`):
+
+```bash
+uv pip compile requirements.in --universal --python-version 3.12 -o requirements.txt --upgrade
+uv pip compile requirements-dev.in --universal --python-version 3.12 -o requirements-dev.txt --upgrade
+```
+
+Después, pasar las pruebas y subir los `.txt`.
+
 ## Cómo se añade…
 
 - **Una palabra clave**: una entrada `"palabra": 0` en su nivel del archivo de palabras del proyecto, en la rama
