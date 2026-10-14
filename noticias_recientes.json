@@ -1,9 +1,5 @@
 [
   {
-    "titulo": "La demo de Metaphor ReFantazio para Nintendo Switch 2 ya está disponible en algunas regiones de la eShop, pero vas a tener que liberar bastante espacio",
-    "fecha": "2026-10-12T22:10:56+00:00"
-  },
-  {
     "titulo": "Pensaba que el soulslike en primera persona era una mala idea, hasta que jugué a Valor Mortis",
     "fecha": "2026-10-12T23:10:58+00:00"
   },
@@ -230,5 +226,11 @@
     "resumen": "Chandler Riggs ha dirigido y protagonizado un cortometraje de acción real basado en la pelea del garaje de Resident Evil 7, mostrando el rostro de Ethan Winters.",
     "enlace": "https://www.pcgamer.com/movies-tv/the-walking-deads-chandler-riggs-made-a-resident-evil-7-short-film-even-though-its-impossible-to-please-everybody/",
     "fecha": "2026-10-14T20:31:16+00:00"
+  },
+  {
+    "titulo": "El legendario compositor Frank Klepacki afirma que el género RTS no ha muerto",
+    "resumen": "Frank Klepacki defiende que el género de estrategia en tiempo real sigue vivo, aunque considera que los desarrolladores deberían ser más creativos.",
+    "enlace": "https://www.pcgamer.com/games/rts/legendary-composer-frank-klepacki-says-the-rts-genre-isnt-dead-but-he-would-like-to-see-devs-get-a-little-more-creative-with-it/",
+    "fecha": "2026-10-14T22:31:29+00:00"
   }
 ]
