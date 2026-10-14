@@ -1,9 +1,5 @@
 [
   {
-    "titulo": "Pensaba que el soulslike en primera persona era una mala idea, hasta que jugué a Valor Mortis",
-    "fecha": "2026-10-12T23:10:58+00:00"
-  },
-  {
     "titulo": "El regreso de Toki se producirá en tres plataformas retro en las que tendrá edición física, y una de ellas es Neo Geo, por lo que también funcionará en Neo Geo AES+",
     "fecha": "2026-10-13T00:10:58+00:00"
   },
@@ -232,5 +228,11 @@
     "resumen": "Frank Klepacki defiende que el género de estrategia en tiempo real sigue vivo, aunque considera que los desarrolladores deberían ser más creativos.",
     "enlace": "https://www.pcgamer.com/games/rts/legendary-composer-frank-klepacki-says-the-rts-genre-isnt-dead-but-he-would-like-to-see-devs-get-a-little-more-creative-with-it/",
     "fecha": "2026-10-14T22:31:29+00:00"
+  },
+  {
+    "titulo": "World of Warcraft: Midnight recibe una nueva actualización repleta de contenidos, aventuras y desafíos",
+    "resumen": "Blizzard ha lanzado la actualización 12.1.5 para World of Warcraft: Midnight, añadiendo una mazmorra de banda, un megaabismo, invasiones aqir y el regreso del Mito de piedra angular.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026287024/world-of-warcraft-midnight-recibe-una-nueva-actualizacion-repleta-de-contenidos-aventuras-y-desafios/",
+    "fecha": "2026-10-14T23:31:11+00:00"
   }
 ]
