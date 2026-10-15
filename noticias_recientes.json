@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Ratocalypse es un RPG táctico y auto battler de estrategia inspirado en Fire Emblem",
-    "resumen": "Ratocalypse es un juego de estrategia y rol táctico de tipo auto battler inspirado en Fire Emblem que protagonizan ratas medievales humanoides afectadas por una plaga zombi.",
-    "enlace": "https://www.rockpapershotgun.com/ratocalypse-might-sound-like-a-low-budget-horror-flick-but-its-actually-a-neat-looking-fire-emblem-adjacent-strategy-auto-battler",
-    "fecha": "2026-10-13T19:31:14+00:00"
-  },
-  {
     "titulo": "Análisis de Castlevania: Belmont's Curse - Una magnífica heredera de la saga con personalidad propia",
     "resumen": "Castlevania: Belmont's Curse se consolida como una de las mejores cacerías de vampiros, destacando por su gran personalidad dentro de la saga.",
     "enlace": "https://www.eurogamer.es/castlevania-belmonts-curse-analisis-review",
@@ -250,5 +244,11 @@
     "resumen": "Los desarrolladores de World of Warcraft: Forever explican que las mejoras de equipo seguirán siendo relevantes y evitarán invalidar el contenido antiguo.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-forever-devs-say-gear-upgrades-will-stay-relevant-for-a-long-long-time-its-very-much-our-intention-to-try-wherever-we-can-to-not-invalidate-old-content/",
     "fecha": "2026-10-15T19:31:23+00:00"
+  },
+  {
+    "titulo": "Los remakes de Resident Evil 2, 3 y 4 deslumbran en Nintendo Switch 2 y son comparables a las versiones de PS4: veredicto de Digital Foundry",
+    "resumen": "Digital Foundry analiza los remakes de Resident Evil 2, 3 y 4 en Nintendo Switch 2. El análisis técnico destaca recortes gráficos frente a las consolas mayores, pero certifica una calidad comparable…",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/los-remakes-resident-evil-2-3-4-deslumbran-nintendo-switch-2-son-comparables-las-versiones-ps4-veredicto-digital-foundry_7049296_0.html",
+    "fecha": "2026-10-15T20:31:18+00:00"
   }
 ]
