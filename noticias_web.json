@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Asha Sharma anuncia Xbox Labs para explorar nuevas tecnologías",
+    "resumen": "Asha Sharma ha anunciado Xbox Labs, un nuevo proyecto de I+D de Xbox enfocado en la remasterización de videojuegos mediante tecnologías como la IA.",
+    "enlace": "https://www.rockpapershotgun.com/asha-sharma-announces-xbox-labs-project-to-explore-new-technology-which-sure-sounds-like-tinkering-with-old-games-through-ai",
+    "imagen": "https://assetsio.gnwcdn.com/xbox-labs-cropped.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-10-15T03:31:10+00:00"
+  },
+  {
     "titulo": "El exdirector de Overwatch Jeff Kaplan se desvincula totalmente del juego cinco años después de su salida",
     "resumen": "Jeff Kaplan, antiguo director de Overwatch, afirma que no ha vuelto a jugar ni a seguir el título desde que abandonó Blizzard en 2021 para mantener una separación total con su etapa profesional.",
     "enlace": "https://www.pcgamer.com/games/fps/ex-overwatch-director-jeff-kaplan-ignores-everything-about-the-hero-shooter-after-his-almost-clinical-departure-5-years-ago-i-dont-search-for-my-name-in-overwatch-i-dont-search-for-overwatch-i-sort-of-just-disconnect/",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-13T17:32:00+00:00"
-  },
-  {
-    "titulo": "¿Indica la resurreccion de los juegos clasicos de Blizzard el regreso del viejo Blizzard?",
-    "resumen": "Blizzard anuncio importantes novedades en la BlizzCon 2026, generando un optimismo cauteloso entre los jugadores sobre el regreso de la compañia a sus raices.",
-    "enlace": "https://www.pcgamer.com/games/rts/does-blizzards-revival-of-its-classic-games-signal-a-return-of-the-old-blizzard/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/EbGQZscSAyByXiaALQLf83-1920-80.jpg",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-10-13T16:58:11+00:00"
   }
 ]

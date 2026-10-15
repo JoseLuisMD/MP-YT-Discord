@@ -1,5 +1,15 @@
 [
   {
+    "id": "deaaa10414cb",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Asha Sharma anuncia Xbox Labs para explorar nuevas tecnologías",
+    "enlace": "https://www.rockpapershotgun.com/asha-sharma-announces-xbox-labs-project-to-explore-new-technology-which-sure-sounds-like-tinkering-with-old-games-through-ai",
+    "imagen": "https://assetsio.gnwcdn.com/xbox-labs-cropped.jpg?width=690&quality=85&format=jpg",
+    "fecha": "2026-10-15T03:31:10+00:00",
+    "texto": "Asha Sharma ha anunciado Xbox Labs, un nuevo proyecto de I+D de Xbox enfocado en la remasterización de videojuegos mediante tecnologías como la IA.\n\n✒️ Rock Paper Shotgun\n\n#Xbox #XboxLabs #Microsoft #Gaming #IA\n\nhttps://www.rockpapershotgun.com/asha-sharma-announces-xbox-labs-project-to-explore-new-technology-which-sure-sounds-like-tinkering-with-old-games-through-ai"
+  },
+  {
     "id": "b78f3eb309bd",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -538,16 +548,6 @@
     "imagen": "https://i.blogs.es/c477df/dq/1024_2000.jpeg",
     "fecha": "2026-10-12T19:11:00+00:00",
     "texto": "Yuji Horii, creador de Dragon Quest, ha desarrollado en solo treinta minutos el juego Interrogation Room Komiya utilizando inteligencia artificial.\n\n✒️ 3DJuegos\n\n#YujiHorii #DragonQuest #InterrogationRoomKomiya #InteligenciaArtificial #Videojuegos\n\nhttps://www.3djuegos.com/juegos/dragon-quest-xii/noticias/creador-dragon-quest-ha-hecho-juego-que-tardas-ver-capitulo-simpson-sabes-que-significa"
-  },
-  {
-    "id": "e0bb7df60bca",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Bill van Zylll, vicepresidente de Nintendo en Latinoamérica: \"No hay planes para abandonar las ediciones físicas\"",
-    "enlace": "https://www.3djuegos.com/nintendo-switch-2/noticias/bill-van-zylll-vicepresidente-nintendo-latinoamerica-no-hay-planes-para-abandonar-ediciones-fisicas",
-    "imagen": "https://i.blogs.es/7c4563/donkey-kong-bananza/1024_2000.jpeg",
-    "fecha": "2026-10-12T19:03:37+00:00",
-    "texto": "Bill van Zyll, vicepresidente de Nintendo en Latinoamérica, ha confirmado que la compañía no tiene planes de abandonar las ediciones físicas de sus juegos.\n\n✒️ 3DJuegos\n\n#Nintendo #NintendoSwitch2 #Videojuegos #Formatofisico #BillvanZyll\n\nhttps://www.3djuegos.com/nintendo-switch-2/noticias/bill-van-zylll-vicepresidente-nintendo-latinoamerica-no-hay-planes-para-abandonar-ediciones-fisicas"
   },
   {
     "id": "07ee43a29f96",
