@@ -1,9 +1,5 @@
 [
   {
-    "titulo": "Los más vendidos en GAME España: se confirma que EA Sports FC 27 fue el título más vendido en septiembre",
-    "fecha": "2026-10-13T10:11:05+00:00"
-  },
-  {
     "titulo": "Polémica con Sonic Racing CrossWorlds: los jugadores exigen gratis los nuevos DLC por una promesa de SEGA",
     "resumen": "Jugadores de Sonic Racing CrossWorlds exigen DLC gratis. SEGA lanzó un pase de temporada pese a que la Digital Deluxe prometía todos los futuros contenidos.",
     "enlace": "https://vandal.elespanol.com/noticia/2026286015/polemica-con-sonic-racing-crossworlds-los-jugadores-exigen-gratis-los-nuevos-dlc-por-una-promesa-de-sega/",
@@ -248,5 +244,11 @@
     "resumen": "Capcom lanzará el 19 de octubre una demo gratuita de Monster Hunter Wilds para Nintendo Switch 2 con el inicio de la historia y multijugador local.",
     "enlace": "https://vandal.elespanol.com/noticia/2026288007/capcom-pone-fecha-al-prologo-gratuito-de-monster-hunter-wilds-en-switch-2-ofrecera-multijugador-local/",
     "fecha": "2026-10-15T09:31:16+00:00"
+  },
+  {
+    "titulo": "Es el cuarto mejor juego de 2026 según Metacritic, pero no saldrá en XBOX por el boicot a Microsoft",
+    "resumen": "House House ha confirmado que Big Walk no se lanzará en XBOX debido a su apoyo al boicot del movimiento BDS contra Microsoft por sus vínculos con Israel.",
+    "enlace": "https://www.3djuegos.com/juegos/big-walk/noticias/cuarto-mejor-juego-2026-metacritic-no-saldra-xbox-boicot-a-microsoft",
+    "fecha": "2026-10-15T10:31:18+00:00"
   }
 ]
