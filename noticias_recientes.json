@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Si te gusta Zelda, Castlevania y la estética Game Boy, no pierdas de vista a The Legend of Chalkvania, un RPG de acción que parece hecho con tiza",
-    "resumen": "The Legend of Chalkvania es un RPG de acción y metroidvania para PC inspirado en Zelda y Castlevania con una estética de tiza y un mundo abierto lleno de retos.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/si-te-gusta-zelda-castlevania-estetica-game-boy-no-pierdas-vista-the-legend-of-chalkvania-un-rpg-accion-que-parece-hecho-con-tiza_7048285_0.html",
-    "fecha": "2026-10-13T18:32:50+00:00"
-  },
-  {
     "titulo": "Ratocalypse es un RPG táctico y auto battler de estrategia inspirado en Fire Emblem",
     "resumen": "Ratocalypse es un juego de estrategia y rol táctico de tipo auto battler inspirado en Fire Emblem que protagonizan ratas medievales humanoides afectadas por una plaga zombi.",
     "enlace": "https://www.rockpapershotgun.com/ratocalypse-might-sound-like-a-low-budget-horror-flick-but-its-actually-a-neat-looking-fire-emblem-adjacent-strategy-auto-battler",
@@ -250,5 +244,11 @@
     "resumen": "Los creadores de Castlevania: Belmont’s Curse admiten que diseñaron a sus personajes para ser muy atractivos, generando una gran cantidad de fan art por parte de los fans.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/si-ves-fan-art-subido-tono-castlevania-belmont-s-curse-no-es-casualidad-sus-personajes-estan-disenados-para-ser-muy-atractivos_7049325_0.html",
     "fecha": "2026-10-15T18:31:38+00:00"
+  },
+  {
+    "titulo": "World of Warcraft: Forever mantendrá el equipo relevante",
+    "resumen": "Los desarrolladores de World of Warcraft: Forever explican que las mejoras de equipo seguirán siendo relevantes y evitarán invalidar el contenido antiguo.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-forever-devs-say-gear-upgrades-will-stay-relevant-for-a-long-long-time-its-very-much-our-intention-to-try-wherever-we-can-to-not-invalidate-old-content/",
+    "fecha": "2026-10-15T19:31:23+00:00"
   }
 ]
