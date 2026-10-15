@@ -1,9 +1,5 @@
 [
   {
-    "titulo": "Tekken 8 pone fecha al regreso de Roger Jr., el canguro luchador, y lo muestra en un extenso gameplay",
-    "fecha": "2026-10-13T01:10:54+00:00"
-  },
-  {
     "titulo": "Naruto prepara grandes novedades hasta 2029 y deja pistas de un nuevo videojuego con Project Rasengan",
     "fecha": "2026-10-13T02:10:56+00:00"
   },
@@ -230,5 +226,11 @@
     "resumen": "Blizzard ha lanzado la actualización 12.1.5 para World of Warcraft: Midnight, añadiendo una mazmorra de banda, un megaabismo, invasiones aqir y el regreso del Mito de piedra angular.",
     "enlace": "https://vandal.elespanol.com/noticia/2026287024/world-of-warcraft-midnight-recibe-una-nueva-actualizacion-repleta-de-contenidos-aventuras-y-desafios/",
     "fecha": "2026-10-14T23:31:11+00:00"
+  },
+  {
+    "titulo": "Riot Games cerrará League of Legends Classic en enero",
+    "resumen": "Riot Games cerrará League of Legends Classic en enero debido a que la mayoría de los jugadores han regresado a otras partes del juego.",
+    "enlace": "https://www.pcgamer.com/games/moba/3-months-after-launch-riot-announces-league-of-legends-classic-will-be-killed-in-january-most-have-gone-back-to-other-parts-of-league/",
+    "fecha": "2026-10-15T01:31:17+00:00"
   }
 ]
