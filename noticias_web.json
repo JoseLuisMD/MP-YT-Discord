@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Recopilacion de analisis de la pelicula de Street Fighter",
+    "resumen": "Las primeras criticas de la nueva pelicula de Street Fighter son mixtas. Los expertos señalan que es una obra incoherente aunque con ciertos aciertos puntuales.",
+    "enlace": "https://www.pcgamer.com/movies-tv/street-fighter-review-roundup-sorry-folks-but-it-sounds-like-a-mess/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/8RgfieBNh6Baks7DMQSZsM-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-15T23:31:09+00:00"
+  },
+  {
     "titulo": "9 trucos y ajustes que debes cambiar de Castlevania: Belmont's Curse antes de empezar a jugar y que el juego no te cuenta, incluido cómo usar el viaje rápido",
     "resumen": "Guia con nueve trucos y ajustes esenciales para Castlevania: Belmont's Curse, incluyendo configuracion de controles y opciones ocultas para mejorar la experiencia de juego.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/9-trucos-ajustes-que-debes-cambiar-castlevania-belmont-s-curse-antes-empezar-jugar-que-juego-no-te-cuenta-incluido-como-usar-viaje-rapido_7049239_0.html",
@@ -259,14 +268,5 @@
     "fuente": "VidaExtra",
     "idioma": "es",
     "fecha": "2026-10-14T12:33:38+00:00"
-  },
-  {
-    "titulo": "Holly Longdale, productora ejecutiva de World of Warcraft: \"No hay que escuchar a los que más gritan de la sala\"",
-    "resumen": "Holly Longdale y Clay Stone han detallado en la PAX Australia 2026 la filosofía de diseño horizontal que seguirá World of Warcraft: Forever de cara a su estreno el 4 de noviembre de 2026.",
-    "enlace": "https://www.3djuegos.com/juegos/world-of-warcraft-forever/noticias/holly-longdale-productora-ejecutiva-world-of-warcraft-no-hay-que-escuchar-a-que-gritan-sala",
-    "imagen": "https://i.blogs.es/57ce99/world-of-warcraft-forever/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-14T10:31:22+00:00"
   }
 ]
