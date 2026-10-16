@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "¿Cambio de rumbo de Microsoft? Una encuesta sugiere que XBOX está tanteando cambios sobre la exclusividad de juegos y franquicias importantes",
+    "resumen": "Microsoft ha enviado una encuesta a usuarios de Xbox Insider para valorar posibles exclusividades temporales o permanentes de franquicias como Fallout y DOOM.",
+    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/cambio-rumbo-microsoft-encuesta-sugiere-que-xbox-esta-tanteando-cambios-exclusividad-juegos-franquicias-importantes",
+    "imagen": "https://i.blogs.es/a9afd2/original/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-10-16T03:31:16+00:00"
+  },
+  {
     "titulo": "Metro 2039 decepciona por no incluir el juego completo en el disco de PS5 y Xbox, que además requiere de Internet la primera vez que se usa",
     "resumen": "El disco físico de Metro 2039 para PS5 y Xbox Series X|S no contiene el juego completo. Sus desarrolladores han confirmado que requerirá una descarga inicial conectándose a Internet.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/metro-2039-decepciona-por-no-incluir-juego-completo-disco-ps5-xbox-que-ademas-requiere-internet-primera-vez-que-se-usa_7049321_0.html",
@@ -259,14 +268,5 @@
     "fuente": "3DJuegos",
     "idioma": "es",
     "fecha": "2026-10-14T17:33:46+00:00"
-  },
-  {
-    "titulo": "El padre de Dragon Quest ha creado un juego usando IA generativa en 30 minutos: \"Es verdaderamente asombroso\"",
-    "resumen": "Yuji Horii, creador de Dragon Quest, ha desarrollado el juego gratuito Interrogation Room Komiya en solo 30 minutos utilizando inteligencia artificial generativa.",
-    "enlace": "https://www.vidaextra.com/industria/padre-dragon-quest-ha-creado-juego-usando-ia-generativa-30-minutos-verdaderamente-asombroso",
-    "imagen": "https://i.blogs.es/ebdbd7/thumb-1920-953871/1024_2000.jpeg",
-    "fuente": "VidaExtra",
-    "idioma": "es",
-    "fecha": "2026-10-14T15:31:28+00:00"
   }
 ]
