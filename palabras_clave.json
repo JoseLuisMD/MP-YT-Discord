@@ -1,7 +1,7 @@
 {
   "nivel_1": {
     "bayonetta": 3,
-    "castlevania": 18,
+    "castlevania": 19,
     "diablo": 8,
     "dragon quest": 7,
     "final fantasy": 18,
@@ -9,12 +9,12 @@
     "like a dragon": 3,
     "mario": 15,
     "metal gear": 6,
-    "metroid": 2,
+    "metroid": 3,
     "monster hunter": 4,
     "pikmin": 0,
     "pokemon": 9,
-    "resident evil": 19,
-    "silent hill": 5,
+    "resident evil": 20,
+    "silent hill": 6,
     "sonic": 5,
     "starcraft": 5,
     "trails": 3,
@@ -22,7 +22,7 @@
     "xenoblade": 1,
     "yakuza": 3,
     "ys": 0,
-    "zelda": 11
+    "zelda": 12
   },
   "nivel_2": {
     "bandai namco": 5,
