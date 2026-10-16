@@ -1,7 +1,7 @@
 {
   "nivel_1": {
     "bayonetta": 3,
-    "castlevania": 15,
+    "castlevania": 16,
     "diablo": 8,
     "dragon quest": 7,
     "final fantasy": 18,
@@ -22,7 +22,7 @@
     "xenoblade": 1,
     "yakuza": 2,
     "ys": 0,
-    "zelda": 9
+    "zelda": 10
   },
   "nivel_2": {
     "bandai namco": 5,
