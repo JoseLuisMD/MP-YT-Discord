@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Final Fantasy VII Revelation mejorará sus gráficos respecto a Rebirth también en Switch 2",
-    "resumen": "Naoki Hamaguchi asegura que Final Fantasy VII Revelation superará el apartado gráfico de Rebirth en todas las plataformas, incluyendo Nintendo Switch 2, sin limitar su calidad técnica.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026286030/final-fantasy-vii-revelation-mejorara-sus-graficos-respecto-a-rebirth-tambien-en-switch-2/",
-    "fecha": "2026-10-14T01:32:54+00:00"
-  },
-  {
     "titulo": "A qué hora se podrá jugar a Castlevania Belmont's Curse, la nueva entrega de la saga de Konami, en España y otras regiones",
     "resumen": "Castlevania: Belmont's Curse se lanzará globalmente el 15 de octubre. En España estará disponible a las 6:00 de la mañana sin acceso anticipado por ediciones especiales.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/que-hora-se-podra-jugar-castlevania-belmont-s-curse-nueva-entrega-saga-konami-espana-otras-regiones_7048255_0.html",
@@ -250,5 +244,11 @@
     "resumen": "Los suscriptores de Amazon Prime ya pueden reclamar gratis dos nuevos juegos de PC para esta semana de octubre de 2026 a través de Amazon Luna.",
     "enlace": "https://vandal.elespanol.com/noticia/2026288037/amazon-regala-hoy-2-nuevos-juegos-gratis-de-pc-a-todos-los-suscriptores-de-amazon-prime/",
     "fecha": "2026-10-16T01:31:20+00:00"
+  },
+  {
+    "titulo": "Metro 2039 decepciona por no incluir el juego completo en el disco de PS5 y Xbox, que además requiere de Internet la primera vez que se usa",
+    "resumen": "El disco físico de Metro 2039 para PS5 y Xbox Series X|S no contiene el juego completo. Sus desarrolladores han confirmado que requerirá una descarga inicial conectándose a Internet.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/metro-2039-decepciona-por-no-incluir-juego-completo-disco-ps5-xbox-que-ademas-requiere-internet-primera-vez-que-se-usa_7049321_0.html",
+    "fecha": "2026-10-16T02:31:14+00:00"
   }
 ]
