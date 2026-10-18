@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Este JRPG con viajes en el tiempo está diseñado por auténticas leyendas de Final Fantasy y Chrono Trigger. Y sólo por eso ya merece toda tu atención",
-    "resumen": "Probamos Eternal Anima, un JRPG de combates por turnos y estética tradicional desarrollado por veteranos de Final Fantasy y Chrono Trigger. Su historia sigue a Wade en un mundo flotante donde el…",
-    "enlace": "https://www.3djuegos.com/juegos/eternal-anima/noticias/este-jrpg-viajes-tiempo-esta-disenado-autenticas-leyendas-final-fantasy-chrono-trigger-solo-eso-merece-toda-tu-atencion",
-    "fecha": "2026-10-16T04:31:22+00:00"
-  },
-  {
     "titulo": "Kingdom Hearts conquista Japón y lidera las ventas de la semana con su nueva colección para Switch 2 y PS5",
     "resumen": "Kingdom Hearts Collection lidera las ventas físicas en Japón del 5 al 11 de octubre con casi 30.000 copias entre Switch 2 y PS5. Otros títulos destacados fueron Rhythm Paradise Groove y Ace Combat 8.",
     "enlace": "https://vandal.elespanol.com/noticia/2026288028/kingdom-hearts-conquista-japon-y-lidera-las-ventas-de-la-semana-con-su-nueva-coleccion-para-switch-2-y-ps5/",
@@ -256,5 +250,11 @@
     "resumen": "La industria del videojuego atraviesa un profundo cambio de paradigma marcado por la falta de transparencia empresarial y una persistente sensación de crisis económica.",
     "enlace": "https://www.3djuegos.com/industria-gaming/noticias/dato-que-casi-ninguna-compania-videojuegos-nos-quiere-contar-cada-vez-dificil-entender-como-funciona-esta-industria",
     "fecha": "2026-10-18T04:31:16+00:00"
+  },
+  {
+    "titulo": "Desarrollador cancela la demo de su juego por miedo a que la clonación con IA",
+    "resumen": "Alliance Arts ha cancelado la demo pública de Steam de su juego de terror Drunken Goddess Reflux por miedo a que sea clonado mediante IA. En su lugar, celebrarán sesiones privadas.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/game-development/developer-cancels-public-demo-of-its-upcoming-horror-drinking-game-fearing-it-will-be-instantly-cloned-by-ai-vibe-coders-we-sincerely-apologise-for-the-short-notice/",
+    "fecha": "2026-10-18T05:31:16+00:00"
   }
 ]
