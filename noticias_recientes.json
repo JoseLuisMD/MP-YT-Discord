@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Recopilacion de analisis de la pelicula de Street Fighter",
-    "resumen": "Las primeras criticas de la nueva pelicula de Street Fighter son mixtas. Los expertos señalan que es una obra incoherente aunque con ciertos aciertos puntuales.",
-    "enlace": "https://www.pcgamer.com/movies-tv/street-fighter-review-roundup-sorry-folks-but-it-sounds-like-a-mess/",
-    "fecha": "2026-10-15T23:31:09+00:00"
-  },
-  {
     "titulo": "Valor Mortis tiene (casi) todo lo que le pido a un videojuego",
     "resumen": "Valor Mortis es el nuevo soulslike en primera persona desarrollado por One More Level. Ambientado en una Europa del siglo XIX asolada por una plaga, ofrece diez niveles de acción y precisión.",
     "enlace": "https://www.vidaextra.com/accion/valor-mortis-tiene-muchas-cosas-que-le-pido-a-soulslike-otras-que-no",
@@ -256,5 +250,11 @@
     "resumen": "Amplitude Studios desarrolla Humankind 2 tras recuperar su independencia de SEGA. La secuela replantea por completo el juego original para superar sus errores y competir en el género 4X.",
     "enlace": "https://www.3djuegos.com/juegos/humankind-2/noticias/hay-vida-alla-civilization-para-demostrarlo-este-juego-estrategia-ha-hecho-complicado-asumir-sus-errores-he-visto-humankind-2",
     "fecha": "2026-10-17T23:33:28+00:00"
+  },
+  {
+    "titulo": "Shrek no solo vuelve al cine, también a los videojuegos. El mejor juego de la franquicia regresa con una remasterización",
+    "resumen": "La Microsoft Store ha filtrado Shrek 2 Remastered, una versión mejorada desarrollada por Aspyr que incluirá gráficos en 4K y modo cooperativo para hasta cuatro jugadores.",
+    "enlace": "https://www.3djuegos.com/juegos/shrek-2-remastered/noticias/shrek-no-solo-vuelve-al-cine-tambien-a-videojuegos-mejor-juego-franquicia-regresa-remasterizacion",
+    "fecha": "2026-10-18T00:31:15+00:00"
   }
 ]
