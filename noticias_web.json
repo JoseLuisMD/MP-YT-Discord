@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Una técnica utilizada en la Mega Drive en 1991 permitió que los videojuegos funcionaran con mayor fluidez. Incluso en 2026, los desarrolladores aún la admiran",
+    "resumen": "El programador Yuji Naka superó las limitaciones de Mega Drive en Sonic the Hedgehog mediante el ingenio, logrando una gran fluidez sin hardware adicional.",
+    "enlace": "https://www.vidaextra.com/industria/tecnica-utilizada-mega-drive-1991-permitio-que-videojuegos-funcionaran-mayor-fluidez-incluso-2026-desarrolladores-admiran",
+    "imagen": "https://i.blogs.es/d82e73/1366_2000-2-1-/1024_2000.jpeg",
+    "fuente": "VidaExtra",
+    "idioma": "es",
+    "fecha": "2026-10-19T14:31:32+00:00"
+  },
+  {
     "titulo": "Nintendo subestimó la gran aceptación que tuvo la Switch 2 conmemorativa de Zelda: 'No esperábamos algo así'",
     "resumen": "Nintendo admite que la demanda de la consola Switch 2 edición especial de Zelda superó todas sus previsiones iniciales, provocando problemas de stock y largas esperas.",
     "enlace": "https://vandal.elespanol.com/noticia/2026292022/nintendo-subestimo-la-gran-aceptacion-que-tuvo-la-switch-2-conmemorativa-de-zelda-no-esperabamos-algo-asi/",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-18T05:31:16+00:00"
-  },
-  {
-    "titulo": "Es el dato que casi ninguna compañía de videojuegos nos quiere contar, y sin él cada vez es más difícil entender cómo funciona esta industria",
-    "resumen": "La industria del videojuego atraviesa un profundo cambio de paradigma marcado por la falta de transparencia empresarial y una persistente sensación de crisis económica.",
-    "enlace": "https://www.3djuegos.com/industria-gaming/noticias/dato-que-casi-ninguna-compania-videojuegos-nos-quiere-contar-cada-vez-dificil-entender-como-funciona-esta-industria",
-    "imagen": "https://i.blogs.es/45babf/borja-presupuestos-control/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-18T04:31:16+00:00"
   }
 ]
