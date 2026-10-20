@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Entrevista a Joe Ziegler, exdirector de Marathon y Valorant",
-    "resumen": "El exdirector de Marathon y Valorant, Joe Ziegler, repasa su trayectoria en la industria y comparte detalles sobre su experiencia liderando proyectos en Bungie y Riot.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/there-were-a-lot-of-disagreements-across-the-place-former-marathon-director-joe-ziegler-on-leading-bungies-extraction-shooter-playing-path-of-exile-for-3-437-hours-and-why-hell-never-uninstall-kingdom-hearts/",
-    "fecha": "2026-10-18T19:31:07+00:00"
-  },
-  {
     "titulo": "Ve haciendo espacio en tu consola: revelado el tamaño que ocupa Phantom Blade Zero en PS5",
     "resumen": "Phantom Blade Zero ocupará 135 GB en el SSD de PlayStation 5, según los datos revelados a través del backend de la consola.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/ve-haciendo-espacio-tu-consola-revelado-tamano-que-ocupa-phantom-blade-zero-ps5_7050133_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Final Fantasy Resonance debuta con gran éxito en la crítica internacional, logrando una media sobresaliente en Metacritic y OpenCritic gracias a su estilo HD-2D y combates por turnos.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/final-fantasy-resonance-deslumbra-critica-con-su-epica-unos-impresionantes-graficos-hd-2d-notas-internacionales_7051257_0.html",
     "fecha": "2026-10-20T19:31:21+00:00"
+  },
+  {
+    "titulo": "Resumen del ID@Xbox Showcase de octubre de 2026",
+    "resumen": "El evento ID@Xbox mostró numerosas novedades y próximos lanzamientos de juegos independientes para las plataformas de Microsoft. Entre los títulos anunciados figuran Magenta Down, Croak, Mr. Records…",
+    "enlace": "https://gameinformer.com/2026/10/20/heres-a-recap-of-the-october-2026-idxbox-showcase",
+    "fecha": "2026-10-20T20:31:11+00:00"
   }
 ]
