@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Shrek no solo vuelve al cine, también a los videojuegos. El mejor juego de la franquicia regresa con una remasterización",
-    "resumen": "La Microsoft Store ha filtrado Shrek 2 Remastered, una versión mejorada desarrollada por Aspyr que incluirá gráficos en 4K y modo cooperativo para hasta cuatro jugadores.",
-    "enlace": "https://www.3djuegos.com/juegos/shrek-2-remastered/noticias/shrek-no-solo-vuelve-al-cine-tambien-a-videojuegos-mejor-juego-franquicia-regresa-remasterizacion",
-    "fecha": "2026-10-18T00:31:15+00:00"
-  },
-  {
     "titulo": "Rumor: Genitorturers afirma que se acerca un remake de Vampire: The Masquerade - Bloodlines",
     "resumen": "Un usuario de Reddit afirma que la banda Genitorturers anunció un remake de Vampire: The Masquerade - Bloodlines durante un concierto, aunque la información no está confirmada.",
     "enlace": "https://www.pcgamer.com/games/rpg/metal-band-genitorturers-allegedly-claims-a-vampire-the-masquerade-bloodlines-remake-is-coming-getting-a-dozen-crusty-nerds-way-too-worked-up/",
@@ -256,5 +250,11 @@
     "resumen": "Las nuevas armas del pase de expansión de Fire Emblem: Fortune's Weave se consiguen completando una misión secundaria en el tablón de anuncios de Dagsion.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/como-conseguir-las-nuevas-armas-dlc-fire-emblem-fortune-s-weave_7050590_0.html",
     "fecha": "2026-10-20T00:33:18+00:00"
+  },
+  {
+    "titulo": "Ninguna editora quiso Outlast en su momento y apostaban por los juegos móviles",
+    "resumen": "Durante el desarrollo de Outlast, el estudio Red Barrels no encontró apoyo de editoras interesadas en juegos móviles, por lo que recurrió a fondos públicos y ahorros propios.",
+    "enlace": "https://www.pcgamer.com/games/horror/no-publisher-wanted-outlast-because-theyd-rather-invest-usd50-000-in-10-mobile-games-so-red-barrels-relied-on-public-investment-programs-and-their-own-savings-instead/",
+    "fecha": "2026-10-20T01:31:18+00:00"
   }
 ]
