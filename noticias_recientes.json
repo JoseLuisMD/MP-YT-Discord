@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "\"Estamos orgullosos\", dicen los creadores de Castlevania: Belmont’s Curse sobre que todos los personajes sean tan atractivos",
-    "resumen": "Los desarrolladores de Castlevania: Belmont’s Curse confirman que el diseño sensual de sus personajes fue una decisión consciente y se muestran orgullosos de la positiva acogida de los fans.",
-    "enlace": "https://www.vidaextra.com/accion/estamos-orgullosos-dicen-creadores-castlevania-belmont-s-curse-que-todos-personajes-sean-atractivos",
-    "fecha": "2026-10-19T22:31:15+00:00"
-  },
-  {
     "titulo": "Piotr Babieno, jefe de Silent Hill 2 Remake, sale en defensa del formato físico: \"Siempre, siempre estará ahí\"",
     "resumen": "Piotr Babieno y Tymon Smektala defienden la vigencia de los videojuegos en formato físico, destacando su importancia para los jugadores y coleccionistas ante el auge digital.",
     "enlace": "https://www.3djuegos.com/ps5/noticias/piotr-babieno-jefe-silent-hill-2-remake-sale-defensa-formato-fisico-siempre-siempre-estara-ahi",
@@ -250,5 +244,11 @@
     "resumen": "Aspyr eliminó de Steam los desproporcionados requisitos de Shrek 2 Remastered tras las críticas de los jugadores por exigir tarjetas como una RTX 5070.",
     "enlace": "https://vandal.elespanol.com/noticia/2026294030/shrek-2-remastered-pide-una-rtx-5070-desata-las-criticas-y-sus-creadores-borran-los-requisitos-de-steam/",
     "fecha": "2026-10-21T22:31:24+00:00"
+  },
+  {
+    "titulo": "EA cierra Bioware, cancela el próximo Mass Effect y despide a 400 personas",
+    "resumen": "Electronic Arts ha anunciado el cierre de BioWare, la cancelación del nuevo Mass Effect y el despido de 400 empleados, lo que supone el 3% de su plantilla.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026294028/ea-cierra-bioware-cancela-el-proximo-mass-effect-y-despide-a-400-personas/",
+    "fecha": "2026-10-21T23:31:19+00:00"
   }
 ]
