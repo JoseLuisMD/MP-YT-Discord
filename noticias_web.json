@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "La próxima Xbox podría costar más de 1.200 euros. Sale a la luz su posible fecha de lanzamiento y el plan de Microsoft para el futuro de Game Pass",
+    "resumen": "Un articulo de la revista Fortune señala que la proxima consola de Microsoft se lanzaria en 2028 por un precio de entre 1.200 y 1.800 dolares. Ademas, la empresa planea una consola portatil para 2027.",
+    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/proxima-xbox-podria-costar-1-200-euros-sale-a-luz-su-posible-fecha-lanzamiento-plan-microsoft-para-futuro-game-pass",
+    "imagen": "https://i.blogs.es/7de6ea/xbox-3djuegos/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-10-21T01:31:10+00:00"
+  },
+  {
     "titulo": "Tras hablar con Capcom, soy más optimista sobre una remasterización de Onimusha 3",
     "resumen": "Capcom valora positivamente lanzar remasterizaciones de Onimusha 3 y Onimusha: Dawn of Dreams debido a la buena acogida de la saga y su crecimiento en PC.",
     "enlace": "https://www.pcgamer.com/games/action/after-talking-to-capcom-im-a-lot-more-optimistic-about-onimusha-3-getting-a-remaster/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-19T15:31:24+00:00"
-  },
-  {
-    "titulo": "Una técnica utilizada en la Mega Drive en 1991 permitió que los videojuegos funcionaran con mayor fluidez. Incluso en 2026, los desarrolladores aún la admiran",
-    "resumen": "El programador Yuji Naka superó las limitaciones de Mega Drive en Sonic the Hedgehog mediante el ingenio, logrando una gran fluidez sin hardware adicional.",
-    "enlace": "https://www.vidaextra.com/industria/tecnica-utilizada-mega-drive-1991-permitio-que-videojuegos-funcionaran-mayor-fluidez-incluso-2026-desarrolladores-admiran",
-    "imagen": "https://i.blogs.es/d82e73/1366_2000-2-1-/1024_2000.jpeg",
-    "fuente": "VidaExtra",
-    "idioma": "es",
-    "fecha": "2026-10-19T14:31:32+00:00"
   }
 ]
