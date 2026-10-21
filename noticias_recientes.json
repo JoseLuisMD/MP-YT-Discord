@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Hay nuevos juegos de Star Wars que \"sorprenderán\" a los fans, desde Lucasfilm dicen que los están \"explorando\"",
-    "resumen": "Lucasfilm Games confirma que hay nuevos juegos de Star Wars en desarrollo con diversos estudios. La compañía busca ser más flexible en sus colaboraciones para ofrecer experiencias de alta calidad.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/hay-nuevos-juegos-star-wars-que-sorprenderan-los-fans-desde-lucasfilm-dicen-que-los-estan-explorando_7050170_0.html",
-    "fecha": "2026-10-19T02:31:18+00:00"
-  },
-  {
     "titulo": "Steam Next Fest supera las 8.000 demos en medio de un aumento de juegos generados por IA",
     "resumen": "El Steam Next Fest cuenta con más de 8.000 demos, reflejando un incremento masivo impulsado por herramientas de inteligencia artificial que también facilitan la creación rápida de clones.",
     "enlace": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-steam-next-fest-has-over-8-000-demos-as-worthless-vibe-coded-slop-levels-up/",
@@ -256,5 +250,11 @@
     "resumen": "Se ha anunciado el lanzamiento de Shrek 2 Remastered para noviembre. El título original de 2004 para consolas y PC contará con cooperativo local y online para hasta cuatro jugadores.",
     "enlace": "https://www.pcgamer.com/games/action/in-this-age-of-pervasive-slop-maybe-we-should-be-grateful-for-shrek-2-remastered/",
     "fecha": "2026-10-21T02:31:17+00:00"
+  },
+  {
+    "titulo": "Las ventas de GTA 6 ya son un escándalo. El juego está batiendo récords de reservas y va camino a los mil millones antes de estrenarse",
+    "resumen": "Las primeras estimaciones indican que Grand Theft Auto VI acumula unas 6,1 millones de unidades reservadas en formato digital, superando récords históricos.",
+    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/ventas-gta-6-escandalo-juego-esta-batiendo-records-reservas-va-camino-a-mil-millones-antes-estrenarse",
+    "fecha": "2026-10-21T03:31:18+00:00"
   }
 ]
