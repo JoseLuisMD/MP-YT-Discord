@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Los dueños de Metal Gear y Silent Hill lo tienen claro: la IA no cambiará sus juegos, porque dependen de un factor que no se programa",
-    "resumen": "Konami asegura que sus videojuegos no cambiarán significativamente por la inteligencia artificial. La compañía japonesa defiende que la creatividad humana seguirá siendo el factor central en sus…",
-    "enlace": "https://www.3djuegos.com/pc/noticias/duenos-metal-gear-silent-hill-tienen-claro-ia-no-cambiara-sus-juegos-porque-dependen-factor-que-no-se-programa",
-    "fecha": "2026-10-19T20:31:15+00:00"
-  },
-  {
     "titulo": "\"Estamos orgullosos\", dicen los creadores de Castlevania: Belmont’s Curse sobre que todos los personajes sean tan atractivos",
     "resumen": "Los desarrolladores de Castlevania: Belmont’s Curse confirman que el diseño sensual de sus personajes fue una decisión consciente y se muestran orgullosos de la positiva acogida de los fans.",
     "enlace": "https://www.vidaextra.com/accion/estamos-orgullosos-dicen-creadores-castlevania-belmont-s-curse-que-todos-personajes-sean-atractivos",
@@ -250,5 +244,11 @@
     "resumen": "Las ventas físicas en disco de Resident Evil Requiem para PS5 duplican las cifras totales de la entrega en las plataformas Xbox.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/resident-evil-requiem-revalida-importancia-formato-fisico-sus-ventas-disco-ps5-duplican-las-cifras-totales-xbox_7051778_0.html",
     "fecha": "2026-10-21T20:31:47+00:00"
+  },
+  {
+    "titulo": "Shrek 2 Remastered pide una RTX 5070, desata las críticas y sus creadores borran los requisitos de Steam",
+    "resumen": "Aspyr eliminó de Steam los desproporcionados requisitos de Shrek 2 Remastered tras las críticas de los jugadores por exigir tarjetas como una RTX 5070.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026294030/shrek-2-remastered-pide-una-rtx-5070-desata-las-criticas-y-sus-creadores-borran-los-requisitos-de-steam/",
+    "fecha": "2026-10-21T22:31:24+00:00"
   }
 ]
