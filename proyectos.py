@@ -31,6 +31,8 @@ Claves de `noticias`:
 Claves de `resenas`:
   conservador  ID del Conservador de Steam (el número de store.steampowered.com/curator/<ID>/)
   mensaje      texto del aviso de una reseña nueva
+  enlace       (opcional) página del Mentor de Steam, que se enlaza debajo de cada reseña; si no está, la del ID
+  titulo       (opcional) título de la tarjeta de Bluesky, que enlaza al Mentor (por defecto «Mentor de Steam»)
   ...y webhooks, bluesky, threads, x o web, para cambiarlas solo en las reseñas (si no, las del proyecto)
 """
 
@@ -57,6 +59,8 @@ PROYECTOS = {
         "resenas": {
             "conservador": "46111642",
             "mensaje": "¡Nueva reseña en nuestro Mentor de Steam!",
+            "enlace": "https://store.steampowered.com/curator/46111642-Mundos-Pixelados/",
+            "titulo": "Mentor de Steam de Mundos Pixelados",
         },
     },
     "vortix": {

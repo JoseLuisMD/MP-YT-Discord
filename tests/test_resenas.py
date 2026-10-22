@@ -4,6 +4,7 @@ import random
 import pytest
 import requests
 
+from common.publicadores import Publicacion
 from proyectos import PROYECTOS
 from resenas import avisador
 from resenas.steam import cargar_resenas
@@ -43,12 +44,32 @@ def test_si_steam_falla_devuelve_none(get):
     assert cargar_resenas(CONSERVADOR, get=get) is None
 
 
-def test_textos_caben_en_bluesky_y_discord_lleva_el_video():
+def test_el_recortado_cabe_en_bluesky_y_el_completo_en_threads():
+    cfg = avisador.config_de(PROYECTOS["mundospixelados"])
+    extra = avisador.enlaces_extra(cfg)
     for r in cargar_resenas(CONSERVADOR, get=steam()):
-        corto, largo = avisador.textos(r, "¡Nueva reseña!", random.Random(1))
-        assert len(corto) <= avisador.LIMITE_TEXTO
+        corto, largo = avisador.textos(r, cfg["mensaje"], "📢", extra)
         assert f"\n\n{r.juego} · {r.veredicto_texto} {r.icono}\n\n" in corto
-        assert r.video in largo and r.video not in corto
+        assert len(corto) + sum(2 + len(etiqueta) for etiqueta, _ in extra) <= avisador.LIMITE_TEXTO
+        assert len(avisador.textos(r, cfg["mensaje"], "📢")[0]) <= avisador.LIMITE_TEXTO   # Bluesky, sin enlaces
+        assert largo.endswith(f"«{r.texto}»")
+        # Con las reseñas reales (máximo 200 caracteres en Steam), en Threads siempre cabe la reseña entera
+        assert len(Publicacion(largo, r.tienda, enlaces_extra=extra).texto_con_enlaces()) <= avisador.LIMITE_THREADS
+
+
+def test_si_la_resena_cabe_entera_no_se_recorta():
+    r = cargar_resenas(CONSERVADOR, get=steam())[0]
+    r.texto = "Corta."
+    corto, largo = avisador.textos(r, "¡Nueva reseña!", "📢", [(avisador.ETIQUETA_MENTOR, "https://m/")])
+    assert corto == largo
+
+
+def test_un_texto_largo_se_recorta_con_puntos_suspensivos():
+    r = cargar_resenas(CONSERVADOR, get=steam())[0]
+    r.texto = "palabra " * 60
+    extra = [(avisador.ETIQUETA_MENTOR, "https://m/")]
+    corto, _ = avisador.textos(r, "¡Nueva reseña!", "📢", extra)
+    assert corto.endswith("…»") and len(corto) + 2 + len(avisador.ETIQUETA_MENTOR) <= avisador.LIMITE_TEXTO
 
 
 def test_hashtags_con_el_nombre_del_juego():
@@ -74,7 +95,7 @@ def entorno(monkeypatch, tmp_path):
     discord = []
 
     def post(url, **kw):
-        discord.append(kw["json"]["content"])
+        discord.append(kw["json"])
         return Respuesta(204)
     monkeypatch.setattr(requests, "post", post)
     ruta, cola = tmp_path / "resenas_vistas.json", tmp_path / "cola_x.json"
@@ -105,15 +126,26 @@ def test_la_primera_vez_solo_apunta_las_resenas(entorno):
 
 def test_avisa_de_las_nuevas_de_la_mas_antigua_a_la_mas_nueva(entorno):
     r = entorno(estado={"mp": todas_menos(INFINITY, HUNDRED_LINE)})
-    assert [p.titulo_tarjeta for p in r["bluesky"]] == ["The Hundred Line -Last Defense Academy-",
-                                                        "Infinity: HexaDome Tactics"]
-    assert len(r["threads"]) == 2 and len(r["discord"]) == 2
+    assert ["The Hundred Line" in t.texto for t in r["threads"]] == [True, False]   # la más antigua primero
+    assert len(r["bluesky"]) == 2 and len(r["discord"]) == 2
+    mentor = f"https://store.steampowered.com/curator/{CONSERVADOR}/"   # el proyecto de prueba no pone `enlace`
+    # Bluesky: tarjeta que enlaza al Mentor con la imagen del juego, y sin el enlace en el texto
     p = r["bluesky"][1]
-    assert p.enlace.endswith(f"?curator_clanid={CONSERVADOR}") and p.url_imagen.endswith("/header.jpg")
+    assert (p.enlace, p.titulo_tarjeta) == (mentor, "Mentor de Steam")
+    assert p.url_imagen.endswith("/header.jpg") and p.enlaces_extra == []
     assert "¡Nueva reseña!" in p.texto and "#InfinityHexaDomeTactics" in p.hashtags
-    assert "Reseña en vídeo: <https://www.youtube.com/watch?v=0PvyyBY6RYw>" in r["discord"][1]
-    assert r["discord"][1].endswith(p.enlace)
+    # Threads: imagen del juego, la reseña entera y solo el enlace al Mentor
+    t = r["threads"][1]
+    assert t.imagen_en_threads and t.url_imagen == p.url_imagen and not t.enlace_en_texto
+    assert t.enlaces_extra == [("🎮 Mentor de Steam", mentor)]
+    assert t.texto.endswith("(sobre todo en el modo campaña).»") and t.texto.split("\n")[0] == p.texto.split("\n")[0]
+    # Discord: imagen del juego, la reseña entera y solo el enlace al Mentor (sin vista previa)
+    d = r["discord"][1]
+    assert d["content"].endswith(f"(sobre todo en el modo campaña).»\n\n🎮 Mentor de Steam: <{mentor}>")
+    assert d["embeds"] == [{"image": {"url": p.url_imagen}}] and "store.steampowered.com/app" not in d["content"]
+    # X: igual, sin el enlace a la página del juego
     assert [e["tipo"] for e in r["cola"]] == ["resena", "resena"]
+    assert r["cola"][0]["texto"].startswith(t.texto_con_enlaces()) and "/app/" not in r["cola"][0]["texto"]
     assert r["webs"] == ["yo/web"]
     assert INFINITY in r["estado"]["mp"] and HUNDRED_LINE in r["estado"]["mp"]
 
@@ -149,6 +181,8 @@ def test_los_proyectos_sin_resenas_no_consultan_steam(entorno):
 def test_mundos_pixelados_usa_su_conservador_y_avisa_donde_los_videos():
     cfg = avisador.config_de(PROYECTOS["mundospixelados"])
     assert cfg["conservador"] == CONSERVADOR
+    assert cfg["enlace"] == "https://store.steampowered.com/curator/46111642-Mundos-Pixelados/"
+    assert cfg["titulo"] == "Mentor de Steam de Mundos Pixelados"
     assert cfg["webhooks"] == ["DISCORD_WEBHOOK"] and cfg["bluesky"] and cfg["threads"] and cfg["x"]
     assert cfg["web"] == "JoseLuisMD/MP-Website"
     assert not PROYECTOS["vortix"].get("resenas")

@@ -30,6 +30,17 @@ class Publicacion:
     url_imagen: Optional[str] = None        # miniatura de la tarjeta (Bluesky)
     hashtags: list = field(default_factory=list)  # etiquetas clicables (Bluesky)
     imagen_en_threads: bool = False         # Threads: adjuntar url_imagen en vez de usar la tarjeta del enlace
+    imagen_en_discord: bool = False         # Discord: enviar url_imagen como imagen del mensaje
+    # Discord, Threads con imagen y X: escribir `enlace` al final del texto. False si no se quiere a la vista
+    # (p. ej. las reseñas: solo se ve el enlace al Mentor de Steam, que va en enlaces_extra)
+    enlace_en_texto: bool = True
+    # Otros enlaces, al final del texto: [(etiqueta, url)]. En Bluesky la etiqueta es el enlace (no cuenta la URL);
+    # en el resto se escribe «etiqueta: url»
+    enlaces_extra: list = field(default_factory=list)
+
+    def texto_con_enlaces(self, plantilla="{etiqueta}: {url}"):
+        """El texto con los enlaces extra debajo, cada uno en su párrafo."""
+        return "\n\n".join([self.texto] + [plantilla.format(etiqueta=e, url=u) for e, u in self.enlaces_extra])
 
 
 class Publicador(Protocol):
@@ -50,7 +61,12 @@ class Discord:
             print(f"Falta el secreto {self.secreto}")
             return False
         try:
-            r = requests.post(url, json={"content": f"{p.texto}\n\n{p.enlace}"}, timeout=15)
+            # <url>: Discord no genera vista previa de los enlaces extra, solo del principal
+            texto = p.texto_con_enlaces("{etiqueta}: <{url}>")
+            mensaje = {"content": f"{texto}\n\n{p.enlace}" if p.enlace_en_texto else texto}
+            if p.imagen_en_discord and p.url_imagen:
+                mensaje["embeds"] = [{"image": {"url": p.url_imagen}}]
+            r = requests.post(url, json=mensaje, timeout=15)
             r.raise_for_status()
             return True
         except requests.RequestException as e:
@@ -75,8 +91,11 @@ class Bluesky:
         return self._cliente
 
     def _texto(self, p):
-        """Texto del post con los hashtags añadidos como etiquetas clicables."""
+        """Texto del post con los enlaces extra y los hashtags como enlaces y etiquetas clicables."""
         builder = client_utils.TextBuilder().text(p.texto)
+        for etiqueta, url in p.enlaces_extra:
+            builder.text("\n\n")
+            builder.link(etiqueta, url)
         elegidos = hashtags_de(p, self.LIMITE_TEXTO)
         if elegidos:
             builder.text("\n\n")
@@ -158,15 +177,17 @@ class Threads:
         try:
             user_id = os.environ["THREADS_USER_ID"]
             token = os.environ["THREADS_ACCESS_TOKEN"]
+            texto = p.texto_con_enlaces()
             if p.imagen_en_threads and p.url_imagen:
                 # Imagen adjuntada por nosotros y enlace simple en el texto (sin tarjeta); la imagen no es
                 # clicable, así que una mano señala el enlace
+                con_enlace = f"{texto}\n\n👉 {p.enlace}" if p.enlace_en_texto else texto
                 try:
-                    self._publicar(user_id, token, {"media_type": "IMAGE", "image_url": p.url_imagen, "text": f"{p.texto}\n\n👉 {p.enlace}"})
+                    self._publicar(user_id, token, {"media_type": "IMAGE", "image_url": p.url_imagen, "text": con_enlace})
                     return True
                 except Exception as e:
                     print(f"Threads con imagen falló ({_detalle(e)}); se publica con la tarjeta del enlace")
-            self._publicar(user_id, token, {"media_type": "TEXT", "text": p.texto, "link_attachment": p.enlace})
+            self._publicar(user_id, token, {"media_type": "TEXT", "text": texto, "link_attachment": p.enlace})
             return True
         except Exception as e:
             print(f"Error publicando en Threads: {_detalle(e)}")
@@ -179,20 +200,21 @@ class ColaX:
     nombre = "Cola de X"
 
     def __init__(self, tipo, proyecto, ruta=COLA_X, maximo=MAX_COLA_X):
-        self.tipo = tipo          # "video" o "noticia"
+        self.tipo = tipo          # "video", "noticia" o "resena"
         self.proyecto = proyecto
         self.ruta = ruta
         self.maximo = maximo      # entradas que se guardan de cada tipo
 
     @staticmethod
     def texto(p):
-        """El texto de Bluesky (texto y hashtags) con el enlace al final. No se recorta: si no cabe en X,
-        se recorta a mano antes de publicar."""
-        partes = [p.texto]
+        """El texto de Bluesky (texto, enlaces extra y hashtags) con el enlace al final. No se recorta: si no cabe
+        en X, se recorta a mano antes de publicar."""
+        partes = [p.texto_con_enlaces()]
         hashtags = hashtags_de(p, Bluesky.LIMITE_TEXTO)
         if hashtags:
             partes.append(" ".join(hashtags))
-        partes.append(p.enlace)
+        if p.enlace_en_texto:
+            partes.append(p.enlace)
         return "\n\n".join(partes)
 
     def publicar(self, p):
@@ -227,7 +249,7 @@ class ColaX:
 def hashtags_de(p, limite):
     """Hashtags válidos de la publicación que caben tras el texto (y una línea en blanco) sin pasar de `limite`."""
     elegidos = []
-    largo = len(p.texto) + 2
+    largo = len(p.texto) + sum(2 + len(etiqueta) for etiqueta, _ in p.enlaces_extra) + 2
     for h in p.hashtags or []:
         h = str(h).strip()
         if not re.fullmatch(r"#\w+", h):

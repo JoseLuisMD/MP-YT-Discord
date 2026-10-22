@@ -267,3 +267,74 @@ def test_cola_x_la_mas_nueva_primero_y_recorta_cada_tipo_por_separado(cola):
 
 def test_cola_x_si_no_puede_escribir_devuelve_false(tmp_path):
     assert ColaX("video", "p", str(tmp_path / "no-existe" / "cola_x.json")).publicar(Publicacion("a", "b")) is False
+
+
+# ---------------- Enlaces extra ----------------
+VIDEO = ("🎬 Reseña en vídeo", "https://youtu.be/abc")
+
+
+def test_discord_pone_los_enlaces_extra_sin_vista_previa(monkeypatch):
+    enviados = []
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (enviados.append(kw["json"]["content"]), Respuesta(204))[1])
+    Discord("DISCORD_WEBHOOK").publicar(Publicacion("Reseña", "https://s/1", enlaces_extra=[VIDEO]))
+    assert enviados == ["Reseña\n\n🎬 Reseña en vídeo: <https://youtu.be/abc>\n\nhttps://s/1"]
+
+
+def test_bluesky_los_enlaces_extra_son_clicables_y_solo_cuenta_la_etiqueta(bsky):
+    Bluesky().publicar(Publicacion("Reseña", "https://s/1", hashtags=["#steam"], enlaces_extra=[VIDEO]))
+    texto, embed = bsky.publicaciones[0]
+    assert texto.build_text() == "Reseña\n\n🎬 Reseña en vídeo\n\n#steam"
+    [enlace, etiqueta] = texto.build_facets()
+    assert enlace.features[0].uri == "https://youtu.be/abc" and etiqueta.features[0].tag == "steam"
+    assert embed.external.uri == "https://s/1"
+
+
+def test_bluesky_los_enlaces_extra_cuentan_para_el_limite_de_hashtags(bsky):
+    Bluesky().publicar(Publicacion("x" * 270, "https://s/1", hashtags=["#steam"], enlaces_extra=[VIDEO]))
+    assert "#steam" not in bsky.publicaciones[0][0].build_text()   # 270 + 2 + 17 + 2 + 6 > 295
+
+
+def test_threads_pone_los_enlaces_extra_antes_del_principal(monkeypatch):
+    llamadas = _threads_falso(monkeypatch)
+    Threads().publicar(Publicacion("Reseña", "https://s/1", url_imagen="https://i/x.jpg", imagen_en_threads=True,
+                                   enlaces_extra=[VIDEO]))
+    assert llamadas["post"][0][1]["text"] == "Reseña\n\n🎬 Reseña en vídeo: https://youtu.be/abc\n\n👉 https://s/1"
+
+
+def test_cola_x_incluye_los_enlaces_extra(cola):
+    ruta, leer = cola
+    ColaX("resena", "mp", str(ruta)).publicar(Publicacion("Reseña", "https://s/1", hashtags=["#steam"],
+                                                          enlaces_extra=[VIDEO]))
+    assert leer()[0]["texto"] == "Reseña\n\n🎬 Reseña en vídeo: https://youtu.be/abc\n\n#steam\n\nhttps://s/1"
+
+
+def test_threads_con_imagen_puede_ir_sin_el_enlace_principal(monkeypatch):
+    llamadas = _threads_falso(monkeypatch)
+    Threads().publicar(Publicacion("Reseña", "https://s/1", url_imagen="https://i/x.jpg", imagen_en_threads=True,
+                                   enlace_en_texto=False, enlaces_extra=[VIDEO]))
+    assert llamadas["post"][0][1]["text"] == "Reseña\n\n🎬 Reseña en vídeo: https://youtu.be/abc"
+
+
+def test_discord_con_imagen_y_sin_el_enlace_principal(monkeypatch):
+    enviados = []
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (enviados.append(kw["json"]), Respuesta(204))[1])
+    Discord("DISCORD_WEBHOOK").publicar(Publicacion("Reseña", "https://s/1", url_imagen="https://i/x.jpg",
+                                                    imagen_en_discord=True, enlace_en_texto=False,
+                                                    enlaces_extra=[VIDEO]))
+    assert enviados == [{"content": "Reseña\n\n🎬 Reseña en vídeo: <https://youtu.be/abc>",
+                         "embeds": [{"image": {"url": "https://i/x.jpg"}}]}]
+
+
+def test_discord_sin_la_opcion_no_envia_imagen(monkeypatch):
+    enviados = []
+    monkeypatch.setattr(requests, "post", lambda url, **kw: (enviados.append(kw["json"]), Respuesta(204))[1])
+    Discord("DISCORD_WEBHOOK").publicar(Publicacion("Noticia", "https://n/1", url_imagen="https://i/x.jpg"))
+    assert enviados == [{"content": "Noticia\n\nhttps://n/1"}]
+
+
+def test_cola_x_sin_el_enlace_principal(cola):
+    ruta, leer = cola
+    ColaX("resena", "mp", str(ruta)).publicar(Publicacion("Reseña", "https://s/1", enlace_en_texto=False,
+                                                          enlaces_extra=[VIDEO]))
+    [e] = leer()
+    assert e["texto"] == "Reseña\n\n🎬 Reseña en vídeo: https://youtu.be/abc" and e["enlace"] == "https://s/1"

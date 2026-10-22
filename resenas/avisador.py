@@ -9,21 +9,29 @@ from common.texto import recortar
 from proyectos import PROYECTOS
 from videos.canales import EMOJIS_AVISO
 
-from .steam import cargar_resenas
+from .steam import URL_CONSERVADOR, cargar_resenas
 
 ARCHIVO = "resenas_vistas.json"   # {proyecto: [appids ya avisados]}
 MAX_VISTAS = 200                  # Steam devuelve las 24 últimas
 LIMITE_TEXTO = Bluesky.LIMITE_TEXTO
 
 
-def textos(resena, mensaje, rng=random):
-    """(texto para Bluesky, Threads y X, texto para Discord). El de las redes se recorta para que quepa en Bluesky;
-    el de Discord va completo y con el enlace al vídeo de la reseña."""
-    cabecera = f"{rng.choice(EMOJIS_AVISO)} {mensaje}\n\n{resena.juego} · {resena.veredicto_texto} {resena.icono}\n\n"
-    corto = cabecera + f"«{recortar(resena.texto, LIMITE_TEXTO - len(cabecera) - 2)}»"
+LIMITE_THREADS = 500
+ETIQUETA_MENTOR = "🎮 Mentor de Steam"
+
+
+def enlaces_extra(cfg):
+    """El enlace a la página del Mentor de Steam, debajo del texto (Discord, Threads y X)."""
+    return [(ETIQUETA_MENTOR, cfg["enlace"])]
+
+
+def textos(resena, mensaje, emoji, extra=()):
+    """(texto recortado, texto completo). El recortado cabe en Bluesky con los enlaces `extra` debajo
+    (si la reseña ya cabe entera, es igual que el completo)."""
+    cabecera = f"{emoji} {mensaje}\n\n{resena.juego} · {resena.veredicto_texto} {resena.icono}\n\n"
+    hueco = LIMITE_TEXTO - len(cabecera) - 2 - sum(2 + len(e) for e, _ in extra)   # 2: las «»
+    corto = cabecera + f"«{recortar(resena.texto, hueco)}»"
     largo = cabecera + f"«{resena.texto}»"
-    if resena.video:
-        largo += f"\n\n🎬 Reseña en vídeo: <{resena.video}>"   # <...>: Discord no le añade otra vista previa
     return corto, largo
 
 
@@ -35,17 +43,26 @@ def hashtags(resena):
 
 def avisar(resena, cfg, proyecto, bluesky, threads, rng=random, ruta_cola_x=COLA_X):
     """Publica la reseña. True si al menos una red la ha publicado."""
-    corto, largo = textos(resena, cfg["mensaje"], rng)
-    resultados = [Discord(w).publicar(Publicacion(texto=largo, enlace=resena.tienda)) for w in cfg["webhooks"]]
-    p = Publicacion(texto=corto, enlace=resena.tienda, titulo_tarjeta=resena.juego, url_imagen=resena.imagen,
-                    hashtags=hashtags(resena))
+    emoji, extra = rng.choice(EMOJIS_AVISO), enlaces_extra(cfg)
+    corto, largo = textos(resena, cfg["mensaje"], emoji, extra)
+    # La imagen del juego (como en la web) y, a la vista, solo el enlace al Mentor: el de la página del juego
+    # (`enlace`) no se escribe en el texto; sirve para no apuntar dos veces la misma reseña en la cola de X
+    comun = dict(enlace=resena.tienda, titulo_tarjeta=resena.juego, url_imagen=resena.imagen,
+                 hashtags=hashtags(resena), enlaces_extra=extra,
+                 imagen_en_threads=True, imagen_en_discord=True, enlace_en_texto=False)
+    completa, recortada = Publicacion(texto=largo, **comun), Publicacion(texto=corto, **comun)
+    resultados = [Discord(w).publicar(completa) for w in cfg["webhooks"]]
     if cfg.get("bluesky"):
-        resultados.append(bluesky.publicar(p))
+        # La tarjeta enlaza al Mentor (con la imagen del juego): el enlace en el texto sobraría
+        resultados.append(bluesky.publicar(Publicacion(
+            texto=textos(resena, cfg["mensaje"], emoji)[0], enlace=cfg["enlace"], titulo_tarjeta=cfg["titulo"],
+            url_imagen=resena.imagen, hashtags=hashtags(resena))))
     if cfg.get("threads"):
-        resultados.append(threads.publicar(p))
+        cabe = len(completa.texto_con_enlaces()) <= LIMITE_THREADS
+        resultados.append(threads.publicar(completa if cabe else recortada))
     publicada = any(resultados)
     if publicada and cfg.get("x"):
-        ColaX("resena", proyecto, ruta_cola_x).publicar(p)
+        ColaX("resena", proyecto, ruta_cola_x).publicar(completa)   # en X se recorta a mano si hace falta
     return publicada
 
 
@@ -55,6 +72,8 @@ def config_de(proyecto):
     return {
         "conservador": cfg["conservador"],
         "mensaje": cfg["mensaje"],
+        "enlace": cfg.get("enlace") or URL_CONSERVADOR.format(conservador=cfg["conservador"]),
+        "titulo": cfg.get("titulo", "Mentor de Steam"),
         **{clave: cfg.get(clave, proyecto.get(clave, por_defecto))
            for clave, por_defecto in (("webhooks", []), ("bluesky", False), ("threads", False), ("x", False), ("web", None))},
     }
