@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
+    "resumen": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.",
+    "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
+    "imagen": "https://assetsio.gnwcdn.com/resident-evil-requiem-photo-mode-patch-01.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-10-22T12:31:19+00:00"
+  },
+  {
     "titulo": "Qué está pasando con PHP y por qué pone en jaque a Internet (videojuegos incluidos)",
     "resumen": "Una vulnerabilidad crítica en el lenguaje PHP está afectando a numerosas webs y servicios en Europa, generando errores y alertando a agencias de ciberseguridad.",
     "enlace": "https://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-21T02:31:17+00:00"
-  },
-  {
-    "titulo": "La próxima Xbox podría costar más de 1.200 euros. Sale a la luz su posible fecha de lanzamiento y el plan de Microsoft para el futuro de Game Pass",
-    "resumen": "Un articulo de la revista Fortune señala que la proxima consola de Microsoft se lanzaria en 2028 por un precio de entre 1.200 y 1.800 dolares. Ademas, la empresa planea una consola portatil para 2027.",
-    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/proxima-xbox-podria-costar-1-200-euros-sale-a-luz-su-posible-fecha-lanzamiento-plan-microsoft-para-futuro-game-pass",
-    "imagen": "https://i.blogs.es/7de6ea/xbox-3djuegos/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-21T01:31:10+00:00"
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Littlelands, una preciosa aventura que recuerda a Zelda y Stardew Valley, ya tiene fecha de lanzamiento",
-    "resumen": "Littlelands llegará en acceso anticipado a Steam el 16 de noviembre. Este juego independiente combina exploración, combates y simulación de vida con una estética muy cuidada.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026293008/littlelands-una-preciosa-aventura-que-recuerda-a-zelda-y-stardew-valley-ya-tiene-fecha-de-lanzamiento/",
-    "fecha": "2026-10-20T10:33:28+00:00"
-  },
-  {
     "titulo": "MercurySteam renueva su identidad visual: el estudio español se prepara ante el lanzamiento de Metroid Ravenous",
     "resumen": "El estudio español MercurySteam ha actualizado su identidad visual y su web corporativa para mejorar su comunicación. Su próximo juego, Metroid Ravenous, llegará en enero a Nintendo Switch 2.",
     "enlace": "https://vandal.elespanol.com/noticia/2026293016/mercurysteam-renueva-su-identidad-visual-el-estudio-espanol-se-prepara-ante-el-lanzamiento-de-metroid-ravenous/",
@@ -250,5 +244,11 @@
     "resumen": "Una vulnerabilidad crítica en el lenguaje PHP está afectando a numerosas webs y servicios en Europa, generando errores y alertando a agencias de ciberseguridad.",
     "enlace": "https://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos",
     "fecha": "2026-10-22T10:31:19+00:00"
+  },
+  {
+    "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
+    "resumen": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.",
+    "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
+    "fecha": "2026-10-22T12:31:19+00:00"
   }
 ]

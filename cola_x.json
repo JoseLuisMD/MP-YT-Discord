@@ -1,5 +1,15 @@
 [
   {
+    "id": "b70577d9ab08",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
+    "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
+    "imagen": "https://assetsio.gnwcdn.com/resident-evil-requiem-photo-mode-patch-01.jpg?width=690&quality=85&format=jpg",
+    "fecha": "2026-10-22T12:31:19+00:00",
+    "texto": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.\n\n📄 Rock Paper Shotgun\n\n#Capcom #CapcomID #SeguridadInformatica #Phishing #Videojuegos\n\nhttps://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails"
+  },
+  {
     "id": "23a89eb8b9b7",
     "tipo": "video",
     "proyecto": "mundospixelados",
@@ -538,16 +548,6 @@
     "imagen": "https://i.blogs.es/adc139/amazon-luna/1024_2000.jpeg",
     "fecha": "2026-10-20T03:31:17+00:00",
     "texto": "Amazon Luna se integra en Prime Video en España permitiendo jugar mediante streaming en dispositivos Fire TV sin necesidad de consola.\n\n✒️ VidaExtra\n\n#AmazonLuna #PrimeVideo #FireTV #CloudGaming #Espana\n\nhttps://www.vidaextra.com/streaming/amazon-luna-permite-jugar-espana-a-sus-videojuegos-television-consolas-gracias-a-prime-video"
-  },
-  {
-    "id": "e53853bd439d",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Análisis de Stupid Never Dies, acción roguelite que cambia con cada bocado",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-stupid-never-dies-accion-roguelite-que-cambia-con-cada-bocado_7050714_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/19/6ad6578f3807a8-03720123.jpeg",
-    "fecha": "2026-10-20T02:31:21+00:00",
-    "texto": "Stupid Never Dies es un roguelite de acción para PS5 y PC desarrollado por veteranos de Capcom. Controlamos a Davy, un zombi que absorbe poderes para salvar a la humanidad.\n\n📄 Hobby Consolas\n\n#StupidNeverDies #GPTrack50 #PS5 #PCgaming #Roguelite\n\nhttps://www.hobbyconsolas.com/videojuegos/analisis-stupid-never-dies-accion-roguelite-que-cambia-con-cada-bocado_7050714_0.html"
   },
   {
     "id": "1055f85643aa",
