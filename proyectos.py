@@ -56,7 +56,7 @@ PROYECTOS = {
         },
         "resenas": {
             "conservador": "46111642",
-            "mensaje": "¡Nueva reseña en nuestro Conservador de Steam!",
+            "mensaje": "¡Nueva reseña en nuestro Mentor de Steam!",
         },
     },
     "vortix": {

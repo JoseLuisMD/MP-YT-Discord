@@ -19,7 +19,7 @@ LIMITE_TEXTO = Bluesky.LIMITE_TEXTO
 def textos(resena, mensaje, rng=random):
     """(texto para Bluesky, Threads y X, texto para Discord). El de las redes se recorta para que quepa en Bluesky;
     el de Discord va completo y con el enlace al vídeo de la reseña."""
-    cabecera = f"{rng.choice(EMOJIS_AVISO)} {mensaje}\n\n{resena.icono} {resena.juego} · {resena.veredicto_texto}\n\n"
+    cabecera = f"{rng.choice(EMOJIS_AVISO)} {mensaje}\n\n{resena.juego} · {resena.veredicto_texto} {resena.icono}\n\n"
     corto = cabecera + f"«{recortar(resena.texto, LIMITE_TEXTO - len(cabecera) - 2)}»"
     largo = cabecera + f"«{resena.texto}»"
     if resena.video:

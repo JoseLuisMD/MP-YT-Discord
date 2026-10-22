@@ -47,7 +47,7 @@ def test_textos_caben_en_bluesky_y_discord_lleva_el_video():
     for r in cargar_resenas(CONSERVADOR, get=steam()):
         corto, largo = avisador.textos(r, "¡Nueva reseña!", random.Random(1))
         assert len(corto) <= avisador.LIMITE_TEXTO
-        assert f"{r.icono} {r.juego} · {r.veredicto_texto}" in corto
+        assert f"\n\n{r.juego} · {r.veredicto_texto} {r.icono}\n\n" in corto
         assert r.video in largo and r.video not in corto
 
 
