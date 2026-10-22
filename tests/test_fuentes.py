@@ -177,6 +177,7 @@ def test_pcgamer_descarta_hardware_y_usa_el_articulo_y_no_la_ficha_del_autor(car
     assert noticias[0].texto == "Which is quite the feat."
     assert all(n.texto and "<" not in n.texto and "Best PC games :" not in n.texto for n in noticias)
     assert noticias[0].url_imagen == "https://cdn.mos.cms.futurecdn.net/869mjkNH6axrLNPgTSgZLj-1920-80.jpg"
+    assert all(n.imagen_en_threads for n in noticias)   # Threads no muestra bien su tarjeta
 
 
 def test_rockpapershotgun_pide_la_imagen_en_jpg_y_no_en_webp(cargar):

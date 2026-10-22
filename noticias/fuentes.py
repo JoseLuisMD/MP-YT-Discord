@@ -141,6 +141,7 @@ FUENTES = [
         extraer_texto=texto_pcgamer,
         # «product»: recuadros de ofertas y listas de «lo mejor»; «card»: enlaces a otros artículos; «credit»: créditos de las imágenes
         bloques_excluidos=BLOQUES_EXCLUIDOS + ("product", "card", "credit"),
+        imagen_en_threads=True,
     ),
     Fuente("Rock Paper Shotgun", "https://www.rockpapershotgun.com/feed", idioma="en", extraer_imagen=imagen_eurogamer),
 ]
