@@ -5,6 +5,8 @@ Cada **proyecto** (`proyectos.py`) tiene sus canales de YouTube, sus redes, su w
 
 - **`videos`**: avisa en Discord, Bluesky y Threads de los vídeos nuevos de los canales de YouTube.
 - **`noticias`**: cada hora publica una noticia de videojuegos (resumida con Gemini) por cada proyecto con noticias.
+- **`resenas`**: cada día a las 21:00 avisa en Discord, Bluesky y Threads de las reseñas nuevas del Conservador de
+  Steam de cada proyecto que lo tenga.
 
 ## Estructura
 
@@ -26,6 +28,9 @@ noticias/
   seleccion.py          coincidencias por niveles, elección, recencia y noticias repetidas
   resumen.py            resumen y hashtags con Gemini
   proceso.py            orquestación (una ejecución por proyecto con noticias)
+resenas/
+  steam.py              lee las reseñas del Conservador de Steam (el mismo JSON que usa la web)
+  avisador.py           lógica de los avisos y formato de resenas_vistas.json
 tests/                  pruebas; en tests/fixtures, los feeds de noticias guardados tal cual de cada web
 ```
 
@@ -35,11 +40,12 @@ tests/                  pruebas; en tests/fixtures, los feeds de noticias guarda
 pip install -r requirements.txt
 python -m videos      # avisos de vídeos
 python -m noticias    # noticias
+python -m resenas     # reseñas de Steam
 ```
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
 Los estados viven en la rama **`estado`** (no en `main`), para que los commits automáticos del bot no se mezclen con
-el código: `vistos.json` (vídeos de todos los canales), `cola_x.json` (lo pendiente de publicar a mano en X desde el
+el código: `vistos.json` (vídeos de todos los canales), `resenas_vistas.json` (reseñas de Steam ya avisadas), `cola_x.json` (lo pendiente de publicar a mano en X desde el
 panel de MP-Backend) y, por cada proyecto con noticias, los archivos que indica `proyectos.py` (Mundos Pixelados:
 `noticias_publicadas.json`, `palabras_clave.json`, `noticias_web.json`, las últimas noticias con título, resumen e
 imagen para su web, y `noticias_recientes.json`, los títulos de las últimas 48 h para no publicar la misma noticia

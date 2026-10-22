@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Los archivos de estado del bot (vistos, noticias publicadas y recientes, palabras clave, noticias de la web y cola de X)
+# Los archivos de estado del bot (vistos, reseñas vistas, noticias publicadas y recientes, palabras clave, noticias de la web y cola de X)
 # viven en la rama «estado», para que sus commits automáticos no se mezclen con el código de main.
 #
 #   bash .github/estado.sh traer              deja la rama en la carpeta estado/ (el bot se ejecuta dentro)
@@ -10,7 +10,7 @@ set -euo pipefail
 
 RAMA=estado
 CARPETA=estado
-ARCHIVOS="vistos.json noticias_publicadas.json palabras_clave.json noticias_web.json noticias_recientes.json cola_x.json"
+ARCHIVOS="vistos.json noticias_publicadas.json palabras_clave.json noticias_web.json noticias_recientes.json cola_x.json resenas_vistas.json"
 
 git config user.name "github-actions"
 git config user.email "github-actions@users.noreply.github.com"

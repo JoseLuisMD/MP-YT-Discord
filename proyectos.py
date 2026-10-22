@@ -12,6 +12,7 @@ Claves de cada proyecto (los canales las heredan):
                  cuando hay un vídeo o una noticia nuevos
   canales        {id del canal: claves del canal}
   noticias       (opcional) noticias de videojuegos del proyecto; sin esta clave, el proyecto no publica noticias
+  resenas        (opcional) avisos de las reseñas nuevas de su Conservador de Steam (workflow resenas.yml)
 
 Claves de cada canal:
   mensaje          texto del aviso de un vídeo nuevo
@@ -26,6 +27,11 @@ Claves de `noticias`:
   web       (opcional) archivo con las últimas noticias para la web
   recientes (opcional) archivo con los títulos y resúmenes publicados hace poco, para no publicar la misma noticia
             desde otra web (ver HORAS_RECIENTES en noticias/config.py); sin esta clave no se comprueba
+
+Claves de `resenas`:
+  conservador  ID del Conservador de Steam (el número de store.steampowered.com/curator/<ID>/)
+  mensaje      texto del aviso de una reseña nueva
+  ...y webhooks, bluesky, threads, x o web, para cambiarlas solo en las reseñas (si no, las del proyecto)
 """
 
 PROYECTOS = {
@@ -47,6 +53,10 @@ PROYECTOS = {
             "palabras": "palabras_clave.json",
             "web": "noticias_web.json",
             "recientes": "noticias_recientes.json",
+        },
+        "resenas": {
+            "conservador": "46111642",
+            "mensaje": "¡Nueva reseña en nuestro Conservador de Steam!",
         },
     },
     "vortix": {
