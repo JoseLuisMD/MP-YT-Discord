@@ -1,5 +1,15 @@
 [
   {
+    "id": "6f8ce50d54be",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Qué está pasando con PHP y por qué pone en jaque a Internet (videojuegos incluidos)",
+    "enlace": "https://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos",
+    "imagen": "https://i.blogs.es/ffeb5b/pexels-shkrabaanthony-5475750-1-/1024_2000.jpeg",
+    "fecha": "2026-10-22T10:31:19+00:00",
+    "texto": "Una vulnerabilidad crítica en el lenguaje PHP está afectando a numerosas webs y servicios en Europa, generando errores y alertando a agencias de ciberseguridad.\n\n✍️ VidaExtra\n\n#PHP #Ciberseguridad #Cloudflare #Internet #Servidores\n\nhttps://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos"
+  },
+  {
     "id": "9b606840cd85",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -528,16 +538,6 @@
     "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/19/6ad6578f3807a8-03720123.jpeg",
     "fecha": "2026-10-20T02:31:21+00:00",
     "texto": "Stupid Never Dies es un roguelite de acción para PS5 y PC desarrollado por veteranos de Capcom. Controlamos a Davy, un zombi que absorbe poderes para salvar a la humanidad.\n\n📄 Hobby Consolas\n\n#StupidNeverDies #GPTrack50 #PS5 #PCgaming #Roguelite\n\nhttps://www.hobbyconsolas.com/videojuegos/analisis-stupid-never-dies-accion-roguelite-que-cambia-con-cada-bocado_7050714_0.html"
-  },
-  {
-    "id": "865ea327aa25",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Ninguna editora quiso Outlast en su momento y apostaban por los juegos móviles",
-    "enlace": "https://www.pcgamer.com/games/horror/no-publisher-wanted-outlast-because-theyd-rather-invest-usd50-000-in-10-mobile-games-so-red-barrels-relied-on-public-investment-programs-and-their-own-savings-instead/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/wsP8ZYqL3zitGswbKBRwrd-1920-80.jpg",
-    "fecha": "2026-10-20T01:31:18+00:00",
-    "texto": "Durante el desarrollo de Outlast, el estudio Red Barrels no encontró apoyo de editoras interesadas en juegos móviles, por lo que recurrió a fondos públicos y ahorros propios.\n\n📝 PC Gamer\n\n#Outlast #RedBarrels #Videojuegos #Desarrollo #Terror\n\nhttps://www.pcgamer.com/games/horror/no-publisher-wanted-outlast-because-theyd-rather-invest-usd50-000-in-10-mobile-games-so-red-barrels-relied-on-public-investment-programs-and-their-own-savings-instead/"
   },
   {
     "id": "1055f85643aa",
