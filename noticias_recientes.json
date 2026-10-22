@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Final Fantasy Resonance deslumbra a la crítica con su épica y unos impresionantes gráficos HD-2D: notas internacionales",
-    "resumen": "Final Fantasy Resonance debuta con gran éxito en la crítica internacional, logrando una media sobresaliente en Metacritic y OpenCritic gracias a su estilo HD-2D y combates por turnos.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/final-fantasy-resonance-deslumbra-critica-con-su-epica-unos-impresionantes-graficos-hd-2d-notas-internacionales_7051257_0.html",
-    "fecha": "2026-10-20T19:31:21+00:00"
-  },
-  {
     "titulo": "Resumen del ID@Xbox Showcase de octubre de 2026",
     "resumen": "El evento ID@Xbox mostró numerosas novedades y próximos lanzamientos de juegos independientes para las plataformas de Microsoft. Entre los títulos anunciados figuran Magenta Down, Croak, Mr. Records…",
     "enlace": "https://gameinformer.com/2026/10/20/heres-a-recap-of-the-october-2026-idxbox-showcase",
@@ -250,5 +244,11 @@
     "resumen": "Las aclamadas animaciones de combate de Onimusha: Way of the Sword han mejorado el desarrollo técnico en Capcom gracias al trabajo en física y transiciones.",
     "enlace": "https://www.pcgamer.com/games/action/future-capcom-games-will-have-onimusha-to-thank-for-re-engines-gnarly-dismemberments/",
     "fecha": "2026-10-22T19:31:55+00:00"
+  },
+  {
+    "titulo": "Una vulnerabilidad crítica en PHP obligó al cierre de páginas y juegos online, incluyendo Final Fantasy XIV",
+    "resumen": "Graves fallos en PHP han provocado el cierre temporal y mantenimientos de emergencia en varios juegos online y páginas web, incluyendo Final Fantasy XIV, Umamusume: Pretty Derby y Path of Titans.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026295024/una-vulnerabilidad-critica-en-php-obligo-al-cierre-de-paginas-y-juegos-online-incluyendo-final-fantasy-xiv/",
+    "fecha": "2026-10-22T20:31:49+00:00"
   }
 ]

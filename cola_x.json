@@ -1,5 +1,15 @@
 [
   {
+    "id": "450688761a24",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Una vulnerabilidad crítica en PHP obligó al cierre de páginas y juegos online, incluyendo Final Fantasy XIV",
+    "enlace": "https://vandal.elespanol.com/noticia/2026295024/una-vulnerabilidad-critica-en-php-obligo-al-cierre-de-paginas-y-juegos-online-incluyendo-final-fantasy-xiv/",
+    "imagen": "https://media.vandal.net/m/10-2026/22/202610221749089_1.jpg",
+    "fecha": "2026-10-22T20:31:49+00:00",
+    "texto": "Graves fallos en PHP han provocado el cierre temporal y mantenimientos de emergencia en varios juegos online y páginas web, incluyendo Final Fantasy XIV, Umamusume: Pretty Derby y Path of Titans.\n\n📄 Vandal\n\n#FinalFantasyXIV #UmamusumePrettyDerby #PathofTitans #SquareEnix #Videojuegos\n\nhttps://vandal.elespanol.com/noticia/2026295024/una-vulnerabilidad-critica-en-php-obligo-al-cierre-de-paginas-y-juegos-online-incluyendo-final-fantasy-xiv/"
+  },
+  {
     "id": "7b9b92cc3c4c",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -548,16 +558,6 @@
     "imagen": "https://media.vandal.net/m/10-2026/20/202610209401325_1.jpg",
     "fecha": "2026-10-20T10:33:28+00:00",
     "texto": "Littlelands llegará en acceso anticipado a Steam el 16 de noviembre. Este juego independiente combina exploración, combates y simulación de vida con una estética muy cuidada.\n\n📑 Vandal\n\n#Littlelands #Steam #StardewValley #TheLegendOfZelda #IndieGame\n\nhttps://vandal.elespanol.com/noticia/2026293008/littlelands-una-preciosa-aventura-que-recuerda-a-zelda-y-stardew-valley-ya-tiene-fecha-de-lanzamiento/"
-  },
-  {
-    "id": "40a2da9cc0a8",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "World of Warcraft Forever: Blizzard explica por qué hay que ir a pie a todos lados, incluidas las mazmorras, como en los viejos tiempos",
-    "enlace": "https://www.vidaextra.com/rpg/world-of-warcraft-forever-blizzard-explica-que-hay-que-ir-a-pie-a-todos-lados-incluidas-mazmorras-como-viejos-tiempos",
-    "imagen": "https://i.blogs.es/aced8d/forever/1024_2000.jpeg",
-    "fecha": "2026-10-20T09:31:19+00:00",
-    "texto": "Blizzard confirma que World of Warcraft: Forever ofrecerá una experiencia clásica donde el viaje es clave, sin piedras de invocación en mazmorras y con monturas limitadas al inicio.\n\n📖 VidaExtra\n\n#WorldOfWarcraft #Blizzard #MMORPG #Gaming #Videojuegos\n\nhttps://www.vidaextra.com/rpg/world-of-warcraft-forever-blizzard-explica-que-hay-que-ir-a-pie-a-todos-lados-incluidas-mazmorras-como-viejos-tiempos"
   },
   {
     "id": "1055f85643aa",
