@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Los videojuegos a los que deberías jugar este fin de semana - 23 de octubre de 2026",
+    "resumen": "EA cierra el estudio BioWare en medio de una nueva oleada de despidos. Además, se ofrecen recomendaciones de juegos como Final Fantasy Resonance para este fin de semana.",
+    "enlace": "https://gameinformer.com/opinion/2026/10/23/the-video-games-and-more-you-should-play-this-weekend-october-23-2026",
+    "imagen": "https://gameinformer.com/s3/files/2026/10/23/c1974b46/ffres1.jpg",
+    "fuente": "Game Informer",
+    "idioma": "en",
+    "fecha": "2026-10-23T22:31:20+00:00"
+  },
+  {
     "titulo": "Creative Assembly culpa a un desarrollador externo del fracaso de Total War: Shogun 2 Remastered",
     "resumen": "Creative Assembly se desmarca del deficiente lanzamiento de Total War: Shogun 2 Remastered y culpa a un estudio externo. Sega retiró el juego de la venta pocos días después.",
     "enlace": "https://www.pcgamer.com/games/strategy/creative-assembly-exec-pins-the-blame-for-the-shogun-2-remaster-mess-on-someone-else-this-was-not-a-creative-assembly-developed-game/",
@@ -259,14 +268,5 @@
     "fuente": "Rock Paper Shotgun",
     "idioma": "en",
     "fecha": "2026-10-22T12:31:19+00:00"
-  },
-  {
-    "titulo": "Qué está pasando con PHP y por qué pone en jaque a Internet (videojuegos incluidos)",
-    "resumen": "Una vulnerabilidad crítica en el lenguaje PHP está afectando a numerosas webs y servicios en Europa, generando errores y alertando a agencias de ciberseguridad.",
-    "enlace": "https://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos",
-    "imagen": "https://i.blogs.es/ffeb5b/pexels-shkrabaanthony-5475750-1-/1024_2000.jpeg",
-    "fuente": "VidaExtra",
-    "idioma": "es",
-    "fecha": "2026-10-22T10:31:19+00:00"
   }
 ]
