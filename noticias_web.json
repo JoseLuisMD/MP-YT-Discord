@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Capcom está satisfecha con el nivel de dificultad de Onimusha: Way of the Sword",
+    "resumen": "Capcom afirma que los datos de los jugadores confirman que la dificultad de Onimusha: Way of the Sword cumple con sus objetivos iniciales.",
+    "enlace": "https://www.pcgamer.com/games/action/based-on-player-data-capcoms-pretty-happy-with-the-difficulty-level-of-onimusha-way-of-the-sword-we-think-its-hit-the-right-spot/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/m9jozBeHDcZQTCMZLJkNLd-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-23T23:31:12+00:00"
+  },
+  {
     "titulo": "Los videojuegos a los que deberías jugar este fin de semana - 23 de octubre de 2026",
     "resumen": "EA cierra el estudio BioWare en medio de una nueva oleada de despidos. Además, se ofrecen recomendaciones de juegos como Final Fantasy Resonance para este fin de semana.",
     "enlace": "https://gameinformer.com/opinion/2026/10/23/the-video-games-and-more-you-should-play-this-weekend-october-23-2026",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-10-22T13:31:34+00:00"
-  },
-  {
-    "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
-    "resumen": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.",
-    "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
-    "imagen": "https://assetsio.gnwcdn.com/resident-evil-requiem-photo-mode-patch-01.jpg?width=690&quality=85&format=jpg",
-    "fuente": "Rock Paper Shotgun",
-    "idioma": "en",
-    "fecha": "2026-10-22T12:31:19+00:00"
   }
 ]

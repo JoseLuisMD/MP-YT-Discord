@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Shrek 2 Remastered pide una RTX 5070, desata las críticas y sus creadores borran los requisitos de Steam",
-    "resumen": "Aspyr eliminó de Steam los desproporcionados requisitos de Shrek 2 Remastered tras las críticas de los jugadores por exigir tarjetas como una RTX 5070.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026294030/shrek-2-remastered-pide-una-rtx-5070-desata-las-criticas-y-sus-creadores-borran-los-requisitos-de-steam/",
-    "fecha": "2026-10-21T22:31:24+00:00"
-  },
-  {
     "titulo": "EA cierra Bioware, cancela el próximo Mass Effect y despide a 400 personas",
     "resumen": "Electronic Arts ha anunciado el cierre de BioWare, la cancelación del nuevo Mass Effect y el despido de 400 empleados, lo que supone el 3% de su plantilla.",
     "enlace": "https://vandal.elespanol.com/noticia/2026294028/ea-cierra-bioware-cancela-el-proximo-mass-effect-y-despide-a-400-personas/",
@@ -256,5 +250,11 @@
     "resumen": "EA cierra el estudio BioWare en medio de una nueva oleada de despidos. Además, se ofrecen recomendaciones de juegos como Final Fantasy Resonance para este fin de semana.",
     "enlace": "https://gameinformer.com/opinion/2026/10/23/the-video-games-and-more-you-should-play-this-weekend-october-23-2026",
     "fecha": "2026-10-23T22:31:20+00:00"
+  },
+  {
+    "titulo": "Capcom está satisfecha con el nivel de dificultad de Onimusha: Way of the Sword",
+    "resumen": "Capcom afirma que los datos de los jugadores confirman que la dificultad de Onimusha: Way of the Sword cumple con sus objetivos iniciales.",
+    "enlace": "https://www.pcgamer.com/games/action/based-on-player-data-capcoms-pretty-happy-with-the-difficulty-level-of-onimusha-way-of-the-sword-we-think-its-hit-the-right-spot/",
+    "fecha": "2026-10-23T23:31:12+00:00"
   }
 ]
