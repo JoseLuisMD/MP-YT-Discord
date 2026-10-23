@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Shrek 2 Remastered se lanzará en noviembre",
-    "resumen": "Se ha anunciado el lanzamiento de Shrek 2 Remastered para noviembre. El título original de 2004 para consolas y PC contará con cooperativo local y online para hasta cuatro jugadores.",
-    "enlace": "https://www.pcgamer.com/games/action/in-this-age-of-pervasive-slop-maybe-we-should-be-grateful-for-shrek-2-remastered/",
-    "fecha": "2026-10-21T02:31:17+00:00"
-  },
-  {
     "titulo": "Las ventas de GTA 6 ya son un escándalo. El juego está batiendo récords de reservas y va camino a los mil millones antes de estrenarse",
     "resumen": "Las primeras estimaciones indican que Grand Theft Auto VI acumula unas 6,1 millones de unidades reservadas en formato digital, superando récords históricos.",
     "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/ventas-gta-6-escandalo-juego-esta-batiendo-records-reservas-va-camino-a-mil-millones-antes-estrenarse",
@@ -250,5 +244,11 @@
     "resumen": "Los suscriptores de Amazon Prime ya pueden reclamar dos nuevos juegos gratuitos para PC de la selección semanal de octubre a través de Amazon Luna.",
     "enlace": "https://vandal.elespanol.com/noticia/2026295027/amazon-regala-hoy-2-nuevos-juegos-gratis-de-pc-a-todos-los-suscriptores-de-amazon-prime/",
     "fecha": "2026-10-23T02:31:18+00:00"
+  },
+  {
+    "titulo": "El guionista principal de Star Wars: The Old Republic critica a BioWare por ignorar el MMO",
+    "resumen": "BioWare anunció su cierre tras más de 30 años sin mencionar a Star Wars: The Old Republic en su comunicado. La guionista Caitlin Sullivan Kelly lamentó la omisión del MMO, aunque el juego pasó a…",
+    "enlace": "https://www.pcgamer.com/games/mmo/star-wars-the-old-republic-lead-writer-calls-out-bioware-for-snubbing-the-mmo/",
+    "fecha": "2026-10-23T03:31:20+00:00"
   }
 ]
