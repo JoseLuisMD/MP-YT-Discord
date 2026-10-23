@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Final Fantasy XIV fue inaccessible por los ataques PHP, y una legión de jardineros de guardia salvó las plantaciones de quienes se quedaron fuera",
+    "resumen": "Una vulnerabilidad en PHP dejó inactivo el acceso a Final Fantasy XIV. Jugadores que seguían dentro organizaron un servicio de riego para cuidar las parcelas ajenas.",
+    "enlace": "https://www.vidaextra.com/juegos-online/final-fantasy-xiv-fue-inaccessible-ataques-php-legion-jardineros-guardia-salvo-plantaciones-quienes-se-quedaron-fuera",
+    "imagen": "https://i.blogs.es/e5d09e/thumb-1920-1161214/1024_2000.jpeg",
+    "fuente": "VidaExtra",
+    "idioma": "es",
+    "fecha": "2026-10-23T17:31:46+00:00"
+  },
+  {
     "titulo": "Los canteranos de CD Projekt empezaron como simples jugadores y ahora diseñan las misiones de Cyberpunk 2",
     "resumen": "La mitad del equipo de misiones de Cyberpunk 2 comenzó creando modificaciones para The Witcher 2 y 3. CD Projekt destaca el valor de los mods para descubrir nuevos talentos.",
     "enlace": "https://www.3djuegos.com/juegos/cyberpunk-2077/noticias/canteranos-cd-projekt-empezaron-como-simples-jugadores-ahora-disenan-misiones-cyberpunk-2",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-22T07:31:12+00:00"
-  },
-  {
-    "titulo": "Kratos iba a tener otro nombre, pero una pizzería muy conocida obligó al estudio de God of War a cambiarlo",
-    "resumen": "El creador de God of War, David Jaffe, reveló que el protagonista iba a llamarse Dominus, pero las constantes bromas del equipo con la pizzería Domino's obligaron a cambiarlo.",
-    "enlace": "https://www.3djuegos.com/juegos/god-of-war/noticias/kratos-iba-a-tener-otro-nombre-pizzeria-muy-conocida-obligo-al-estudio-god-of-war-a-cambiarlo",
-    "imagen": "https://i.blogs.es/03b6a0/kratos-1-/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-22T06:31:10+00:00"
   }
 ]

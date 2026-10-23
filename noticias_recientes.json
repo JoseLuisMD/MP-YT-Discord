@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Así puedes jugar gratis a World of Warcraft: Forever sin pagar suscripción ni tener invitación por tiempo limitado",
-    "resumen": "Blizzard permitirá jugar gratis a World of Warcraft: Forever de forma temporal sin suscripción ni invitación para realizar una prueba de estrés en los servidores antes de su lanzamiento.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026294023/juega-gratis-a-world-of-warcraft-forever-por-tiempo-limitado-sin-pagar-suscripcion-ni-tener-acceso-a-la-beta/",
-    "fecha": "2026-10-21T15:31:28+00:00"
-  },
-  {
     "titulo": "Stranger Than Heaven sorprende en sus primeras impresiones, que coinciden en definir el juego como la evolución definitiva de la fórmula Yakuza",
     "resumen": "Stranger Than Heaven llegará en 2027 a PS5, Xbox Series X|S y PC. Las impresiones destacan este ambicioso juego de Ryu Ga Gotoku Studio como su obra más impresionante hasta la fecha.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/stranger-than-heaven-sorprende-sus-primeras-impresiones-que-coinciden-definir-juego-como-evolucion-definitiva-formula-yakuza_7051720_0.html",
@@ -256,5 +250,11 @@
     "resumen": "La mitad del equipo de misiones de Cyberpunk 2 comenzó creando modificaciones para The Witcher 2 y 3. CD Projekt destaca el valor de los mods para descubrir nuevos talentos.",
     "enlace": "https://www.3djuegos.com/juegos/cyberpunk-2077/noticias/canteranos-cd-projekt-empezaron-como-simples-jugadores-ahora-disenan-misiones-cyberpunk-2",
     "fecha": "2026-10-23T15:31:41+00:00"
+  },
+  {
+    "titulo": "Final Fantasy XIV fue inaccessible por los ataques PHP, y una legión de jardineros de guardia salvó las plantaciones de quienes se quedaron fuera",
+    "resumen": "Una vulnerabilidad en PHP dejó inactivo el acceso a Final Fantasy XIV. Jugadores que seguían dentro organizaron un servicio de riego para cuidar las parcelas ajenas.",
+    "enlace": "https://www.vidaextra.com/juegos-online/final-fantasy-xiv-fue-inaccessible-ataques-php-legion-jardineros-guardia-salvo-plantaciones-quienes-se-quedaron-fuera",
+    "fecha": "2026-10-23T17:31:46+00:00"
   }
 ]
