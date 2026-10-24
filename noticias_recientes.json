@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
-    "resumen": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.",
-    "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
-    "fecha": "2026-10-22T12:31:19+00:00"
-  },
-  {
     "titulo": "Cómo romper la piedra sello del desierto de Grandshelt y conseguir el Esper secreto de Final Fantasy Resonance",
     "resumen": "Consigue el Martillo de Gaia en la Liga de Aspirantes del Coliseo de Grandshelt para romper la piedra sello del desierto y enfrentarte al Esper Titán.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/como-romper-piedra-sello-desierto-grandshelt-conseguir-esper-secreto-final-fantasy-resonance_7051805_0.html",
@@ -256,5 +250,11 @@
     "resumen": "El productor de The Legend of Zelda, Eiji Aonuma, ha recibido oficialmente la distinción de Caballero de las Artes y las Letras por parte del Ministerio de Cultura de Francia.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/eiji-aonuma-recoge-una-las-distinciones-mas-altas-francia-caballero-las-artes-las-letras_7052914_0.html",
     "fecha": "2026-10-24T12:31:16+00:00"
+  },
+  {
+    "titulo": "Cómo conseguir todas las Visiones de Final Fantasy Resonance y contar en tu equipo con los mejores personajes de la saga",
+    "resumen": "Final Fantasy Resonance incluye 26 Visiones de personajes míticos que otorgan habilidades especiales. No son perdibles y se obtienen principalmente respondiendo preguntas en santuarios.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/como-conseguir-todas-las-visiones-final-fantasy-resonance-contar-tu-equipo-con-los-mejores-personajes-saga_7052351_0.html",
+    "fecha": "2026-10-24T13:31:12+00:00"
   }
 ]
