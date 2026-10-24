@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Una vulnerabilidad crítica en PHP obligó al cierre de páginas y juegos online, incluyendo Final Fantasy XIV",
-    "resumen": "Graves fallos en PHP han provocado el cierre temporal y mantenimientos de emergencia en varios juegos online y páginas web, incluyendo Final Fantasy XIV, Umamusume: Pretty Derby y Path of Titans.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026295024/una-vulnerabilidad-critica-en-php-obligo-al-cierre-de-paginas-y-juegos-online-incluyendo-final-fantasy-xiv/",
-    "fecha": "2026-10-22T20:31:49+00:00"
-  },
-  {
     "titulo": "Pisa a fondo con Sonic Racing CrossWorlds Year One Edition, que se podrá reservar a partir de mañana con preferencia para los miembros de GAME Premium",
     "resumen": "La edición física definitiva de Sonic Racing: CrossWorlds para PS5 se podrá reservar desde mañana en GAME, con acceso prioritario para miembros Premium.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/pisa-fondo-con-sonic-racing-crossworlds-year-one-edition-que-se-podra-reservar-partir-manana-con-preferencia-para-los-miembros-game-premium_7052123_0.html",
@@ -256,5 +250,11 @@
     "resumen": "La beta de World of Warcraft: Forever ha concluido con buenas sensaciones, pero deja dudas sobre cómo funcionará su contenido final ante una progresión puramente horizontal.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/now-its-over-wow-forevers-beta-has-left-me-with-just-one-fear-its-endgame/",
     "fecha": "2026-10-24T20:33:25+00:00"
+  },
+  {
+    "titulo": "Abelina, un surrealista juego de plataformas en un más allá natural",
+    "resumen": "Abelina es un videojuego de plataformas surrealista sobre un hombre fallecido que cuida jardines y talla máscaras en el más allá. El título ha sido creado por un exanimador de League of Legends.",
+    "enlace": "https://www.rockpapershotgun.com/abelina-is-a-strange-platforming-romp-through-a-natural-afterlife-from-a-former-league-of-legends-animator-and-the-composer-of-zach-creggers-resident-evil",
+    "fecha": "2026-10-24T22:31:05+00:00"
   }
 ]
