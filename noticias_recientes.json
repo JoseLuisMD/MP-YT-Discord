@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Qué está pasando con PHP y por qué pone en jaque a Internet (videojuegos incluidos)",
-    "resumen": "Una vulnerabilidad crítica en el lenguaje PHP está afectando a numerosas webs y servicios en Europa, generando errores y alertando a agencias de ciberseguridad.",
-    "enlace": "https://www.vidaextra.com/industria/que-esta-pasando-php-que-pone-jaque-a-internet-videojuegos-incluidos",
-    "fecha": "2026-10-22T10:31:19+00:00"
-  },
-  {
     "titulo": "Capcom sufre una brecha de datos que afecta a más de 11 millones de cuentas de Capcom ID",
     "resumen": "Capcom ha confirmado una brecha de seguridad que ha expuesto datos asociados a más de 11 millones de cuentas de Capcom ID. La compañía advierte sobre posibles correos de phishing.",
     "enlace": "https://www.rockpapershotgun.com/resident-evil-makers-capcom-reveal-data-breach-has-affected-over-11-million-capcom-id-accounts-warn-against-potential-phishing-emails",
@@ -256,5 +250,11 @@
     "resumen": "Repaso a la historia de la saga de rol de Nintendo desarrollada por Intelligent Systems, ordenando sus entregas y analizando su evolución hasta Fortune's Weave.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/todos-los-juegos-fire-emblem-peor-mejor-orden-recomendado-para-jugarlos-incluido-fortunes-weave_6913921_0.html",
     "fecha": "2026-10-24T10:33:27+00:00"
+  },
+  {
+    "titulo": "Eiji Aonuma recoge una de las distinciones más altas de Francia, Caballero de las Artes y las Letras",
+    "resumen": "El productor de The Legend of Zelda, Eiji Aonuma, ha recibido oficialmente la distinción de Caballero de las Artes y las Letras por parte del Ministerio de Cultura de Francia.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/eiji-aonuma-recoge-una-las-distinciones-mas-altas-francia-caballero-las-artes-las-letras_7052914_0.html",
+    "fecha": "2026-10-24T12:31:16+00:00"
   }
 ]
