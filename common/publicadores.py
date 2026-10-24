@@ -12,6 +12,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional, Protocol
+from urllib.parse import quote
 
 import requests
 from atproto import Client, client_utils, models
@@ -20,6 +21,8 @@ from common.estado import cargar_json, guardar_json
 
 COLA_X = "cola_x.json"   # publicaciones pendientes de publicar a mano en X (ver ColaX)
 MAX_COLA_X = 50          # entradas que se guardan de cada tipo (vídeos y noticias)
+# Una imagen reducida a JPEG de 1200 px de ancho por el proxy de imágenes weserv (el mismo de las portadas de los Shorts)
+IMAGEN_REDUCIDA = "https://images.weserv.nl/?url={url}&w=1200&output=jpg&q=80"
 
 
 @dataclass
@@ -105,19 +108,28 @@ class Bluesky:
                 builder.tag(h, h[1:])
         return builder
 
+    @staticmethod
+    def _descargar(url):
+        img = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        img.raise_for_status()
+        tipo = img.headers.get("Content-Type", "").split(";")[0].lower()
+        if not tipo.startswith("image/"):
+            raise ValueError(f"La URL no devuelve una imagen: {tipo or 'tipo desconocido'}")
+        return img.content
+
     def _subir_imagen(self, cliente, url_imagen):
-        """Descarga la imagen y la sube a Bluesky. Devuelve el blob o None."""
+        """Descarga la imagen y la sube a Bluesky. Si pesa demasiado (p. ej. los PNG de PC Gamer), la pide reducida
+        a JPEG al proxy de imágenes weserv. Devuelve el blob o None."""
         if not url_imagen:
             return None
         try:
-            img = requests.get(url_imagen, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-            img.raise_for_status()
-            tipo = img.headers.get("Content-Type", "").split(";")[0].lower()
-            if not tipo.startswith("image/"):
-                raise ValueError(f"La URL no devuelve una imagen: {tipo or 'tipo desconocido'}")
-            if len(img.content) > self.LIMITE_IMAGEN:
-                raise ValueError("La imagen supera el límite de 1 MB")
-            return cliente.upload_blob(img.content).blob
+            datos = self._descargar(url_imagen)
+            if len(datos) > self.LIMITE_IMAGEN:
+                print(f"La miniatura pesa {len(datos) // 1024} KB: se pide reducida")
+                datos = self._descargar(IMAGEN_REDUCIDA.format(url=quote(url_imagen, safe="")))
+                if len(datos) > self.LIMITE_IMAGEN:
+                    raise ValueError("La imagen supera el límite de 1 MB incluso reducida")
+            return cliente.upload_blob(datos).blob
         except Exception as e:
             print(f"No se pudo subir la miniatura ({url_imagen}): {e}")
             return None

@@ -102,10 +102,33 @@ def test_bluesky_ignora_hashtags_invalidos(bsky):
     assert etiquetas(bsky.publicaciones[0][0]) == ["ok"]
 
 
-def test_bluesky_si_la_imagen_pesa_mas_de_1mb_publica_sin_miniatura(bsky, monkeypatch):
+def test_bluesky_si_la_imagen_pesa_mas_de_1mb_la_pide_reducida(bsky, monkeypatch):
+    # Caso real: los PNG de PC Gamer (1,7 MB); weserv la devuelve en JPEG de 1200 px (unos 65 KB)
+    pedidas = []
+
+    def get(url, **kw):
+        pedidas.append(url)
+        reducida = url.startswith("https://images.weserv.nl/")
+        return Respuesta(200, cabeceras={"Content-Type": "image/jpeg" if reducida else "image/png"},
+                         contenido=b"reducida" if reducida else b"x" * 1_800_000)
+    monkeypatch.setattr(requests, "get", get)
+    assert Bluesky().publicar(Publicacion("T", "https://n/1", url_imagen="https://cdn.x/a-1920-80.png?v=1")) is True
+    assert pedidas == ["https://cdn.x/a-1920-80.png?v=1",
+                       "https://images.weserv.nl/?url=https%3A%2F%2Fcdn.x%2Fa-1920-80.png%3Fv%3D1&w=1200&output=jpg&q=80"]
+    assert bsky.subidas == [b"reducida"] and bsky.publicaciones[0][1].external.thumb == BLOB
+
+
+def test_bluesky_si_ni_reducida_baja_de_1mb_publica_sin_miniatura(bsky, monkeypatch):
     monkeypatch.setattr(requests, "get", lambda url, **kw: Respuesta(
         200, cabeceras={"Content-Type": "image/jpeg"}, contenido=b"x" * 1_100_000))
     assert Bluesky().publicar(Publicacion("T", "https://n/1", url_imagen="https://i/grande.jpg")) is True
+    assert bsky.publicaciones[0][1].external.thumb is None and bsky.subidas == []
+
+
+def test_bluesky_si_falla_la_reducida_publica_sin_miniatura(bsky, monkeypatch):
+    monkeypatch.setattr(requests, "get", lambda url, **kw: Respuesta(502) if "weserv" in url else Respuesta(
+        200, cabeceras={"Content-Type": "image/png"}, contenido=b"x" * 1_100_000))
+    assert Bluesky().publicar(Publicacion("T", "https://n/1", url_imagen="https://i/grande.png")) is True
     assert bsky.publicaciones[0][1].external.thumb is None and bsky.subidas == []
 
 
