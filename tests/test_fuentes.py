@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 from noticias.fuentes import FUENTES, Fuente
 from common.texto import normalizar
-from noticias.imagenes import imagen_vandal
+from noticias.imagenes import imagen_gameinformer, imagen_vandal
 
 
 def utc(*args):
@@ -151,6 +151,12 @@ def test_gameinformer_esta_en_ingles_y_pide_la_imagen_original(cargar):
         "marvel_tokon_fighting_souls_year_1_dlc_character_-_thor_jane_foster_0-18_screenshot.jpg")
     assert all("/styles/" not in n.url_imagen and not n.url_imagen.endswith(".webp") for n in noticias)
     assert "Jane Foster as Thor, Venom, and Jubilee" in noticias[0].texto
+
+
+def test_gameinformer_corrige_las_imagenes_con_ruta_s3():
+    # Caso real (23/10/2026): «/s3/files/2026/...» da 404; la original está en «/sites/default/files/2026/...»
+    e = {"summary": '<img src="https://gameinformer.com/s3/files/styles/body_default/public/2026/10/23/c1974b46/ffres1.jpg.webp">'}
+    assert imagen_gameinformer(e) == "https://gameinformer.com/sites/default/files/2026/10/23/c1974b46/ffres1.jpg"
 
 
 def test_gameinformer_quita_el_parrafo_final_que_recomienda_otros_articulos(cargar):

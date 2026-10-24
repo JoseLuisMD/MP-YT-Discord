@@ -55,10 +55,12 @@ def imagen_eurogamer(e):
 
 def imagen_gameinformer(e):
     """Game Informer da la imagen redimensionada y en WebP («/styles/body_default/public/...jpg.webp»), que Threads
-    no acepta. Quitando el estilo y el «.webp» se obtiene la original (JPEG o PNG)."""
+    no acepta. Quitando el estilo y el «.webp» se obtiene la original (JPEG o PNG). Algunas entradas usan la ruta
+    «/s3/files/...», cuya original no existe (404): la buena está en «/sites/default/files/...»."""
     url = imagen_generica(e)
     if not url:
         return None
+    url = re.sub(r"^(https?://[^/]+)/s3/files/", r"\1/sites/default/files/", url)
     return re.sub(r"(\.(?:jpe?g|png))\.webp$", r"\1", re.sub(r"/files/styles/[^/]+/public/", "/files/", url))
 
 
