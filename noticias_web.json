@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "La escritora NK Jemisin lamenta la situación de BioWare y la industria",
+    "resumen": "La autora de ciencia ficción NK Jemisin ha recordado la influencia de BioWare y ha criticado la situación actual de la industria de los videojuegos.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/award-winning-sci-fi-author-nk-jemisin-joins-biowares-mourners-and-scorns-a-broken-industry-for-killing-geese-that-laid-the-golden-eggs/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/w7WrWeEQuJfAzUrJLKWHhd-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-25T03:31:19+00:00"
+  },
+  {
     "titulo": "La ausencia de retícula de apuntado en el Alan Wake original",
     "resumen": "Un artículo analiza cómo Remedy prescindió de las reglas habituales del género en el Alan Wake original, destacando la peculiar ausencia de retícula para apuntar.",
     "enlace": "https://www.pcgamer.com/games/horror/the-best-feature-in-the-original-alan-wake-is-an-absence-the-man-has-no-reticle/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-23T18:31:41+00:00"
-  },
-  {
-    "titulo": "Final Fantasy XIV fue inaccessible por los ataques PHP, y una legión de jardineros de guardia salvó las plantaciones de quienes se quedaron fuera",
-    "resumen": "Una vulnerabilidad en PHP dejó inactivo el acceso a Final Fantasy XIV. Jugadores que seguían dentro organizaron un servicio de riego para cuidar las parcelas ajenas.",
-    "enlace": "https://www.vidaextra.com/juegos-online/final-fantasy-xiv-fue-inaccessible-ataques-php-legion-jardineros-guardia-salvo-plantaciones-quienes-se-quedaron-fuera",
-    "imagen": "https://i.blogs.es/e5d09e/thumb-1920-1161214/1024_2000.jpeg",
-    "fuente": "VidaExtra",
-    "idioma": "es",
-    "fecha": "2026-10-23T17:31:46+00:00"
   }
 ]
