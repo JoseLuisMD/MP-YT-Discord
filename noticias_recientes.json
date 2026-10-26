@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Cuando mi madre entró por la puerta había una señora medio en pelotas en pantalla. 31 años después sigo pensando que aquello mereció la pena",
-    "resumen": "Duke Nukem 3D sigue siendo un referente de la acción en primera persona gracias a su carisma, diseño de niveles y armamento divertido.",
-    "enlace": "https://www.3djuegos.com/juegos/duke-nukem-3d/noticias/cuando-mi-madre-entro-puerta-habia-senora-medio-pelotas-pantalla-31-anos-despues-sigo-pensando-que-aquello-merecio-pena",
-    "fecha": "2026-10-24T04:31:14+00:00"
-  },
-  {
     "titulo": "Hora de renovar Switch Online: Amazon lo rebaja y lo deja por 6 euros menos que su precio oficial",
     "resumen": "La suscripción anual a Nintendo Switch Online se encuentra rebajada en Amazon por 33 euros, lo que supone un ahorro de 6 euros respecto al precio oficial en la eShop.",
     "enlace": "https://www.hobbyconsolas.com/recomendados/hora-renovar-switch-online-amazon-rebaja-deja-por-6-euros-menos-que-su-precio-oficial_7052873_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
     "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
     "fecha": "2026-10-26T04:31:19+00:00"
+  },
+  {
+    "titulo": "Valve lanza oficialmente una de las mejores funciones que ha recibido Steam en los últimos años",
+    "resumen": "Valve ha lanzado de forma oficial el Calendario personal de Steam tras su fase de pruebas. Esta herramienta agrupa lanzamientos y muestra juegos de la lista de deseos.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/valve-lanza-forma-oficial-funcion-que-te-ayuda-a-descubrir-tu-proximo-juego-favorito-que-calendario-estrenos",
+    "fecha": "2026-10-26T05:31:29+00:00"
   }
 ]

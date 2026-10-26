@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Valve lanza oficialmente una de las mejores funciones que ha recibido Steam en los últimos años",
+    "resumen": "Valve ha lanzado de forma oficial el Calendario personal de Steam tras su fase de pruebas. Esta herramienta agrupa lanzamientos y muestra juegos de la lista de deseos.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/valve-lanza-forma-oficial-funcion-que-te-ayuda-a-descubrir-tu-proximo-juego-favorito-que-calendario-estrenos",
+    "imagen": "https://i.blogs.es/7dc40a/awqes/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-10-26T05:31:29+00:00"
+  },
+  {
     "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
     "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
     "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-24T20:33:25+00:00"
-  },
-  {
-    "titulo": "El estudio de Silent Hill Remake quiere hacer videojuegos físicos 'durante el mayor tiempo posible'",
-    "resumen": "Bloober Team defiende la importancia del formato físico en los videojuegos frente al avance digital. Su director ejecutivo destaca el valor emocional de coleccionar juegos en caja.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026297007/el-estudio-de-silent-hill-remake-quiere-hacer-videojuegos-fisicos-durante-el-mayor-tiempo-posible/",
-    "imagen": "https://media.vandal.net/m/10-2026/22/2026102220561295_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-10-24T19:31:30+00:00"
   }
 ]
