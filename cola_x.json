@@ -1,5 +1,15 @@
 [
   {
+    "id": "2bc6a4da81a2",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Una conversacion pendiente con Jordan Mechner",
+    "enlace": "https://www.pcgamer.com/gaming-industry/an-overdue-conversation-with-jordan-mechner/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/dHuFYmhuTdXHiDbSSPrJwY-1920-80.jpg",
+    "fecha": "2026-10-26T19:31:16+00:00",
+    "texto": "Entrevista a Jordan Mechner, creador de Prince of Persia, sobre su carrera, su novela gráfica autobiográfica y la evolución de la saga.\n\n🖋️ PC Gamer\n\n#PrinceOfPersia #JordanMechner #PCGamer #TheLastExpress #GDC\n\nhttps://www.pcgamer.com/gaming-industry/an-overdue-conversation-with-jordan-mechner/"
+  },
+  {
     "id": "4a6a61d05c02",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -548,16 +558,6 @@
     "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/24/6adbec3de43d28-76332157.jpeg",
     "fecha": "2026-10-24T10:33:27+00:00",
     "texto": "Repaso a la historia de la saga de rol de Nintendo desarrollada por Intelligent Systems, ordenando sus entregas y analizando su evolución hasta Fortune's Weave.\n\n📰 Hobby Consolas\n\n#FireEmblem #NintendoSwitch #IntelligentSystems #RPG #FortuneWeave\n\nhttps://www.hobbyconsolas.com/videojuegos/todos-los-juegos-fire-emblem-peor-mejor-orden-recomendado-para-jugarlos-incluido-fortunes-weave_6913921_0.html"
-  },
-  {
-    "id": "2c67da99154d",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "La película de Resident Evil tendrá su propio videojuego retro estilo survival horror clásico gracias a un fan",
-    "enlace": "https://vandal.elespanol.com/noticia/2026297005/la-pelicula-de-resident-evil-tendra-su-propio-videojuego-retro-estilo-survival-horror-clasico-gracias-a-un-fan/",
-    "imagen": "https://media.vandal.net/m/10-2026/23/2026102316454532_1.jpg",
-    "fecha": "2026-10-24T09:31:19+00:00",
-    "texto": "Un desarrollador fan de Resident Evil está creando un videojuego retro con cámaras fijas y gráficos 3D inspirado en la exitosa nueva película de la saga y en los títulos clásicos.\n\n✏️ Vandal\n\n#ResidentEvil #SurvivalHorror #GodotEngine #Videojuegos #Retro\n\nhttps://vandal.elespanol.com/noticia/2026297005/la-pelicula-de-resident-evil-tendra-su-propio-videojuego-retro-estilo-survival-horror-clasico-gracias-a-un-fan/"
   },
   {
     "id": "d9e345b95558",

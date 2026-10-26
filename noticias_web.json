@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Una conversacion pendiente con Jordan Mechner",
+    "resumen": "Entrevista a Jordan Mechner, creador de Prince of Persia, sobre su carrera, su novela gráfica autobiográfica y la evolución de la saga.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/an-overdue-conversation-with-jordan-mechner/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/dHuFYmhuTdXHiDbSSPrJwY-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-26T19:31:16+00:00"
+  },
+  {
     "titulo": "Confirmados los 12 juegos nominados a GOTY en los Golden Joystick Awards 2026, con dos casos curiosos y ausencias como Gears of War E-Day y Marvel Lobezno",
     "resumen": "Se han anunciado los 12 títulos nominados al premio GOTY en los Golden Joystick Awards 2026. La gala británica se celebrará el próximo 11 de noviembre.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/confirmados-los-12-juegos-nominados-goty-los-golden-joystick-awards-2026-con-dos-casos-curiosos-ausencias-como-gears-of-war-day-marvel-lobezno_7053611_0.html",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-10-25T09:31:34+00:00"
-  },
-  {
-    "titulo": "¿Y si GTA 6 fuera el último gran juego de la historia y el último en hacer las cosas \"a la vieja usanza\"?",
-    "resumen": "El auge de la inteligencia artificial en el desarrollo de videojuegos contrasta con la apuesta de Rockstar por el talento humano en GTA 6, sin usar IA.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/si-gta-6-fuera-ultimo-gran-juego-historia-ultimo-hacer-las-cosas-vieja-usanza_7051059_3.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/21/6ad8c045c9e9b5-98918840.jpeg",
-    "fuente": "Hobby Consolas",
-    "idioma": "es",
-    "fecha": "2026-10-25T08:31:08+00:00"
   }
 ]
