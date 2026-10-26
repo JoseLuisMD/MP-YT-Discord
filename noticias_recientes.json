@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Abelina, un surrealista juego de plataformas en un más allá natural",
-    "resumen": "Abelina es un videojuego de plataformas surrealista sobre un hombre fallecido que cuida jardines y talla máscaras en el más allá. El título ha sido creado por un exanimador de League of Legends.",
-    "enlace": "https://www.rockpapershotgun.com/abelina-is-a-strange-platforming-romp-through-a-natural-afterlife-from-a-former-league-of-legends-animator-and-the-composer-of-zach-creggers-resident-evil",
-    "fecha": "2026-10-24T22:31:05+00:00"
-  },
-  {
     "titulo": "Qué fue de Banjo-Kazooie, una de las mejores joyas creadas por Rare",
     "resumen": "El artículo repasa la trayectoria de Banjo-Kazooie, el emblemático dúo creado por Rare que debutó en Nintendo 64 y cuyos fans siguen reclamando su regreso.",
     "enlace": "https://www.vidaextra.com/aventura-plataformas/que-fue-banjo-kazooie-mejores-joyas-creadas-rare",
@@ -256,5 +250,11 @@
     "resumen": "La nueva expansión de Pokémon JCC protagonizada por Rayquaza ha obligado a una experimentada jugadora a combinar múltiples tipos de baraja por primera vez en un torneo.",
     "enlace": "https://www.3djuegos.com/fenomeno-fan/noticias/nueva-expansion-pokemon-ha-conseguido-algo-a-que-me-llevo-negando-20-anos-como-jugadora-jcc",
     "fecha": "2026-10-26T21:31:23+00:00"
+  },
+  {
+    "titulo": "World of Warcraft: Forever aplica un parche de última hora que potencia a los tauren",
+    "resumen": "Blizzard ha lanzado un parche de equilibrado de última hora para las habilidades raciales de World of Warcraft: Forever, ajustando características como el daño de mascotas y la regeneración.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-forevers-last-minute-patch-transforms-its-bovines-into-racecars-capable-of-zooming-60-percent-faster-than-everyone-else/",
+    "fecha": "2026-10-26T23:31:20+00:00"
   }
 ]
