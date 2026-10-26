@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "No se ha lanzado y ya apunta a ser uno de los éxitos del año: Phantom Blade Zero está sorprendiendo por sus ventas",
-    "resumen": "Phantom Blade Zero supera las ventas iniciales de otros títulos recientes en Steam con medio millón de copias estimadas, apuntando a convertirse en un fenómeno global.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026296021/no-se-ha-lanzado-y-ya-apunta-a-ser-uno-de-los-exitos-del-ano-phantom-blade-zero-esta-sorprendiendo-por-sus-ventas/",
-    "fecha": "2026-10-24T03:33:27+00:00"
-  },
-  {
     "titulo": "Cuando mi madre entró por la puerta había una señora medio en pelotas en pantalla. 31 años después sigo pensando que aquello mereció la pena",
     "resumen": "Duke Nukem 3D sigue siendo un referente de la acción en primera persona gracias a su carisma, diseño de niveles y armamento divertido.",
     "enlace": "https://www.3djuegos.com/juegos/duke-nukem-3d/noticias/cuando-mi-madre-entro-puerta-habia-senora-medio-pelotas-pantalla-31-anos-despues-sigo-pensando-que-aquello-merecio-pena",
@@ -256,5 +250,11 @@
     "resumen": "El CEO de Epic Games, Tim Sweeney, ha criticado duramente las declaraciones obligatorias sobre IA en Steam, calificándolas de políticas y perjudiciales para los desarrolladores.",
     "enlace": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-ai-disclosures-enter-the-discourse-again-as-epic-ceo-calls-them-just-as-partisan-as-mandatory-political-essays/",
     "fecha": "2026-10-26T03:33:25+00:00"
+  },
+  {
+    "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
+    "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
+    "fecha": "2026-10-26T04:31:19+00:00"
   }
 ]

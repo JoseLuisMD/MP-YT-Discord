@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
+    "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
+    "imagen": "https://i.blogs.es/361995/original/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-10-26T04:31:19+00:00"
+  },
+  {
     "titulo": "Las declaraciones de Valve sobre IA vuelven al debate tras las críticas de Tim Sweeney",
     "resumen": "El CEO de Epic Games, Tim Sweeney, ha criticado duramente las declaraciones obligatorias sobre IA en Steam, calificándolas de políticas y perjudiciales para los desarrolladores.",
     "enlace": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-ai-disclosures-enter-the-discourse-again-as-epic-ceo-calls-them-just-as-partisan-as-mandatory-political-essays/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-24T19:31:30+00:00"
-  },
-  {
-    "titulo": "Crean un prototipo de un Resident Evil clásico basado en la película de Zach Cregger, con cámaras fijas y controles tanque",
-    "resumen": "Desarrollan un prototipo jugable de estilo clásico con cámaras fijas y controles tanque inspirado en la película de Zach Cregger. El proyecto ha mostrado sus primeras imágenes en vídeo.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/crean-un-prototipo-un-resident-evil-clasico-basado-pelicula-zach-cregger-con-camaras-fijas-controles-tanque_7052898_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/24/6adc6921480074-42355570.jpeg",
-    "fuente": "Hobby Consolas",
-    "idioma": "es",
-    "fecha": "2026-10-24T18:31:45+00:00"
   }
 ]
