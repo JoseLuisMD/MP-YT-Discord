@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Call of Duty supera los 40.000 millones de dólares en ingresos acumulados",
+    "resumen": "La franquicia Call of Duty ha superado los 40.000 millones de dólares en ingresos totales a lo largo de su historia, consolidándose como una de las más lucrativas de la industria.",
+    "enlace": "https://www.pcgamer.com/games/call-of-duty/call-of-duty-passes-usd40-billion-in-lifetime-revenue-making-it-one-of-the-most-lucrative-videogame-franchise-ever/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/6ULxropgura5CQ3q2UkRG4-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-27T14:31:25+00:00"
+  },
+  {
     "titulo": "Sale a subasta un extraño prototipo de Pokémon Rojo para Game Boy, que ya ha superado la barrera de los 100.000 dólares",
     "resumen": "Un raro prototipo en preproducción de Pokémon Rojo para Game Boy de 1997 ha salido a subasta en Goldin y ya supera los 100.000 dólares en pujas.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/sale-subasta-un-extrano-prototipo-pokemon-rojo-para-game-boy-que-ya-ha-superado-barrera-los-100-000-dolares_7053884_0.html",
@@ -259,14 +268,5 @@
     "fuente": "3DJuegos",
     "idioma": "es",
     "fecha": "2026-10-26T05:31:29+00:00"
-  },
-  {
-    "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
-    "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
-    "imagen": "https://i.blogs.es/361995/original/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-26T04:31:19+00:00"
   }
 ]
