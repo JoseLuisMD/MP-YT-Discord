@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "La ausencia de retícula de apuntado en el Alan Wake original",
-    "resumen": "Un artículo analiza cómo Remedy prescindió de las reglas habituales del género en el Alan Wake original, destacando la peculiar ausencia de retícula para apuntar.",
-    "enlace": "https://www.pcgamer.com/games/horror/the-best-feature-in-the-original-alan-wake-is-an-absence-the-man-has-no-reticle/",
-    "fecha": "2026-10-25T02:31:12+00:00"
-  },
-  {
     "titulo": "La escritora NK Jemisin lamenta la situación de BioWare y la industria",
     "resumen": "La autora de ciencia ficción NK Jemisin ha recordado la influencia de BioWare y ha criticado la situación actual de la industria de los videojuegos.",
     "enlace": "https://www.pcgamer.com/gaming-industry/award-winning-sci-fi-author-nk-jemisin-joins-biowares-mourners-and-scorns-a-broken-industry-for-killing-geese-that-laid-the-golden-eggs/",
@@ -256,5 +250,11 @@
     "resumen": "Steam celebra el Festival del Miedo V con miles de juegos de terror en oferta hasta el 2 de noviembre. La promoción incluye grandes producciones y joyas indie para PC.",
     "enlace": "https://www.3djuegos.com/pc/noticias/nuevas-rebajas-steam-preparate-porque-aqui-te-dejamos-9-juegos-oferta-ideales-para-fans-terror-8-900-titulos-descuento",
     "fecha": "2026-10-27T02:31:22+00:00"
+  },
+  {
+    "titulo": "Blizzard lanza un rastreador de estadísticas para la beta de World of Warcraft: Forever",
+    "resumen": "Blizzard ha publicado un rastreador de estadísticas de la beta cerrada de World of Warcraft: Forever para consultar datos como el tiempo jugado o las muertes.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/i-have-jumped-in-wow-forevers-beta-7738-times-roughly-135-jumps-an-hour-and-if-youd-like-to-find-out-if-you-beat-me-theres-a-stat-tracker/",
+    "fecha": "2026-10-27T03:31:11+00:00"
   }
 ]
