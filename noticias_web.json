@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "CD Projekt celebra el 19 aniversario del primer The Witcher con un homenaje a BioWare",
+    "resumen": "CD Projekt ha conmemorado el decimonoveno aniversario del lanzamiento de The Witcher agradeciendo el apoyo fundamental de BioWare, que prestó su motor Aurora y espacio en el E3.",
+    "enlace": "https://www.pcgamer.com/games/the-witcher/cd-projekt-marks-the-19th-anniversary-of-its-first-witcher-rpg-with-a-tribute-to-bioware-their-support-helped-turn-our-vision-into-geralts-first-interactive-adventure/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/cp3Ex6s6XWZnBmDsXWAKQm-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-10-27T07:31:18+00:00"
+  },
+  {
     "titulo": "Derelikt, o cómo dar muy mal rollo con gráficos de hace 30 años",
     "resumen": "Derelikt es un juego indie de horror cósmico inspirado en System Shock y Silent Hill. Ambientado en una estación espacial, ofrece gráficos retro y una demo de tres niveles.",
     "enlace": "https://www.3djuegos.com/juegos/derelikt/noticias/derelikt-como-dar-muy-mal-rollo-graficos-hace-30-anos",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-25T23:33:26+00:00"
-  },
-  {
-    "titulo": "Shigeru Miyamoto (73 años), sobre la inteligencia artificial generativa: \"Si la IA llegara a encargarse de todo, siempre habrá un papel para nosotros\"",
-    "resumen": "Shigeru Miyamoto ha reflexionado sobre la inteligencia artificial generativa en el diseño de videojuegos, comparándola con pasados avances tecnológicos que destacaron el talento de los creadores.",
-    "enlace": "https://www.3djuegos.com/nintendo-switch/noticias/shigeru-miyamoto-73-anos-inteligencia-artificial-generativa-ia-llegara-a-encargarse-todo-siempre-habra-papel-para-nosotros",
-    "imagen": "https://i.blogs.es/b3fb6e/asdfg/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-25T21:33:26+00:00"
   }
 ]
