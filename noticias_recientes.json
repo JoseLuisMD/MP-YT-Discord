@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Una conversacion pendiente con Jordan Mechner",
-    "resumen": "Entrevista a Jordan Mechner, creador de Prince of Persia, sobre su carrera, su novela gráfica autobiográfica y la evolución de la saga.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/an-overdue-conversation-with-jordan-mechner/",
-    "fecha": "2026-10-26T19:31:16+00:00"
-  },
-  {
     "titulo": "Qué jugar este Halloween, ideas de disfraces y recomendaciones de terror",
     "resumen": "PC Gamer ofrece un especial de Halloween con ofertas en juegos de terror, recomendaciones del equipo y propuestas de disfraces de última hora.",
     "enlace": "https://www.pcgamer.com/games/horror/2026-halloween-horror-gaming-hub-recommendations/",
@@ -256,5 +250,11 @@
     "resumen": "Noviembre de 2026 destaca por la llegada de GTA 6 y el remake de Ocarina of Time, acompañados de otros veintitrés lanzamientos y ports interesantes para diversas plataformas.",
     "enlace": "https://www.3djuegos.com/recopilacion/noticias/hay-23-videojuegos-que-no-tienen-miedo-gta-6-ocarina-of-time-estos-nuestros-estrenos-destacados-noviembre",
     "fecha": "2026-10-28T19:31:16+00:00"
+  },
+  {
+    "titulo": "Las profesiones de World of Warcraft iban a ofrecer mejor equipo en 2004",
+    "resumen": "Según Kris Zierhut, en los inicios de World of Warcraft las profesiones debían ofrecer equipo útil desde el principio, pero el diseño se desvió porque algunos desarrolladores aumentaron el poder de…",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-was-meant-to-have-viable-levelling-gear-from-professions-way-back-in-2004-but-the-designers-on-raids-and-dungeons-cheated-a-little-bit/",
+    "fecha": "2026-10-28T20:31:20+00:00"
   }
 ]
