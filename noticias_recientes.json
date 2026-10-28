@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
-    "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
-    "fecha": "2026-10-26T04:31:19+00:00"
-  },
-  {
     "titulo": "Valve lanza oficialmente una de las mejores funciones que ha recibido Steam en los últimos años",
     "resumen": "Valve ha lanzado de forma oficial el Calendario personal de Steam tras su fase de pruebas. Esta herramienta agrupa lanzamientos y muestra juegos de la lista de deseos.",
     "enlace": "https://www.3djuegos.com/pc/noticias/valve-lanza-forma-oficial-funcion-que-te-ayuda-a-descubrir-tu-proximo-juego-favorito-que-calendario-estrenos",
@@ -256,5 +250,11 @@
     "resumen": "El MOBA gratuito de The Pokémon Company y TiMi Studio Group cerrará en 2027. Ya no se pueden comprar gemas Æos y en noviembre habrá un evento de despedida con recompensas.",
     "enlace": "https://www.3djuegos.com/juegos/pokemon-unite/noticias/pokemon-se-libra-moba-gratis-saga-pone-fecha-a-su-funeral-velatorio-que-alegrara-a-fans",
     "fecha": "2026-10-28T04:31:11+00:00"
+  },
+  {
+    "titulo": "Pocos recuerdan que antes de ganar el Óscar, el director de Godzilla Minus Zero trabajó con Capcom en una de sus mejores cinemáticas",
+    "resumen": "Antes de ganar un Óscar, el director Takashi Yamazaki dirigió la cinemática de apertura de Onimusha 3: Demon Siege para Capcom en 2004, buscando dotarla de un enfoque cinematográfico.",
+    "enlace": "https://www.3djuegos.com/juegos/onimusha-3-demon-siege/noticias/pocos-recuerdan-que-antes-ganar-oscar-director-godzilla-minus-zero-trabajo-capcom-sus-mejores-cinematicas",
+    "fecha": "2026-10-28T05:31:14+00:00"
   }
 ]
