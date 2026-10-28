@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Valve lanza oficialmente una de las mejores funciones que ha recibido Steam en los últimos años",
-    "resumen": "Valve ha lanzado de forma oficial el Calendario personal de Steam tras su fase de pruebas. Esta herramienta agrupa lanzamientos y muestra juegos de la lista de deseos.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/valve-lanza-forma-oficial-funcion-que-te-ayuda-a-descubrir-tu-proximo-juego-favorito-que-calendario-estrenos",
-    "fecha": "2026-10-26T05:31:29+00:00"
-  },
-  {
     "titulo": "Ex de Naughty Dog teme que los juegos actuales se vean como 'catedrales' ante el auge de la IA",
     "resumen": "Un exartista de Naughty Dog advierte que las nuevas tecnologías y la automatización podrían acabar con las superproducciones de gran presupuesto en la industria del videojuego.",
     "enlace": "https://vandal.elespanol.com/noticia/2026298009/ex-de-naughty-dog-teme-que-los-juegos-actuales-se-vean-como-catedrales-ante-el-auge-de-la-ia/",
@@ -256,5 +250,11 @@
     "resumen": "Antes de ganar un Óscar, el director Takashi Yamazaki dirigió la cinemática de apertura de Onimusha 3: Demon Siege para Capcom en 2004, buscando dotarla de un enfoque cinematográfico.",
     "enlace": "https://www.3djuegos.com/juegos/onimusha-3-demon-siege/noticias/pocos-recuerdan-que-antes-ganar-oscar-director-godzilla-minus-zero-trabajo-capcom-sus-mejores-cinematicas",
     "fecha": "2026-10-28T05:31:14+00:00"
+  },
+  {
+    "titulo": "Más del 92 % de los juegos que vende Capcom ya son digitales",
+    "resumen": "Capcom ha presentado unos resultados económicos de récord impulsados por los contenidos digitales, que ya representan el 92,4 % de sus ventas totales de videojuegos.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026300015/mas-del-92-de-los-juegos-que-vende-capcom-ya-son-digitales/",
+    "fecha": "2026-10-28T06:31:14+00:00"
   }
 ]
