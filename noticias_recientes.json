@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Qué jugar este Halloween, ideas de disfraces y recomendaciones de terror",
-    "resumen": "PC Gamer ofrece un especial de Halloween con ofertas en juegos de terror, recomendaciones del equipo y propuestas de disfraces de última hora.",
-    "enlace": "https://www.pcgamer.com/games/horror/2026-halloween-horror-gaming-hub-recommendations/",
-    "fecha": "2026-10-26T20:32:20+00:00"
-  },
-  {
     "titulo": "La nueva expansión de Pokémon ha conseguido algo a lo que me llevo negando 20 años como jugadora de JCC",
     "resumen": "La nueva expansión de Pokémon JCC protagonizada por Rayquaza ha obligado a una experimentada jugadora a combinar múltiples tipos de baraja por primera vez en un torneo.",
     "enlace": "https://www.3djuegos.com/fenomeno-fan/noticias/nueva-expansion-pokemon-ha-conseguido-algo-a-que-me-llevo-negando-20-anos-como-jugadora-jcc",
@@ -256,5 +250,11 @@
     "resumen": "Según Kris Zierhut, en los inicios de World of Warcraft las profesiones debían ofrecer equipo útil desde el principio, pero el diseño se desvió porque algunos desarrolladores aumentaron el poder de…",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-was-meant-to-have-viable-levelling-gear-from-professions-way-back-in-2004-but-the-designers-on-raids-and-dungeons-cheated-a-little-bit/",
     "fecha": "2026-10-28T20:31:20+00:00"
+  },
+  {
+    "titulo": "El ritmo de actualizaciones de WoW: Forever será mas relajado que el del MMO principal",
+    "resumen": "Los desarrolladores planean lanzar actualizaciones tres veces al año para mantener el espíritu clasico y el ritmo pausado del juego original de Blizzard.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forevers-update-schedule-will-be-a-little-more-laid-back-than-the-main-mmo/",
+    "fecha": "2026-10-28T21:31:12+00:00"
   }
 ]
