@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Las declaraciones de Valve sobre IA vuelven al debate tras las críticas de Tim Sweeney",
-    "resumen": "El CEO de Epic Games, Tim Sweeney, ha criticado duramente las declaraciones obligatorias sobre IA en Steam, calificándolas de políticas y perjudiciales para los desarrolladores.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/steam-week-in-review-ai-disclosures-enter-the-discourse-again-as-epic-ceo-calls-them-just-as-partisan-as-mandatory-political-essays/",
-    "fecha": "2026-10-26T03:33:25+00:00"
-  },
-  {
     "titulo": "Microsoft no ha hecho nada por llevar Game Pass a SteamOS, pero un desarrollador se ha propuesto cambiarlo y ya tiene algo que enseñar",
     "resumen": "Un proyecto independiente llamado Xodus Nexus permite a los usuarios de Linux y SteamOS acceder a PC Game Pass de forma nativa sin recurrir a Windows ni a la nube.",
     "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-no-ha-hecho-nada-llevar-game-pass-a-steamos-desarrollador-se-ha-propuesto-cambiarlo-tiene-algo-que-ensenar",
@@ -256,5 +250,11 @@
     "resumen": "El estudio Cygnus Cross ha retrasado el lanzamiento en acceso anticipado de Emberville hasta el 7 de enero de 2027 para aplicar cambios basados en las opiniones de su demo.",
     "enlace": "https://vandal.elespanol.com/noticia/2026300017/emberville-se-retrasa-el-dia-antes-de-su-lanzamiento-la-mezcla-de-stardew-valley-y-diablo-llegara-en-2027/",
     "fecha": "2026-10-28T03:31:14+00:00"
+  },
+  {
+    "titulo": "Ni Pokémon se libra. El MOBA gratis de la saga pone fecha a su funeral y prepara un velatorio con regalos para sus fans",
+    "resumen": "El MOBA gratuito de The Pokémon Company y TiMi Studio Group cerrará en 2027. Ya no se pueden comprar gemas Æos y en noviembre habrá un evento de despedida con recompensas.",
+    "enlace": "https://www.3djuegos.com/juegos/pokemon-unite/noticias/pokemon-se-libra-moba-gratis-saga-pone-fecha-a-su-funeral-velatorio-que-alegrara-a-fans",
+    "fecha": "2026-10-28T04:31:11+00:00"
   }
 ]
