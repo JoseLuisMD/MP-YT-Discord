@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Resident Evil es la saga más vendida de Capcom y con mucha diferencia respecto a Monster Hunter",
-    "resumen": "Resident Evil se consolida como la saga más vendida de Capcom al superar los 218 millones de copias. Monster Hunter ocupa el segundo lugar con 132 millones.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026300014/resident-evil-es-la-saga-mas-vendida-de-capcom-y-con-mucha-diferencia-respecto-a-monster-hunter/",
-    "fecha": "2026-10-27T11:31:21+00:00"
-  },
-  {
     "titulo": "Sale a subasta un extraño prototipo de Pokémon Rojo para Game Boy, que ya ha superado la barrera de los 100.000 dólares",
     "resumen": "Un raro prototipo en preproducción de Pokémon Rojo para Game Boy de 1997 ha salido a subasta en Goldin y ya supera los 100.000 dólares en pujas.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/sale-subasta-un-extrano-prototipo-pokemon-rojo-para-game-boy-que-ya-ha-superado-barrera-los-100-000-dolares_7053884_0.html",
@@ -256,5 +250,11 @@
     "resumen": "El juego de acción Phantom Blade Zero alcanza un pico de 434.028 jugadores simultáneos en Steam tras su lanzamiento en PC y PlayStation 5, situándose como el segundo título más jugado.",
     "enlace": "https://vandal.elespanol.com/noticia/2026302016/phantom-blade-zero-arrasa-en-su-estreno-con-mas-de-434000-jugadores-simultaneos-en-steam/",
     "fecha": "2026-10-29T11:31:15+00:00"
+  },
+  {
+    "titulo": "Reservaron World of Warcraft: Forever para conseguir su nombre y un bug se lo impedía: Blizzard reconoce el error",
+    "resumen": "Un fallo impedía registrar nombres con las letras 'con' al reservar World of Warcraft: Forever. Blizzard ha reconocido el error tras las quejas de los jugadores.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026302022/reservaron-world-of-warcraft-forever-para-conseguir-su-nombre-y-un-bug-se-lo-impedia-blizzard-reconoce-el-error/",
+    "fecha": "2026-10-29T13:31:49+00:00"
   }
 ]
