@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "La nueva versión de Pokémon Friends Poké Ball es el ''tamagotchi'' que siempre soñaste, pero su lanzamiento se limita (por ahora) a Japón",
-    "resumen": "Takara Tomy ha anunciado el lanzamiento de Pokémon Friends Poké Ball+, una nueva versión de su dispositivo virtual con más minijuegos, que llegará a Japón el 7 de noviembre.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/nueva-version-pokemon-friends-poke-ball-es-tamagotchi-que-siempre-sonaste-pero-su-lanzamiento-se-limita-por-ahora-japon_7054116_0.html",
-    "fecha": "2026-10-27T23:33:39+00:00"
-  },
-  {
     "titulo": "Vota por el juego más terrorífico de todos los tiempos: Ronda 1",
     "resumen": "PC Gamer ha seleccionado los 16 juegos de PC más terroríficos según sus lectores para un torneo eliminatorio. La primera ronda de votaciones ya está abierta y el ganador se anunciará el sábado.",
     "enlace": "https://www.pcgamer.com/games/horror/vote-for-the-scariest-game-of-all-time-round-1/",
@@ -256,5 +250,11 @@
     "resumen": "Microsoft registra una caída en los ingresos por hardware y servicios de XBOX, aunque la compañía mantiene el optimismo de cara al futuro.",
     "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/venta-xbox-series-sigue-remontar-asha-sharma-hay-explicacion-varios-motivos-para-alegrarse-ultimos-resultados-compania",
     "fecha": "2026-10-29T23:31:15+00:00"
+  },
+  {
+    "titulo": "El creador de Dragon Age argumenta que la saga no está muerta y apuesta por un 'remaster' para revitalizarla",
+    "resumen": "Mark Darrah, productor de los primeros Dragon Age, defendió la vigencia de la saga y sugirió una remasterización de Dragon Age: Origins para revitalizarla tras las bajas ventas de su última entrega.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026300022/el-creador-de-dragon-age-argumenta-que-la-saga-no-esta-muerta-y-apuesta-por-un-remaster-para-revitalizarla/",
+    "fecha": "2026-10-30T00:31:18+00:00"
   }
 ]
