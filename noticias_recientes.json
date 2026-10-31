@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Reservaron World of Warcraft: Forever para conseguir su nombre y un bug se lo impedía: Blizzard reconoce el error",
-    "resumen": "Un fallo impedía registrar nombres con las letras 'con' al reservar World of Warcraft: Forever. Blizzard ha reconocido el error tras las quejas de los jugadores.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026302022/reservaron-world-of-warcraft-forever-para-conseguir-su-nombre-y-un-bug-se-lo-impedia-blizzard-reconoce-el-error/",
-    "fecha": "2026-10-29T13:31:49+00:00"
-  },
-  {
     "titulo": "Las mejoras gráficas de World of Warcraft: Forever llegarán al juego principal",
     "resumen": "Las mejoras de iluminación y agua del proyecto Forever llegarán al juego principal en el futuro, según se está debatiendo actualmente.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-forevers-shiny-lighting-and-water-changes-will-be-coming-to-retail-i-dont-know-when-but-i-know-theyre-talking-about-doing-it/",
@@ -256,5 +250,11 @@
     "resumen": "Hideo Kojima critica que se catalogue a Death Stranding como simulador de paseos debido a opiniones de usuarios que no lo han jugado y advierte sobre el peligro de las redes sociales.",
     "enlace": "https://vandal.elespanol.com/noticia/2026304011/kojima-se-harta-de-que-llamen-simulador-de-paseos-a-death-stranding-y-culpa-a-las-redes-sociales/",
     "fecha": "2026-10-31T13:31:18+00:00"
+  },
+  {
+    "titulo": "Los juegos de terror generaron 1.300 millones de dólares en 2026 y Resident Evil Requiem supuso casi un 16% de esa cifra",
+    "resumen": "Los videojuegos de terror alcanzaron los 1.300 millones de dólares en 2026. Resident Evil Requiem lideró las ventas con casi el 16% de esa cifra total.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/los-juegos-terror-generaron-1-300-millones-dolares-2026-resident-evil-requiem-supuso-casi-un-16-esa-cifra_7055767_0.html",
+    "fecha": "2026-10-31T14:31:17+00:00"
   }
 ]
