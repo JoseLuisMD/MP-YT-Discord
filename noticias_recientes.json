@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "En 2023 se lanzó MyHouse.wad, uno de los mejores juegos de terror de la década",
-    "resumen": "El mapa de Doom 2 MyHouse.wad se ha convertido en una de las experiencias de terror más sorprendentes y perturbadoras de los últimos años para los jugadores.",
-    "enlace": "https://www.pcgamer.com/games/horror/in-2023-an-anonymous-modder-released-one-of-the-best-horror-games-of-the-decade-and-they-still-havent-broken-character/",
-    "fecha": "2026-10-29T19:33:33+00:00"
-  },
-  {
     "titulo": "Kojima Productions registra una nueva marca de Death Stranding y todo apunta a que es una experiencia de realidad aumentada de Niantic",
     "resumen": "Kojima Productions ha registrado la marca Death Stranding: Odradek, lo que apunta a que podría tratarse de la esperada experiencia de realidad aumentada desarrollada junto a Niantic Spatial.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/kojima-productions-registra-una-nueva-marca-death-stranding-todo-apunta-que-es-una-experiencia-realidad-aumentada-niantic_7055099_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Square Enix ha retrasado la expansión Evercold de Final Fantasy 14 hasta febrero por motivos de calidad. Las reservas comenzarán el próximo miércoles.",
     "enlace": "https://www.pcgamer.com/games/final-fantasy/final-fantasy-14-evercold-delayed-to-february-preorders-start-next-week/",
     "fecha": "2026-10-31T19:31:10+00:00"
+  },
+  {
+    "titulo": "Para quitarle el trono a Steam hace falta algo más que otra tienda. Un analista explica por qué Valve se percibe como invencible en el PC",
+    "resumen": "Un analista explica que la independencia de Valve y su enfoque en el jugador dificultan que otras tiendas de PC compitan con Steam.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/para-quitarle-trono-a-steam-hace-falta-algo-que-otra-tienda-analista-explica-que-valve-se-percibe-como-invencible-pc",
+    "fecha": "2026-10-31T20:31:15+00:00"
   }
 ]

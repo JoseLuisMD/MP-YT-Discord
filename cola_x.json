@@ -1,5 +1,15 @@
 [
   {
+    "id": "ff585570fbaa",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Para quitarle el trono a Steam hace falta algo más que otra tienda. Un analista explica por qué Valve se percibe como invencible en el PC",
+    "enlace": "https://www.3djuegos.com/pc/noticias/para-quitarle-trono-a-steam-hace-falta-algo-que-otra-tienda-analista-explica-que-valve-se-percibe-como-invencible-pc",
+    "imagen": "https://i.blogs.es/5ec8ba/original/1024_2000.jpeg",
+    "fecha": "2026-10-31T20:31:15+00:00",
+    "texto": "Un analista explica que la independencia de Valve y su enfoque en el jugador dificultan que otras tiendas de PC compitan con Steam.\n\n✒️ 3DJuegos\n\n#Steam #Valve #PCGaming #EpicGamesStore #GOG\n\nhttps://www.3djuegos.com/pc/noticias/para-quitarle-trono-a-steam-hace-falta-algo-que-otra-tienda-analista-explica-que-valve-se-percibe-como-invencible-pc"
+  },
+  {
     "id": "f00666e5db3c",
     "tipo": "resena",
     "proyecto": "mundospixelados",
@@ -548,16 +558,6 @@
     "imagen": "https://media.vandal.net/m/10-2026/29/2026102911184490_1.jpg",
     "fecha": "2026-10-29T11:31:15+00:00",
     "texto": "El juego de acción Phantom Blade Zero alcanza un pico de 434.028 jugadores simultáneos en Steam tras su lanzamiento en PC y PlayStation 5, situándose como el segundo título más jugado.\n\n📔 Vandal\n\n#PhantomBladeZero #Steam #PlayStation5 #Videojuegos #PC\n\nhttps://vandal.elespanol.com/noticia/2026302016/phantom-blade-zero-arrasa-en-su-estreno-con-mas-de-434000-jugadores-simultaneos-en-steam/"
-  },
-  {
-    "id": "b7472808a24a",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Silent Hill Townfall recibe una actualización sorpresa que añade un nuevo modo de dificultad y DLSS Ray Reconstruction en PC entre otras novedades",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/silent-hill-townfall-recibe-una-actualizacion-sorpresa-que-anade-un-nuevo-modo-dificultad-dlss-ray-reconstruction-pc-entre-otras-novedades_7054819_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/07/30/6a6b89fe0407a1-74316784.jpeg",
-    "fecha": "2026-10-29T10:31:22+00:00",
-    "texto": "Screen Burn y Konami lanzan el parche 1.6.0 para Silent Hill Townfall en PC y PS5. La actualización incluye un nuevo modo difícil, reequilibrio de recursos y DLSS Ray Reconstruction.\n\n🗒️ Hobby Consolas\n\n#SilentHillTownfall #Konami #PCGaming #PS5 #Videojuegos\n\nhttps://www.hobbyconsolas.com/videojuegos/silent-hill-townfall-recibe-una-actualizacion-sorpresa-que-anade-un-nuevo-modo-dificultad-dlss-ray-reconstruction-pc-entre-otras-novedades_7054819_0.html"
   },
   {
     "id": "9ba4b8120858",
