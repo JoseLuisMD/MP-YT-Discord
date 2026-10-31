@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Zelda: Ocarina of Time es uno de los videojuegos más queridos de la historia. También es el título que tiene la versión de Hyrule más especial",
+    "resumen": "The Legend of Zelda: Ocarina of Time para Nintendo 64 revolucionó los videojuegos gracias a su jugabilidad y su inolvidable Hyrule dividida en dos eras.",
+    "enlace": "https://www.3djuegos.com/juegos/the-legend-of-zelda-ocarina-of-time/noticias/zelda-ocarina-of-time-uno-videojuegos-queridos-historia-tambien-titulo-que-tiene-version-hyrule-especial",
+    "imagen": "https://i.blogs.es/144fc9/zelda-ocarina-of-time-6-/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-10-31T05:31:14+00:00"
+  },
+  {
     "titulo": "Los jugadores de OCE sufren una noche eterna en WoW: Forever y los desarrolladores valoran una solución",
     "resumen": "Los jugadores de Oceanía en World of Warcraft: Forever sufren una noche eterna debido a la sincronización con los relojes de Norteamérica. Los desarrolladores estudian alternativas para solucionar…",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/oce-players-are-stuck-in-perpetual-night-on-wow-forever-but-its-devs-are-considering-a-fix/",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-10-29T20:31:18+00:00"
-  },
-  {
-    "titulo": "En 2023 se lanzó MyHouse.wad, uno de los mejores juegos de terror de la década",
-    "resumen": "El mapa de Doom 2 MyHouse.wad se ha convertido en una de las experiencias de terror más sorprendentes y perturbadoras de los últimos años para los jugadores.",
-    "enlace": "https://www.pcgamer.com/games/horror/in-2023-an-anonymous-modder-released-one-of-the-best-horror-games-of-the-decade-and-they-still-havent-broken-character/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/7bBDT2Cd8pNbN7jJFmrCM-1920-80.png",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-10-29T19:33:33+00:00"
   }
 ]
