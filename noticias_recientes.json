@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Nuevos juegos para 2027: Fable, Final Fantasy 7 y una posible llegada de GTA 6 a PC",
-    "resumen": "El calendario de lanzamientos para PC en 2027 comienza a sumar títulos destacados como Fable, Exodus y Final Fantasy 7 Revelation, mientras se espera la llegada de otros juegos.",
-    "enlace": "https://www.pcgamer.com/games/new-pc-games-2027/",
-    "fecha": "2026-10-30T19:31:19+00:00"
-  },
-  {
     "titulo": "Zelda Ocarina of Time Remake saca pecho de sus sorpresas en Nintendo Switch 2 con un tráiler que repasa todas las novedades",
     "resumen": "Un nuevo tráiler de Zelda Ocarina of Time Remake muestra las novedades para Nintendo Switch 2, incluyendo gráficos mejorados, control por movimiento, voces en castellano y uso de micrófono.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/zelda-ocarina-of-time-remake-saca-pecho-sus-sorpresas-nintendo-switch-2-con-un-trailer-que-repasa-todas-las-novedades_7055697_0.html",
@@ -256,5 +250,11 @@
     "resumen": "GOG explora la posibilidad de ofrecer copias físicas de los juegos de su plataforma. Sin embargo, la compañía admite que la distribución física actual presenta grandes complicaciones.",
     "enlace": "https://www.pcgamer.com/games/gog-wants-to-bring-back-physical-games-but-its-a-very-very-complicated-thing/",
     "fecha": "2026-11-01T19:31:19+00:00"
+  },
+  {
+    "titulo": "Lena Raine explica cómo Pigstep cambió el enfoque musical de Minecraft",
+    "resumen": "La compositora Lena Raine repasa su trayectoria en la industria, desde sus inicios como diseñadora y tester hasta crear la música de Minecraft y Celeste.",
+    "enlace": "https://www.pcgamer.com/games/composer-and-designer-lena-raine-explains-how-pigstep-altered-minecrafts-approach-to-music-the-prompt-i-keep-hearing-is-oh-pigstep-was-such-a-banger-that-they-want-more-bangers/",
+    "fecha": "2026-11-01T20:31:15+00:00"
   }
 ]

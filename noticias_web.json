@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Lena Raine explica cómo Pigstep cambió el enfoque musical de Minecraft",
+    "resumen": "La compositora Lena Raine repasa su trayectoria en la industria, desde sus inicios como diseñadora y tester hasta crear la música de Minecraft y Celeste.",
+    "enlace": "https://www.pcgamer.com/games/composer-and-designer-lena-raine-explains-how-pigstep-altered-minecrafts-approach-to-music-the-prompt-i-keep-hearing-is-oh-pigstep-was-such-a-banger-that-they-want-more-bangers/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/YsSgua57s2iYxBemzqeS77-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-01T20:31:15+00:00"
+  },
+  {
     "titulo": "GOG quiere recuperar los juegos físicos, aunque reconoce que es muy complicado",
     "resumen": "GOG explora la posibilidad de ofrecer copias físicas de los juegos de su plataforma. Sin embargo, la compañía admite que la distribución física actual presenta grandes complicaciones.",
     "enlace": "https://www.pcgamer.com/games/gog-wants-to-bring-back-physical-games-but-its-a-very-very-complicated-thing/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-31T10:33:43+00:00"
-  },
-  {
-    "titulo": "CD Projekt revela su arma secreta para Cyberpunk 2: la mitad del equipo son modders fichados de la comunidad",
-    "resumen": "La secuela de Cyberpunk 2077 contará con un equipo de misiones formado en su mitad por antiguos creadores de mods fichados por CD Projekt para aportar su experiencia.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026304002/cd-projekt-revela-su-arma-secreta-para-cyberpunk-2-la-mitad-del-equipo-son-modders-fichados-de-la-comunidad/",
-    "imagen": "https://media.vandal.net/m/10-2026/28/2026102815573157_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-10-31T09:31:32+00:00"
   }
 ]
