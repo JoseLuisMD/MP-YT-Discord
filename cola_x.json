@@ -1,5 +1,15 @@
 [
   {
+    "id": "2d5d2bba5f3d",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Anthropic actualiza Claude para evitar la clonación de videojuegos",
+    "enlace": "https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/Vmhmhycwkn6YrhJ8EMDcK3-1920-80.png",
+    "fecha": "2026-11-01T08:31:14+00:00",
+    "texto": "Anthropic ha actualizado Claude Opus 5.5 con una nueva regla para impedir que los usuarios clonen videojuegos existentes y eviten la infracción de propiedad intelectual.\n\n✏️ PC Gamer\n\n#Anthropic #ClaudeCode #Steam #Videojuegos #Desarrollo\n\nhttps://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/"
+  },
+  {
     "id": "3d90b35ec2d5",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -538,16 +548,6 @@
     "imagen": "https://cdn.mos.cms.futurecdn.net/RmkKQEKvDpQ8UywA2UKRMZ-1920-80.jpg",
     "fecha": "2026-10-30T01:31:24+00:00",
     "texto": "El torneo para elegir el juego de PC más terrorífico llega a sus semifinales con un duelo entre dos entregas de Amnesia y otro entre Silent Hill 2 y Alien: Isolation.\n\n✏️ PC Gamer\n\n#Amnesia #SilentHill2 #AlienIsolation #PCGamer #Terror\n\nhttps://www.pcgamer.com/games/horror/its-amnesia-vs-amnesia-in-the-scariest-game-semifinals-vote-now/"
-  },
-  {
-    "id": "52028f665bcc",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "El creador de Dragon Age argumenta que la saga no está muerta y apuesta por un 'remaster' para revitalizarla",
-    "enlace": "https://vandal.elespanol.com/noticia/2026300022/el-creador-de-dragon-age-argumenta-que-la-saga-no-esta-muerta-y-apuesta-por-un-remaster-para-revitalizarla/",
-    "imagen": "https://media.vandal.net/m/10-2026/27/2026102713492144_1.jpg",
-    "fecha": "2026-10-30T00:31:18+00:00",
-    "texto": "Mark Darrah, productor de los primeros Dragon Age, defendió la vigencia de la saga y sugirió una remasterización de Dragon Age: Origins para revitalizarla tras las bajas ventas de su última entrega.\n\n✒️ Vandal\n\n#DragonAge #BioWare #MarkDarrah #Videojuegos #RPG\n\nhttps://vandal.elespanol.com/noticia/2026300022/el-creador-de-dragon-age-argumenta-que-la-saga-no-esta-muerta-y-apuesta-por-un-remaster-para-revitalizarla/"
   },
   {
     "id": "abb6a529c447",

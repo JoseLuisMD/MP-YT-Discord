@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Hobby Consolas 424, ya a la venta: ¡Especial del 35º aniversario, con 132 páginas, cuatro pósters, reportajes de Zelda Ocarina of Time y GTA VI... y mucho más!",
-    "resumen": "Ya está a la venta el número 424 de Hobby Consolas, una edición especial de 132 páginas por su 35º aniversario que incluye cuatro pósters y reportajes sobre Zelda Ocarina of Time y GTA VI.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/hobby-consolas-424-ya-venta-especial-35o-aniversario-con-132-paginas-cuatro-posters-reportajes-zelda-ocarina-of-time-gta-vi-mucho-mas_7053311_0.html",
-    "fecha": "2026-10-30T07:33:33+00:00"
-  },
-  {
     "titulo": "Primer teaser del anime Death Stranding Isolations",
     "resumen": "Kojima Productions ha publicado el primer teaser del esperado anime Death Stranding Isolations.",
     "enlace": "https://www.eurogamer.es/primer-teaser-del-anime-death-stranding-isolations",
@@ -256,5 +250,11 @@
     "resumen": "Una gran actualización corrige numerosos errores en The Blood of Dawnwalker y mejora notablemente su experiencia respecto al lanzamiento, evidenciando los perjuicios de la cultura del FOMO.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/the-blood-of-dawnwalker-no-parece-juego-que-analice-su-masiva-actualizacion-vuelve-senalar-que-fomo-es-una-estupidez_7055439_3.html",
     "fecha": "2026-11-01T07:35:41+00:00"
+  },
+  {
+    "titulo": "Anthropic actualiza Claude para evitar la clonación de videojuegos",
+    "resumen": "Anthropic ha actualizado Claude Opus 5.5 con una nueva regla para impedir que los usuarios clonen videojuegos existentes y eviten la infracción de propiedad intelectual.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/",
+    "fecha": "2026-11-01T08:31:14+00:00"
   }
 ]
