@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Final Fantasy 14 estrena un minijuego de mecanografía en el Gold Saucer",
+    "resumen": "Final Fantasy 14 ha añadido un minijuego de mecanografía en el Gold Saucer donde los jugadores compiten escribiendo para superar oleadas.",
+    "enlace": "https://www.pcgamer.com/games/mmo/how-fast-do-you-type-and-has-playing-mmos-improved-your-typing-in-any-way/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/Zsc9cwmxAyyJ2poU5pgASM-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-01T01:31:13+00:00"
+  },
+  {
     "titulo": "Los lectores de PC Gamer eligen el juego más terrorífico de PC",
     "resumen": "Alien: Isolation ha sido elegido como el juego más terrorífico de PC por los lectores de PC Gamer tras imponerse en la final a Amnesia: The Dark Descent.",
     "enlace": "https://www.pcgamer.com/games/horror/the-votes-are-in-and-pc-gamer-readers-have-picked-the-scariest-game-on-pc/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-10-30T15:31:25+00:00"
-  },
-  {
-    "titulo": "Un modder de Baldur's Gate 3 lanza una campaña personalizada inspirada en World of Warcraft",
-    "resumen": "Se ha publicado el primer acto de Forsaken, un ambicioso mod para Baldur's Gate 3 que traslada la historia al universo de World of Warcraft con una trama sobre no muertos.",
-    "enlace": "https://www.rockpapershotgun.com/baldurs-gate-3-custom-campaign-mod-channels-world-of-warcraft-with-an-adventure-about-undead-former-slaves-fighting-to-reclaim-a-kingdom",
-    "imagen": "https://assetsio.gnwcdn.com/baldurs-gate-3-custom-campaign-mod-forsaken-act-one-01.jpg?width=690&quality=85&format=jpg",
-    "fuente": "Rock Paper Shotgun",
-    "idioma": "en",
-    "fecha": "2026-10-30T14:31:17+00:00"
   }
 ]
