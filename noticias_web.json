@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Una de las imágenes más legendarias de Mario y Donkey Kong es vendida por 330.000 dólares",
+    "resumen": "Una histórica ilustración promocional de Mario y Donkey Kong creada por Leslie Cabarga ha sido vendida en una subasta por 330.000 dólares.",
+    "enlace": "https://www.vidaextra.com/aventura-plataformas/imagenes-legendarias-mario-donkey-kong-vendida-330-000-dolares",
+    "imagen": "https://i.blogs.es/ff5aa6/mario-donkey-kong/1024_2000.jpeg",
+    "fuente": "VidaExtra",
+    "idioma": "es",
+    "fecha": "2026-11-02T10:31:21+00:00"
+  },
+  {
     "titulo": "Primer vistazo a Final Fantasy VII Revelation corriendo en Nintendo Switch 2, con más de 30 minutos que parecen ir a más de 30 fps",
     "resumen": "Se han mostrado más de 30 minutos de Final Fantasy VII Revelation funcionando en Nintendo Switch 2 con un rendimiento superior a 30 fps, según una grabación vista en la Paris Games Week 2026.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/primer-vistazo-final-fantasy-vii-revelation-corriendo-nintendo-switch-2-con-mas-30-minutos-que-parecen-ir-mas-30-fps_7056093_0.html",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-11-01T02:31:11+00:00"
-  },
-  {
-    "titulo": "Final Fantasy 14 estrena un minijuego de mecanografía en el Gold Saucer",
-    "resumen": "Final Fantasy 14 ha añadido un minijuego de mecanografía en el Gold Saucer donde los jugadores compiten escribiendo para superar oleadas.",
-    "enlace": "https://www.pcgamer.com/games/mmo/how-fast-do-you-type-and-has-playing-mmos-improved-your-typing-in-any-way/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/Zsc9cwmxAyyJ2poU5pgASM-1920-80.png",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-11-01T01:31:13+00:00"
   }
 ]
