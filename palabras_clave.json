@@ -49,12 +49,12 @@
     "gaming": 7,
     "indie": 8,
     "juegos": 13,
-    "nintendo": 5,
+    "nintendo": 6,
     "playstation": 6,
     "retro": 2,
-    "steam": 12,
+    "steam": 13,
     "videogames": 2,
-    "videojuegos": 10,
-    "xbox": 8
+    "videojuegos": 11,
+    "xbox": 9
   }
 }

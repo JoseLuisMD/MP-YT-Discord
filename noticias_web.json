@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "En este disparatado roguelike de hockey puedes sobornar a los árbitros y hacer trampas para ganar",
+    "resumen": "El roguelike deportivo Tape to Tape estrena su versión definitiva tras tres años en acceso anticipado. El juego combina hockey arcade, humor y la posibilidad de hacer trampas.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026305005/en-este-disparatado-roguelike-de-hockey-puedes-sobornar-a-los-arbitros-y-hacer-trampas-para-ganar/",
+    "imagen": "https://media.vandal.net/m/10-2026/2026102717505414_1.jpg",
+    "fuente": "Vandal",
+    "idioma": "es",
+    "fecha": "2026-11-02T06:33:29+00:00"
+  },
+  {
     "titulo": "Los combates de Phantom Blade Zero son espectaculares, pero sus ventas y números en Steam también. Aun así está lejos del récord de Black Myth: Wukong",
     "resumen": "Phantom Blade Zero supera los 833.000 jugadores simultáneos en Steam tras su lanzamiento el 29 de octubre, consolidándose como un gran éxito de S-Game.",
     "enlace": "https://www.3djuegos.com/juegos/phantom-blade-zero/noticias/combates-phantom-blade-zero-espectaculares-sus-cifras-steam-tambien-se-queda-lejos-record-black-myth-wukong",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-10-31T21:31:18+00:00"
-  },
-  {
-    "titulo": "Para quitarle el trono a Steam hace falta algo más que otra tienda. Un analista explica por qué Valve se percibe como invencible en el PC",
-    "resumen": "Un analista explica que la independencia de Valve y su enfoque en el jugador dificultan que otras tiendas de PC compitan con Steam.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/para-quitarle-trono-a-steam-hace-falta-algo-que-otra-tienda-analista-explica-que-valve-se-percibe-como-invencible-pc",
-    "imagen": "https://i.blogs.es/5ec8ba/original/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-10-31T20:31:15+00:00"
   }
 ]
