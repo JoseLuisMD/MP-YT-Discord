@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Food Devils retrasa su lanzamiento por la saturación de Steam con juegos de IA",
+    "resumen": "El juego Food Devils ha sufrido un retraso en su salida debido a que los desarrolladores creen que Steam está saturado de juegos generados por inteligencia artificial.",
+    "enlace": "https://www.rockpapershotgun.com/steams-review-queue-is-clogged-up-by-ai-slop-salacious-fire-emblem-ish-food-devils-gets-a-delay-because-its-devs-think-valve-is-inundated-with-genai-games",
+    "imagen": "https://assetsio.gnwcdn.com/food-devils.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-11-03T23:31:10+00:00"
+  },
+  {
     "titulo": "El crossover de World of Warcraft y D&D es interesante pero inconsistente",
     "resumen": "El nuevo crossover entre World of Warcraft y Dungeons & Dragons ofrece opciones de personajes atractivas, pero resulta inconsistente al remitir constantemente al manual del jugador.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcrafts-d-and-d-crossover-is-neat-but-inconsistent-novel-on-one-page-then-shrugging-and-pointing-to-the-phb-you-already-own-on-the-next/",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-11-02T13:33:39+00:00"
-  },
-  {
-    "titulo": "Se confirma el cierre de Nagoshi Studio y la cancelación de Gang of Dragon, el rival de Yakuza",
-    "resumen": "Nagoshi Studio ha confirmado su cierre definitivo tras perder el apoyo financiero de NetEase Games. Esto también supone la cancelación de su juego Gang of Dragon.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026306011/se-confirma-el-cierre-de-nagoshi-studio-y-la-cancelacion-de-gang-of-dragon-el-rival-de-yakuza/",
-    "imagen": "https://media.vandal.net/m/11-2026/2/2026112120291_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-02T11:31:23+00:00"
   }
 ]
