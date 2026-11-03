@@ -1,5 +1,15 @@
 [
   {
+    "id": "e7b2c801a989",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Revelada la portada de Tomb Raider: Legacy Of Atlantis en Game Informer",
+    "enlace": "https://gameinformer.com/cover-reveal/2026/11/03/cover-reveal-tomb-raider-legacy-of-atlantis",
+    "imagen": "https://static.gameinformer.com/sites/default/files/2026/10/28/c3c3911c/383_tr_legacyofatlantis05.jpg",
+    "fecha": "2026-11-03T18:31:59+00:00",
+    "texto": "Game Informer anuncia su próximo reportaje sobre Tomb Raider: Legacy of Atlantis, una nueva versión del clásico de 1996 desarrollada por Crystal Dynamics y Flying Wild Hog.\n\n✒️ Game Informer\n\n#TombRaider #LegacyOfAtlantis #CrystalDynamics #GameInformer #LaraCroft\n\nhttps://gameinformer.com/cover-reveal/2026/11/03/cover-reveal-tomb-raider-legacy-of-atlantis"
+  },
+  {
     "id": "dbb46a7c5b84",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -538,16 +548,6 @@
     "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/10/29/6ae3bc7975b3e9-21564068.jpeg",
     "fecha": "2026-11-01T09:35:42+00:00",
     "texto": "La industria de los videojuegos sigue apostando por los remakes. Repasamos 10 títulos clásicos de Nintendo que merecen una nueva versión en 3D o con estilo HD-2D.\n\n✒️ Hobby Consolas\n\n#Nintendo #Remake #Zelda #StarFox #HD2D\n\nhttps://www.hobbyconsolas.com/videojuegos/10-remakes-clasicos-que-nintendo-deberia-plantearse-hacer-cinco-3d-como-zelda-ocarina-of-time-cinco-con-estilo-pixelado-hd-2d_7054321_0.html"
-  },
-  {
-    "id": "2d5d2bba5f3d",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Anthropic actualiza Claude para evitar la clonación de videojuegos",
-    "enlace": "https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/Vmhmhycwkn6YrhJ8EMDcK3-1920-80.png",
-    "fecha": "2026-11-01T08:31:14+00:00",
-    "texto": "Anthropic ha actualizado Claude Opus 5.5 con una nueva regla para impedir que los usuarios clonen videojuegos existentes y eviten la infracción de propiedad intelectual.\n\n✏️ PC Gamer\n\n#Anthropic #ClaudeCode #Steam #Videojuegos #Desarrollo\n\nhttps://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/"
   },
   {
     "id": "423c6ff91f96",
