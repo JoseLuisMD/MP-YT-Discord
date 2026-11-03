@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Los 100 mejores juegos de PC según PC Gamer para 2026",
+    "resumen": "PC Gamer publica su lista anual actualizada con los 100 mejores juegos de PC para 2026 tras un proceso de votación editorial.",
+    "enlace": "https://www.pcgamer.com/games/the-top-100-pc-games-2026/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/Tks6Lt3XiARpDgRtQxUFok-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-03T16:31:28+00:00"
+  },
+  {
     "titulo": "El libro Cartas de Ciudad Reloj, que celebra el 40º aniversario de Zelda con todos los detalles de cómo se hizo Majora's Mask, ya se puede reservar en GAME",
     "resumen": "GAME ha abierto las reservas de Cartas de Ciudad Reloj, un ensayo sobre el desarrollo de Zelda Majora's Mask escrito por Roberto Barragán Pineda que se lanzará el 17 de diciembre.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/libro-cartas-ciudad-reloj-que-celebra-40o-aniversario-zelda-con-todos-los-detalles-como-se-hizo-majora-s-mask-ya-se-puede-reservar-game_7056641_0.html",
@@ -259,14 +268,5 @@
     "fuente": "3DJuegos",
     "idioma": "es",
     "fecha": "2026-11-02T07:31:17+00:00"
-  },
-  {
-    "titulo": "En este disparatado roguelike de hockey puedes sobornar a los árbitros y hacer trampas para ganar",
-    "resumen": "El roguelike deportivo Tape to Tape estrena su versión definitiva tras tres años en acceso anticipado. El juego combina hockey arcade, humor y la posibilidad de hacer trampas.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026305005/en-este-disparatado-roguelike-de-hockey-puedes-sobornar-a-los-arbitros-y-hacer-trampas-para-ganar/",
-    "imagen": "https://media.vandal.net/m/10-2026/2026102717505414_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-02T06:33:29+00:00"
   }
 ]
