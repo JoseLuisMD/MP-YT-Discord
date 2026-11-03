@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Anthropic actualiza Claude para evitar la clonación de videojuegos",
-    "resumen": "Anthropic ha actualizado Claude Opus 5.5 con una nueva regla para impedir que los usuarios clonen videojuegos existentes y eviten la infracción de propiedad intelectual.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/",
-    "fecha": "2026-11-01T08:31:14+00:00"
-  },
-  {
     "titulo": "10 remakes de clásicos que Nintendo debería plantearse hacer: cinco 3D como el de Zelda Ocarina of Time y cinco con el estilo pixelado HD-2D",
     "resumen": "La industria de los videojuegos sigue apostando por los remakes. Repasamos 10 títulos clásicos de Nintendo que merecen una nueva versión en 3D o con estilo HD-2D.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/10-remakes-clasicos-que-nintendo-deberia-plantearse-hacer-cinco-3d-como-zelda-ocarina-of-time-cinco-con-estilo-pixelado-hd-2d_7054321_0.html",
@@ -256,5 +250,11 @@
     "resumen": "El clásico de 1998 regresará el 3 de diciembre a múltiples plataformas con gráficos mejorados, controles adaptados y una campaña inédita desarrollada por aficionados.",
     "enlace": "https://vandal.elespanol.com/noticia/2026307001/thief-the-dark-project-remastered-ya-tiene-fecha-el-clasico-del-sigilo-vuelve-con-una-campana-inedita/",
     "fecha": "2026-11-03T08:31:24+00:00"
+  },
+  {
+    "titulo": "Pikmin 4 + Academia Dandori repasa las novedades que nos esperan en Switch 2, desde gráficos mejorados a órdenes por voz o GameShare",
+    "resumen": "Nintendo anuncia Pikmin 4 + Academia Dandori para Nintendo Switch 2, incluyendo gráficos mejorados, control por voz y nuevos desafíos semanales.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/pikmin-4-academia-dandori-repasa-las-novedades-que-nos-esperan-switch-2-desde-graficos-mejorados-ordenes-por-voz-gameshare_7056396_0.html",
+    "fecha": "2026-11-03T09:31:15+00:00"
   }
 ]
