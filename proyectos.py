@@ -76,6 +76,7 @@ PROYECTOS = {
             },
             "UCngXjqgH_-42BgtegyzI_-A": {"mensaje": "¡Nuevo vídeo en el canal secundario!"},
             "UC4MGzV7ahAN1khnzdjp3rkw": {"mensaje": "¡Nuevo vídeo en el canal de WarCraft 3!"},
+            "UCuFAQV53-7gowUauWCWQmNA": {"mensaje": "¡Nuevo vídeo en el canal de Dawn of War IV!"},
         },
     },
 }

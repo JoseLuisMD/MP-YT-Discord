@@ -23,6 +23,9 @@ def test_cada_canal_queda_con_la_misma_configuracion_que_antes_de_los_proyectos(
                                      "incluirShorts": False, "bluesky": False, "threads": False, "x": False, "web": VORTIX},
         "UC4MGzV7ahAN1khnzdjp3rkw": {"mensaje": "¡Nuevo vídeo en el canal de WarCraft 3!", "webhooks": ["DISCORD_WEBHOOK_VRTX"],
                                      "incluirShorts": False, "bluesky": False, "threads": False, "x": False, "web": VORTIX},
+        # Añadido después: el canal de Dawn of War IV de VortiX
+        "UCuFAQV53-7gowUauWCWQmNA": {"mensaje": "¡Nuevo vídeo en el canal de Dawn of War IV!", "webhooks": ["DISCORD_WEBHOOK_VRTX"],
+                                     "incluirShorts": False, "bluesky": False, "threads": False, "x": False, "web": VORTIX},
     }
     assert {canal: {k: v for k, v in cfg.items() if k != "proyecto"} for canal, cfg in CANALES.items()} == antes
 
