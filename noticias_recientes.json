@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Google homenajea a Zelda Ocarina of Time con un 'easter egg' que te llevará a 1998",
-    "resumen": "Google incluye un easter egg en su buscador que rinde homenaje a The Legend of Zelda: Ocarina of Time y transforma la interfaz para imitar el diseño web de 1998.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026306013/google-homenajea-a-zelda-ocarina-of-time-con-un-easter-egg-que-te-llevara-a-1998/",
-    "fecha": "2026-11-02T13:33:39+00:00"
-  },
-  {
     "titulo": "Aonuma quería añadir viaje rápido al remake de Zelda: Ocarina of Time pero \"se perdían los momentos de descubrimiento\"",
     "resumen": "Eiji Aonuma admitió que quiso añadir viaje rápido en el remake de Zelda: Ocarina of Time, pero descartó la idea para no perder los momentos de descubrimiento.",
     "enlace": "https://www.eurogamer.es/aonuma-queria-anadir-viaje-rapido-al-remake-de-zelda-ocarina-of-time-pero-se-perdian-los-momentos-de-descubrimiento",
@@ -256,5 +250,11 @@
     "resumen": "Atari celebra el lanzamiento de la remasterización de Godzilla con un tráiler lleno de combates y un apartado gráfico renovado en Unreal Engine 5.",
     "enlace": "https://vandal.elespanol.com/noticia/2026308029/godzilla-no-le-teme-a-gta-ni-a-zelda-y-celebra-el-lanzamiento-de-su-nuevo-juego-con-un-trailer-epico/",
     "fecha": "2026-11-04T13:31:34+00:00"
+  },
+  {
+    "titulo": "Nintendo se suma a la Iniciativa de Juegos Accesibles y cambia la eShop de Switch 2 y Switch",
+    "resumen": "Nintendo ha añadido nuevos filtros de accesibilidad en la eShop de Switch y Switch 2 tras unirse a la Accessible Game Initiative de la ESA.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026308028/nintendo-se-suma-a-la-iniciativa-de-juegos-accesibles-y-cambia-la-eshop-de-switch-2-y-switch/",
+    "fecha": "2026-11-04T14:31:38+00:00"
   }
 ]
