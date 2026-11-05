@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "El Black Friday durará todo el mes en PlayStation Store: Sony anuncia que las ofertas empezarán el 4 de noviembre",
-    "resumen": "Sony ha anunciado que las rebajas del Black Friday en PlayStation Store comenzarán el 4 de noviembre e incluirán descuentos de hasta el 75 % en juegos, expansiones y contenidos para PS5, PS4 y PS VR2.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026307019/el-black-friday-durara-todo-el-mes-en-playstation-store-sony-anuncia-que-las-ofertas-empezaran-el-4-de-noviembre/",
-    "fecha": "2026-11-03T13:31:17+00:00"
-  },
-  {
     "titulo": "A qué hora se podrá jugar a Zelda Ocarina of Time Remake, la nueva versión del clásico de Nintendo, en España y otras regiones",
     "resumen": "Zelda Ocarina of Time Remake llegará a Switch 2 con mejoras visuales y de jugabilidad. En España estará disponible a medianoche del 5 de noviembre en la eShop.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/que-hora-se-podra-jugar-zelda-ocarina-of-time-remake-nueva-version-clasico-nintendo-espana-otras-regiones_7056637_0.html",
@@ -250,5 +244,11 @@
     "resumen": "Monolith Soft ha confirmado su participación en el desarrollo del remake de The Legend of Zelda: Ocarina of Time junto a Nintendo EPD, ofreciendo apoyo en diseño, programación y gráficos.",
     "enlace": "https://vandal.elespanol.com/noticia/2026309027/los-creadores-de-xenoblade-chronicles-tambien-han-trabajado-en-el-remake-de-zelda-ocarina-of-time/",
     "fecha": "2026-11-05T13:31:19+00:00"
+  },
+  {
+    "titulo": "PS5 se acerca a las 100 millones de consolas vendidas y Sony aprovecha para hablar de PS6",
+    "resumen": "Sony confirma que PS5 ha alcanzado los 97,9 millones de unidades vendidas. Los ingresos de la división de PlayStation aumentaron un 9% interanual.",
+    "enlace": "https://www.3djuegos.com/ps5/noticias/ps5-se-acerca-a-100-millones-consolas-vendidas-sony-aprovecha-para-hablar-ps6",
+    "fecha": "2026-11-05T14:31:31+00:00"
   }
 ]
