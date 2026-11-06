@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Final Fantasy 14 implementará el emparejamiento regional para reducir los tiempos de espera en mazmorras",
-    "resumen": "Square Enix introducirá el emparejamiento entre servidores de una misma región el 10 de noviembre para agilizar las colas en Final Fantasy 14.",
-    "enlace": "https://www.pcgamer.com/games/mmo/upcoming-final-fantasy-14-update-should-massively-cut-down-on-dungeon-queue-times/",
-    "fecha": "2026-11-04T04:31:16+00:00"
-  },
-  {
     "titulo": "Análisis de Stellar Blade Complete Edition para Nintendo Switch 2: un port \"estelar\", lleno de contenido y todo incluido en el cartucho",
     "resumen": "Stellar Blade Complete Edition llega a Nintendo Switch 2 como la version definitiva con todo el contenido y DLCs incluidos en el cartucho.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-stellar-blade-complete-edition-para-nintendo-switch-2-un-port-estelar-lleno-contenido-todo-incluido-cartucho_7056433_0.html",
@@ -244,5 +238,11 @@
     "resumen": "Nintendo ha publicado las cifras de ventas de sus juegos first-party del último trimestre y ha actualizado los datos de títulos anteriores.",
     "enlace": "https://www.eurogamer.es/nintendo-desvela-las-ventas-de-fire-emblem-fortunes-weave-splatoon-raiders-star-fox-y-mas",
     "fecha": "2026-11-06T04:31:27+00:00"
+  },
+  {
+    "titulo": "Parece un RPG de la primera PlayStation, pero es muchísimo más. Análisis de Queen's Domain",
+    "resumen": "Queen's Domain rinde homenaje a King's Field con una propuesta que mezcla la estética de la primera PlayStation y mecánicas cercanas a Metroid Prime.",
+    "enlace": "https://www.3djuegos.com/juegos/queens-domain/analisis/parece-rpg-primera-playstation-muchisimo-analisis-queen-s-domain",
+    "fecha": "2026-11-06T05:31:14+00:00"
   }
 ]
