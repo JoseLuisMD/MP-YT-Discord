@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "El nuevo número de la revista PC Gamer ya está a la venta con Metro 2039",
-    "resumen": "El nuevo número de PC Gamer ofrece acceso exclusivo a Metro 2039, el próximo shooter de 4A Games. La revista también incluye reportajes sobre StarCraft y Diablo 5.",
-    "enlace": "https://www.pcgamer.com/games/pc-gamer-magazines-new-issue-is-on-sale-now-metro-2039/",
-    "fecha": "2026-11-05T19:31:16+00:00"
-  },
-  {
     "titulo": "Tras Final Fantasy VII Revelation, Square Enix aparcará los remakes para centrarse en juegos nuevos, según dice el productor de la saga",
     "resumen": "El productor Yoshinori Kitase ha confirmado que Square Enix dejará de lado los remakes tras el lanzamiento de Final Fantasy VII Revelation en 2027 para invertir recursos en nuevos títulos de la saga.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/tras-final-fantasy-vii-revelation-square-enix-aparcara-los-remakes-para-centrarse-juegos-nuevos-segun-dice-productor-saga_7057882_0.html",
@@ -250,5 +244,11 @@
     "resumen": "Un veterano del rol en MMO analiza su experiencia en los servidores de World of Warcraft: Forever. Considera que la estricta separación entre rol y PvE no es necesaria más allá de cuestiones técnicas.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/after-seeing-them-myself-im-convinced-wow-forevers-rp-servers-dont-need-to-be-this-separate-and-i-say-that-as-a-decorated-veteran-of-mmo-roleplay/",
     "fecha": "2026-11-07T19:31:12+00:00"
+  },
+  {
+    "titulo": "Space Cadet, el mítico pinball 3D de Windows 95 que jugamos sin saber que era la demo de algo aún más grande. Así puedes jugarlo hoy",
+    "resumen": "El clásico pinball Space Cadet incluido en Windows 95 y versiones posteriores era en realidad una demo del juego Full Tilt! Pinball.",
+    "enlace": "https://www.vidaextra.com/juegos-retro/space-cadet-mitico-pinball-3d-windows-95-que-jugamos-saber-que-era-demo-algo-grande-asi-puedes-jugarlo-hoy-1",
+    "fecha": "2026-11-07T20:31:13+00:00"
   }
 ]
