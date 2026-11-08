@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Square Enix investiga un error en Nier: Automata que dispara el tamaño de archivo",
+    "resumen": "Una reciente actualización de Nier: Automata ha aumentado por error el tamaño del juego a más de 300 GB en Steam. Square Enix ya investiga el problema y ofrece una solución temporal.",
+    "enlace": "https://www.pcgamer.com/games/rpg/nier-automata-developer-is-currently-investigating-a-bizarre-update-bug-that-drastically-inflated-the-games-file-size-from-50gb-to-366gb/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/k598NBBJiCSKJrL33QJRvC-1920-80.jpg",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-08T01:31:12+00:00"
+  },
+  {
     "titulo": "CD Projekt lo aprendió por las malas, el dueño de GTA 6 no quiso hacerlo y por eso permitió que Rockstar no estuviera \"esclavizada por el calendario\"",
     "resumen": "El CEO de Take-Two, Strauss Zelnick, señaló que evitaron atarse a calendarios estrictos en GTA 6 para no repetir los problemas de lanzamientos precipitados en la industria.",
     "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/cd-projekt-aprendio-malas-dueno-gta-6-no-quiere-hacerlo-eso-ha-permitido-que-rockstar-no-este-esclavizada-calendario",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-11-06T15:31:16+00:00"
-  },
-  {
-    "titulo": "Las ciudades de World of Warcraft: Forever están demasiado vacías y Blizzard ya trabaja para solucionarlo",
-    "resumen": "Los jugadores de World of Warcraft: Forever se han quejado de que las grandes ciudades parecen desiertas debido al sistema de servidores. Blizzard ya trabaja en cambios para solucionarlo.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026310022/las-ciudades-de-world-of-warcraft-forever-estan-demasiado-vacias-y-blizzard-ya-trabaja-para-solucionarlo/",
-    "imagen": "https://media.vandal.net/m/11-2026/6/2026116137911_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-06T14:31:22+00:00"
   }
 ]
