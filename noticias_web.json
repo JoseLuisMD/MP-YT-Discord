@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Microsoft estaba tan obsesionada con vender Windows 95 que hizo \"trampas\" con su código para que uno de los mejores juegos de la época funcionase",
+    "resumen": "Microsoft añadió código específico en Windows 95 para solucionar un error de memoria de SimCity y garantizar así su retrocompatibilidad.",
+    "enlace": "https://www.3djuegos.com/retro-gaming/noticias/microsoft-estaba-obsesionada-vender-windows-95-que-hizo-trampas-su-codigo-uno-mejores-juegos-epoca-funcionase",
+    "imagen": "https://i.blogs.es/7dfdf8/sim-city-95/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-11-08T08:31:12+00:00"
+  },
+  {
     "titulo": "Phantom Blade Zero tiene madera de GOTY, pero no te das cuenta hasta que llegas a ESE combate",
     "resumen": "El redactor analiza de nuevo Phantom Blade Zero en PS5 y destaca que, tras unas doce horas, el juego revela un combate épico que lo eleva a la altura de un contendiente a GOTY.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/phantom-blade-zero-tiene-madera-goty-pero-no-te-das-cuenta-hasta-que-llegas-ese-combate_7057468_3.html",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-07T00:31:28+00:00"
-  },
-  {
-    "titulo": "Muchos compradores de Zelda Ocarina of Time Remake no saben si tienen la edición Day One con portada metalizada o la normal, aunque un detalle es clave",
-    "resumen": "Los compradores de Zelda Ocarina of Time Remake debaten para distinguir entre la portada foil y la normal, mientras la especulación afecta a las ediciones coleccionista y consolas.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/muchos-compradores-zelda-ocarina-of-time-remake-no-saben-si-tienen-edicion-day-one-con-portada-metalizada-normal-aunque-un-detalle-es-clave_7058387_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/11/06/6aee27e8844000-93657130.jpeg",
-    "fuente": "Hobby Consolas",
-    "idioma": "es",
-    "fecha": "2026-11-06T23:31:22+00:00"
   }
 ]
