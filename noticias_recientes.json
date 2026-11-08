@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Blizzard sorprende con el lanzamiento de World of Warcraft Forever: apenas hay colas ni problemas de servidores",
-    "resumen": "World of Warcraft: Forever ya está disponible en PC con un lanzamiento muy fluido. Los jugadores apenas han sufrido colas ni problemas técnicos graves en los servidores.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026309025/blizzard-sorprende-con-el-lanzamiento-de-world-of-warcraft-forever-apenas-hay-colas-ni-problemas-de-servidores/",
-    "fecha": "2026-11-06T01:31:15+00:00"
-  },
-  {
     "titulo": "Uno de los juegos más espectaculares de PS5 y PC pone a prueba a Nintendo Switch 2. Análisis de Stellar Blade",
     "resumen": "El port de Stellar Blade para Nintendo Switch 2 ofrece una gran jugabilidad y combate, pero exige sacrificios técnicos notables en comparación con las versiones de PS5 y PC.",
     "enlace": "https://www.3djuegos.com/juegos/stellar-blade/analisis/uno-juegos-espectaculares-ps5-pc-pone-a-prueba-a-nintendo-switch-2-analisis-stellar-blade",
@@ -256,5 +250,11 @@
     "resumen": "Una reciente actualización de Nier: Automata ha aumentado por error el tamaño del juego a más de 300 GB en Steam. Square Enix ya investiga el problema y ofrece una solución temporal.",
     "enlace": "https://www.pcgamer.com/games/rpg/nier-automata-developer-is-currently-investigating-a-bizarre-update-bug-that-drastically-inflated-the-games-file-size-from-50gb-to-366gb/",
     "fecha": "2026-11-08T01:31:12+00:00"
+  },
+  {
+    "titulo": "GOG se une a Steam, Epic Games Store y XBOX para arreglar lo que molesta a los jugadores de PC, y también hay buenas noticias para Linux",
+    "resumen": "GOG ha anunciado una renovación profunda de GOG Galaxy para ofrecer una aplicación más rápida, interfaz sencilla y soporte oficial para Linux prevista para 2027.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/gog-se-une-a-steam-epic-games-store-xbox-para-arreglar-que-molesta-a-jugadores-pc-tambien-hay-buenas-noticias-para-linux",
+    "fecha": "2026-11-08T02:31:19+00:00"
   }
 ]
