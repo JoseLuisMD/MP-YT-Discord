@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "La Casa Blanca publica un vídeo surrealista de Trump convertido en Link el mismo día que Nintendo lanza el remake de Zelda Ocarina of Time",
-    "resumen": "La Casa Blanca ha compartido un vídeo en redes sociales donde Donald Trump aparece como Link de Zelda Ocarina of Time para promocionar su gestión política.",
-    "enlace": "https://www.3djuegos.com/juegos/the-legend-of-zelda-ocarina-of-time/noticias/casa-blanca-publica-video-surrealista-trump-convertido-link-dia-que-nintendo-lanza-remake-zelda-ocarina-of-time",
-    "fecha": "2026-11-06T03:31:13+00:00"
-  },
-  {
     "titulo": "Nintendo desvela las ventas de Fire Emblem: Fortune's Weave, Splatoon Raiders, Star Fox y más",
     "resumen": "Nintendo ha publicado las cifras de ventas de sus juegos first-party del último trimestre y ha actualizado los datos de títulos anteriores.",
     "enlace": "https://www.eurogamer.es/nintendo-desvela-las-ventas-de-fire-emblem-fortunes-weave-splatoon-raiders-star-fox-y-mas",
@@ -256,5 +250,11 @@
     "resumen": "Los Razer Barracuda V2 Pro heredan las virtudes de su predecesor e introducen mejoras como compatibilidad con Nintendo Switch 2 y almacenamiento para el receptor USB-C.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-razer-barracuda-v2-pro-auricular-gaming-estilo-vida-multiplataforma-para-todo-con-que-no-vas-necesitar-mas-cascos_7053487_0.html",
     "fecha": "2026-11-08T03:31:14+00:00"
+  },
+  {
+    "titulo": "Rulehouse reinventa el ajedrez con mecánicas locas y estilo Game Boy Advance",
+    "resumen": "El juego indie Rulehouse ofrece una original vuelta de tuerca al ajedrez tradicional combinando modificadores caóticos, minijuegos y una estética inspirada en Game Boy Advance.",
+    "enlace": "https://www.pcgamer.com/games/puzzle/chess-is-immediately-more-fun-if-you-jettison-most-of-the-rules-and-replace-them-with-weapons-grade-game-boy-advance/",
+    "fecha": "2026-11-08T04:31:11+00:00"
   }
 ]
