@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Ciberataque a Sega expone más de dos millones de correos electrónicos",
+    "resumen": "Un ciberataque al proveedor Arara, utilizado por Sega para enviar boletines, ha provocado la filtración de más de dos millones de correos electrónicos. Las cuentas de Sega no se han visto afectadas.",
+    "enlace": "https://www.rockpapershotgun.com/cyberattack-on-sega-third-party-newsletter-distributor-reportedly-sees-over-two-million-email-addresses-leaked-but-sega-accounts-unaffected",
+    "imagen": "https://assetsio.gnwcdn.com/like-a-dragon-infinite-wealth-a.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-11-09T16:31:24+00:00"
+  },
+  {
     "titulo": "Mi mayor decepción con Zelda: Ocarina of Time en Switch 2 puede ser también la gran noticia con la que Nintendo se despida de 2026",
     "resumen": "El aclamado remake de Zelda: Ocarina of Time para Nintendo Switch 2 brilla por sus mejoras, pero la ausencia del modo Master Quest decepciona a los jugadores veteranos.",
     "enlace": "https://www.3djuegos.com/juegos/the-legend-of-zelda-ocarina-of-time/noticias/mi-mayor-decepcion-zelda-ocarina-of-time-switch-2-puede-ser-tambien-gran-noticia-que-nintendo-se-despida-2026",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-08T07:31:31+00:00"
-  },
-  {
-    "titulo": "Shawn Layden (65 años), exjefe de PlayStation, sobre PS6: \"La innovación no debería consistir en hacer una PS6 de 1.200 dólares\"",
-    "resumen": "Shawn Layden, exjefe de PlayStation, defiende que la próxima PS6 debe centrarse en ofrecer un precio más económico en lugar de priorizar un aumento excesivo de la potencia.",
-    "enlace": "https://www.3djuegos.com/ps5/noticias/shawn-layden-65-anos-exjefe-playstation-ps6-innovacion-no-deberia-consistir-hacer-ps6-1-200-dolares",
-    "imagen": "https://i.blogs.es/eb68bd/gfdg/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-11-08T06:31:10+00:00"
   }
 ]
