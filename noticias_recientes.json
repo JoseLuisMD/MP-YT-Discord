@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Tras probarlo, los servidores de rol de WoW: Forever no necesitan estar separados",
-    "resumen": "Un veterano del rol en MMO analiza su experiencia en los servidores de World of Warcraft: Forever. Considera que la estricta separación entre rol y PvE no es necesaria más allá de cuestiones técnicas.",
-    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/after-seeing-them-myself-im-convinced-wow-forevers-rp-servers-dont-need-to-be-this-separate-and-i-say-that-as-a-decorated-veteran-of-mmo-roleplay/",
-    "fecha": "2026-11-07T19:31:12+00:00"
-  },
-  {
     "titulo": "Space Cadet, el mítico pinball 3D de Windows 95 que jugamos sin saber que era la demo de algo aún más grande. Así puedes jugarlo hoy",
     "resumen": "El clásico pinball Space Cadet incluido en Windows 95 y versiones posteriores era en realidad una demo del juego Full Tilt! Pinball.",
     "enlace": "https://www.vidaextra.com/juegos-retro/space-cadet-mitico-pinball-3d-windows-95-que-jugamos-saber-que-era-demo-algo-grande-asi-puedes-jugarlo-hoy-1",
@@ -256,5 +250,11 @@
     "resumen": "Un análisis de datos en The Legend of Zelda: Ocarina of Time Remake descubre referencias a un amiibo de Skull Kid y pistas sobre un futuro remake de Majora's Mask.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/zelda-ocarina-of-time-remake-incluye-referencias-un-amiibo-skull-kid-que-sugieren-un-posible-remake-majora-s-mask_7058973_0.html",
     "fecha": "2026-11-09T19:31:30+00:00"
+  },
+  {
+    "titulo": "Canción del espantapájaros en Zelda Ocarina of Time Remake: cómo aprenderla, para qué sirve y dónde debes usarla",
+    "resumen": "Guia para aprender y usar la Cancion del espantapajaros en The Legend of Zelda: Ocarina of Time Remake, permitiendo invocar a Pierre para alcanzar zonas secretas.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/cancion-espantapajaros-zelda-ocarina-of-time-remake-como-aprenderla-para-que-sirve-donde-debes-usarla_7058928_0.html",
+    "fecha": "2026-11-09T20:31:25+00:00"
   }
 ]
