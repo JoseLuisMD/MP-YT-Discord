@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "WoW: Forever es mucho más que un hogar de jubilación para millennials",
-    "resumen": "World of Warcraft: Forever apuesta por la expansión horizontal en lugar de nuevas expansiones, añadiendo misiones y mazmorras que respetan el diseño clásico del juego.",
-    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forever-is-more-than-just-a-millennial-retirement-home/",
-    "fecha": "2026-11-08T15:31:14+00:00"
-  },
-  {
     "titulo": "Zelda: Ocarina of Time estuvo a punto de tener un sistema de teletransportación similar a los de Portal",
     "resumen": "Nuevos artes conceptuales y un prototipo de 1996 muestran que The Legend of Zelda: Ocarina of Time iba a incluir un sistema de teletransporte similar al de Portal.",
     "enlace": "https://www.vidaextra.com/aventura-plataformas/zelda-ocarina-of-time-estuvo-a-punto-tener-sistema-teletransportacion-similar-a-portal",
@@ -250,5 +244,11 @@
     "resumen": "Pikmin 4 regresa en una edición para Nintendo Switch 2 que incluye novedades respecto al juego original de 2023, manteniendo su accesibilidad y el modo Batalla Dandori.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-pikmin-4-nintendo-switch-2-edition-academia-dandori-forma-mas-completa-explorar-tu-jardin_7057630_0.html",
     "fecha": "2026-11-10T15:31:17+00:00"
+  },
+  {
+    "titulo": "Silent Hill 2 Remake recibe una nueva actualización que por fin parece arreglar los fallos gráficos en PS5 Pro",
+    "resumen": "Konami ha lanzado el parche 1.08 para Silent Hill 2 Remake en PS5 y PS5 Pro, corrigiendo diversos errores gráficos, parpadeos de sombras y problemas de iluminación en el modo rendimiento.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/silent-hill-2-remake-recibe-una-nueva-actualizacion-que-por-fin-parece-arreglar-los-fallos-graficos-ps5-pro_7059409_0.html",
+    "fecha": "2026-11-10T16:31:28+00:00"
   }
 ]
