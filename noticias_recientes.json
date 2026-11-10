@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "CD Projekt lo aprendió por las malas, el dueño de GTA 6 no quiso hacerlo y por eso permitió que Rockstar no estuviera \"esclavizada por el calendario\"",
-    "resumen": "El CEO de Take-Two, Strauss Zelnick, señaló que evitaron atarse a calendarios estrictos en GTA 6 para no repetir los problemas de lanzamientos precipitados en la industria.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/cd-projekt-aprendio-malas-dueno-gta-6-no-quiere-hacerlo-eso-ha-permitido-que-rockstar-no-este-esclavizada-calendario",
-    "fecha": "2026-11-08T00:31:15+00:00"
-  },
-  {
     "titulo": "Square Enix investiga un error en Nier: Automata que dispara el tamaño de archivo",
     "resumen": "Una reciente actualización de Nier: Automata ha aumentado por error el tamaño del juego a más de 300 GB en Steam. Square Enix ya investiga el problema y ofrece una solución temporal.",
     "enlace": "https://www.pcgamer.com/games/rpg/nier-automata-developer-is-currently-investigating-a-bizarre-update-bug-that-drastically-inflated-the-games-file-size-from-50gb-to-366gb/",
@@ -256,5 +250,11 @@
     "resumen": "Los Golden Joystick Awards 2026 se celebran este miércoles con Alix Wilton Regan como presentadora. El evento se retransmitirá en directo en múltiples plataformas de streaming.",
     "enlace": "https://www.pcgamer.com/gaming-industry/events-conferences/the-golden-joystick-awards-return-this-wednesday-heres-how-to-watch-them/",
     "fecha": "2026-11-10T00:31:19+00:00"
+  },
+  {
+    "titulo": "Nintendo quiere fichar a un bibliotecario archivista y tiene todo el sentido del mundo",
+    "resumen": "Nintendo of America ha abierto una oferta de empleo temporal para un archivista digital de sistemas históricos. Su objetivo será organizar y preservar la información sobre hardware y software de la…",
+    "enlace": "https://www.vidaextra.com/nintendo-switch-2/nintendo-quiere-fichar-a-bibliotecario-archivista-tiene-todo-sentido-mundo",
+    "fecha": "2026-11-10T01:31:26+00:00"
   }
 ]
