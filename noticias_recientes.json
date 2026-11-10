@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Rulehouse reinventa el ajedrez con mecánicas locas y estilo Game Boy Advance",
-    "resumen": "El juego indie Rulehouse ofrece una original vuelta de tuerca al ajedrez tradicional combinando modificadores caóticos, minijuegos y una estética inspirada en Game Boy Advance.",
-    "enlace": "https://www.pcgamer.com/games/puzzle/chess-is-immediately-more-fun-if-you-jettison-most-of-the-rules-and-replace-them-with-weapons-grade-game-boy-advance/",
-    "fecha": "2026-11-08T04:31:11+00:00"
-  },
-  {
     "titulo": "20 años de Gears of War, el juego que revolucionó los 'shooters' y dio alas a XBOX 360",
     "resumen": "Se cumplen dos décadas del lanzamiento de Gears of War, el influyente shooter en tercera persona desarrollado por Epic Games que marcó el éxito de XBOX 360.",
     "enlace": "https://vandal.elespanol.com/noticia/2026311003/20-anos-de-gears-of-war-el-juego-que-revoluciono-los-shooters-y-dio-alas-a-xbox-360/",
@@ -256,5 +250,11 @@
     "resumen": "Un exprogramador de Rockstar señala que el lanzamiento de GTA 6 en PC busca evitar pérdidas por la piratería y los clones creados con inteligencia artificial.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/un-exprogramador-rockstar-afirma-que-gta-6-llega-antes-pc-por-miedo-perder-dinero-con-las-copias-piratas-hechas-con-ia_7058783_0.html",
     "fecha": "2026-11-10T04:31:17+00:00"
+  },
+  {
+    "titulo": "El mejor videojuego español de todos los tiempos. Muchos lo han intentado, pocos han alcanzado el éxito masivo de Commandos",
+    "resumen": "El estudio español Pyro Studios hizo historia con Commandos: Behind Enemy Lines y su secuela Men of Courage, creando un nuevo género de estrategia e infiltración.",
+    "enlace": "https://www.3djuegos.com/juegos/commandos-2-men-of-courage/noticias/mejor-videojuego-espanol-todos-tiempos-muchos-han-intentado-pocos-han-alcanzado-exito-masivo-commandos",
+    "fecha": "2026-11-10T05:31:22+00:00"
   }
 ]

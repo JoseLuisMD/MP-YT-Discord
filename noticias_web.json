@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "El mejor videojuego español de todos los tiempos. Muchos lo han intentado, pocos han alcanzado el éxito masivo de Commandos",
+    "resumen": "El estudio español Pyro Studios hizo historia con Commandos: Behind Enemy Lines y su secuela Men of Courage, creando un nuevo género de estrategia e infiltración.",
+    "enlace": "https://www.3djuegos.com/juegos/commandos-2-men-of-courage/noticias/mejor-videojuego-espanol-todos-tiempos-muchos-han-intentado-pocos-han-alcanzado-exito-masivo-commandos",
+    "imagen": "https://i.blogs.es/f8c4be/commandos-pc/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-11-10T05:31:22+00:00"
+  },
+  {
     "titulo": "Un exprogramador de Rockstar afirma que GTA 6 llega antes en PC por miedo a perder dinero con las copias piratas hechas con IA",
     "resumen": "Un exprogramador de Rockstar señala que el lanzamiento de GTA 6 en PC busca evitar pérdidas por la piratería y los clones creados con inteligencia artificial.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/un-exprogramador-rockstar-afirma-que-gta-6-llega-antes-pc-por-miedo-perder-dinero-con-las-copias-piratas-hechas-con-ia_7058783_0.html",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-11-08T20:31:16+00:00"
-  },
-  {
-    "titulo": "Warren Spector, sobre Zelda: \"No creo que se pueda mirar a BOTW o TOTK y no ver un poco de Deus Ex en ellos\"",
-    "resumen": "Warren Spector señala en una entrevista que la esencia de los simuladores inmersivos sigue viva y ha influido en títulos actuales como The Legend of Zelda: Breath of the Wild y Tears of the Kingdom.",
-    "enlace": "https://www.vidaextra.com/rpg/warren-spector-zelda-no-creo-que-se-pueda-mirar-a-botw-totk-no-ver-poco-deus-ex-ellos",
-    "imagen": "https://i.blogs.es/234f9f/thumb-1920-1393329/1024_2000.jpeg",
-    "fuente": "VidaExtra",
-    "idioma": "es",
-    "fecha": "2026-11-08T19:31:09+00:00"
   }
 ]
