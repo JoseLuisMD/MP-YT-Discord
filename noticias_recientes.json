@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Square Enix investiga un error en Nier: Automata que dispara el tamaño de archivo",
-    "resumen": "Una reciente actualización de Nier: Automata ha aumentado por error el tamaño del juego a más de 300 GB en Steam. Square Enix ya investiga el problema y ofrece una solución temporal.",
-    "enlace": "https://www.pcgamer.com/games/rpg/nier-automata-developer-is-currently-investigating-a-bizarre-update-bug-that-drastically-inflated-the-games-file-size-from-50gb-to-366gb/",
-    "fecha": "2026-11-08T01:31:12+00:00"
-  },
-  {
     "titulo": "GOG se une a Steam, Epic Games Store y XBOX para arreglar lo que molesta a los jugadores de PC, y también hay buenas noticias para Linux",
     "resumen": "GOG ha anunciado una renovación profunda de GOG Galaxy para ofrecer una aplicación más rápida, interfaz sencilla y soporte oficial para Linux prevista para 2027.",
     "enlace": "https://www.3djuegos.com/pc/noticias/gog-se-une-a-steam-epic-games-store-xbox-para-arreglar-que-molesta-a-jugadores-pc-tambien-hay-buenas-noticias-para-linux",
@@ -256,5 +250,11 @@
     "resumen": "Nintendo of America ha abierto una oferta de empleo temporal para un archivista digital de sistemas históricos. Su objetivo será organizar y preservar la información sobre hardware y software de la…",
     "enlace": "https://www.vidaextra.com/nintendo-switch-2/nintendo-quiere-fichar-a-bibliotecario-archivista-tiene-todo-sentido-mundo",
     "fecha": "2026-11-10T01:31:26+00:00"
+  },
+  {
+    "titulo": "Sony adelanta dos de las próximas incorporaciones a PS Plus Extra y Premium para 2026",
+    "resumen": "PlayStation Japón ha revelado antes de tiempo la llegada de Dragon Quest 3 HD-2D Remake y Dynasty Warriors: Origins a los niveles Extra y Premium de PS Plus.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026313025/sony-adelanta-dos-de-las-proximas-incorporaciones-a-ps-plus-extra-y-premium-para-2026/",
+    "fecha": "2026-11-10T02:31:24+00:00"
   }
 ]
