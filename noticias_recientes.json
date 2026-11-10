@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Microsoft estaba tan obsesionada con vender Windows 95 que hizo \"trampas\" con su código para que uno de los mejores juegos de la época funcionase",
-    "resumen": "Microsoft añadió código específico en Windows 95 para solucionar un error de memoria de SimCity y garantizar así su retrocompatibilidad.",
-    "enlace": "https://www.3djuegos.com/retro-gaming/noticias/microsoft-estaba-obsesionada-vender-windows-95-que-hizo-trampas-su-codigo-uno-mejores-juegos-epoca-funcionase",
-    "fecha": "2026-11-08T08:31:12+00:00"
-  },
-  {
     "titulo": "La comunidad rescata Dino Crisis 2: un modder lo transforma en un increíble juego 3D",
     "resumen": "Un proyecto fan transforma Dino Crisis 2 en un shooter en tercera persona con entornos 3D y jugabilidad moderna, reinterpretando el clásico de Capcom.",
     "enlace": "https://vandal.elespanol.com/noticia/2026312005/la-comunidad-rescata-dino-crisis-2-un-modder-lo-transforma-en-un-increible-juego-3d/",
@@ -256,5 +250,11 @@
     "resumen": "El manual de la edición física de Hollow Knight Silksong confirma que el metroidvania recibirá nuevos DLCs gratuitos con enemigos y habilidades. La expansión Sea of Sorrow llegará próximamente.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/espera-sea-of-sorrow-edicion-fisica-hollow-knight-silksong-confirma-que-habra-mas-dlcs-gratuitos_7059028_0.html",
     "fecha": "2026-11-10T08:31:21+00:00"
+  },
+  {
+    "titulo": "Capcom actualiza ventas de su catálogo y confirma los primeros datos de Onimusha: Way of the Sword",
+    "resumen": "Capcom actualiza las ventas de sus juegos hasta el 30 de septiembre. Onimusha: Way of the Sword alcanza 1,7 millones de copias y Monster Hunter: World sigue liderando el listado.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026314010/capcom-actualiza-ventas-de-su-catalogo-y-confirma-los-primeros-datos-de-onimusha-way-of-the-sword/",
+    "fecha": "2026-11-10T09:31:31+00:00"
   }
 ]
