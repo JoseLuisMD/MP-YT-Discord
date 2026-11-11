@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Es 'el RPG del año' y se inspira en un clásico de FromSoftware: ya está a la venta en consolas y PC",
-    "resumen": "El RPG de acción Queen's Domain, inspirado en la saga King's Field de FromSoftware, ya está disponible en PC, PS5, Xbox Series y Nintendo Switch 2.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026312003/es-el-rpg-del-ano-y-se-inspira-en-un-clasico-de-fromsoftware-ya-esta-a-la-venta-en-consolas-y-pc/",
-    "fecha": "2026-11-09T06:31:18+00:00"
-  },
-  {
     "titulo": "El primer The Witcher no iba a ser de CD Projekt. Se decidió entre vodka y risas 10 años antes, y nos dio el nombre internacional de la saga",
     "resumen": "En los años 90, el estudio Metropolis Software planeó una adaptación de The Witcher diez años antes que CD Projekt tras una reunión entre vodka y risas con Andrzej Sapkowski.",
     "enlace": "https://www.3djuegos.com/juegos/the-witcher/noticias/primer-the-witcher-no-iba-a-ser-cd-projekt-se-decidio-vodka-risas-10-anos-antes-nos-dio-nombre-internacional-saga",
@@ -250,5 +244,11 @@
     "resumen": "Un avión en California fue evacuado tras una falsa alarma de bomba provocada por un pasajero que hablaba sobre explosivos mientras jugaba a Call of Duty.",
     "enlace": "https://www.pcgamer.com/games/call-of-duty/note-to-self-if-playing-call-of-duty-in-an-airport-dont-say-words-like-bomb-lest-you-want-to-evacuate-an-entire-plane/",
     "fecha": "2026-11-11T06:31:24+00:00"
+  },
+  {
+    "titulo": "Si juegas en Nintendo Switch o Nintendo Switch 2, te espera una descarga. Te contamos todas las novedades de la versión 23.5.0",
+    "resumen": "La nueva actualización de Nintendo Switch y Nintendo Switch 2 incluye mejoras de configuración y prepara la función para regalar productos de Nintendo eShop.",
+    "enlace": "https://www.3djuegos.com/nintendo-switch-2/noticias/juegas-nintendo-switch-nintendo-switch-2-te-espera-descarga-te-contamos-todas-novedades-version-23-5-0",
+    "fecha": "2026-11-11T07:31:21+00:00"
   }
 ]
