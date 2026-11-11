@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Hasta el momento, solo un videojuego ha logrado ser elegido GOTY tanto por la crítica como por los jugadores",
+    "resumen": "Baldur's Gate 3 es el único videojuego que ha conseguido ganar el premio a GOTY tanto por parte de la crítica especializada como de los jugadores en diversos eventos.",
+    "enlace": "https://www.vidaextra.com/rpg/momento-solo-videojuego-ha-logrado-ser-elegido-goty-critica-como-jugadores",
+    "imagen": "https://i.blogs.es/635687/bg3-city-hd-scaled/1024_2000.jpeg",
+    "fuente": "VidaExtra",
+    "idioma": "es",
+    "fecha": "2026-11-11T08:31:30+00:00"
+  },
+  {
     "titulo": "Si juegas en Nintendo Switch o Nintendo Switch 2, te espera una descarga. Te contamos todas las novedades de la versión 23.5.0",
     "resumen": "La nueva actualización de Nintendo Switch y Nintendo Switch 2 incluye mejoras de configuración y prepara la función para regalar productos de Nintendo eShop.",
     "enlace": "https://www.3djuegos.com/nintendo-switch-2/noticias/juegas-nintendo-switch-nintendo-switch-2-te-espera-descarga-te-contamos-todas-novedades-version-23-5-0",
@@ -259,14 +268,5 @@
     "fuente": "3DJuegos",
     "idioma": "es",
     "fecha": "2026-11-09T23:31:14+00:00"
-  },
-  {
-    "titulo": "No ha pasado ni una semana, pero los 'speedrunners' ya han conseguido 'romper' Zelda Ocarina of Time Remake",
-    "resumen": "La comunidad de speedrunners ha descubierto diversos bugs en Zelda Ocarina of Time Remake en su primera semana, permitiendo recortar tiempos y alterar el orden del juego.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026313027/no-ha-pasado-ni-una-semana-pero-los-speedrunners-ya-han-conseguido-romper-zelda-ocarina-of-time-remake/",
-    "imagen": "https://media.vandal.net/m/11-2026/9/202611913162928_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-09T21:31:16+00:00"
   }
 ]
