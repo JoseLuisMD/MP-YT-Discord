@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "A PlayStation y Xbox no les va a gustar la opinión de nuestros lectores. Muy pocos están dispuestos a pagar más de 600 euros por una consola",
-    "resumen": "Una encuesta revela que el 77,4% de los jugadores no pagaría más de 600 euros por una consola. El incremento de costes por la IA encarecería la próxima generación.",
-    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/a-playstation-xbox-no-les-va-a-gustar-opinion-nuestros-lectores-muy-pocos-estan-dispuestos-a-pagar-600-euros-consola",
-    "fecha": "2026-11-09T04:31:13+00:00"
-  },
-  {
     "titulo": "Lo tenía todo para ser un auténtico desastre en la primera PlayStation, pero 25 años después sigue siendo uno de los mejores juegos de Alien de la historia",
     "resumen": "A pesar de su difícil desarrollo y llegada tardía a PlayStation, Alien Resurrection destacó como un gran survival horror gracias a su soberbia ambientación.",
     "enlace": "https://www.3djuegos.com/retro-gaming/noticias/tenia-todo-para-ser-autentico-desastre-primera-playstation-25-anos-despues-sigue-siendo-uno-mejores-juegos-alien-historia",
@@ -250,5 +244,11 @@
     "resumen": "Un aficionado está adaptando para PC Shadowkey, el juego de The Elder Scrolls lanzado originalmente para la consola Nokia N-Gage. El proyecto incluye mejoras gráficas, compatibilidad con mandos y…",
     "enlace": "https://www.pcgamer.com/games/the-elder-scrolls/one-elder-scrolls-fan-is-reviving-and-upgrading-a-lost-spin-off-for-the-nokia-n-gage-and-porting-it-to-pc/",
     "fecha": "2026-11-11T04:31:16+00:00"
+  },
+  {
+    "titulo": "El videojuego sigue sin tomarse en serio a sí mismo",
+    "resumen": "Reflexión sobre la evolución y situación actual de BioWare y Electronic Arts, analizando títulos recientes como Dragon Age Veilguard frente a clásicos de la compañía.",
+    "enlace": "https://www.3djuegos.com/juegos/mass-effect-2021/noticias/videojuego-sigue-tomarse-serio-a",
+    "fecha": "2026-11-11T05:33:55+00:00"
   }
 ]
