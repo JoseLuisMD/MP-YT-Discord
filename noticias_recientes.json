@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Ciberataque a Sega expone más de dos millones de correos electrónicos",
-    "resumen": "Un ciberataque al proveedor Arara, utilizado por Sega para enviar boletines, ha provocado la filtración de más de dos millones de correos electrónicos. Las cuentas de Sega no se han visto afectadas.",
-    "enlace": "https://www.rockpapershotgun.com/cyberattack-on-sega-third-party-newsletter-distributor-reportedly-sees-over-two-million-email-addresses-leaked-but-sega-accounts-unaffected",
-    "fecha": "2026-11-09T16:31:24+00:00"
-  },
-  {
     "titulo": "Physint tendrá un gran detalle que lo conectará con Metal Gear como su sucesor espiritual",
     "resumen": "Kojima Productions ha mostrado figuras en una exposición que revelan la presencia de mechas bípedos en Physint, reforzando su conexión con Metal Gear.",
     "enlace": "https://vandal.elespanol.com/noticia/2026313044/physint-tendra-un-gran-detalle-que-lo-conectara-con-metal-gear-como-su-sucesor-espiritual/",
@@ -250,5 +244,11 @@
     "resumen": "Los jugadores de Final Fantasy 14 se reúnen en el juego para rendir homenaje a Eikichi Iwai, bajista de la banda The Primals, quien ha fallecido a los 57 años.",
     "enlace": "https://www.pcgamer.com/games/final-fantasy/final-fantasy-14-players-are-gathering-in-virtual-vigils-to-honour-the-passing-of-the-games-most-prestigious-bass-player/",
     "fecha": "2026-11-11T16:31:22+00:00"
+  },
+  {
+    "titulo": "Final Fantasy VII Revelation abarcará todo el universo de Final Fantasy VII, con elementos de Advent Children, Crisis Core y Dirge of Cerberus",
+    "resumen": "Final Fantasy VII Revelation incluirá elementos y personajes de los spin-offs del juego original, como Crisis Core, Dirge of Cerberus y Advent Children, culminando la trilogía de remakes.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/final-fantasy-vii-revelation-abarcara-todo-universo-final-fantasy-vii-con-elementos-advent-children-crisis-core-dirge-of-cerberus_7059881_0.html",
+    "fecha": "2026-11-11T18:31:25+00:00"
   }
 ]
