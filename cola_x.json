@@ -1,5 +1,15 @@
 [
   {
+    "id": "cd4fb4a5bfe8",
+    "tipo": "video",
+    "proyecto": "mundospixelados",
+    "titulo": "Diggergun - ANÁLISIS RÁPIDO",
+    "enlace": "https://www.youtube.com/shorts/tXxCyimg-7o",
+    "imagen": "https://i1.ytimg.com/vi/tXxCyimg-7o/hqdefault.jpg",
+    "fecha": "2026-11-12T12:05:27+00:00",
+    "texto": "‼️ ¡Nuevo short en Mundos Pixelados Shorts!\n\nDiggergun - ANÁLISIS RÁPIDO\n\n#indiegame #diggergun #keymailer\n\nhttps://www.youtube.com/shorts/tXxCyimg-7o"
+  },
+  {
     "id": "d2e2c2c1be10",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -1028,15 +1038,5 @@
     "imagen": "https://i4.ytimg.com/vi/3nnjGA4sSKA/hqdefault.jpg",
     "fecha": "2026-10-17T21:05:27+00:00",
     "texto": "🔔 ¡Nuevo short en Mundos Pixelados Shorts!\n\nMapas clásicos de Doom\n\n#doom #doomslayer #doomguy #bethesda #idsoftware\n\nhttps://www.youtube.com/shorts/3nnjGA4sSKA"
-  },
-  {
-    "id": "4cd73c23b4b9",
-    "tipo": "video",
-    "proyecto": "mundospixelados",
-    "titulo": "Historia moderna de la saga Doom",
-    "enlace": "https://www.youtube.com/watch?v=uNdAWUyPw7s",
-    "imagen": "https://i2.ytimg.com/vi/uNdAWUyPw7s/hqdefault.jpg",
-    "fecha": "2026-10-17T16:05:28+00:00",
-    "texto": "🔔 ¡Nuevo vídeo en Mundos Pixelados!\n\nHistoria moderna de la saga Doom\n\n#doom #doomslayer #idsoftware #bethesda #doometernal #doomthedarkages\n\nhttps://www.youtube.com/watch?v=uNdAWUyPw7s"
   }
 ]
