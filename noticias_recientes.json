@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Un vuelo es evacuado por una falsa amenaza de bomba mientras un pasajero jugaba a Call of Duty",
-    "resumen": "Un avión en California fue evacuado tras una falsa alarma de bomba provocada por un pasajero que hablaba sobre explosivos mientras jugaba a Call of Duty.",
-    "enlace": "https://www.pcgamer.com/games/call-of-duty/note-to-self-if-playing-call-of-duty-in-an-airport-dont-say-words-like-bomb-lest-you-want-to-evacuate-an-entire-plane/",
-    "fecha": "2026-11-11T06:31:24+00:00"
-  },
-  {
     "titulo": "Si juegas en Nintendo Switch o Nintendo Switch 2, te espera una descarga. Te contamos todas las novedades de la versión 23.5.0",
     "resumen": "La nueva actualización de Nintendo Switch y Nintendo Switch 2 incluye mejoras de configuración y prepara la función para regalar productos de Nintendo eShop.",
     "enlace": "https://www.3djuegos.com/nintendo-switch-2/noticias/juegas-nintendo-switch-nintendo-switch-2-te-espera-descarga-te-contamos-todas-novedades-version-23-5-0",
@@ -250,5 +244,11 @@
     "resumen": "El actor Damien Laquet ha anunciado que trabaja en un proyecto secreto con los Rabbids en un estudio de París, lo que podría incluir un nuevo videojuego.",
     "enlace": "https://vandal.elespanol.com/noticia/2026316024/hay-un-proyecto-secreto-con-los-rabbids-segun-el-actor-de-los-populares-personajes-de-ubisoft/",
     "fecha": "2026-11-13T06:31:18+00:00"
+  },
+  {
+    "titulo": "El aclamado metroidvania GRIME 2 confirma su llegada a Switch y Switch 2 junto a una nueva actualización gratuita",
+    "resumen": "GRIME II se lanzará en Nintendo Switch y Nintendo Switch 2 el 27 de noviembre junto a la actualización gratuita A Final Coda, que añade una nueva región y el modo de repetición de jefes.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026316043/el-aclamado-metroidvania-grime-2-confirma-su-llegada-a-switch-y-switch-2-junto-a-una-nueva-actualizacion-gratuita/",
+    "fecha": "2026-11-13T07:31:18+00:00"
   }
 ]
