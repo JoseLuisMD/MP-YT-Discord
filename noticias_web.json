@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Recomendaciones de videojuegos para el fin de semana y noticias de la industria",
+    "resumen": "Se publican recomendaciones de juegos para el fin de semana junto con noticias sobre GTAVI, que ocupará unos 200 GB, y novedades de sagas como Wolfenstein y God of War.",
+    "enlace": "https://gameinformer.com/opinion/2026/11/13/the-video-games-and-more-you-should-play-this-weekend-november-13-2026",
+    "imagen": "https://static.gameinformer.com/sites/default/files/2026/11/13/ac3d2361/ss_df005e43791b1be1d3949b1e4ef3cafb29b6850a.1920x1080.jpg",
+    "fuente": "Game Informer",
+    "idioma": "en",
+    "fecha": "2026-11-13T23:31:15+00:00"
+  },
+  {
     "titulo": "Ventas España: Castlevania: Belmont's Curse fue el mejor lanzamiento físico de octubre",
     "resumen": "El juego Castlevania: Belmont's Curse se posiciona como el lanzamiento físico más vendido en España durante el mes de octubre, según los datos recopilados.",
     "enlace": "https://www.eurogamer.es/ventas-espana-castlevania-belmonts-curse-fue-el-mejor-lanzamiento-fisico-de-octubre",
@@ -259,14 +268,5 @@
     "fuente": "VidaExtra",
     "idioma": "es",
     "fecha": "2026-11-12T11:31:22+00:00"
-  },
-  {
-    "titulo": "Los fans de Conan el Bárbaro están de enhorabuena: primeros detalles de Conan The Black Pyramid, un RPG de acción roguelite que nos ha recordado a Diablo",
-    "resumen": "Games Farm y Grindstone han anunciado Conan The Black Pyramid, un RPG de acción roguelite con cooperativo online y ambientación de terror cósmico previsto para 2027 en PC.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/los-fans-conan-barbaro-estan-enhorabuena-primeros-detalles-conan-the-black-pyramid-un-rpg-accion-roguelite-que-nos-ha-recordado-diablo_7060093_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2026/11/12/6af5818cb17b54-74678326.jpeg",
-    "fuente": "Hobby Consolas",
-    "idioma": "es",
-    "fecha": "2026-11-12T10:31:14+00:00"
   }
 ]
