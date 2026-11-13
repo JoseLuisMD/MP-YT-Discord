@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Nintendo ya ha subido el precio de Switch 2, pero el problema sigue ahí. La paciencia de la compañía no es infinita",
-    "resumen": "Nintendo explica que podría subir de nuevo el precio de Switch 2 si no logra absorber el aumento de costes mediante la eficiencia de producción y la asunción de gastos.",
-    "enlace": "https://www.3djuegos.com/nintendo-switch-2/noticias/nintendo-ha-subido-precio-switch-2-problema-sigue-ahi-paciencia-compania-no-infinita",
-    "fecha": "2026-11-11T03:31:29+00:00"
-  },
-  {
     "titulo": "Un fan revive y mejora con IA el spin-off de The Elder Scrolls Shadowkey para PC",
     "resumen": "Un aficionado está adaptando para PC Shadowkey, el juego de The Elder Scrolls lanzado originalmente para la consola Nokia N-Gage. El proyecto incluye mejoras gráficas, compatibilidad con mandos y…",
     "enlace": "https://www.pcgamer.com/games/the-elder-scrolls/one-elder-scrolls-fan-is-reviving-and-upgrading-a-lost-spin-off-for-the-nokia-n-gage-and-porting-it-to-pc/",
@@ -250,5 +244,11 @@
     "resumen": "La comunidad sospecha que GTA 6 sufrira censura en Japon tras detectarse un menor peso de descarga y la ausencia de referencias a contenido sexual en su calificacion oficial.",
     "enlace": "https://vandal.elespanol.com/noticia/2026316032/gta-6-podria-tener-algun-tipo-de-censura-en-japon-el-juego-ocupa-menos-que-en-otros-paises/",
     "fecha": "2026-11-13T03:31:19+00:00"
+  },
+  {
+    "titulo": "Análisis de The Binding of Isaac Repentance+ - El roguelike \"bíblico\" va a tope a por el multijugador",
+    "resumen": "The Binding of Isaac Repentance+ Online llega a PS5, Xbox Series X/S y Switch 2. Este roguelike mantiene su jugabilidad de mazmorras y disparos, añadiendo ahora opciones multijugador.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/analisis-the-binding-of-isaac-repentance-roguelike-biblico-va-tope-por-multijugador_7059839_0.html",
+    "fecha": "2026-11-13T04:31:18+00:00"
   }
 ]
