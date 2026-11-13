@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Capcom actualiza la beta de Monster Hunter Wilds en Steam y apunta a una prueba de la expansion",
-    "resumen": "Una reciente actualizacion en Steam sugiere que Capcom podria lanzar una beta publica para la expansion Monster Hunter Wilds: Ascendance antes de su estreno en 2027.",
-    "enlace": "https://www.pcgamer.com/games/action/capcom-quietly-updates-the-monster-hunter-wilds-beta-listing-on-steam-indicating-a-possible-expansion-playtest/",
-    "fecha": "2026-11-10T23:31:18+00:00"
-  },
-  {
     "titulo": "Resident Evil Veronica se habría retrasado internamente en respuesta a las críticas de Requiem, según un 'insider'",
     "resumen": "El remake de Resident Evil Veronica habría sufrido un retraso interno hasta otoño de 2027. Según filtraciones, Capcom busca solucionar problemas tras las reacciones a Resident Evil Requiem.",
     "enlace": "https://vandal.elespanol.com/noticia/2026314029/resident-evil-veronica-se-habria-retrasado-internamente-en-respuesta-a-las-criticas-de-requiem-segun-un-insider/",
@@ -250,5 +244,11 @@
     "resumen": "El PC Gaming Show: Most Wanted se emitirá el 3 de diciembre para revelar los 20 juegos más esperados del año votados por un jurado especializado.",
     "enlace": "https://www.pcgamer.com/gaming-industry/events-conferences/every-nominee-for-the-pc-gaming-show-most-wanteds-top-20-upcoming-games/",
     "fecha": "2026-11-12T23:31:24+00:00"
+  },
+  {
+    "titulo": "Disponible Resident Evil 2 RE:ENHANCE version 4.0, que mejora todavía más el clásico con modo panorámico, reflejos, sombras dinámicas y más virguerías",
+    "resumen": "Ya está disponible la versión 4.0 del mod RE:ENHANCE para el Resident Evil 2 original de PC. Esta actualización añade modo panorámico, sombras dinámicas y mejores animaciones.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/disponible-resident-evil-2-re-enhance-version-4-0-que-mejora-todavia-mas-clasico-con-modo-panoramico-reflejos-sombras-dinamicas-mas-virguerias_7060128_0.html",
+    "fecha": "2026-11-13T00:31:14+00:00"
   }
 ]
