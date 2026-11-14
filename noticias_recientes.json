@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Ya disponible El Legado de PlayStation, un viaje por los 150 mejores juegos de esta consola con entrevistas y mucho más",
-    "resumen": "Ya está a la venta El legado de PlayStation, un libro de 3DJuegos que repasa los 150 mejores juegos de la consola con artículos y entrevistas exclusivas.",
-    "enlace": "https://www.3djuegos.com/seleccion/noticias/disponible-legado-playstation-viaje-150-mejores-juegos-esta-consola-entrevistas-mucho",
-    "fecha": "2026-11-12T13:31:25+00:00"
-  },
-  {
     "titulo": "Sí, rodar sigue siendo más rápido que el nuevo botón de correr en The Legend of Zelda: Ocarina of Time Remake",
     "resumen": "Los speedrunners descubren que rodar y saltar hacia delante es más rápido que el nuevo botón de correr en The Legend of Zelda: Ocarina of Time Remake.",
     "enlace": "https://vandal.elespanol.com/noticia/2026316025/si-rodar-sigue-siendo-mas-rapido-que-el-nuevo-boton-de-correr-en-the-legend-of-zelda-ocarina-of-time-remake/",
@@ -250,5 +244,11 @@
     "resumen": "Nintendo valoró incluir un botón de salto manual en el Zelda Ocarina of Time original de Nintendo 64, pero decidió hacerlo automático para simplificar la acción.",
     "enlace": "https://vandal.elespanol.com/noticia/2026318012/el-zelda-ocarina-of-time-original-iba-a-tener-un-boton-de-salto-casi-30-anos-antes-de-que-nintendo-hiciera-el-remake/",
     "fecha": "2026-11-14T13:31:21+00:00"
+  },
+  {
+    "titulo": "La historia real de Epona, la diosa a la que rendimos culto en España antes de convertirse en el caballo de The Legend of Zelda",
+    "resumen": "Epona, la yegua de The Legend of Zelda, toma su nombre de una importante divinidad de la mitología celta a la que se rendía culto en España y gran parte de Europa durante la Edad de Hierro.",
+    "enlace": "https://www.vidaextra.com/nintendo-switch-2/historia-real-epona-diosa-a-que-rendimos-culto-espana-antes-convertirse-caballo-the-legend-of-zelda-1",
+    "fecha": "2026-11-14T14:31:25+00:00"
   }
 ]
