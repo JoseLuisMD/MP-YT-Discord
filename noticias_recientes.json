@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "La CEO de XBOX habla de la próxima consola: 'Hay una quinta generación en camino'",
-    "resumen": "La CEO de XBOX, Asha Sharma, celebra el 25º aniversario de la marca recordando su historia y mencionando que una quinta generación de consolas está en desarrollo.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026316042/la-ceo-de-xbox-habla-de-la-proxima-consola-hay-una-quinta-generacion-en-camino/",
-    "fecha": "2026-11-12T19:31:20+00:00"
-  },
-  {
     "titulo": "Angela Sant'Albano compara a Grace Ashcroft con Bryan de la película de Resident Evil",
     "resumen": "La actriz Angela Sant'Albano destaca las similitudes entre su personaje Grace en Resident Evil Requiem y Bryan de la película de Zach Cregger.",
     "enlace": "https://www.pcgamer.com/games/resident-evil/im-a-big-zach-cregger-fan-angela-santalbano-gushes-about-the-resident-evil-movie-and-likens-bryan-to-her-own-grace-ashcroft/",
@@ -250,5 +244,11 @@
     "resumen": "El sistema de marcado de monstruos en los MMO tradicionales genera debate entre fomentar la interacción social o resultar molesto para los jugadores.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/do-you-like-mob-tagging-in-oldschool-mmos-or-are-you-done-with-fighting-for-quest-credit/",
     "fecha": "2026-11-14T19:31:21+00:00"
+  },
+  {
+    "titulo": "Es el simulador de videoclub favorito de la comunidad y acaba de expandirse con el alquiler de videojuegos",
+    "resumen": "El simulador de videoclub Retro Rewind para Steam se actualiza con una nueva función que permite a los jugadores gestionar el alquiler de videojuegos.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026318007/es-el-simulador-de-videoclub-favorito-de-la-comunidad-y-acaba-de-expandirse-con-el-alquiler-de-videojuegos/",
+    "fecha": "2026-11-14T20:31:30+00:00"
   }
 ]
