@@ -40,6 +40,13 @@ def version_estable(release):
     return version(tag) or version(nombre)
 
 
+def texto_original(texto):
+    """El número de versión tal como está escrito, sin la «v» ni lo que venga detrás: «v1.3» → «1.3»,
+    «1.5.1_tag» → «1.5.1». None si no tiene."""
+    m = VERSION.search(texto or "")
+    return ".".join(n for n in m.groups() if n is not None) if m else None
+
+
 def texto_version(v):
     """(1, 3, 0) → «1.3.0»."""
     return ".".join(str(n) for n in v)

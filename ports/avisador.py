@@ -16,7 +16,7 @@ import requests
 
 from common.estado import cargar_json, guardar_json
 
-from .versiones import texto_version, version, version_estable
+from .versiones import texto_original, texto_version, version, version_estable
 
 ARCHIVO = "ports_vistos.json"   # {"ultima_ejecucion": ISO, "releases_vistas": [ids], "avisados": {repo: versión}}
 MAX_VISTAS = 5000               # ids de releases que se recuerdan (unas 250 por semana)
@@ -54,9 +54,12 @@ def _id_release(notificacion):
 
 
 def _version_mostrada(release, v):
-    """La versión tal como la escribe el tag («v1.3.2» → «1.3.2»), o la reconocida si el tag no la tiene."""
-    tag = (release.get("tag_name") or "").strip()
-    return re.sub(r"^[vV]\s?", "", tag) if version(tag) else texto_version(v)
+    """El número de versión como lo escribe el tag («v1.3.2» → «1.3.2», «1.5.1_tag» → «1.5.1»), o el del nombre si
+    el tag no tiene."""
+    tag, nombre = release.get("tag_name") or "", release.get("name") or ""
+    if version(tag):
+        return texto_original(tag)
+    return texto_original(nombre) if version(nombre) else texto_version(v)
 
 
 def analizar(repo, releases, ids_semana, avisados):

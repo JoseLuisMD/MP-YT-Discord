@@ -47,6 +47,13 @@ def test_prerelease_y_borrador_no_son_estables():
     assert version_estable(rel(1, "v1.0.0", "2026-11-14T10:00:00Z", draft=True)) is None
 
 
+@pytest.mark.parametrize("tag, mostrada", [("v1.3.2", "1.3.2"), ("1.3", "1.3"), ("1.5.1_tag", "1.5.1"),
+                                            ("v 1.0.0", "1.0.0"), ("v4.1", "4.1")])
+def test_version_mostrada(tag, mostrada):
+    r = rel(1, tag, "2026-11-14T10:00:00Z")
+    assert avisador._version_mostrada(r, version_estable(r)) == mostrada
+
+
 def test_version_del_nombre_si_el_tag_no_tiene():
     assert version_estable(rel(1, "release", "2026-11-14T10:00:00Z", "Mi port 1.2")) == (1, 2, 0)
     assert version("sin versión") is None
