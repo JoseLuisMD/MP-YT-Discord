@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Nominados para los 20 juegos más esperados del PC Gaming Show: Most Wanted",
-    "resumen": "El PC Gaming Show: Most Wanted se emitirá el 3 de diciembre para revelar los 20 juegos más esperados del año votados por un jurado especializado.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/events-conferences/every-nominee-for-the-pc-gaming-show-most-wanteds-top-20-upcoming-games/",
-    "fecha": "2026-11-12T23:31:24+00:00"
-  },
-  {
     "titulo": "Disponible Resident Evil 2 RE:ENHANCE version 4.0, que mejora todavía más el clásico con modo panorámico, reflejos, sombras dinámicas y más virguerías",
     "resumen": "Ya está disponible la versión 4.0 del mod RE:ENHANCE para el Resident Evil 2 original de PC. Esta actualización añade modo panorámico, sombras dinámicas y mejores animaciones.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/disponible-resident-evil-2-re-enhance-version-4-0-que-mejora-todavia-mas-clasico-con-modo-panoramico-reflejos-sombras-dinamicas-mas-virguerias_7060128_0.html",
@@ -250,5 +244,11 @@
     "resumen": "Blizzard ha lanzado una actualización en World of Warcraft que elimina la experiencia de los enemigos de mazmorra si son triviales para cualquier miembro del grupo, frenando así las ayudas de…",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forever-dungeon-mobs-no-longer-give-exp-if-theyre-trivial-for-anyone-in-the-party/",
     "fecha": "2026-11-14T23:31:17+00:00"
+  },
+  {
+    "titulo": "Pearl Abyss, creadores de Crimson Desert, usarán IA \"para validar rápidamente diversos conceptos de diseño\" en sus nuevos juegos",
+    "resumen": "Pearl Abyss utilizara inteligencia artificial para validar conceptos de diseno rapidamente antes de implementarlos en sus proximos videojuegos, segun su ultimo informe fiscal.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/pearl-abyss-creadores-crimson-desert-usaran-ia-para-validar-rapidamente-diversos-conceptos-diseno-sus-nuevos-juegos_7061074_0.html",
+    "fecha": "2026-11-15T00:31:23+00:00"
   }
 ]
