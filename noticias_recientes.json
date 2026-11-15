@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "XBOX estrena Playback, una sorpresa que interesará a más de un jugador. Ya puedes saber cuántas horas le has dedicado a tus videojuegos, y eso no es todo",
-    "resumen": "XBOX lanza Playback, una herramienta que permite consultar todo el historial de juego acumulado desde los inicios en el ecosistema de Microsoft.",
-    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/xbox-estrena-playback-sorpresa-que-interesara-a-jugador-puedes-saber-cuantas-horas-le-has-dedicado-a-tus-videojuegos-eso-no-todo",
-    "fecha": "2026-11-13T01:31:12+00:00"
-  },
-  {
     "titulo": "La nueva zona Riverglades de WoW: Forever evoca la era de The Burning Crusade",
     "resumen": "La nueva zona The Riverglades en WoW: Forever ofrece una experiencia de misiones clásica pero con un diseño más moderno y fluido que recuerda a The Burning Crusade.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forevers-new-riverglades-zone-feels-more-like-the-burning-crusade-than-classic-and-you-know-what-im-absolutely-okay-with-that/",
@@ -250,5 +244,11 @@
     "resumen": "Una encuesta de Newzoo y G2A a 6000 jugadores revela que el 30% de las compras en consolas son físicas. Los usuarios prefieren el disco para poseer el juego y evitar depender de internet.",
     "enlace": "https://vandal.elespanol.com/noticia/2026318005/resistencia-fisica-el-30-de-las-compras-son-en-disco-porque-los-jugadores-necesitan-sentir-que-poseen-algo/",
     "fecha": "2026-11-15T01:31:16+00:00"
+  },
+  {
+    "titulo": "La UE quiere meter mano a las cajas de botín. Su plan impediría venderlas a menores de edad e impondría más restricciones a los micropagos",
+    "resumen": "La Comisión Europea ha presentado la Ley de Equidad Digital para prohibir las cajas de botín a menores de edad y exigir mayor transparencia en las probabilidades y micropagos.",
+    "enlace": "https://www.3djuegos.com/industria-gaming/noticias/ue-quiere-meter-mano-a-cajas-botin-su-plan-impediria-venderlas-a-menores-e-impondria-restricciones-a-micropagos",
+    "fecha": "2026-11-15T02:33:37+00:00"
   }
 ]
