@@ -7,6 +7,9 @@ Cada **proyecto** (`proyectos.py`) tiene sus canales de YouTube, sus redes, su w
 - **`noticias`**: cada hora publica una noticia de videojuegos (resumida con Gemini) por cada proyecto con noticias.
 - **`resenas`**: cada día a las 21:00 avisa en Discord, Bluesky y Threads de las reseñas nuevas del Conservador de
   Steam de cada proyecto que lo tenga.
+- **`ports`** (uso privado): los sábados a las 10:00 avisa en un canal privado de Discord de los ports que siguen
+  la cuenta de GitHub (en «Custom → Releases») que han llegado a la versión 1.0 por primera vez, y de las versiones
+  nuevas de los que ya estaban en 1.0 o más. Después marca esas notificaciones de GitHub como hechas.
 
 ## Estructura
 
@@ -31,6 +34,10 @@ noticias/
 resenas/
   steam.py              lee las reseñas del Conservador de Steam (el mismo JSON que usa la web)
   avisador.py           lógica de los avisos y formato de resenas_vistas.json
+ports/
+  versiones.py          qué versión tiene una release y si es estable (fuera betas, pruebas, launchers, fechas)
+  github.py             notificaciones de releases, historial de releases y marcar como hechas
+  avisador.py           primera estable ≥1.0, mensaje de Discord y formato de ports_vistos.json
 tests/                  pruebas; en tests/fixtures, los feeds de noticias guardados tal cual de cada web
 ```
 
@@ -41,11 +48,12 @@ pip install -r requirements.txt
 python -m videos      # avisos de vídeos
 python -m noticias    # noticias
 python -m resenas     # reseñas de Steam
+python -m ports --simular   # ports en 1.0 (sin --simular, envía el aviso y marca las notificaciones)
 ```
 
 Las variables de entorno son las mismas de siempre (`DISCORD_WEBHOOK`, `BSKY_HANDLE`, `GEMINI_API_KEY`...).
 Los estados viven en la rama **`estado`** (no en `main`), para que los commits automáticos del bot no se mezclen con
-el código: `vistos.json` (vídeos de todos los canales), `resenas_vistas.json` (reseñas de Steam ya avisadas), `cola_x.json` (lo pendiente de publicar a mano en X desde el
+el código: `vistos.json` (vídeos de todos los canales), `resenas_vistas.json` (reseñas de Steam ya avisadas), `ports_vistos.json` (última ejecución del aviso de ports, releases ya vistas y versión avisada de cada port), `cola_x.json` (lo pendiente de publicar a mano en X desde el
 panel de MP-Backend) y, por cada proyecto con noticias, los archivos que indica `proyectos.py` (Mundos Pixelados:
 `noticias_publicadas.json`, `palabras_clave.json`, `noticias_web.json`, las últimas noticias con título, resumen e
 imagen para su web, y `noticias_recientes.json`, los títulos de las últimas 48 h para no publicar la misma noticia

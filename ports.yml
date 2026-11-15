@@ -1,0 +1,38 @@
+name: Avisar ports en versión 1.0
+on:
+  workflow_dispatch:          # lo lanza cron-job.org (sábados a las 10:00) o tú a mano
+    inputs:
+      simular:
+        description: "Simular: muestra el mensaje en el registro sin enviarlo, sin marcar notificaciones y sin guardar el estado"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: estado-repo
+
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Traer el estado (rama estado)
+        run: bash .github/estado.sh traer
+      - name: Avisar de los ports en 1.0
+        working-directory: estado   # el bot lee y escribe sus JSON en la carpeta del estado
+        run: python -m ports
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          SIMULAR: ${{ inputs.simular }}
+          GH_NOTIFICATIONS_TOKEN: ${{ secrets.GH_NOTIFICATIONS_TOKEN }}   # classic, solo con el permiso «notifications»
+          DISCORD_WEBHOOK_PORTS: ${{ secrets.DISCORD_WEBHOOK_PORTS }}     # canal privado
+      - name: Guardar releases vistas
+        if: ${{ !inputs.simular }}
+        run: bash .github/estado.sh guardar "Actualizar ports vistos"
