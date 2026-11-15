@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import pytest
 
 from ports import avisador
-from ports.avisador import Port, analizar, ejecutar, mensajes
+from ports.avisador import Port, SinVersion, analizar, ejecutar, mensajes, sin_version
 from ports.versiones import version, version_estable
 
 
@@ -37,6 +37,11 @@ def rel(id_, tag, fecha, name="", prerelease=False, draft=False, repo="dueño/ju
     ("v1.1.2", "OpenRaven v1.1.2 – Hotfix 2", (1, 1, 2)),
     ("1.6.0", "1.6.0 My Friends are my Power", (1, 6, 0)),
     ("v1.0", "Latest stable build", (1, 0, 0)),   # «latest» no es «test»
+    ("v2", "Version 2", (2, 0, 0)),               # tag con un solo número
+    ("1", "First release", (1, 0, 0)),
+    ("V 3", "", (3, 0, 0)),
+    ("release", "Build 365", None),              # en el nombre, un número suelto no cuenta
+    ("2026", "", None),                          # un año no es una versión
 ])
 def test_version_estable(tag, name, esperada):
     assert version_estable(rel(1, tag, "2026-11-14T10:00:00Z", name)) == esperada
@@ -48,10 +53,9 @@ def test_prerelease_y_borrador_no_son_estables():
 
 
 @pytest.mark.parametrize("tag, mostrada", [("v1.3.2", "1.3.2"), ("1.3", "1.3"), ("1.5.1_tag", "1.5.1"),
-                                            ("v 1.0.0", "1.0.0"), ("v4.1", "4.1")])
+                                            ("v 1.0.0", "1.0.0"), ("v4.1", "4.1"), ("v2", "2")])
 def test_version_mostrada(tag, mostrada):
-    r = rel(1, tag, "2026-11-14T10:00:00Z")
-    assert avisador._version_mostrada(r, version_estable(r)) == mostrada
+    assert avisador._version_mostrada(rel(1, tag, "2026-11-14T10:00:00Z")) == mostrada
 
 
 def test_version_del_nombre_si_el_tag_no_tiene():
@@ -93,6 +97,34 @@ def test_sin_estables_de_la_semana_no_sale():
     assert analizar("dueño/juego", [rel(5, "v0.10.61", "2026-11-15T07:42:14Z")], {5}, {}) is None
 
 
+def test_un_solo_numero_llega_a_la_1_0():
+    releases = [rel(3, "v1", "2026-11-14T10:00:00Z"), rel(2, "v0.9", "2026-11-01T10:00:00Z")]
+    p = analizar("dueño/juego", releases, {3}, {})
+    assert (p.nuevo, p.version) == (True, "1")
+
+
+# ---------------- Releases sin versión reconocible ----------------
+
+def test_sin_version_por_fecha_o_build():
+    d = sin_version("timboat/demons-souls-recomp",
+                    [rel(7, "v2026.11.11", "2026-11-11T23:09:01Z"), rel(6, "v2026.11.08", "2026-11-08T18:30:53Z")],
+                    {6, 7})
+    assert (d.tag, d.fecha.day) == ("v2026.11.11", 11)   # solo la última de la semana
+    d = sin_version("OpenCommunityEdition/OpenCE", [rel(5, "build-365", "2026-11-14T20:38:22Z", "Build 365 (e8a6f85)")], {5})
+    assert d.tag == "build-365"
+
+
+@pytest.mark.parametrize("releases", [
+    [rel(5, "nightly", "2026-11-11T13:26:45Z", "Nightly")],                     # descartada a propósito
+    [rel(5, "launcher-v1.6.2", "2026-11-12T17:20:12Z", "Launcher v1.6.2")],
+    [rel(5, "build-9", "2026-11-12T10:00:00Z", prerelease=True)],
+    [rel(5, "v0.10.61", "2026-11-15T07:42:14Z")],                               # tiene versión (aunque < 1.0)
+    [rel(5, "v0.7.0", "2026-11-14T10:00:00Z"), rel(4, "build-3", "2026-11-14T09:00:00Z")],   # alguna la tiene
+])
+def test_no_es_sin_version(releases):
+    assert sin_version("dueño/juego", releases, {r["id"] for r in releases}) is None
+
+
 # ---------------- Mensajes ----------------
 
 def port(repo, version, dia, nuevo, **kw):
@@ -114,6 +146,16 @@ def test_mensaje_ordenado_del_mas_reciente_al_mas_antiguo():
     assert "→ **1.1.5** · la 1.0 salió el 14/11" in texto
     assert "→ **1.3.2** (antes 1.3.1)" in texto
     assert "🆕 **Llegan a la 1.0 por primera vez (2)**" in texto
+
+
+def test_mensaje_con_releases_sin_version():
+    dudosas = [SinVersion("timboat/demons-souls-recomp", "v2026.11.11", datetime(2026, 11, 11, tzinfo=timezone.utc), "u1"),
+               SinVersion("OpenCommunityEdition/OpenCE", "build-365", datetime(2026, 11, 14, tzinfo=timezone.utc), "u2")]
+    texto = "\n".join(mensajes([port("c/update", "1.3.2", 15, False)], datetime(2026, 11, 7, tzinfo=timezone.utc),
+                               datetime(2026, 11, 15, tzinfo=timezone.utc), dudosas))
+    assert "❓ **Releases estables sin versión reconocible (2)**" in texto
+    assert texto.index("c/update") < texto.index("OpenCE") < texto.index("demons-souls")
+    assert "→ `build-365`" in texto
 
 
 def test_mensaje_sin_novedades():
@@ -199,3 +241,13 @@ def test_simular_no_envia_ni_marca(tmp_path):
     ruta, gh = tmp_path / "ports_vistos.json", gh_de_prueba()
     assert ejecutar(gh, enviar=lambda t: pytest.fail("no debe enviar"), simular=True, ahora=AHORA, ruta=ruta)
     assert gh.hechas == [] and not ruta.exists()
+
+
+def test_ejecucion_incluye_releases_sin_version(tmp_path):
+    gh = gh_de_prueba()
+    gh.notificaciones.append(notif(4, "timboat/demons-souls-recomp", 70, "2026-11-15T10:00:00Z"))
+    gh._releases["timboat/demons-souls-recomp"] = [rel(70, "v2026.11.15", "2026-11-15T10:00:00Z")]
+    enviados = []
+    ejecutar(gh, enviar=lambda t: enviados.extend(t) or True, ahora=AHORA, ruta=tmp_path / "ports_vistos.json")
+    texto = "\n".join(enviados)
+    assert "❓" in texto and "timboat/demons-souls-recomp" in texto and "4" in gh.hechas
