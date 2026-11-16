@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Terror, JRPG, indies aclamados y más, a menos de 10 euros con las ofertas de Instant Gaming",
-    "resumen": "Instant Gaming ofrece una selección de diez videojuegos para PC a precio mínimo histórico en Steam por menos de 10 euros y con reseñas extremadamente positivas.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026317030/terror-jrpg-indies-aclamados-y-mas-a-menos-de-10-euros-con-las-ofertas-de-instant-gaming/",
-    "fecha": "2026-11-14T03:31:16+00:00"
-  },
-  {
     "titulo": "Henry Cavill \"ha hecho\" un juego gratis. Lo tenía todo para salir mal, pero está gustando y detrás esconde una buena causa",
     "resumen": "El actor Henry Cavill ha colaborado con Google en el desarrollo de Mustache Protocol, un juego gratuito para navegador basado en un meme de su famoso mostacho.",
     "enlace": "https://www.3djuegos.com/pc/noticias/henry-cavill-ha-hecho-juego-gratis-tenia-todo-para-salir-mal-esta-gustando-detras-esconde-buena-causa",
@@ -256,5 +250,11 @@
     "resumen": "En una entrevista sobre su biblioteca de Steam, el creador de contenido Ashens repasa sus gustos en PC, desde los clásicos de 8 bits hasta dedicarle mil horas a Baldur's Gate 3.",
     "enlace": "https://www.pcgamer.com/gaming-industry/youtuber-and-comedian-ashens-has-1-000-hours-in-baldurs-gate-3-and-reveals-the-worst-retro-game-hes-ever-played-by-the-time-youve-hacked-it-to-work-its-just-no-fun-whatsoever/",
     "fecha": "2026-11-16T03:31:16+00:00"
+  },
+  {
+    "titulo": "Valve vuelve a mejorar el corazón de Steam Deck/Machine. Su nueva actualización apunta a los televisores y amplía las posibilidades de las GPU NVIDIA",
+    "resumen": "Valve ha lanzado la versión previa de SteamOS 3.10.0, incorporando mejoras de rendimiento, estabilidad con gráficas NVIDIA y nuevas funciones de HDMI 2.1.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/valve-vuelve-a-mejorar-corazon-steam-deck-machine-su-nueva-actualizacion-apunta-a-televisores-amplia-posibilidades-gpu-nvidia",
+    "fecha": "2026-11-16T04:31:35+00:00"
   }
 ]
