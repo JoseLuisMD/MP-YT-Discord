@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Recomendaciones de videojuegos para el fin de semana y noticias de la industria",
-    "resumen": "Se publican recomendaciones de juegos para el fin de semana junto con noticias sobre GTAVI, que ocupará unos 200 GB, y novedades de sagas como Wolfenstein y God of War.",
-    "enlace": "https://gameinformer.com/opinion/2026/11/13/the-video-games-and-more-you-should-play-this-weekend-november-13-2026",
-    "fecha": "2026-11-13T23:31:15+00:00"
-  },
-  {
     "titulo": "Cómo ganar siempre el minijuego del Cofre del Tesoro en Zelda Ocarina of Time Remake",
     "resumen": "El minijuego del Cofre del Tesoro en Zelda Ocarina of Time Remake exige cinco aciertos para conseguir una Pieza de Corazón. Es posible superar el reto fácilmente usando las Gafas de la Verdad.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/como-ganar-siempre-minijuego-cofre-tesoro-zelda-ocarina-of-time-remake_7060515_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Queen's Domain es un juego desarrollado por un equipo de dos personas que ofrece una experiencia de descubrimientos constantes y sorpresas en la isla de Neasied.",
     "enlace": "https://www.pcgamer.com/games/rpg/queens-domain-is-the-best-dark-souls-1-since-dark-souls-1/",
     "fecha": "2026-11-15T23:31:19+00:00"
+  },
+  {
+    "titulo": "Baldur's Gate 3 se expande en consola con las nuevas clases Bárbaro de la primavera salvaje o Leyenda de Drizzt, combates infinitos o más objetos vía mods",
+    "resumen": "Los mods de Baldur's Gate 3 en consola se amplían con nuevas clases, combates personalizados y herramientas que enriquecen la experiencia del RPG de Larian Studios.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/baldur-s-gate-3-se-expande-consola-con-las-nuevas-clases-barbaro-primavera-salvaje-leyenda-drizzt-combates-infinitos-mas-objetos-via-mods_7060294_0.html",
+    "fecha": "2026-11-16T00:31:17+00:00"
   }
 ]
