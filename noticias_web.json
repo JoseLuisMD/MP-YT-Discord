@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "He descubierto un juego de Spider-Man que terminas en tres horas. Ahora entiendo por qué llevan 21 años hablando de él",
+    "resumen": "Un jugador analiza Ultimate Spider-Man, el título de 2005, destacando la excelente vejez de su cel-shading y lo satisfactorio de su sistema de balanceo.",
+    "enlace": "https://www.3djuegos.com/juegos/ultimate-spider-man/noticias/he-descubierto-juego-spider-man-que-terminas-tres-horas-ahora-entiendo-que-llevan-21-anos-hablando",
+    "imagen": "https://i.blogs.es/0c4873/ultimate-spiderman-portada-2/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-11-16T07:34:31+00:00"
+  },
+  {
     "titulo": "¿Por qué se llama XBOX? La curiosa historia detrás del nombre de la primera consola de Microsoft que cumple 25 años",
     "resumen": "La primera XBOX se lanzo en noviembre de 2001. Su nombre surgio como un codigo provisional derivado de la tecnologia grafica DirectX que acabo convirtiendose en definitivo.",
     "enlace": "https://vandal.elespanol.com/noticia/2026319005/por-que-se-llama-xbox-la-curiosa-historia-detras-del-nombre-de-la-primera-consola-de-microsoft-que-cumple-25-anos/",
@@ -259,14 +268,5 @@
     "fuente": "PC Gamer",
     "idioma": "en",
     "fecha": "2026-11-14T23:31:17+00:00"
-  },
-  {
-    "titulo": "El CEO de Epic Games ve las políticas de Valve como algo \"injusto para los desarrolladores que usan IA para crear buenos juegos\"",
-    "resumen": "El CEO de Epic Games, Tim Sweeney, ha criticado las políticas de Valve sobre la inteligencia artificial en Steam, calificándolas de injustas para los desarrolladores.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/ceo-epic-games-ve-las-politicas-valve-como-algo-injusto-para-los-desarrolladores-que-usan-ia-para-crear-buenos-juegos_7061062_0.html",
-    "imagen": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2023/04/25/69010b4ee0798.jpeg",
-    "fuente": "Hobby Consolas",
-    "idioma": "es",
-    "fecha": "2026-11-14T21:31:18+00:00"
   }
 ]
