@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Análisis de Ashes of the Singularity 2",
+    "resumen": "Ashes of the Singularity 2 ofrece batallas a gran escala, pero su campaña y la inclusión de inteligencia artificial generativa lastran el juego.",
+    "enlace": "https://www.pcgamer.com/games/rts/ashes-of-the-singularity-2-review/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/rYxAXFKHCxrG3NcDcXa2sj-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-16T14:31:34+00:00"
+  },
+  {
     "titulo": "World of Warcraft: Forever no se aclara y por enésima vez cambia la experiencia que se consigue en las mazmorras",
     "resumen": "Blizzard ha vuelto a modificar la experiencia obtenida en las mazmorras de World of Warcraft: Forever para evitar desequilibrios, eliminándola al derrotar enemigos grises con personajes de nivel alto.",
     "enlace": "https://www.vidaextra.com/juegos-online/world-of-warcraft-forever-no-se-aclara-enesima-vez-cambia-experiencia-que-se-consigue-mazmorras",
@@ -259,14 +268,5 @@
     "fuente": "3DJuegos",
     "idioma": "es",
     "fecha": "2026-11-15T05:31:23+00:00"
-  },
-  {
-    "titulo": "Mucho antes de DOOM, un shooter de la NASA ya permitía jugar online con otras personas. Su éxito llegó a preocupar al Pentágono",
-    "resumen": "En 1974, Maze War se convirtió en el primer shooter en primera persona con multijugador online. Este juego desarrollado en la NASA permitía partidas de hasta ocho jugadores.",
-    "enlace": "https://www.3djuegos.com/retro-gaming/noticias/19-anos-rey-accion-revolucionara-mundo-videojuego-nasa-descubrio-casualidad-como-alcanzar-exito-fps",
-    "imagen": "https://i.blogs.es/091bc1/maze-war-chema/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-11-15T04:31:22+00:00"
   }
 ]
