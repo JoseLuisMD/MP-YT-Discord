@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Un jugador de World of Warcraft vuelve inmortal a su paladín y derrota a un monstruo de nivel 60",
+    "resumen": "Los cambios en los objetos de World of Warcraft: Forever permiten a un paladín acumular suficiente poder de sanación para volverse casi invulnerable y derrotar enemigos de alto nivel.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/world-of-warcraft-forever-player-turns-their-paladin-into-a-near-unkillable-healbot-solos-a-level-60-monster-at-level-30-and-swims-into-the-ocean/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/prYmvnyWqdJvpLnkbECqs3-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-16T15:31:22+00:00"
+  },
+  {
     "titulo": "Análisis de Ashes of the Singularity 2",
     "resumen": "Ashes of the Singularity 2 ofrece batallas a gran escala, pero su campaña y la inclusión de inteligencia artificial generativa lastran el juego.",
     "enlace": "https://www.pcgamer.com/games/rts/ashes-of-the-singularity-2-review/",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-15T06:31:20+00:00"
-  },
-  {
-    "titulo": "La historia de cómo Rockstar planeó GTA 3 como una trilogía y conquistó el mundo con ella",
-    "resumen": "Rockstar concibió Grand Theft Auto 3 como el inicio de una trilogía cinematográfica para relanzar la saga tras el fracaso comercial de su segunda entrega.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-the-trilogy-the-definitive-edition/noticias/historia-como-rockstar-planeo-gta-3-como-trilogia-conquisto-mundo-ella-1",
-    "imagen": "https://i.blogs.es/835b42/gta-3-el-funs/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-11-15T05:31:23+00:00"
   }
 ]
