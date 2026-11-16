@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Microsoft da otra razón para comprar ROG XBOX Ally X: su alternativa a DLSS ya funciona en portátil y es una gran noticia para tus juegos",
+    "resumen": "La tecnología Auto SR de Microsoft ya funciona en modo portátil en ROG XBOX Ally X, mejorando el rendimiento de los juegos mediante inteligencia artificial y reescalado.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-da-otra-razon-para-comprar-rog-xbox-ally-x-su-alternativa-a-dlss-funciona-portatil-gran-noticia-para-tus-juegos",
+    "imagen": "https://i.blogs.es/ae9a5a/original/1024_2000.jpeg",
+    "fuente": "3DJuegos",
+    "idioma": "es",
+    "fecha": "2026-11-16T05:31:21+00:00"
+  },
+  {
     "titulo": "Valve vuelve a mejorar el corazón de Steam Deck/Machine. Su nueva actualización apunta a los televisores y amplía las posibilidades de las GPU NVIDIA",
     "resumen": "Valve ha lanzado la versión previa de SteamOS 3.10.0, incorporando mejoras de rendimiento, estabilidad con gráficas NVIDIA y nuevas funciones de HDMI 2.1.",
     "enlace": "https://www.3djuegos.com/pc/noticias/valve-vuelve-a-mejorar-corazon-steam-deck-machine-su-nueva-actualizacion-apunta-a-televisores-amplia-posibilidades-gpu-nvidia",
@@ -259,14 +268,5 @@
     "fuente": "Vandal",
     "idioma": "es",
     "fecha": "2026-11-14T20:31:30+00:00"
-  },
-  {
-    "titulo": "¿Te gusta marcar monstruos en los MMO clásicos o estás harto de competir?",
-    "resumen": "El sistema de marcado de monstruos en los MMO tradicionales genera debate entre fomentar la interacción social o resultar molesto para los jugadores.",
-    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/do-you-like-mob-tagging-in-oldschool-mmos-or-are-you-done-with-fighting-for-quest-credit/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/62i4nj9Tn742qyQoYR62T5-1920-80.png",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-11-14T19:31:21+00:00"
   }
 ]

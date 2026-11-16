@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Henry Cavill \"ha hecho\" un juego gratis. Lo tenía todo para salir mal, pero está gustando y detrás esconde una buena causa",
-    "resumen": "El actor Henry Cavill ha colaborado con Google en el desarrollo de Mustache Protocol, un juego gratuito para navegador basado en un meme de su famoso mostacho.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/henry-cavill-ha-hecho-juego-gratis-tenia-todo-para-salir-mal-esta-gustando-detras-esconde-buena-causa",
-    "fecha": "2026-11-14T04:31:13+00:00"
-  },
-  {
     "titulo": "Attack on Titan 3 muestra cómo serán las expediciones en su mundo abierto y las interacciones entre los personajes con un nuevo tráiler gameplay",
     "resumen": "Un nuevo tráiler de Attack on Titan 3 muestra detalles sobre las expediciones en mundo abierto y las interacciones entre los personajes. El juego se lanzará el próximo 10 de diciembre.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/attack-on-titan-3-muestra-como-seran-las-expediciones-su-mundo-abierto-las-interacciones-entre-los-personajes-con-un-nuevo-trailer-gameplay_7060647_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Valve ha lanzado la versión previa de SteamOS 3.10.0, incorporando mejoras de rendimiento, estabilidad con gráficas NVIDIA y nuevas funciones de HDMI 2.1.",
     "enlace": "https://www.3djuegos.com/pc/noticias/valve-vuelve-a-mejorar-corazon-steam-deck-machine-su-nueva-actualizacion-apunta-a-televisores-amplia-posibilidades-gpu-nvidia",
     "fecha": "2026-11-16T04:31:35+00:00"
+  },
+  {
+    "titulo": "Microsoft da otra razón para comprar ROG XBOX Ally X: su alternativa a DLSS ya funciona en portátil y es una gran noticia para tus juegos",
+    "resumen": "La tecnología Auto SR de Microsoft ya funciona en modo portátil en ROG XBOX Ally X, mejorando el rendimiento de los juegos mediante inteligencia artificial y reescalado.",
+    "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-da-otra-razon-para-comprar-rog-xbox-ally-x-su-alternativa-a-dlss-funciona-portatil-gran-noticia-para-tus-juegos",
+    "fecha": "2026-11-16T05:31:21+00:00"
   }
 ]
