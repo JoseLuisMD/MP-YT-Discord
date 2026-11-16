@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Spirit Crossing, el nuevo MMO de los creadores de Cozy Grove",
+    "resumen": "Spirit Crossing es un MMO multijugador inspirado en Zelda donde los jugadores aparecen como sombras y deben saludarse para interactuar y realizar actividades juntos.",
+    "enlace": "https://www.rockpapershotgun.com/spirit-crossing-the-new-zelda-ish-hangout-mmo-from-the-creators-of-cozy-grove-understands-that-sometimes-you-just-want-to-be-alone",
+    "imagen": "https://assetsio.gnwcdn.com/Spirit-Crossing.jpg?width=690&quality=85&format=jpg",
+    "fuente": "Rock Paper Shotgun",
+    "idioma": "en",
+    "fecha": "2026-11-16T18:31:36+00:00"
+  },
+  {
     "titulo": "Ya puedes hacerte con El legado de PlayStation, el nuevo libro de 3DJuegos que repasa los 150 mejores juegos de la mítica consola de Sony",
     "resumen": "El legado de PlayStation repasa los 150 mejores juegos de la consola de Sony en un libro de más de 230 páginas con artículos y declaraciones de la industria.",
     "enlace": "https://www.vidaextra.com/literatura/puedes-hacerte-legado-playstation-nuevo-libro-3djuegos-que-repasa-150-mejores-juegos-mitica-consola-sony",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-15T08:31:15+00:00"
-  },
-  {
-    "titulo": "Los otorgantes de misiones más molestos en los juegos de PC",
-    "resumen": "Un repaso a los personajes de videojuegos que encargan misiones molestas, comparando la impopularidad de Moira Brown en Fallout 3 con otros NPC como Zero en GTA: San Andreas.",
-    "enlace": "https://www.pcgamer.com/games/the-most-annoying-questgivers-in-pc-games/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/AYyTypwYVPussabQGzn9TJ-1920-80.jpg",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-11-15T07:31:20+00:00"
   }
 ]
