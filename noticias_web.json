@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "¿Por qué se llama XBOX? La curiosa historia detrás del nombre de la primera consola de Microsoft que cumple 25 años",
+    "resumen": "La primera XBOX se lanzo en noviembre de 2001. Su nombre surgio como un codigo provisional derivado de la tecnologia grafica DirectX que acabo convirtiendose en definitivo.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026319005/por-que-se-llama-xbox-la-curiosa-historia-detras-del-nombre-de-la-primera-consola-de-microsoft-que-cumple-25-anos/",
+    "imagen": "https://media.vandal.net/m/11-2026/202611118352252_1.jpg",
+    "fuente": "Vandal",
+    "idioma": "es",
+    "fecha": "2026-11-16T06:31:47+00:00"
+  },
+  {
     "titulo": "Microsoft da otra razón para comprar ROG XBOX Ally X: su alternativa a DLSS ya funciona en portátil y es una gran noticia para tus juegos",
     "resumen": "La tecnología Auto SR de Microsoft ya funciona en modo portátil en ROG XBOX Ally X, mejorando el rendimiento de los juegos mediante inteligencia artificial y reescalado.",
     "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-da-otra-razon-para-comprar-rog-xbox-ally-x-su-alternativa-a-dlss-funciona-portatil-gran-noticia-para-tus-juegos",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-14T21:31:18+00:00"
-  },
-  {
-    "titulo": "Es el simulador de videoclub favorito de la comunidad y acaba de expandirse con el alquiler de videojuegos",
-    "resumen": "El simulador de videoclub Retro Rewind para Steam se actualiza con una nueva función que permite a los jugadores gestionar el alquiler de videojuegos.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026318007/es-el-simulador-de-videoclub-favorito-de-la-comunidad-y-acaba-de-expandirse-con-el-alquiler-de-videojuegos/",
-    "imagen": "https://media.vandal.net/m/11-2026/2026111012445117_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-14T20:31:30+00:00"
   }
 ]
