@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Uno de los grandes juegos de estrategia militar te permite jugarlo gratis por tiempo limitado y llega con su mayor actualización",
-    "resumen": "Relic Entertainment celebra el 20 aniversario de la saga ofreciendo acceso gratuito a Company of Heroes 3 en Steam hasta el 16 de noviembre. Además, incluye descuentos y su mayor actualización.",
-    "enlace": "https://www.3djuegos.com/juegos/company-of-heroes-3/noticias/uno-grandes-juegos-estrategia-militar-te-permite-jugarlo-gratis-tiempo-limitado-llega-su-mayor-actualizacion",
-    "fecha": "2026-11-15T03:31:13+00:00"
-  },
-  {
     "titulo": "Mucho antes de DOOM, un shooter de la NASA ya permitía jugar online con otras personas. Su éxito llegó a preocupar al Pentágono",
     "resumen": "En 1974, Maze War se convirtió en el primer shooter en primera persona con multijugador online. Este juego desarrollado en la NASA permitía partidas de hasta ocho jugadores.",
     "enlace": "https://www.3djuegos.com/retro-gaming/noticias/19-anos-rey-accion-revolucionara-mundo-videojuego-nasa-descubrio-casualidad-como-alcanzar-exito-fps",
@@ -256,5 +250,11 @@
     "resumen": "Se han anunciado los nominados a la categoría de mejor banda sonora de videojuegos para los premios Grammy de 2027, destacando sagas reconocidas y la triple presencia de Avatar: Frontiers of Pandora.",
     "enlace": "https://gameinformer.com/2026/11/16/2027-video-game-grammy-nominations-include-avatar-frontiers-of-pandora-for-the-third",
     "fecha": "2026-11-17T03:31:16+00:00"
+  },
+  {
+    "titulo": "Blizzard admite que erró con los últimos ajustes en mazmorras de World of Warcraft: Forever",
+    "resumen": "Blizzard reconoce que se equivocó con un reciente ajuste que impedía ganar experiencia en mazmorras si los enemigos eran grises para algún miembro, afectando al desarrollo habitual del juego.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forevers-continued-to-wrestle-with-dungeons-as-blizzard-admits-it-briefly-missed-the-mark-on-hotfixes-over-the-weekend/",
+    "fecha": "2026-11-17T04:31:22+00:00"
   }
 ]
