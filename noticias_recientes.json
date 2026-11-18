@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Valve vuelve a mejorar el corazón de Steam Deck/Machine. Su nueva actualización apunta a los televisores y amplía las posibilidades de las GPU NVIDIA",
-    "resumen": "Valve ha lanzado la versión previa de SteamOS 3.10.0, incorporando mejoras de rendimiento, estabilidad con gráficas NVIDIA y nuevas funciones de HDMI 2.1.",
-    "enlace": "https://www.3djuegos.com/pc/noticias/valve-vuelve-a-mejorar-corazon-steam-deck-machine-su-nueva-actualizacion-apunta-a-televisores-amplia-posibilidades-gpu-nvidia",
-    "fecha": "2026-11-16T04:31:35+00:00"
-  },
-  {
     "titulo": "Microsoft da otra razón para comprar ROG XBOX Ally X: su alternativa a DLSS ya funciona en portátil y es una gran noticia para tus juegos",
     "resumen": "La tecnología Auto SR de Microsoft ya funciona en modo portátil en ROG XBOX Ally X, mejorando el rendimiento de los juegos mediante inteligencia artificial y reescalado.",
     "enlace": "https://www.3djuegos.com/pc/noticias/microsoft-da-otra-razon-para-comprar-rog-xbox-ally-x-su-alternativa-a-dlss-funciona-portatil-gran-noticia-para-tus-juegos",
@@ -256,5 +250,11 @@
     "resumen": "Un fallo en World of Warcraft: Forever permitió a los jugadores acumular grandes cantidades de oro en una mazmorra. La comunidad pide a Blizzard sanciones ante el desequilibrio económico.",
     "enlace": "https://vandal.elespanol.com/noticia/2026321023/un-exploit-en-world-of-warcraft-forever-permitio-conseguir-oro-facilmente-y-se-teme-que-desequilibre-la-economia/",
     "fecha": "2026-11-18T04:31:18+00:00"
+  },
+  {
+    "titulo": "Anunciados los juegos de Xbox Game Pass de la segunda mitad de noviembre de 2026, con Hela, The Outlast Trials y más novedades, y 8 títulos que se despiden del servicio",
+    "resumen": "Microsoft ha anunciado los nuevos juegos que se incorporan a Xbox Game Pass en la segunda mitad de noviembre de 2026, incluyendo títulos como Hela y The Outlast Trials, además de varias bajas en el…",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/anunciados-los-juegos-xbox-game-pass-segunda-mitad-noviembre-2026-con-hela-the-outlast-trials-mas-novedades-8-titulos-que-se-despiden-servicio_7062312_0.html",
+    "fecha": "2026-11-18T05:31:19+00:00"
   }
 ]
