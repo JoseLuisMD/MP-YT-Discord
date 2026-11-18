@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Ya puedes hacerte con El legado de PlayStation, el nuevo libro de 3DJuegos que repasa los 150 mejores juegos de la mítica consola de Sony",
-    "resumen": "El legado de PlayStation repasa los 150 mejores juegos de la consola de Sony en un libro de más de 230 páginas con artículos y declaraciones de la industria.",
-    "enlace": "https://www.vidaextra.com/literatura/puedes-hacerte-legado-playstation-nuevo-libro-3djuegos-que-repasa-150-mejores-juegos-mitica-consola-sony",
-    "fecha": "2026-11-16T16:33:33+00:00"
-  },
-  {
     "titulo": "Spirit Crossing, el nuevo MMO de los creadores de Cozy Grove",
     "resumen": "Spirit Crossing es un MMO multijugador inspirado en Zelda donde los jugadores aparecen como sombras y deben saludarse para interactuar y realizar actividades juntos.",
     "enlace": "https://www.rockpapershotgun.com/spirit-crossing-the-new-zelda-ish-hangout-mmo-from-the-creators-of-cozy-grove-understands-that-sometimes-you-just-want-to-be-alone",
@@ -256,5 +250,11 @@
     "resumen": "Blizzard ha suspendido cuentas en World of Warcraft: Forever tras explotar un fallo en Blackmaw Hold para conseguir oro. La compañía ha retirado las ganancias obtenidas de forma ilícita.",
     "enlace": "https://vandal.elespanol.com/noticia/2026322039/blizzard-suspende-a-jugadores-de-world-of-warcraft-forever-por-amasar-miles-de-monedas-de-oro-con-un-fallo/",
     "fecha": "2026-11-18T16:31:39+00:00"
+  },
+  {
+    "titulo": "World of Warcraft: Forever recupera la arquitectura social del MMO original de Blizzard",
+    "resumen": "El lanzamiento de World of Warcraft: Forever marca el regreso a la experiencia clásica del juego de 2004, recuperando la socialización y la jugabilidad de sus primeros años.",
+    "enlace": "https://www.rockpapershotgun.com/world-of-warcraft-forever-isnt-mere-nostalgia-bait-its-rebuilding-the-mmo-social-architecture-that-blizzard-spent-years-dismantling",
+    "fecha": "2026-11-18T18:31:31+00:00"
   }
 ]
