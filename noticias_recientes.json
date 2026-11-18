@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "El YouTuber y comediante Ashens acumula 1000 horas en Baldur's Gate 3 y repasa su biblioteca de Steam",
-    "resumen": "En una entrevista sobre su biblioteca de Steam, el creador de contenido Ashens repasa sus gustos en PC, desde los clásicos de 8 bits hasta dedicarle mil horas a Baldur's Gate 3.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/youtuber-and-comedian-ashens-has-1-000-hours-in-baldurs-gate-3-and-reveals-the-worst-retro-game-hes-ever-played-by-the-time-youve-hacked-it-to-work-its-just-no-fun-whatsoever/",
-    "fecha": "2026-11-16T03:31:16+00:00"
-  },
-  {
     "titulo": "Valve vuelve a mejorar el corazón de Steam Deck/Machine. Su nueva actualización apunta a los televisores y amplía las posibilidades de las GPU NVIDIA",
     "resumen": "Valve ha lanzado la versión previa de SteamOS 3.10.0, incorporando mejoras de rendimiento, estabilidad con gráficas NVIDIA y nuevas funciones de HDMI 2.1.",
     "enlace": "https://www.3djuegos.com/pc/noticias/valve-vuelve-a-mejorar-corazon-steam-deck-machine-su-nueva-actualizacion-apunta-a-televisores-amplia-posibilidades-gpu-nvidia",
@@ -256,5 +250,11 @@
     "resumen": "Para alcanzar la zona más alta del molino en la Aldea Kakariko y descubrir sus recompensas, Link necesita conseguir primero el supergancho en el Templo del Agua.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/como-subir-parte-mas-alta-molino-kakariko-zelda-ocarina-of-time-remake-que-esconde_7061720_0.html",
     "fecha": "2026-11-18T03:31:11+00:00"
+  },
+  {
+    "titulo": "Un exploit en World of Warcraft: Forever permitió conseguir oro fácilmente y se teme que desequilibre la economía",
+    "resumen": "Un fallo en World of Warcraft: Forever permitió a los jugadores acumular grandes cantidades de oro en una mazmorra. La comunidad pide a Blizzard sanciones ante el desequilibrio económico.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026321023/un-exploit-en-world-of-warcraft-forever-permitio-conseguir-oro-facilmente-y-se-teme-que-desequilibre-la-economia/",
+    "fecha": "2026-11-18T04:31:18+00:00"
   }
 ]
