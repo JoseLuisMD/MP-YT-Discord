@@ -4,14 +4,14 @@
     "castlevania": 48,
     "diablo": 32,
     "dragon quest": 32,
-    "final fantasy": 127,
+    "final fantasy": 128,
     "fire emblem": 29,
     "like a dragon": 15,
     "mario": 89,
     "metal gear": 43,
     "metroid": 24,
     "monster hunter": 32,
-    "pikmin": 12,
+    "pikmin": 13,
     "pokemon": 64,
     "resident evil": 141,
     "silent hill": 57,
@@ -22,7 +22,7 @@
     "xenoblade": 8,
     "yakuza": 21,
     "ys": 3,
-    "zelda": 181
+    "zelda": 182
   },
   "nivel_2": {
     "bandai namco": 8,
