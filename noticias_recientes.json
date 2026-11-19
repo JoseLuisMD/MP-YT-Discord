@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Nominaciones a los premios Grammy de videojuegos de 2027",
-    "resumen": "Se han anunciado los nominados a la categoría de mejor banda sonora de videojuegos para los premios Grammy de 2027, destacando sagas reconocidas y la triple presencia de Avatar: Frontiers of Pandora.",
-    "enlace": "https://gameinformer.com/2026/11/16/2027-video-game-grammy-nominations-include-avatar-frontiers-of-pandora-for-the-third",
-    "fecha": "2026-11-17T03:31:16+00:00"
-  },
-  {
     "titulo": "Blizzard admite que erró con los últimos ajustes en mazmorras de World of Warcraft: Forever",
     "resumen": "Blizzard reconoce que se equivocó con un reciente ajuste que impedía ganar experiencia en mazmorras si los enemigos eran grises para algún miembro, afectando al desarrollo habitual del juego.",
     "enlace": "https://www.pcgamer.com/games/world-of-warcraft/wow-forevers-continued-to-wrestle-with-dungeons-as-blizzard-admits-it-briefly-missed-the-mark-on-hotfixes-over-the-weekend/",
@@ -256,5 +250,11 @@
     "resumen": "Microsoft anuncia ofertas de Black Friday con descuentos de hasta el 80 % en más de 2000 juegos y rebajas en accesorios para consolas y PC a partir del 20 de noviembre.",
     "enlace": "https://vandal.elespanol.com/noticia/2026322027/xbox-adelanta-sus-ofertas-del-black-friday-hasta-80-de-descuento-en-juegos-y-rebajas-en-accesorios/",
     "fecha": "2026-11-19T03:31:23+00:00"
+  },
+  {
+    "titulo": "FromSoftware se ganó el odio de muchos jugadores en 2022 por \"hacer trampas\" en Elden Ring: convirtió un jefe en un misil guiado",
+    "resumen": "Investigaciones con cámara libre revelaron que FromSoftware utilizó al caballo Leonard como baliza subterránea para guiar el ataque de meteorito del General Radahn.",
+    "enlace": "https://www.vidaextra.com/rpg/fromsoftware-se-gano-odio-muchos-jugadores-2022-hacer-trampas-elden-ring-convirtio-a-jefe-misil-guiado",
+    "fecha": "2026-11-19T04:31:31+00:00"
   }
 ]
