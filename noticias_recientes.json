@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Final Fantasy 14 ofrecerá 30 dias de tiempo de juego gratis para su expansion Evercold",
-    "resumen": "Final Fantasy 14 regalará 30 días de suscripción a jugadores inactivos para su próxima expansión Evercold e introducirá un nuevo salto de historia de pago.",
-    "enlace": "https://www.pcgamer.com/games/final-fantasy/final-fantasy-14-really-wants-evercold-to-be-the-expansion-everyone-comes-back-to-so-much-so-its-giving-you-30-days-free-gametime-if-youve-been-gone-long-enough/",
-    "fecha": "2026-11-16T23:31:20+00:00"
-  },
-  {
     "titulo": "Cómo conseguir infinitas skulltulas en Zelda Ocarina of Time Remake gracias a este sencillo glitch",
     "resumen": "Un fallo heredado del juego original en Zelda: Ocarina of Time Remake permite conseguir skulltulas doradas de forma ilimitada usando una única criatura que reaparece constantemente.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/como-conseguir-infinitas-skulltulas-zelda-ocarina-of-time-remake-gracias-este-sencillo-glitch_7061717_0.html",
@@ -256,5 +250,11 @@
     "resumen": "GTA 6 ha batido récords en Twitch al superar los 3,3 millones de espectadores simultáneos en pocos minutos, convirtiéndose en el juego para un jugador más visto de la historia.",
     "enlace": "https://www.vidaextra.com/streaming/gta-6-solo-ha-necesitado-unos-minutos-para-pulverizar-todos-records-espectadores-twitch",
     "fecha": "2026-11-18T23:31:41+00:00"
+  },
+  {
+    "titulo": "Exjefe de Take-Two advierte sobre la insostenibilidad de los grandes juegos AAA",
+    "resumen": "Un exdirectivo de Take-Two señala que los juegos AAA enfrentan una gran amenaza debido a presupuestos insostenibles que superan los 300 millones de dólares.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/aaa-is-under-the-most-amount-of-threat-ex-take-two-boss-explains-why-making-big-games-is-unsustainable-except-for-gta-6/",
+    "fecha": "2026-11-19T00:31:27+00:00"
   }
 ]
