@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Exjefe de Take-Two advierte sobre la insostenibilidad de los grandes juegos AAA",
-    "resumen": "Un exdirectivo de Take-Two señala que los juegos AAA enfrentan una gran amenaza debido a presupuestos insostenibles que superan los 300 millones de dólares.",
-    "enlace": "https://www.pcgamer.com/gaming-industry/aaa-is-under-the-most-amount-of-threat-ex-take-two-boss-explains-why-making-big-games-is-unsustainable-except-for-gta-6/",
-    "fecha": "2026-11-19T00:31:27+00:00"
-  },
-  {
     "titulo": "GTA 6 se estrena con modo foto: podrás tomar las mejores capturas de Leonida desde el primer día",
     "resumen": "Grand Theft Auto VI incluirá un modo foto desde su lanzamiento el 19 de noviembre para capturar el apartado gráfico de Leonida con diversas herramientas de ajuste.",
     "enlace": "https://vandal.elespanol.com/noticia/2026322029/gta-6-se-estrena-con-modo-foto-podras-tomar-las-mejores-capturas-de-leonida-desde-el-primer-dia/",
@@ -196,5 +190,11 @@
     "resumen": "Blizzard anuncia que las primeras raids de World of Warcraft: Forever llegarán a principios de diciembre. El juego abandonará el sistema lineal de equipamiento para apostar por un diseño más…",
     "enlace": "https://vandal.elespanol.com/noticia/2026324023/las-primeras-raids-de-wow-forever-llegaran-muy-pronto-pero-blizzard-advierte-que-habra-un-importante-cambio/",
     "fecha": "2026-11-21T00:31:23+00:00"
+  },
+  {
+    "titulo": "Un desarrollador de WoW: Forever habla sobre la creación de objetos únicos y divertidos",
+    "resumen": "El diseñador Aidan Moon explica que la filosofía de objetos de WoW: Forever prioriza la ambientación y la originalidad frente a la optimización numérica pura.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/ive-done-some-stupid-stuff-says-wow-forever-dev-whos-adding-unique-fun-items-to-the-game-theres-a-lot-theyve-not-seen-that-im-very-happy-with/",
+    "fecha": "2026-11-21T01:31:20+00:00"
   }
 ]

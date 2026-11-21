@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Un desarrollador de WoW: Forever habla sobre la creación de objetos únicos y divertidos",
+    "resumen": "El diseñador Aidan Moon explica que la filosofía de objetos de WoW: Forever prioriza la ambientación y la originalidad frente a la optimización numérica pura.",
+    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/ive-done-some-stupid-stuff-says-wow-forever-dev-whos-adding-unique-fun-items-to-the-game-theres-a-lot-theyve-not-seen-that-im-very-happy-with/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/9MviixFtL2uKjrGW4rRVsA-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-21T01:31:20+00:00"
+  },
+  {
     "titulo": "Las primeras raids de WoW Forever llegarán muy pronto, pero Blizzard advierte que habrá un importante cambio",
     "resumen": "Blizzard anuncia que las primeras raids de World of Warcraft: Forever llegarán a principios de diciembre. El juego abandonará el sistema lineal de equipamiento para apostar por un diseño más…",
     "enlace": "https://vandal.elespanol.com/noticia/2026324023/las-primeras-raids-de-wow-forever-llegaran-muy-pronto-pero-blizzard-advierte-que-habra-un-importante-cambio/",
@@ -259,14 +268,5 @@
     "fuente": "VidaExtra",
     "idioma": "es",
     "fecha": "2026-11-19T04:31:31+00:00"
-  },
-  {
-    "titulo": "XBOX adelanta sus ofertas del Black Friday: hasta 80 % de descuento en juegos y rebajas en accesorios",
-    "resumen": "Microsoft anuncia ofertas de Black Friday con descuentos de hasta el 80 % en más de 2000 juegos y rebajas en accesorios para consolas y PC a partir del 20 de noviembre.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026322027/xbox-adelanta-sus-ofertas-del-black-friday-hasta-80-de-descuento-en-juegos-y-rebajas-en-accesorios/",
-    "imagen": "https://media.vandal.net/m/11-2026/18/202611181355136_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-19T03:31:23+00:00"
   }
 ]
