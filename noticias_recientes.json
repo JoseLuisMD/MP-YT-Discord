@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Resumen de analisis de Grand Theft Auto 6: la obra maestra de Rockstar",
-    "resumen": "Las primeras reseñas de Grand Theft Auto 6 elogian su enorme escala y su obsesión por el detalle, estableciendo un nuevo estándar para los mundos abiertos en consolas.",
-    "enlace": "https://www.pcgamer.com/games/grand-theft-auto/grand-theft-auto-6-review-roundup-rockstars-magnum-opus-a-great-love-story-and-a-new-bar-for-open-worlds/",
-    "fecha": "2026-11-19T02:31:25+00:00"
-  },
-  {
     "titulo": "XBOX adelanta sus ofertas del Black Friday: hasta 80 % de descuento en juegos y rebajas en accesorios",
     "resumen": "Microsoft anuncia ofertas de Black Friday con descuentos de hasta el 80 % en más de 2000 juegos y rebajas en accesorios para consolas y PC a partir del 20 de noviembre.",
     "enlace": "https://vandal.elespanol.com/noticia/2026322027/xbox-adelanta-sus-ofertas-del-black-friday-hasta-80-de-descuento-en-juegos-y-rebajas-en-accesorios/",
@@ -196,5 +190,11 @@
     "resumen": "Modders afirman que Grand Theft Auto 6 podrá jugarse en PC en apenas una semana gracias a la filtración de archivos de la versión de Xbox.",
     "enlace": "https://www.pcgamer.com/games/grand-theft-auto/modders-reckon-gta-6-will-be-playable-on-pc-within-a-week/",
     "fecha": "2026-11-21T02:31:27+00:00"
+  },
+  {
+    "titulo": "Kojima Productions confirma que la saga Death Stranding ha superado los 28 millones de jugadores, y lo celebra con grandes descuentos en PS5 y PC",
+    "resumen": "Kojima Productions anuncia que la saga Death Stranding supera los 28 millones de jugadores. Lo celebra con ofertas en PS5 y PC y el lanzamiento de un pack con ambos juegos.",
+    "enlace": "https://www.hobbyconsolas.com/videojuegos/kojima-productions-confirma-que-saga-death-stranding-ha-superado-los-28-millones-jugadores-celebra-con-grandes-descuentos-ps5-pc_7063528_0.html",
+    "fecha": "2026-11-21T03:31:16+00:00"
   }
 ]
