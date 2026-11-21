@@ -1,5 +1,15 @@
 [
   {
+    "id": "482df0f1ed9b",
+    "tipo": "noticia",
+    "proyecto": "mundospixelados",
+    "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
+    "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
+    "imagen": "https://media.vandal.net/m/11-2026/20/2026112017275984_1.jpg",
+    "fecha": "2026-11-21T06:31:19+00:00",
+    "texto": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.\n\n📄 Vandal\n\n#Windows11 #Microsoft #BattleNet #Adobe #Seguridad\n\nhttps://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/"
+  },
+  {
     "id": "064a500c55d2",
     "tipo": "noticia",
     "proyecto": "mundospixelados",
@@ -538,16 +548,6 @@
     "imagen": "https://media.vandal.net/m/11-2026/18/2026111810592771_1.jpg",
     "fecha": "2026-11-18T10:31:24+00:00",
     "texto": "Nintendo inicia su campaña de Black Friday con descuentos de hasta el 75 % en la eShop para Nintendo Switch y Nintendo Switch 2, además de ofertas en mandos y suscripciones.\n\n✏️ Vandal\n\n#Nintendo #BlackFriday #NintendoSwitch #NintendoSwitch2 #eShop\n\nhttps://vandal.elespanol.com/noticia/2026322017/nintendo-anuncia-sus-descuentos-del-black-friday-en-juegos-de-hasta-el-75-packs-de-consola-y-mandos/"
-  },
-  {
-    "id": "a887c8b5c127",
-    "tipo": "noticia",
-    "proyecto": "mundospixelados",
-    "titulo": "Las mejores ofertas de PS4 y PS5 en la PS Store de esta semana (18/11/2026)",
-    "enlace": "https://vandal.elespanol.com/noticia/2026322010/las-mejores-ofertas-de-ps4-y-ps5-en-la-ps-store-de-esta-semana-18112026/",
-    "imagen": "https://media.vandal.net/m/11-2026/18/202611189532810_1.jpg",
-    "fecha": "2026-11-18T09:31:22+00:00",
-    "texto": "La PlayStation Store se ha actualizado con nuevas rebajas semanales en España para los usuarios de PS4 y PS5. Se pueden encontrar descuentos en una selección de juegos digitales.\n\n📑 Vandal\n\n#PSStore #PS5 #PS4 #OfertasJuegos #PlayStation\n\nhttps://vandal.elespanol.com/noticia/2026322010/las-mejores-ofertas-de-ps4-y-ps5-en-la-ps-store-de-esta-semana-18112026/"
   },
   {
     "id": "5da604f126fc",

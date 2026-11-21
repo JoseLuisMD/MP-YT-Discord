@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Llevo 13 años esperando GTA 6 y le daré la espalda a Vice City tan pronto como sea posible",
-    "resumen": "El autor destaca el diseño de mundo abierto de GTA 6, mostrando mayor interés por explorar los entornos naturales que rodean Vice City que por la propia actividad urbana de la ciudad.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/llevo-13-anos-esperando-gta-6-le-dare-espalda-a-vice-city-sea-posible",
-    "fecha": "2026-11-19T05:33:55+00:00"
-  },
-  {
     "titulo": "GTA 6 análisis y reacciones en directo: todas las novedades de las últimas horas antes del lanzamiento del juego más esperado del año",
     "resumen": "GTA 6 llega el 19 de noviembre a PS5 y Xbox Series X|S. Hobby Consolas ofrece un análisis a fondo y un directo especial con toda la actualidad previa al estreno.",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/lanzamiento-gta-6-sigue-vivo-todas-las-novedades-las-ultimas-horas-antes-llegada-juego-mas-esperado-ano_7062213_6.html",
@@ -196,5 +190,11 @@
     "resumen": "Atlus confirma que desarrolla Persona 6 y otros proyectos paralelos para ampliar la saga y reducir la espera entre futuras entregas de la franquicia.",
     "enlace": "https://vandal.elespanol.com/noticia/2026324028/persona-6-no-es-el-final-atlus-trabaja-en-otros-proyectos-para-llevar-mas-alla-la-saga/",
     "fecha": "2026-11-21T05:31:17+00:00"
+  },
+  {
+    "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
+    "resumen": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
+    "fecha": "2026-11-21T06:31:19+00:00"
   }
 ]

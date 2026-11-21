@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
+    "resumen": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
+    "imagen": "https://media.vandal.net/m/11-2026/20/2026112017275984_1.jpg",
+    "fuente": "Vandal",
+    "idioma": "es",
+    "fecha": "2026-11-21T06:31:19+00:00"
+  },
+  {
     "titulo": "'Persona 6 no es el final': Atlus trabaja en otros proyectos para llevar más allá la saga",
     "resumen": "Atlus confirma que desarrolla Persona 6 y otros proyectos paralelos para ampliar la saga y reducir la espera entre futuras entregas de la franquicia.",
     "enlace": "https://vandal.elespanol.com/noticia/2026324028/persona-6-no-es-el-final-atlus-trabaja-en-otros-proyectos-para-llevar-mas-alla-la-saga/",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-19T09:31:28+00:00"
-  },
-  {
-    "titulo": "Análisis de GTA VI. ¿Es el videojuego perfecto?",
-    "resumen": "Grand Theft Auto VI destaca por su inmersión y la recreación de un mundo abierto muy detallado. La obra de Rockstar Games ofrece una experiencia sin igual en PlayStation 5 y Xbox Series.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/analisis/analisis-gta-vi-videojuego-perfecto",
-    "imagen": "https://i.blogs.es/386af4/gtavi-38/1024_2000.jpeg",
-    "fuente": "3DJuegos",
-    "idioma": "es",
-    "fecha": "2026-11-19T08:31:17+00:00"
   }
 ]
