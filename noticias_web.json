@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Este juego de terror inspirado en los noventa ofrece un mundo postapocalíptico fascinante",
+    "resumen": "La demo de The Road of Dust and Sorrow presenta un juego de terror en 2D donde debes sobrevivir a un apocalipsis zombi en autocaravana mientras proteges a tu hija y buscas suministros.",
+    "enlace": "https://www.pcgamer.com/games/horror/this-90s-inspired-horror-game-has-one-of-the-coolest-post-apocalyptic-worlds-ive-ever-seen/",
+    "imagen": "https://cdn.mos.cms.futurecdn.net/9NRHokYQAAJfSkWEZafGdc-1920-80.png",
+    "fuente": "PC Gamer",
+    "idioma": "en",
+    "fecha": "2026-11-22T16:31:23+00:00"
+  },
+  {
     "titulo": "Qué fue de Syphon Filter, la saga de espías y sigilo que consiguió plantarle cara a Metal Gear Solid",
     "resumen": "Analizamos los origenes y la desaparicion de Syphon Filter, la emblematica saga de espias y sigilo desarrollada por Eidetic para la primera PlayStation que busco plantar cara a Metal Gear Solid.",
     "enlace": "https://www.vidaextra.com/juegos-retro/que-fue-syphon-filter-saga-espias-sigilo-que-consiguio-plantarle-cara-a-metal-gear-solid-1",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-21T07:31:20+00:00"
-  },
-  {
-    "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
-    "resumen": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
-    "imagen": "https://media.vandal.net/m/11-2026/20/2026112017275984_1.jpg",
-    "fuente": "Vandal",
-    "idioma": "es",
-    "fecha": "2026-11-21T06:31:19+00:00"
   }
 ]
