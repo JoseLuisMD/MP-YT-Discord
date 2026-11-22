@@ -1,5 +1,14 @@
 [
   {
+    "titulo": "Este juego de Nintendo cumple hoy 25 años y fue el último trabajo como programador de Satoru Iwata",
+    "resumen": "Super Smash Bros. Melee para GameCube celebra su aniversario destacando el papel clave de Satoru Iwata, quien corrigió errores para garantizar su lanzamiento a tiempo.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026325001/este-juego-de-nintendo-cumple-hoy-25-anos-y-fue-el-ultimo-trabajo-como-programador-de-satoru-iwata/",
+    "imagen": "https://media.vandal.net/m/11-2026/16/2026111613411844_1.jpg",
+    "fuente": "Vandal",
+    "idioma": "es",
+    "fecha": "2026-11-22T00:31:23+00:00"
+  },
+  {
     "titulo": "Esto pasa al llegar al límite del mapa en GTA 6: hemos intentado escapar de Leonida por mar y aire",
     "resumen": "Un análisis de Vandal muestra los métodos de Rockstar Games para impedir que los jugadores exploren más allá de los límites del mapa de Leonida en Grand Theft Auto VI, tanto por mar como por aire.",
     "enlace": "https://vandal.elespanol.com/noticia/2026325007/esto-pasa-al-llegar-al-limite-del-mapa-en-gta-6-hemos-intentado-escapar-de-leonida-por-mar-y-aire/",
@@ -259,14 +268,5 @@
     "fuente": "Hobby Consolas",
     "idioma": "es",
     "fecha": "2026-11-20T14:31:24+00:00"
-  },
-  {
-    "titulo": "GTA 6: ¿Debes ayudar a Frankie y Mario en el robo del club Delights?",
-    "resumen": "En el capítulo 2 de GTA 6, Jason debe decidir si acepta bailar como stripper para infiltrarse en el club Delights. Ambas opciones permiten completar el robo, aunque ofrecen escenas muy distintas.",
-    "enlace": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-delights-mission-help-or-dont-help/",
-    "imagen": "https://cdn.mos.cms.futurecdn.net/9wrdndV8AfZWSNKCXbZQY-1920-80.jpg",
-    "fuente": "PC Gamer",
-    "idioma": "en",
-    "fecha": "2026-11-20T13:31:47+00:00"
   }
 ]
