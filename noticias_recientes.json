@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Un desarrollador de WoW: Forever habla sobre la creación de objetos únicos y divertidos",
-    "resumen": "El diseñador Aidan Moon explica que la filosofía de objetos de WoW: Forever prioriza la ambientación y la originalidad frente a la optimización numérica pura.",
-    "enlace": "https://www.pcgamer.com/games/world-of-warcraft/ive-done-some-stupid-stuff-says-wow-forever-dev-whos-adding-unique-fun-items-to-the-game-theres-a-lot-theyve-not-seen-that-im-very-happy-with/",
-    "fecha": "2026-11-21T01:31:20+00:00"
-  },
-  {
     "titulo": "Modders aseguran que GTA 6 será jugable en PC en una semana",
     "resumen": "Modders afirman que Grand Theft Auto 6 podrá jugarse en PC en apenas una semana gracias a la filtración de archivos de la versión de Xbox.",
     "enlace": "https://www.pcgamer.com/games/grand-theft-auto/modders-reckon-gta-6-will-be-playable-on-pc-within-a-week/",
@@ -256,5 +250,11 @@
     "resumen": "3DJuegos recopila los mejores videojuegos de supervivencia lanzados durante 2026, abarcando desde grandes producciones hasta joyas indie y propuestas originales.",
     "enlace": "https://www.3djuegos.com/ranking-tops/noticias/20-mejores-videojuegos-supervivencia-2026",
     "fecha": "2026-11-23T01:31:17+00:00"
+  },
+  {
+    "titulo": "Scott Lynch comparte sus horas en Star Wars: Rebellion y BattleTech",
+    "resumen": "El autor fantástico Scott Lynch repasa sus juegos de PC más jugados, incluyendo Star Wars: Rebellion y BattleTech, y recuerda sus inicios con los juegos de Infocom.",
+    "enlace": "https://www.pcgamer.com/gaming-industry/scott-lynch-author-of-the-lies-of-locke-lamora-has-1-493-hours-in-star-wars-rebellion-and-1-564-in-battletech-if-j-r-r-tolkien-had-had-a-steam-account-his-numbers-would-be-pretty-embarrassing-too/",
+    "fecha": "2026-11-23T02:31:14+00:00"
   }
 ]
