@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "'Persona 6 no es el final': Atlus trabaja en otros proyectos para llevar más allá la saga",
-    "resumen": "Atlus confirma que desarrolla Persona 6 y otros proyectos paralelos para ampliar la saga y reducir la espera entre futuras entregas de la franquicia.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026324028/persona-6-no-es-el-final-atlus-trabaja-en-otros-proyectos-para-llevar-mas-alla-la-saga/",
-    "fecha": "2026-11-21T05:31:17+00:00"
-  },
-  {
     "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
     "resumen": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.",
     "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
@@ -256,5 +250,11 @@
     "resumen": "Epic Games ha presentado Unreal Engine 5.9 Preview, una versión preliminar de su motor gráfico que incluye mejoras visuales y optimizaciones de rendimiento, cuyo lanzamiento definitivo se espera…",
     "enlace": "https://www.3djuegos.com/pc/noticias/epic-games-presenta-unreal-engine-5-9-mejoras-graficas-rendimiento-sorprendente-esta-detras-su-desarrollo",
     "fecha": "2026-11-23T05:31:19+00:00"
+  },
+  {
+    "titulo": "Call of Duty lleva 19 años haciendo lo mismo en Estados Unidos, pero con Modern Warfare 4 ha ocurrido algo distinto",
+    "resumen": "Call of Duty: Modern Warfare 4 lidera las ventas de octubre de 2026 en EE. UU., manteniendo una racha de 19 años. Sin embargo, no entra en el top 10 anual.",
+    "enlace": "https://www.3djuegos.com/juegos/call-of-duty-modern-warfare-4/noticias/call-of-duty-lleva-19-anos-haciendo-estados-unidos-modern-warfare-4-ha-ocurrido-algo-distinto",
+    "fecha": "2026-11-23T06:31:16+00:00"
   }
 ]
