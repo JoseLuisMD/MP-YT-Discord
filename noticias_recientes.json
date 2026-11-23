@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Razer lleva PS5 a otro nivel para jugar a los más esperados del año con el mejor sonido y el máximo control",
-    "resumen": "Los periféricos oficiales Razer Raiju V3 Pro y BlackShark V3 Pro mejoran la precisión y la inmersión en PS5 para exprimir grandes estrenos y juegos como Grand Theft Auto VI.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026324010/razer-lleva-ps5-a-otro-nivel-para-jugar-a-los-mas-esperados-del-ano-con-el-mejor-sonido-y-el-maximo-control/",
-    "fecha": "2026-11-21T04:31:25+00:00"
-  },
-  {
     "titulo": "'Persona 6 no es el final': Atlus trabaja en otros proyectos para llevar más allá la saga",
     "resumen": "Atlus confirma que desarrolla Persona 6 y otros proyectos paralelos para ampliar la saga y reducir la espera entre futuras entregas de la franquicia.",
     "enlace": "https://vandal.elespanol.com/noticia/2026324028/persona-6-no-es-el-final-atlus-trabaja-en-otros-proyectos-para-llevar-mas-alla-la-saga/",
@@ -256,5 +250,11 @@
     "resumen": "Warren Spector cuestiona la viabilidad del modelo de desarrollo de Grand Theft Auto 6 debido a su enorme coste y a la gran cantidad de recursos que exige a la industria.",
     "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/warren-spector-61-padre-deus-ex-grand-theft-auto-6-espero-que-sea-ultimo-su-clase",
     "fecha": "2026-11-23T04:31:25+00:00"
+  },
+  {
+    "titulo": "Epic Games presenta Unreal Engine 5.9 con mejoras gráficas y de rendimiento, pero lo más sorprendente está detrás de su desarrollo",
+    "resumen": "Epic Games ha presentado Unreal Engine 5.9 Preview, una versión preliminar de su motor gráfico que incluye mejoras visuales y optimizaciones de rendimiento, cuyo lanzamiento definitivo se espera…",
+    "enlace": "https://www.3djuegos.com/pc/noticias/epic-games-presenta-unreal-engine-5-9-mejoras-graficas-rendimiento-sorprendente-esta-detras-su-desarrollo",
+    "fecha": "2026-11-23T05:31:19+00:00"
   }
 ]
