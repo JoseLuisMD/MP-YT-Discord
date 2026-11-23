@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Algunas apps de Windows 11 podrán negarse a arrancar si tu PC no supera un nuevo control de seguridad",
-    "resumen": "Microsoft prueba Windows Baseline Protection en Windows 11 para que las apps comprueben el estado de seguridad del PC y decidan si permiten su uso o no.",
-    "enlace": "https://vandal.elespanol.com/noticia/2026324034/algunas-apps-de-windows-11-podran-negarse-a-arrancar-si-tu-pc-no-supera-un-nuevo-control-de-seguridad/",
-    "fecha": "2026-11-21T06:31:19+00:00"
-  },
-  {
     "titulo": "Si ya has terminado Zelda Ocarina of Time Remake, por favor, dale una oportunidad a Zelda Notes: amplía enormemente la experiencia (y en más títulos)",
     "resumen": "Zelda Notes es una aplicación oficial de Nintendo para dispositivos móviles que amplía la experiencia del remake de Zelda Ocarina of Time en Nintendo Switch 2, ideal para lograr el 100% y afrontar…",
     "enlace": "https://www.hobbyconsolas.com/videojuegos/si-ya-has-terminado-zelda-ocarina-of-time-remake-por-favor-dale-una-oportunidad-zelda-notes-amplia-enormemente-experiencia-mas-titulos_7062135_0.html",
@@ -256,5 +250,11 @@
     "resumen": "Call of Duty: Modern Warfare 4 lidera las ventas de octubre de 2026 en EE. UU., manteniendo una racha de 19 años. Sin embargo, no entra en el top 10 anual.",
     "enlace": "https://www.3djuegos.com/juegos/call-of-duty-modern-warfare-4/noticias/call-of-duty-lleva-19-anos-haciendo-estados-unidos-modern-warfare-4-ha-ocurrido-algo-distinto",
     "fecha": "2026-11-23T06:31:16+00:00"
+  },
+  {
+    "titulo": "Hace 13 años, dos desarrolladores crearon un juego sobre desarrollar videojuegos y se les ocurrió un truco ingenioso para trolear a los piratas",
+    "resumen": "Los creadores de Game Dev Tycoon lanzaron una versión pirata modificada donde los juegos del usuario sufrían piratería masiva, provocando la quiebra virtual de su empresa.",
+    "enlace": "https://www.vidaextra.com/simuladores/hace-13-anos-dos-desarrolladores-crearon-juego-desarrollar-videojuegos-se-les-ocurrio-truco-ingenioso-para-trolear-a-piratas",
+    "fecha": "2026-11-23T07:31:16+00:00"
   }
 ]
