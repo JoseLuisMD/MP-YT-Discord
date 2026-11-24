@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Qué fue de Syphon Filter, la saga de espías y sigilo que consiguió plantarle cara a Metal Gear Solid",
-    "resumen": "Analizamos los origenes y la desaparicion de Syphon Filter, la emblematica saga de espias y sigilo desarrollada por Eidetic para la primera PlayStation que busco plantar cara a Metal Gear Solid.",
-    "enlace": "https://www.vidaextra.com/juegos-retro/que-fue-syphon-filter-saga-espias-sigilo-que-consiguio-plantarle-cara-a-metal-gear-solid-1",
-    "fecha": "2026-11-22T15:31:22+00:00"
-  },
-  {
     "titulo": "Este juego de terror inspirado en los noventa ofrece un mundo postapocalíptico fascinante",
     "resumen": "La demo de The Road of Dust and Sorrow presenta un juego de terror en 2D donde debes sobrevivir a un apocalipsis zombi en autocaravana mientras proteges a tu hija y buscas suministros.",
     "enlace": "https://www.pcgamer.com/games/horror/this-90s-inspired-horror-game-has-one-of-the-coolest-post-apocalyptic-worlds-ive-ever-seen/",
@@ -256,5 +250,11 @@
     "resumen": "Elgato promociona su Stream Deck para juegos MMO aprovechando los descuentos de Black Friday. Permite asignar habilidades y macros a teclas LCD personalizables.",
     "enlace": "https://www.hobbyconsolas.com/recomendados/juega-todos-tus-mmo-otro-nivel-gracias-stream-deck-elgato-sus-descuentos-por-black-friday_7064842_0.html",
     "fecha": "2026-11-24T15:31:18+00:00"
+  },
+  {
+    "titulo": "Los jugadores de EE. UU. y la UE podrán jugar juntos pronto en Final Fantasy 14",
+    "resumen": "Square Enix habilitará temporalmente el juego cruzado entre EE. UU. y la UE en Final Fantasy 14 y valora mantenerlo de forma permanente.",
+    "enlace": "https://www.pcgamer.com/games/mmo/na-and-eu-players-will-be-able-to-play-together-in-final-fantasy-14-soon-with-square-enix-considering-the-possibility-of-permanently-enabling-travel-in-the-future/",
+    "fecha": "2026-11-24T16:31:21+00:00"
   }
 ]
