@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Este RPG de fantasía lo han creado 2 personas, está conquistando a los fans de Dark Souls y ha arrasado en ventas",
-    "resumen": "El RPG de fantasía oscura Queen's Domain, desarrollado por dos personas, ha vendido 250.000 copias en Steam en menos de tres semanas gracias a su alta dificultad y estética retro.",
-    "enlace": "https://www.3djuegos.com/juegos/queens-domain/noticias/este-rpg-fantasia-han-creado-2-personas-esta-conquistando-a-fans-dark-souls-ha-arrasado-ventas",
-    "fecha": "2026-11-22T01:31:19+00:00"
-  },
-  {
     "titulo": "Ryan Cohen, CEO de GameStop, sobre el formato físico y el código de GTA 6: \"Cuando pagas por un juego, deberías ser su propietario\"",
     "resumen": "El CEO de GameStop critica que GTA 6 no incluya disco físico. Afirma que los jugadores deben poder revender, cambiar o prestar sus juegos sin depender de la descarga digital.",
     "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/ryan-cohen-ceo-gamestop-formato-fisico-codigo-gta-6-cuando-pagas-juego-deberias-ser-su-propietario",
@@ -256,5 +250,11 @@
     "resumen": "Volvy's Adventure es un juego de plataformas en 2D desarrollado por doinksoft y publicado por Devolver Digital. Ofrece una experiencia real y disfrutable inspirada en clásicos del género.",
     "enlace": "https://www.vidaextra.com/aventura-plataformas/volvy-s-adventure-bastante-que-broma-devolver-lanzamiento-gta-6",
     "fecha": "2026-11-24T01:31:19+00:00"
+  },
+  {
+    "titulo": "Tamagotchi, la mítica mascota virtual que enamoró a una generación en los 90, cumple 30 años",
+    "resumen": "El popular Tamagotchi de Bandai cumple tres decades desde su lanzamiento, consolidándose como un fenómeno global que combina la crianza de mascotas virtuales con su adaptación a diversas plataformas…",
+    "enlace": "https://vandal.elespanol.com/noticia/2026327015/tamagotchi-la-mitica-mascota-virtual-que-enamoro-a-una-generacion-en-los-90-cumple-30-anos/",
+    "fecha": "2026-11-24T02:33:29+00:00"
   }
 ]
