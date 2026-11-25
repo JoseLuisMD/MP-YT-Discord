@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Hace 13 años, dos desarrolladores crearon un juego sobre desarrollar videojuegos y se les ocurrió un truco ingenioso para trolear a los piratas",
-    "resumen": "Los creadores de Game Dev Tycoon lanzaron una versión pirata modificada donde los juegos del usuario sufrían piratería masiva, provocando la quiebra virtual de su empresa.",
-    "enlace": "https://www.vidaextra.com/simuladores/hace-13-anos-dos-desarrolladores-crearon-juego-desarrollar-videojuegos-se-les-ocurrio-truco-ingenioso-para-trolear-a-piratas",
-    "fecha": "2026-11-23T07:31:16+00:00"
-  },
-  {
     "titulo": "Desarrollador de Naughty Dog: \"Llevo 19 años creando videojuegos y GTA 6 me parece lo mismo que le parecería un Bugatti Veyron a un niño victoriano\"",
     "resumen": "Un desarrollador de Naughty Dog con 19 años de experiencia ha alabado el apartado técnico de GTA 6, destacando especialmente su avanzada iluminación ambiental dinámica.",
     "enlace": "https://www.vidaextra.com/accion/desarrollador-naughty-dog-llevo-19-anos-creando-videojuegos-gta-6-me-parece-le-pareceria-bugatti-veyron-a-nino-victoriano",
@@ -256,5 +250,11 @@
     "resumen": "La edición completa de Diablo IV para Switch 2, que incluye el juego base y dos expansiones, alcanza su precio mínimo histórico en PcComponentes por el Black Friday.",
     "enlace": "https://www.hobbyconsolas.com/recomendados/diablo-iv-para-switch-2-es-un-pozo-horas-este-pack-tiene-todo-por-30-euros-menos_7065146_0.html",
     "fecha": "2026-11-25T07:31:39+00:00"
+  },
+  {
+    "titulo": "Nintendo actualiza Mario Kart World: ¿Qué cambia y añade exactamente el nuevo parche 1.9.0?",
+    "resumen": "Nintendo lanza la actualización 1.9.0 de Mario Kart World para Switch 2, añadiendo ocho variantes de circuitos, nuevos recorridos de supervivencia y repeticiones.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026329001/nintendo-actualiza-mario-kart-world-que-cambia-y-anade-exactamente-el-nuevo-parche-190/",
+    "fecha": "2026-11-25T08:31:27+00:00"
   }
 ]
