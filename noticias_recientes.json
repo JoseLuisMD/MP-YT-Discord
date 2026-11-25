@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "XBOX necesitaba buenas noticias sobre sus ventas y acaba de recibir una en su mercado más importante",
-    "resumen": "Los datos de Circana muestran que el gasto en Xbox Series X|S en EE. UU. aumentó un 42% en octubre de 2026 frente al año anterior gracias al incremento de precio y ventas.",
-    "enlace": "https://www.3djuegos.com/xbox-series-xs/noticias/xbox-necesitaba-buenas-noticias-sus-ventas-acaba-recibir-su-mercado-importante",
-    "fecha": "2026-11-23T03:31:27+00:00"
-  },
-  {
     "titulo": "Warren Spector (61), padre de Deus Ex, sobre Grand Theft Auto 6: \"Espero que sea el último de su clase\"",
     "resumen": "Warren Spector cuestiona la viabilidad del modelo de desarrollo de Grand Theft Auto 6 debido a su enorme coste y a la gran cantidad de recursos que exige a la industria.",
     "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/warren-spector-61-padre-deus-ex-grand-theft-auto-6-espero-que-sea-ultimo-su-clase",
@@ -256,5 +250,11 @@
     "resumen": "CD Projekt RED ha actualizado el estado de sus próximos proyectos financieros, destacando el crecimiento del equipo de desarrollo de Cyberpunk 2 y sus planes de expansión de personal.",
     "enlace": "https://www.3djuegos.com/juegos/the-witcher-4/noticias/racion-doble-buenas-noticias-cd-projekt-red-pisa-acelerador-cyberpunk-2-anuncia-colaboracion-sony-para-the-witcher-4",
     "fecha": "2026-11-25T03:31:17+00:00"
+  },
+  {
+    "titulo": "El salto entre The Witcher 3 y Witcher 4 será comparable al de GTA 5 y GTA 6, según CD Projekt",
+    "resumen": "El codirector ejecutivo de CD Projekt afirma que The Witcher 4 supondrá un salto tecnológico respecto a The Witcher 3 comparable al que habrá entre GTA 5 y GTA 6.",
+    "enlace": "https://www.pcgamer.com/games/the-witcher/the-difference-between-the-witcher-3-and-witcher-4-will-be-comparable-to-that-of-gta-5-and-gta-6-cd-projekt-boss-says-i-mean-its-been-11-years/",
+    "fecha": "2026-11-25T04:31:17+00:00"
   }
 ]
