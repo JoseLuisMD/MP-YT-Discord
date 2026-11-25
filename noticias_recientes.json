@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Epic Games presenta Unreal Engine 5.9 con mejoras gráficas y de rendimiento, pero lo más sorprendente está detrás de su desarrollo",
-    "resumen": "Epic Games ha presentado Unreal Engine 5.9 Preview, una versión preliminar de su motor gráfico que incluye mejoras visuales y optimizaciones de rendimiento, cuyo lanzamiento definitivo se espera…",
-    "enlace": "https://www.3djuegos.com/pc/noticias/epic-games-presenta-unreal-engine-5-9-mejoras-graficas-rendimiento-sorprendente-esta-detras-su-desarrollo",
-    "fecha": "2026-11-23T05:31:19+00:00"
-  },
-  {
     "titulo": "Call of Duty lleva 19 años haciendo lo mismo en Estados Unidos, pero con Modern Warfare 4 ha ocurrido algo distinto",
     "resumen": "Call of Duty: Modern Warfare 4 lidera las ventas de octubre de 2026 en EE. UU., manteniendo una racha de 19 años. Sin embargo, no entra en el top 10 anual.",
     "enlace": "https://www.3djuegos.com/juegos/call-of-duty-modern-warfare-4/noticias/call-of-duty-lleva-19-anos-haciendo-estados-unidos-modern-warfare-4-ha-ocurrido-algo-distinto",
@@ -256,5 +250,11 @@
     "resumen": "CD Projekt asegura que The Witcher 4 mantendrá su profunda identidad de rol a pesar de la expansión global de la saga y la diversidad de su nuevo público.",
     "enlace": "https://vandal.elespanol.com/noticia/2026328025/the-witcher-4-sera-un-autentico-rpg-cd-projekt-promete-que-no-va-a-diluir-la-esencia-de-la-saga/",
     "fecha": "2026-11-25T05:31:17+00:00"
+  },
+  {
+    "titulo": "¿Es posible rescatar Mass Effect y Dragon Age aunque a Electronic Arts no le interese?",
+    "resumen": "Jennifer Hale se pregunta si los usuarios podrían recuperar los derechos de Mass Effect mediante micromecenazgo, una idea compleja debido al valor de la licencia y la financiación necesaria.",
+    "enlace": "https://www.3djuegos.com/juegos/mass-effect-legendary-edition/noticias/posible-rescatar-mass-effect-dragon-age-a-electronic-arts-no-le-interese",
+    "fecha": "2026-11-25T06:31:29+00:00"
   }
 ]
