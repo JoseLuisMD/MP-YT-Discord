@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Los jugadores de PC tienen ganas de GTA 6: la mayoría de juegos de la saga Grand Theft Auto en Steam han batido un récord de jugadores simultáneos",
-    "resumen": "El lanzamiento de GTA 6 ha provocado que varias entregas anteriores de la saga alcancen récords históricos de usuarios simultáneos en Steam.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/jugadores-pc-tienen-ganas-gta-6-mayoria-juegos-saga-grand-theft-auto-steam-han-batido-record-jugadores-simultaneos",
-    "fecha": "2026-11-22T23:31:19+00:00"
-  },
-  {
     "titulo": "\"Deberías tenerlo para siempre\". Un político de EE. UU. quiere proteger los videojuegos que compras y presentará un proyecto de ley para conseguirlo",
     "resumen": "El representante Alejandro Frost ha anunciado la iniciativa Protect Our Games Act para garantizar que los jugadores conserven acceso a los videojuegos comprados incluso si cierran los servidores…",
     "enlace": "https://www.3djuegos.com/industria-gaming/noticias/compras-videojuego-deberia-ser-tuyo-para-siempre-politico-estadounidense-quiere-proteger-juegos-que-compras",
@@ -256,5 +250,11 @@
     "resumen": "La mayoría de jefes y objetos de Diablo 2 introducidos en la temporada actual de Diablo 4 se quedarán en el juego de forma permanente tras el inicio de la siguiente temporada.",
     "enlace": "https://www.pcgamer.com/games/rpg/fan-favorite-diablo-2-anniversary-bosses-and-items-wont-disappear-when-diablo-4s-next-season-starts/",
     "fecha": "2026-11-24T23:31:19+00:00"
+  },
+  {
+    "titulo": "La carrera para portar GTA 6 a PC, explicada",
+    "resumen": "Modders anónimos compiten por portar una versión filtrada de Xbox de GTA 6 a PC mediante recompilación estática. Rockstar ya toma medidas mientras crecen los riesgos de piratería.",
+    "enlace": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-recomp-explained/",
+    "fecha": "2026-11-25T00:31:20+00:00"
   }
 ]
