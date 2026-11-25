@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Warren Spector (61), padre de Deus Ex, sobre Grand Theft Auto 6: \"Espero que sea el último de su clase\"",
-    "resumen": "Warren Spector cuestiona la viabilidad del modelo de desarrollo de Grand Theft Auto 6 debido a su enorme coste y a la gran cantidad de recursos que exige a la industria.",
-    "enlace": "https://www.3djuegos.com/juegos/grand-theft-auto-vi/noticias/warren-spector-61-padre-deus-ex-grand-theft-auto-6-espero-que-sea-ultimo-su-clase",
-    "fecha": "2026-11-23T04:31:25+00:00"
-  },
-  {
     "titulo": "Epic Games presenta Unreal Engine 5.9 con mejoras gráficas y de rendimiento, pero lo más sorprendente está detrás de su desarrollo",
     "resumen": "Epic Games ha presentado Unreal Engine 5.9 Preview, una versión preliminar de su motor gráfico que incluye mejoras visuales y optimizaciones de rendimiento, cuyo lanzamiento definitivo se espera…",
     "enlace": "https://www.3djuegos.com/pc/noticias/epic-games-presenta-unreal-engine-5-9-mejoras-graficas-rendimiento-sorprendente-esta-detras-su-desarrollo",
@@ -256,5 +250,11 @@
     "resumen": "El codirector ejecutivo de CD Projekt afirma que The Witcher 4 supondrá un salto tecnológico respecto a The Witcher 3 comparable al que habrá entre GTA 5 y GTA 6.",
     "enlace": "https://www.pcgamer.com/games/the-witcher/the-difference-between-the-witcher-3-and-witcher-4-will-be-comparable-to-that-of-gta-5-and-gta-6-cd-projekt-boss-says-i-mean-its-been-11-years/",
     "fecha": "2026-11-25T04:31:17+00:00"
+  },
+  {
+    "titulo": "The Witcher 4 será un 'auténtico RPG': CD Projekt promete que no va a diluir la esencia de la saga",
+    "resumen": "CD Projekt asegura que The Witcher 4 mantendrá su profunda identidad de rol a pesar de la expansión global de la saga y la diversidad de su nuevo público.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026328025/the-witcher-4-sera-un-autentico-rpg-cd-projekt-promete-que-no-va-a-diluir-la-esencia-de-la-saga/",
+    "fecha": "2026-11-25T05:31:17+00:00"
   }
 ]
