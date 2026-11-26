@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Volvy's Adventure es bastante más que una broma de Devolver por el lanzamiento de GTA 6",
-    "resumen": "Volvy's Adventure es un juego de plataformas en 2D desarrollado por doinksoft y publicado por Devolver Digital. Ofrece una experiencia real y disfrutable inspirada en clásicos del género.",
-    "enlace": "https://www.vidaextra.com/aventura-plataformas/volvy-s-adventure-bastante-que-broma-devolver-lanzamiento-gta-6",
-    "fecha": "2026-11-24T01:31:19+00:00"
-  },
-  {
     "titulo": "Tamagotchi, la mítica mascota virtual que enamoró a una generación en los 90, cumple 30 años",
     "resumen": "El popular Tamagotchi de Bandai cumple tres decades desde su lanzamiento, consolidándose como un fenómeno global que combina la crianza de mascotas virtuales con su adaptación a diversas plataformas…",
     "enlace": "https://vandal.elespanol.com/noticia/2026327015/tamagotchi-la-mitica-mascota-virtual-que-enamoro-a-una-generacion-en-los-90-cumple-30-anos/",
@@ -256,5 +250,11 @@
     "resumen": "Rockstar Games ha anunciado el lanzamiento de un TCG oficial de GTA VI enfocado en deportistas, en colaboración con Panini. Saldrá en Estados Unidos el próximo mes.",
     "enlace": "https://www.vidaextra.com/accion/rockstar-games-se-une-a-fiebre-tcg-anuncia-lanzamiento-sus-propias-cartas-coleccionables-gta-vi",
     "fecha": "2026-11-26T01:31:14+00:00"
+  },
+  {
+    "titulo": "Retro Reset: el proyecto de padre e hijo que enseña hardware clásico a niños desde un autobús",
+    "resumen": "Retro Reset es un proyecto educativo itinerante a bordo de un autobús reformado donde los niños aprenden sobre hardware y videojuegos clásicos con consolas y ordenadores antiguos.",
+    "enlace": "https://www.rockpapershotgun.com/inside-retro-reset-the-really-inspirational-father-and-son-project-teaching-kids-about-classic-games-hardware-from-aboard-a-converted-bus",
+    "fecha": "2026-11-26T02:31:13+00:00"
   }
 ]
