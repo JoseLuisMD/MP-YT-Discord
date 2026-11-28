@@ -35,6 +35,15 @@ def test_lee_todas_las_resenas_del_conservador():
     assert resenas[1].veredicto == "recommended" and resenas[1].icono == "👍"
 
 
+def test_lee_las_resenas_con_la_cabecera_traducida():
+    # Bloque real de Steam: la miniatura es header_292x136_spanish.jpg y el juego no tiene header.jpg
+    bloque = (FIXTURES / "steam_resena_cabecera_traducida.html").read_text(encoding="utf-8")
+    [r] = cargar_resenas(CONSERVADOR, get=steam({"success": 1, "results_html": 'class="recommendation"' + bloque}))
+    assert (r.appid, r.juego, r.veredicto) == (
+        "2061250", "Shin chan: Mi verano con el Profesor —La semana infinita—", "recommended")
+    assert r.imagen.endswith("/header_spanish.jpg")
+
+
 @pytest.mark.parametrize("get", [
     steam(status=503),
     steam({"success": 2}),

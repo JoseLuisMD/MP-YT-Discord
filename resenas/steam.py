@@ -39,7 +39,8 @@ def _texto(fragmento):
 def leer_resena(bloque, conservador):
     """Una reseña a partir de su bloque HTML, o None si falta algo imprescindible."""
     tienda = re.search(r'class="store_capsule[^"]*"[^>]*href="https://store\.steampowered\.com/app/(\d+)/([^"/?]*)', bloque)
-    imagen = re.search(r'<img src="(https://[^"]+/header_292x136\.jpg)[^"]*" alt="([^"]*)"', bloque)
+    # Algunos juegos traen la cabecera traducida: header_292x136_spanish.jpg (y entonces no hay header.jpg)
+    imagen = re.search(r'<img src="(https://[^"]+/header_292x136(?:_\w+)?\.jpg)[^"]*" alt="([^"]*)"', bloque)
     tipo = re.search(r"class='color_(\w+)'>([^<]*)<", bloque)
     texto = re.search(r'class="recommendation_desc">(.*?)</div>', bloque, re.S)
     video = re.search(r'class="recommendation_readmore"><a href="(https?://[^"]+)"', bloque)
@@ -53,7 +54,7 @@ def leer_resena(bloque, conservador):
         veredicto_texto=_texto(tipo.group(2)) if tipo else "Informativa",
         texto=_texto(texto.group(1)),
         tienda=f"https://store.steampowered.com/app/{appid}/{slug}/?curator_clanid={conservador}",
-        imagen=imagen.group(1).replace("header_292x136.jpg", "header.jpg"),
+        imagen=re.sub(r"/header_292x136(_\w+)?\.jpg$", r"/header\1.jpg", imagen.group(1)),
         video=html.unescape(video.group(1)) if video else None,
     )
 
