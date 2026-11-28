@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Retro Reset: el proyecto de padre e hijo que enseña hardware clásico a niños desde un autobús",
-    "resumen": "Retro Reset es un proyecto educativo itinerante a bordo de un autobús reformado donde los niños aprenden sobre hardware y videojuegos clásicos con consolas y ordenadores antiguos.",
-    "enlace": "https://www.rockpapershotgun.com/inside-retro-reset-the-really-inspirational-father-and-son-project-teaching-kids-about-classic-games-hardware-from-aboard-a-converted-bus",
-    "fecha": "2026-11-26T02:31:13+00:00"
-  },
-  {
     "titulo": "Nintendo Switch 2 con Ocarina of Time, mandos de PS5 y más: Así es el Black Friday exclusivo para clientes CaixaBank",
     "resumen": "La tienda online Facilitea de CaixaBank ofrece descuentos en consolas, videojuegos y periféricos por el Black Friday hasta el 29 de noviembre, con opción de financiación sin intereses.",
     "enlace": "https://www.3djuegos.com/seleccion/noticias/nintendo-switch-2-ocarina-of-time-mandos-ps5-asi-black-friday-exclusivo-para-clientes-caixabank",
@@ -256,5 +250,11 @@
     "resumen": "Las rebajas de Black Friday en Steam ofrecen diversos videojuegos destacados a precios inferiores a 5 euros, incluyendo títulos como Dishonored, Celeste, Titanfall 2 y DOOM.",
     "enlace": "https://vandal.elespanol.com/noticia/2026331019/las-mejores-ofertas-del-black-friday-de-steam-multiples-juegazos-por-menos-de-5-euros/",
     "fecha": "2026-11-28T02:31:23+00:00"
+  },
+  {
+    "titulo": "GTA 6 sigue haciendo historia en las plataformas de streaming y ya acumula más de 420 millones de horas vistas",
+    "resumen": "Grand Theft Auto VI ha superado los 420 millones de horas vistas en su primera semana, triplicando el anterior récord de Valorant y convirtiéndose en el mayor lanzamiento en streaming de la historia.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026331014/gta-6-sigue-haciendo-historia-en-las-plataformas-de-streaming-y-ya-acumula-mas-de-420-millones-de-horas-vistas/",
+    "fecha": "2026-11-28T03:31:18+00:00"
   }
 ]
