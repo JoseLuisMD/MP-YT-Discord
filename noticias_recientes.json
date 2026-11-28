@@ -1,11 +1,5 @@
 [
   {
-    "titulo": "Los creadores de Final Fantasy Resonance crearon el juego con los fans de toda la vida en mente, y reconocen que el éxito del juego ha superado sus expectativas",
-    "resumen": "El equipo de Final Fantasy Resonance afirma que el éxito del juego ha superado sus expectativas iniciales. Los desarrolladores destacan la gran acogida internacional de su planteamiento clásico.",
-    "enlace": "https://www.hobbyconsolas.com/videojuegos/los-creadores-final-fantasy-resonance-crearon-juego-con-los-fans-toda-vida-mente-reconocen-que-exito-juego-ha-superado-sus-expectativas_7066021_0.html",
-    "fecha": "2026-11-26T11:31:22+00:00"
-  },
-  {
     "titulo": "Dragon Quest Monsters: El reino marchito presenta su épico tráiler final antes de su lanzamiento",
     "resumen": "Square Enix muestra el tráiler final de Dragon Quest Monsters: El reino marchito. El juego se lanzará el 3 de diciembre para múltiples plataformas.",
     "enlace": "https://vandal.elespanol.com/noticia/2026330017/dragon-quest-monsters-el-reino-marchito-presenta-su-epico-trailer-final-antes-de-su-lanzamiento/",
@@ -256,5 +250,11 @@
     "resumen": "La tienda de Valve ofrece miles de descuentos en videojuegos para PC con motivo del Black Friday, con muchas promociones activas hasta finales de noviembre.",
     "enlace": "https://www.3djuegos.com/pc/noticias/steam-no-se-olvida-black-friday-11-ofertas-que-te-recomendamos-90-descuento",
     "fecha": "2026-11-28T11:31:16+00:00"
+  },
+  {
+    "titulo": "Los desarrolladores de Path of Exile 2 quieren llevarlo a Switch 2, pero depende de Nintendo",
+    "resumen": "Grinding Gear Games muestra interés en llevar Path of Exile 2 a Switch 2, pero problemas técnicos con la plataforma online de Nintendo lo imposibilitan por ahora.",
+    "enlace": "https://vandal.elespanol.com/noticia/2026332012/los-desarrolladores-de-path-of-exile-2-quieren-llevarlo-a-switch-2-pero-depende-de-nintendo/",
+    "fecha": "2026-11-28T13:31:32+00:00"
   }
 ]
